@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aaa",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:planks"
+    },
+    "b": {
+      "item": "fine_tuned_weaponry:t_1_refined_crystal"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:barkshield",
+    "count": 1
+  }
+}

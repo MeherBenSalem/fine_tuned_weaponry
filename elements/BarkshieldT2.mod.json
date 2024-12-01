@@ -1,0 +1,41 @@
+{
+  "_fv": 66,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Shield",
+    "renderType": 0,
+    "blockingRenderType": 0,
+    "texture": "shield_02a",
+    "customModelName": "Normal",
+    "blockingModelName": "Normal blocking",
+    "name": "Barkshield",
+    "specialInformation": {
+      "fixedValue": [
+        "§3Tier 2"
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "COMBAT"
+      }
+    ],
+    "efficiency": 4.0,
+    "attackSpeed": 1.0,
+    "enchantability": 0,
+    "damageVsEntity": 4.0,
+    "usageCount": 607,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:BarkshieldT2"
+      }
+    ],
+    "immuneToFire": false,
+    "blockDropsTier": "WOOD",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "fine_tuned_weaponry:item/shield_03a"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "fine_tuned_weaponry:item/barkshield_t_3_0"
+    }
+  ]
+}
