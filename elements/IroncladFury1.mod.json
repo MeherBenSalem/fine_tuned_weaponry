@@ -1,0 +1,41 @@
+{
+  "_fv": 66,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 0,
+    "blockingRenderType": 0,
+    "texture": "sword_01b",
+    "customModelName": "Normal",
+    "blockingModelName": "Normal blocking",
+    "name": "Ironclad Fury",
+    "specialInformation": {
+      "fixedValue": [
+        "§9Tier 1"
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "COMBAT"
+      }
+    ],
+    "efficiency": 4.0,
+    "attackSpeed": 1.6,
+    "enchantability": 0,
+    "damageVsEntity": 6.0,
+    "usageCount": 59,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:IroncladFury1"
+      }
+    ],
+    "immuneToFire": false,
+    "blockDropsTier": "WOOD",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

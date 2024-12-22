@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    },
+    {
+      "item": "fine_tuned_weaponry:ginger_bread"
+    }
+  ],
+  "result": {
+    "item": "fine_tuned_weaponry:ginger_bread_mace",
+    "count": 1
+  }
+}

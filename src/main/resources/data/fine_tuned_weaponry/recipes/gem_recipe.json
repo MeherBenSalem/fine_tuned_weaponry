@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "fine_tuned_weaponry:t_1_refined_crystal"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:mine_favor_gem",
+    "count": 1
+  }
+}

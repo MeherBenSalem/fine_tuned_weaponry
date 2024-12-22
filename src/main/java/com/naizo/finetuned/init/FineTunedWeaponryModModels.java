@@ -9,12 +9,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
+import com.naizo.finetuned.client.model.Modelsantas_hat;
 import com.naizo.finetuned.client.model.ModelBarkArrowModel;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class FineTunedWeaponryModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(Modelsantas_hat.LAYER_LOCATION, Modelsantas_hat::createBodyLayer);
 		event.registerLayerDefinition(ModelBarkArrowModel.LAYER_LOCATION, ModelBarkArrowModel::createBodyLayer);
 	}
 }

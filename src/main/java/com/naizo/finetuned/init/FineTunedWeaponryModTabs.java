@@ -22,18 +22,27 @@ public class FineTunedWeaponryModTabs {
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 		if (tabData.getTabKey() == CreativeModeTabs.COMBAT) {
-			tabData.accept(FineTunedWeaponryModItems.T_1_BARKPIERCER.get());
-			tabData.accept(FineTunedWeaponryModItems.T_2_BARKPIERCER.get());
-			tabData.accept(FineTunedWeaponryModItems.T_3_BARKPIERCER.get());
 			tabData.accept(FineTunedWeaponryModItems.BARKSHIELD.get());
 			tabData.accept(FineTunedWeaponryModItems.BARKSHIELD_T_2.get());
 			tabData.accept(FineTunedWeaponryModItems.BARKSHIELD_T_3.get());
 			tabData.accept(FineTunedWeaponryModItems.BARKBOW.get());
 			tabData.accept(FineTunedWeaponryModItems.T_1_BARK_ARROW.get());
+			tabData.accept(FineTunedWeaponryModItems.IRONCLAD_FURY_1.get());
+			tabData.accept(FineTunedWeaponryModItems.IRONCLAD_FURY_2.get());
+			tabData.accept(FineTunedWeaponryModItems.IRONCLAD_FURY_3.get());
+			tabData.accept(FineTunedWeaponryModItems.CANDY_CANE_SWORD.get());
+			tabData.accept(FineTunedWeaponryModItems.SANTASHELMET_HELMET.get());
+			tabData.accept(FineTunedWeaponryModItems.SANTASHELMET_CHESTPLATE.get());
+			tabData.accept(FineTunedWeaponryModItems.SANTASHELMET_LEGGINGS.get());
+			tabData.accept(FineTunedWeaponryModItems.SANTASHELMET_BOOTS.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			tabData.accept(FineTunedWeaponryModItems.T_1_REFINED_CRYSTAL.get());
+		} else if (tabData.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+			tabData.accept(FineTunedWeaponryModItems.CANADY_CANE.get());
+			tabData.accept(FineTunedWeaponryModItems.GINGER_BREAD.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-			tabData.accept(FineTunedWeaponryModItems.BARK_PICKAXE.get());
+			tabData.accept(FineTunedWeaponryModItems.GINGER_BREAD_MACE.get());
+			tabData.accept(FineTunedWeaponryModItems.GRANDMASTERLIGHTPOLE.get());
 		}
 	}
 }

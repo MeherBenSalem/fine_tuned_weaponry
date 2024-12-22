@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a",
+    "a",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:canady_cane",
+    "count": 1
+  }
+}

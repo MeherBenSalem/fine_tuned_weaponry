@@ -1,8 +1,10 @@
 {
   "replace": false,
   "values": [
-    "fine_tuned_weaponry:t_3_barkpiercer",
-    "fine_tuned_weaponry:t_2_barkpiercer",
-    "fine_tuned_weaponry:t_1_barkpiercer"
+    "fine_tuned_weaponry:grandmasterlightpole",
+    "fine_tuned_weaponry:candy_cane_sword",
+    "fine_tuned_weaponry:ironclad_fury_3",
+    "fine_tuned_weaponry:ironclad_fury_2",
+    "fine_tuned_weaponry:ironclad_fury_1"
   ]
 }

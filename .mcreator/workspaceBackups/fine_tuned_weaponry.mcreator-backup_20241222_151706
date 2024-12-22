@@ -1,0 +1,748 @@
+{
+  "mod_elements": [
+    {
+      "name": "BarkpiercerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkpiercer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/barkpiercer_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "T1RefinedCrystal",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "t_1_refined_crystal",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/t_1_refined_crystal.json",
+          "src/main/java/com/naizo/finetuned/item/T1RefinedCrystalItem.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Misc"
+    },
+    {
+      "name": "Barkshield",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkshield",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield_0.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield.json",
+          "src/main/java/com/naizo/finetuned/item/BarkshieldItem.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Shields"
+    },
+    {
+      "name": "BarkshieldT2",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkshield_t_2",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/BarkshieldT2Item.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield_t_2_0.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield_t_2.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Shields"
+    },
+    {
+      "name": "BarkshieldT3",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkshield_t_3",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield_t_3_0.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkshield_t_3.json",
+          "src/main/java/com/naizo/finetuned/item/BarkshieldT3Item.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Shields"
+    },
+    {
+      "name": "BarkShieldT1Recipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bark_shield_t_1_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/bark_shield_t_1_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "BarkShieldT2Recipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bark_shield_t_2_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/bark_shield_t_2_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "BarkshieldT3Recipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkshield_t_3_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/barkshield_t_3_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "Barkbow",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkbow",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkbow.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkbow_0.json",
+          "src/main/java/com/naizo/finetuned/item/BarkbowItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/barkbow_1.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Bows"
+    },
+    {
+      "name": "BarkbowPropertyValueProvider",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkbow_property_value_provider",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BarkbowPropertyValueProviderProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Procedures/Bows"
+    },
+    {
+      "name": "BarkbowRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkbow_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BarkbowRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Procedures/Bows"
+    },
+    {
+      "name": "BarkbowOnPlayerStoppedUsing",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkbow_on_player_stopped_using",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BarkbowOnPlayerStoppedUsingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Procedures/Bows"
+    },
+    {
+      "name": "Barkarrow",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkarrow",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/entity/BarkarrowEntity.java",
+          "src/main/java/com/naizo/finetuned/client/renderer/BarkarrowRenderer.java"
+        ]
+      },
+      "path": "~/Projectiles"
+    },
+    {
+      "name": "T1BarkArrow",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "t_1_bark_arrow",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/T1BarkArrowItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/t_1_bark_arrow.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Misc"
+    },
+    {
+      "name": "BarkarrowProjectileHitsBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "barkarrow_projectile_hits_block",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BarkarrowProjectileHitsBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures/Bows"
+    },
+    {
+      "name": "BarkArrowRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bark_arrow_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/bark_arrow_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "BarBowRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bar_bow_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/bar_bow_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "GiveDefenseInInventoryTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_defense_in_inventory_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/GiveDefenseInInventoryTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Shields"
+    },
+    {
+      "name": "MineFavorGem",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mine_favor_gem",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/MineFavorGemItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/mine_favor_gem.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Crystals"
+    },
+    {
+      "name": "Gemore",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gemore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/worldgen/placed_feature/gemore.json",
+          "src/main/resources/assets/fine_tuned_weaponry/blockstates/gemore.json",
+          "src/main/resources/data/fine_tuned_weaponry/loot_tables/blocks/gemore.json",
+          "src/main/resources/data/fine_tuned_weaponry/forge/biome_modifier/gemore_biome_modifier.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/block/gemore.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/gemore.json",
+          "src/main/java/com/naizo/finetuned/block/GemoreBlock.java",
+          "src/main/resources/data/fine_tuned_weaponry/worldgen/configured_feature/gemore.json"
+        ]
+      },
+      "path": "~/Blocks/ores"
+    },
+    {
+      "name": "GemRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gem_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/gem_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "IroncladFury1",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironclad_fury_1",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/IroncladFury1Item.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/ironclad_fury_1.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "IroncladFury2",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironclad_fury_2",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/IroncladFury2Item.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/ironclad_fury_2.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "IroncladFury3",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironclad_fury_3",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/IroncladFury3Item.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/ironclad_fury_3.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "CandyCaneSwordToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_cane_sword_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CandyCaneSwordToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Sword effects"
+    },
+    {
+      "name": "CandyCaneSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_cane_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/CandyCaneSwordItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/candy_cane_sword.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "CanadyCane",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "canady_cane",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/canady_cane.json",
+          "src/main/java/com/naizo/finetuned/item/CanadyCaneItem.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Misc"
+    },
+    {
+      "name": "CandyCaneRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_cane_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/candy_cane_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "CnadySwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cnady_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/cnady_sword_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "IroncladFury3ToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironclad_fury_3_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/IroncladFury3ToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Sword effects"
+    },
+    {
+      "name": "Ironcladfury2toolinhandtick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironcladfury_2toolinhandtick",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/Ironcladfury2toolinhandtickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Sword effects"
+    },
+    {
+      "name": "GingerBread",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/ginger_bread.json",
+          "src/main/java/com/naizo/finetuned/item/GingerBreadItem.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Misc"
+    },
+    {
+      "name": "GingerBreadMace",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread_mace",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/GingerBreadMaceItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/ginger_bread_mace.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "GingerBreadRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/ginger_bread_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "GingerBreadMaceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ginger_bread_mace_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/ginger_bread_mace_recipe.json"
+        ]
+      },
+      "path": "~/Recipe"
+    },
+    {
+      "name": "Santashelmet",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "santashelmet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/santashelmet_chestplate.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/santashelmet_boots.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/santashelmet_helmet.json",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/santashelmet_leggings.json",
+          "src/main/java/com/naizo/finetuned/item/SantashelmetItem.java"
+        ]
+      },
+      "path": "~/WeaponsAndArmor"
+    },
+    {
+      "name": "SantashelmetChestplateTickEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "santashelmet_chestplate_tick_event",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/SantashelmetChestplateTickEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/ArmorEffects"
+    },
+    {
+      "name": "Grandmasterlightpole",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grandmasterlightpole",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/GrandmasterlightpoleItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/grandmasterlightpole.json"
+        ]
+      },
+      "path": "~/WeaponsAndArmor/Swords"
+    },
+    {
+      "name": "GrandmasterlightpoleToolInHandTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grandmasterlightpole_tool_in_hand_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/GrandmasterlightpoleToolInHandTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Sword effects"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {
+    "BLOCKS:minecraft:needs_iron_tool": [
+      "~CUSTOM:Gemore"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:Gemore"
+    ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:GingerBreadMace"
+    ],
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:Grandmasterlightpole",
+      "~CUSTOM:CandyCaneSword",
+      "~CUSTOM:IroncladFury3",
+      "~CUSTOM:IroncladFury2",
+      "~CUSTOM:IroncladFury1"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item.fine_tuned_weaponry.santashelmet_boots": "Old Man\u0027s Boots",
+      "item.fine_tuned_weaponry.santashelmet_leggings": "Old Man\u0027s Leggings",
+      "item.fine_tuned_weaponry.t_1_bark_arrow": "Bark Arrow",
+      "item.fine_tuned_weaponry.barkbow": "Barkbow",
+      "item.fine_tuned_weaponry.grandmasterlightpole": "Hollow Man\u0027s Combat Stick",
+      "item.fine_tuned_weaponry.santashelmet_helmet": "Old Man\u0027s helmet",
+      "item.fine_tuned_weaponry.ginger_bread": "Ginger Bread",
+      "block.fine_tuned_weaponry.gemore": "Gemstone Ore Block",
+      "item.fine_tuned_weaponry.barkshield": "Barkshield",
+      "item.fine_tuned_weaponry.canady_cane": "Candy Cane",
+      "item.fine_tuned_weaponry.t_1_refined_crystal": "Refined Crystal",
+      "item.fine_tuned_weaponry.santashelmet_chestplate": "Old Man\u0027s Chestplate",
+      "item.fine_tuned_weaponry.barkshield_t_3": "Barkshield",
+      "item.fine_tuned_weaponry.barkshield_t_2": "Barkshield",
+      "item.fine_tuned_weaponry.mine_favor_gem": "Mine Favor Gem",
+      "item.fine_tuned_weaponry.candy_cane_sword": "Candy Cane Sword",
+      "item.fine_tuned_weaponry.ginger_bread_mace": "Ginger Bread Mace",
+      "item.fine_tuned_weaponry.ironclad_fury_1": "Ironclad Fury",
+      "item.fine_tuned_weaponry.ironclad_fury_2": "Ironclad Fury",
+      "item.fine_tuned_weaponry.ironclad_fury_3": "Ironclad Fury"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Procedures",
+        "children": [
+          {
+            "name": "Bows",
+            "children": []
+          },
+          {
+            "name": "Shields",
+            "children": []
+          },
+          {
+            "name": "Sword effects",
+            "children": []
+          },
+          {
+            "name": "ArmorEffects",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "WeaponsAndArmor",
+        "children": [
+          {
+            "name": "Swords",
+            "children": []
+          },
+          {
+            "name": "Misc",
+            "children": []
+          },
+          {
+            "name": "Shields",
+            "children": []
+          },
+          {
+            "name": "Bows",
+            "children": []
+          },
+          {
+            "name": "Crystals",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Recipe",
+        "children": []
+      },
+      {
+        "name": "Projectiles",
+        "children": []
+      },
+      {
+        "name": "Blocks",
+        "children": [
+          {
+            "name": "ores",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "fine_tuned_weaponry",
+    "modName": "Fine-Tuned Weaponry",
+    "version": "0.1.0a",
+    "description": "This mod offers ALOT of new Items and mechanics",
+    "author": "NAIZO",
+    "websiteURL": "https://meherbensalem.github.io",
+    "license": "All Rights Reserved",
+    "serverSideOnly": false,
+    "modPicture": "bow_01a",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "no credits yet",
+    "modElementsPackage": "com.naizo.finetuned"
+  },
+  "mcreatorVersion": 202400232117
+}

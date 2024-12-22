@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "fine_tuned_weaponry:block/gem_ore",
+    "up": "fine_tuned_weaponry:block/gem_ore",
+    "north": "fine_tuned_weaponry:block/gem_ore",
+    "east": "fine_tuned_weaponry:block/gem_ore",
+    "south": "fine_tuned_weaponry:block/gem_ore",
+    "west": "fine_tuned_weaponry:block/gem_ore",
+    "particle": "fine_tuned_weaponry:block/gem_ore"
+  },
+  "render_type": "solid"
+}

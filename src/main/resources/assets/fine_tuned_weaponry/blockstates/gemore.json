@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "fine_tuned_weaponry:block/gemore"
+    }
+  }
+}
