@@ -1,0 +1,473 @@
+{
+  "mod_elements": [
+    {
+      "name": "HollowmancombatpoleRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hollowmancombatpole_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/HollowmancombatpoleRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Poles/GrandMasterPole"
+    },
+    {
+      "name": "ClassicKatanaRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "classic_katana_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/ClassicKatanaRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Katana/Classic"
+    },
+    {
+      "name": "ClassicKatana",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "classic_katana",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/classic_katana.json",
+          "src/main/java/com/naizo/finetuned/item/ClassicKatanaItem.java"
+        ]
+      },
+      "path": "~/Weapons/Katana/Classic"
+    },
+    {
+      "name": "BloodKatana",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blood_katana",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/BloodKatanaItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/blood_katana.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "BloodKatanaSpecial",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blood_katana_special",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BloodKatanaSpecialProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "KuasaiKatanaRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kuasai_katana_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/KuasaiKatanaRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Katana/Kurasai Katana"
+    },
+    {
+      "name": "MoonsLunarBloomfang",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moons_lunar_bloomfang",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/moons_lunar_bloomfang.json",
+          "src/main/java/com/naizo/finetuned/item/MoonsLunarBloomfangItem.java"
+        ]
+      },
+      "path": "~/Weapons/Fangs/MoonsBloomfang"
+    },
+    {
+      "name": "MoonsLunarBloomfangRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moons_lunar_bloomfang_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/MoonsLunarBloomfangRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Fangs/MoonsBloomfang"
+    },
+    {
+      "name": "MoonsLunarBloomFangPassive",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moons_lunar_bloom_fang_passive",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/MoonsLunarBloomFangPassiveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Fangs/MoonsBloomfang"
+    },
+    {
+      "name": "FineTunedWeapons",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fine_tuned_weapons",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Misc"
+    },
+    {
+      "name": "KurasaiKatana",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kurasai_katana",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/kurasai_katana.json",
+          "src/main/java/com/naizo/finetuned/item/KurasaiKatanaItem.java"
+        ]
+      },
+      "path": "~/Weapons/Katana/Kurasai Katana"
+    },
+    {
+      "name": "HollowmansRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hollowmans_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/hollowmans_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Poles/GrandMasterPole"
+    },
+    {
+      "name": "ClassicKatanaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "classic_katana_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/classic_katana_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Classic"
+    },
+    {
+      "name": "BloodKatanaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blood_katana_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/blood_katana_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "KurasaiKatanaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kurasai_katana_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/kurasai_katana_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Kurasai Katana"
+    },
+    {
+      "name": "HollowManRuyiJinguStaff",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hollow_man_ruyi_jingu_staff",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/HollowManRuyiJinguStaffItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/hollow_man_ruyi_jingu_staff.json"
+        ]
+      },
+      "path": "~/Weapons/Poles/GrandMasterPole"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [
+    {
+      "name": "activation_sound_effect",
+      "files": [
+        "activate_soundeffect"
+      ],
+      "category": "ambient",
+      "subtitle": ""
+    },
+    {
+      "name": "katana_dash_sound",
+      "files": [
+        "dashsoundeffect"
+      ],
+      "category": "ambient",
+      "subtitle": ""
+    },
+    {
+      "name": "love_effect_sound",
+      "files": [
+        "love_soundeffect"
+      ],
+      "category": "ambient",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:HollowManRuyiJinguStaff",
+      "~CUSTOM:KurasaiKatana",
+      "~CUSTOM:MoonsLunarBloomfang",
+      "~CUSTOM:BloodKatana",
+      "~CUSTOM:ClassicKatana"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "subtitles.katana_dash_sound": "",
+      "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
+      "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
+      "item.fine_tuned_weaponry.moons_lunar_bloomfang": "Moon\u0027s Lunar Bloomfang",
+      "subtitles.activation_sound_effect": "",
+      "item.fine_tuned_weaponry.classic_katana": "§7Classic §fKatana",
+      "subtitles.love_effect_sound": "",
+      "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
+      "item.fine_tuned_weaponry.kurasai_katana": "§9Kurasai\u0027s §bKatana"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Weapons",
+        "children": [
+          {
+            "name": "Poles",
+            "children": [
+              {
+                "name": "GrandMasterPole",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Katana",
+            "children": [
+              {
+                "name": "Classic",
+                "children": []
+              },
+              {
+                "name": "Blood Katana",
+                "children": []
+              },
+              {
+                "name": "Kurasai Katana",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Fangs",
+            "children": [
+              {
+                "name": "MoonsBloomfang",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Misc",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "fine_tuned_weaponry",
+    "modName": "Fine-Tuned Weaponry",
+    "version": "0.1.0a",
+    "description": "This mod offers ALOT of new Items and mechanics",
+    "author": "NAIZO",
+    "websiteURL": "https://meherbensalem.github.io",
+    "license": "All Rights Reserved",
+    "serverSideOnly": false,
+    "modPicture": "bow_01a",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "no credits yet",
+    "modElementsPackage": "com.naizo.finetuned"
+  },
+  "mcreatorVersion": 202400232117
+}

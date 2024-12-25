@@ -4,13 +4,13 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="fine_tuned_weaponry"
-version="0.1.0"
+version="1.0.0"
 displayName="Fine-Tuned Weaponry"
 displayURL="https://meherbensalem.github.io"
 logoFile="logo.png"
 credits="no credits yet"
 authors="NAIZO"
-description="This mod offers ALOT of new Items and mechanics"
+description="This mod offers ALOT of new weapons with unique abilities"
 
 # Start of user code block mod configuration
 # End of user code block mod configuration

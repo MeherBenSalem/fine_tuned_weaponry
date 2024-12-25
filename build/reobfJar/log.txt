@@ -134,15 +134,42 @@ Adding Libraries to Inheritance
 Reading Input: C:\Users\UwU\MCreatorWorkspaces\fine_tuned_weaponry\build\libs\modid-1.0.jar
 Adding input to inheritance map
 Processing entries
-Conflicting propagated mapping for com/naizo/finetuned/client/renderer/BarkarrowRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/naizo/finetuned/client/renderer/BarkarrowRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V from net/minecraft/client/renderer/entity/EntityRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V: render -> m_7392_
-Conflicting propagated mapping for com/naizo/finetuned/client/model/Modelsantas_hat/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V from net/minecraft/client/model/EntityModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V: setupAnim -> m_6973_
-Conflicting propagated mapping for com/naizo/finetuned/client/model/Modelsantas_hat/renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V from net/minecraft/client/model/Model/renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V: renderToBuffer -> m_7695_
-Conflicting propagated mapping for com/naizo/finetuned/client/model/ModelBarkArrowModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V from net/minecraft/client/model/EntityModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V: setupAnim -> m_6973_
-Conflicting propagated mapping for com/naizo/finetuned/client/model/ModelBarkArrowModel/renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V from net/minecraft/client/model/Model/renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V: renderToBuffer -> m_7695_
-Conflicting propagated mapping for com/naizo/finetuned/block/GemoreBlock/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I: getLightBlock -> m_7753_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/naizo/finetuned/item/HollowManRuyiJinguStaffItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/naizo/finetuned/item/ClassicKatanaItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/naizo/finetuned/item/BloodKatanaItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V from net/minecraft/world/level/block/state/BlockBehaviour/onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V: onRemove -> m_6810_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/triggerEvent(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;II)Z from net/minecraft/world/level/block/state/BlockBehaviour/triggerEvent(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;II)Z: triggerEvent -> m_8133_
+Conflicting propagated mapping for com/naizo/finetuned/item/KurasaiKatanaItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider; from net/minecraft/world/level/block/state/BlockBehaviour/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider;: getMenuProvider -> m_7246_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getAnalogOutputSignal(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I: getAnalogOutputSignal -> m_6782_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I from net/minecraft/world/level/block/state/BlockBehaviour/getLightBlock(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)I: getLightBlock -> m_7753_
@@ -150,79 +177,14 @@ Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/hasAn
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
 Conflicting propagated mapping for com/naizo/finetuned/block/GemTableBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
 Can't Find Class: com/naizo/finetuned/block/GemTableBlock$1
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$Chestplate/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/getPickupItem()Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/entity/projectile/AbstractArrow/getPickupItem()Lnet/minecraft/world/item/ItemStack;: getPickupItem -> m_7941_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/tick()V from net/minecraft/world/entity/projectile/AbstractArrow/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/doPostHurtEffects(Lnet/minecraft/world/entity/LivingEntity;)V from net/minecraft/world/entity/projectile/AbstractArrow/doPostHurtEffects(Lnet/minecraft/world/entity/LivingEntity;)V: doPostHurtEffects -> m_7761_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/getAddEntityPacket()Lnet/minecraft/network/protocol/Packet; from net/minecraft/world/entity/projectile/Projectile/getAddEntityPacket()Lnet/minecraft/network/protocol/Packet;: getAddEntityPacket -> m_5654_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/onHitBlock(Lnet/minecraft/world/phys/BlockHitResult;)V from net/minecraft/world/entity/projectile/AbstractArrow/onHitBlock(Lnet/minecraft/world/phys/BlockHitResult;)V: onHitBlock -> m_8060_
-Conflicting propagated mapping for com/naizo/finetuned/entity/BarkarrowEntity/getItem()Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/entity/projectile/ItemSupplier/getItem()Lnet/minecraft/world/item/ItemStack;: getItem -> m_7846_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkbowItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkbowItem/getUseAnimation(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/UseAnim; from net/minecraft/world/item/Item/getUseAnimation(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/UseAnim;: getUseAnimation -> m_6164_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkbowItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkbowItem/getUseDuration(Lnet/minecraft/world/item/ItemStack;)I from net/minecraft/world/item/Item/getUseDuration(Lnet/minecraft/world/item/ItemStack;)I: getUseDuration -> m_8105_
-Conflicting propagated mapping for com/naizo/finetuned/item/CanadyCaneItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkbowItem/releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V from net/minecraft/world/item/Item/releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V: releaseUsing -> m_5551_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/ShieldItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldT2Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/ShieldItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldT2Item/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/ShieldItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z: isValidRepairItem -> m_6832_
-Conflicting propagated mapping for net/minecraftforge/event/BuildCreativeModeTabContentsEvent/accept(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/CreativeModeTab$TabVisibility;)V from net/minecraft/world/item/CreativeModeTab$Output/accept(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/CreativeModeTab$TabVisibility;)V: accept -> m_246267_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/ShieldItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z: isValidRepairItem -> m_6832_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldT3Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/ShieldItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldT3Item/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/ShieldItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z: isValidRepairItem -> m_6832_
-Conflicting propagated mapping for com/naizo/finetuned/item/BarkshieldT3Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
-Conflicting propagated mapping for com/naizo/finetuned/item/CandyCaneSwordItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/GingerBreadMaceItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury1Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury2Item$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
-Conflicting propagated mapping for com/naizo/finetuned/item/IroncladFury3Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
-Conflicting propagated mapping for com/naizo/finetuned/item/MineFavorGemItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/ArmorMaterial/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6230_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getEnchantmentValue()I from net/minecraft/world/item/ArmorMaterial/getEnchantmentValue()I: getEnchantmentValue -> m_6646_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getKnockbackResistance()F from net/minecraft/world/item/ArmorMaterial/getKnockbackResistance()F: getKnockbackResistance -> m_6649_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getToughness()F from net/minecraft/world/item/ArmorMaterial/getToughness()F: getToughness -> m_6651_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getName()Ljava/lang/String; from net/minecraft/world/item/ArmorMaterial/getName()Ljava/lang/String;: getName -> m_6082_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getDefenseForType(Lnet/minecraft/world/item/ArmorItem$Type;)I from net/minecraft/world/item/ArmorMaterial/getDefenseForType(Lnet/minecraft/world/item/ArmorItem$Type;)I: getDefenseForType -> m_7366_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getEquipSound()Lnet/minecraft/sounds/SoundEvent; from net/minecraft/world/item/ArmorMaterial/getEquipSound()Lnet/minecraft/sounds/SoundEvent;: getEquipSound -> m_7344_
-Conflicting propagated mapping for com/naizo/finetuned/item/SantashelmetItem$1/getDurabilityForType(Lnet/minecraft/world/item/ArmorItem$Type;)I from net/minecraft/world/item/ArmorMaterial/getDurabilityForType(Lnet/minecraft/world/item/ArmorItem$Type;)I: getDurabilityForType -> m_266425_
-Conflicting propagated mapping for com/naizo/finetuned/item/T1BarkArrowItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/naizo/finetuned/item/T1RefinedCrystalItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
+Conflicting propagated mapping for com/naizo/finetuned/item/MoonsLunarBloomfangItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
 Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
 Can't Find Class: com/naizo/finetuned/block/entity/GemTableBlockEntity
 Adding extras
@@ -233,163 +195,74 @@ Writing Output: C:\Users\UwU\MCreatorWorkspaces\fine_tuned_weaponry\build\reobfJ
   META-INF/mods.toml
   assets/
   assets/fine_tuned_weaponry/
-  assets/fine_tuned_weaponry/blockstates/
-  assets/fine_tuned_weaponry/blockstates/gemore.json
   assets/fine_tuned_weaponry/lang/
   assets/fine_tuned_weaponry/lang/en_us.json
   assets/fine_tuned_weaponry/models/
-  assets/fine_tuned_weaponry/models/block/
-  assets/fine_tuned_weaponry/models/block/gemore.json
+  assets/fine_tuned_weaponry/models/custom/
+  assets/fine_tuned_weaponry/models/custom/blood_katana.json
+  assets/fine_tuned_weaponry/models/custom/katana.json
+  assets/fine_tuned_weaponry/models/custom/kurasais_katana.json
+  assets/fine_tuned_weaponry/models/custom/light_pole.json
+  assets/fine_tuned_weaponry/models/custom/moonrayys_sword.json
+  assets/fine_tuned_weaponry/models/custom/pole.json
   assets/fine_tuned_weaponry/models/item/
-  assets/fine_tuned_weaponry/models/item/barkbow.json
-  assets/fine_tuned_weaponry/models/item/barkbow_0.json
-  assets/fine_tuned_weaponry/models/item/barkbow_1.json
-  assets/fine_tuned_weaponry/models/item/barkshield.json
-  assets/fine_tuned_weaponry/models/item/barkshield_0.json
-  assets/fine_tuned_weaponry/models/item/barkshield_t_2.json
-  assets/fine_tuned_weaponry/models/item/barkshield_t_2_0.json
-  assets/fine_tuned_weaponry/models/item/barkshield_t_3.json
-  assets/fine_tuned_weaponry/models/item/barkshield_t_3_0.json
-  assets/fine_tuned_weaponry/models/item/canady_cane.json
-  assets/fine_tuned_weaponry/models/item/candy_cane_sword.json
-  assets/fine_tuned_weaponry/models/item/gemore.json
-  assets/fine_tuned_weaponry/models/item/ginger_bread.json
-  assets/fine_tuned_weaponry/models/item/ginger_bread_mace.json
-  assets/fine_tuned_weaponry/models/item/ironclad_fury_1.json
-  assets/fine_tuned_weaponry/models/item/ironclad_fury_2.json
-  assets/fine_tuned_weaponry/models/item/ironclad_fury_3.json
-  assets/fine_tuned_weaponry/models/item/mine_favor_gem.json
-  assets/fine_tuned_weaponry/models/item/santashelmet_boots.json
-  assets/fine_tuned_weaponry/models/item/santashelmet_chestplate.json
-  assets/fine_tuned_weaponry/models/item/santashelmet_helmet.json
-  assets/fine_tuned_weaponry/models/item/santashelmet_leggings.json
-  assets/fine_tuned_weaponry/models/item/t_1_bark_arrow.json
-  assets/fine_tuned_weaponry/models/item/t_1_refined_crystal.json
+  assets/fine_tuned_weaponry/models/item/blood_katana.json
+  assets/fine_tuned_weaponry/models/item/classic_katana.json
+  assets/fine_tuned_weaponry/models/item/hollow_man_ruyi_jingu_staff.json
+  assets/fine_tuned_weaponry/models/item/kurasai_katana.json
+  assets/fine_tuned_weaponry/models/item/moons_lunar_bloomfang.json
+  assets/fine_tuned_weaponry/sounds.json
+  assets/fine_tuned_weaponry/sounds/
+  assets/fine_tuned_weaponry/sounds/activate_soundeffect.ogg
+  assets/fine_tuned_weaponry/sounds/dashsoundeffect.ogg
+  assets/fine_tuned_weaponry/sounds/love_soundeffect.ogg
   assets/fine_tuned_weaponry/textures/
   assets/fine_tuned_weaponry/textures/block/
-  assets/fine_tuned_weaponry/textures/block/gem_ore.png
+  assets/fine_tuned_weaponry/textures/block/blood_katana_texture.png
+  assets/fine_tuned_weaponry/textures/block/classic_pole_texture.png
+  assets/fine_tuned_weaponry/textures/block/katana_texture.png
+  assets/fine_tuned_weaponry/textures/block/kurasai_katana_texture.png
+  assets/fine_tuned_weaponry/textures/block/lunar_text.png
   assets/fine_tuned_weaponry/textures/bow_01a.png
-  assets/fine_tuned_weaponry/textures/entities/
-  assets/fine_tuned_weaponry/textures/entities/barkarrow.png
-  assets/fine_tuned_weaponry/textures/entities/santas_hat.png
-  assets/fine_tuned_weaponry/textures/item/
-  assets/fine_tuned_weaponry/textures/item/arrow_01a.png
-  assets/fine_tuned_weaponry/textures/item/bow_01a.png
-  assets/fine_tuned_weaponry/textures/item/bow_01a_s4.png
-  assets/fine_tuned_weaponry/textures/item/candy_sword.png
-  assets/fine_tuned_weaponry/textures/item/candy_sword_unbake.png
-  assets/fine_tuned_weaponry/textures/item/crystal_01a.png
-  assets/fine_tuned_weaponry/textures/item/gem_01a.png
-  assets/fine_tuned_weaponry/textures/item/gingerbread.png
-  assets/fine_tuned_weaponry/textures/item/gingerbread_mace.png
-  assets/fine_tuned_weaponry/textures/item/santas_body.png
-  assets/fine_tuned_weaponry/textures/item/santas_foots.png
-  assets/fine_tuned_weaponry/textures/item/santas_hat.png
-  assets/fine_tuned_weaponry/textures/item/santas_legs.png
-  assets/fine_tuned_weaponry/textures/item/shield_01a.png
-  assets/fine_tuned_weaponry/textures/item/shield_02a.png
-  assets/fine_tuned_weaponry/textures/item/shield_03a.png
-  assets/fine_tuned_weaponry/textures/item/sword_01b.png
-  assets/fine_tuned_weaponry/textures/item/sword_02b.png
-  assets/fine_tuned_weaponry/textures/item/sword_03b.png
-  assets/fine_tuned_weaponry/textures/models/
-  assets/fine_tuned_weaponry/textures/models/armor/
-  assets/fine_tuned_weaponry/textures/models/armor/santas_armor_layer_1.png
-  assets/fine_tuned_weaponry/textures/models/armor/santas_armor_layer_2.png
-  assets/fine_tuned_weaponry/textures/models/armor/santas_layer_1.png
-  assets/fine_tuned_weaponry/textures/models/armor/santas_layer_2.png
   com/
   com/naizo/
   com/naizo/finetuned/
   com/naizo/finetuned/FineTunedWeaponryMod.class
   com/naizo/finetuned/block/
   com/naizo/finetuned/block/GemTableBlock.class
-  com/naizo/finetuned/block/GemoreBlock.class
-  com/naizo/finetuned/client/
-  com/naizo/finetuned/client/model/
-  com/naizo/finetuned/client/model/ModelBarkArrowModel.class
-  com/naizo/finetuned/client/model/Modelsantas_hat.class
-  com/naizo/finetuned/client/renderer/
-  com/naizo/finetuned/client/renderer/BarkarrowRenderer.class
-  com/naizo/finetuned/entity/
-  com/naizo/finetuned/entity/BarkarrowEntity.class
   com/naizo/finetuned/init/
-  com/naizo/finetuned/init/FineTunedWeaponryModBlocks.class
-  com/naizo/finetuned/init/FineTunedWeaponryModEntities.class
-  com/naizo/finetuned/init/FineTunedWeaponryModEntityRenderers.class
   com/naizo/finetuned/init/FineTunedWeaponryModItems.class
-  com/naizo/finetuned/init/FineTunedWeaponryModModels.class
+  com/naizo/finetuned/init/FineTunedWeaponryModSounds.class
   com/naizo/finetuned/init/FineTunedWeaponryModTabs.class
   com/naizo/finetuned/item/
-  com/naizo/finetuned/item/BarkbowItem.class
-  com/naizo/finetuned/item/BarkshieldItem.class
-  com/naizo/finetuned/item/BarkshieldT2Item.class
-  com/naizo/finetuned/item/BarkshieldT3Item.class
-  com/naizo/finetuned/item/CanadyCaneItem.class
-  com/naizo/finetuned/item/CandyCaneSwordItem$1.class
-  com/naizo/finetuned/item/CandyCaneSwordItem.class
-  com/naizo/finetuned/item/GingerBreadItem.class
-  com/naizo/finetuned/item/GingerBreadMaceItem$1.class
-  com/naizo/finetuned/item/GingerBreadMaceItem.class
-  com/naizo/finetuned/item/IroncladFury1Item$1.class
-  com/naizo/finetuned/item/IroncladFury1Item.class
-  com/naizo/finetuned/item/IroncladFury2Item$1.class
-  com/naizo/finetuned/item/IroncladFury2Item.class
-  com/naizo/finetuned/item/IroncladFury3Item$1.class
-  com/naizo/finetuned/item/IroncladFury3Item.class
-  com/naizo/finetuned/item/MineFavorGemItem.class
-  com/naizo/finetuned/item/SantashelmetItem$1.class
-  com/naizo/finetuned/item/SantashelmetItem$Boots.class
-  com/naizo/finetuned/item/SantashelmetItem$Chestplate.class
-  com/naizo/finetuned/item/SantashelmetItem$Helmet$1.class
-  com/naizo/finetuned/item/SantashelmetItem$Helmet.class
-  com/naizo/finetuned/item/SantashelmetItem$Leggings.class
-  com/naizo/finetuned/item/SantashelmetItem.class
-  com/naizo/finetuned/item/T1BarkArrowItem.class
-  com/naizo/finetuned/item/T1RefinedCrystalItem.class
+  com/naizo/finetuned/item/BloodKatanaItem$1.class
+  com/naizo/finetuned/item/BloodKatanaItem.class
+  com/naizo/finetuned/item/ClassicKatanaItem$1.class
+  com/naizo/finetuned/item/ClassicKatanaItem.class
+  com/naizo/finetuned/item/HollowManRuyiJinguStaffItem$1.class
+  com/naizo/finetuned/item/HollowManRuyiJinguStaffItem.class
+  com/naizo/finetuned/item/KurasaiKatanaItem$1.class
+  com/naizo/finetuned/item/KurasaiKatanaItem.class
+  com/naizo/finetuned/item/MoonsLunarBloomfangItem$1.class
+  com/naizo/finetuned/item/MoonsLunarBloomfangItem.class
   com/naizo/finetuned/procedures/
-  com/naizo/finetuned/procedures/BarkarrowProjectileHitsBlockProcedure.class
-  com/naizo/finetuned/procedures/BarkbowOnPlayerStoppedUsingProcedure.class
-  com/naizo/finetuned/procedures/BarkbowPropertyValueProviderProcedure.class
-  com/naizo/finetuned/procedures/BarkbowRightclickedProcedure.class
-  com/naizo/finetuned/procedures/CandyCaneSwordToolInHandTickProcedure.class
-  com/naizo/finetuned/procedures/GiveDefenseInInventoryTickProcedure.class
-  com/naizo/finetuned/procedures/IroncladFury3ToolInHandTickProcedure.class
-  com/naizo/finetuned/procedures/Ironcladfury2toolinhandtickProcedure.class
-  com/naizo/finetuned/procedures/SantashelmetChestplateTickEventProcedure.class
+  com/naizo/finetuned/procedures/BloodKatanaSpecialProcedure.class
+  com/naizo/finetuned/procedures/ClassicKatanaRightclickedProcedure.class
+  com/naizo/finetuned/procedures/HollowmancombatpoleRightclickedProcedure.class
+  com/naizo/finetuned/procedures/KuasaiKatanaRightclickedProcedure.class
+  com/naizo/finetuned/procedures/MoonsLunarBloomFangPassiveProcedure.class
+  com/naizo/finetuned/procedures/MoonsLunarBloomfangRightclickedProcedure.class
   data/
   data/fine_tuned_weaponry/
-  data/fine_tuned_weaponry/forge/
-  data/fine_tuned_weaponry/forge/biome_modifier/
-  data/fine_tuned_weaponry/forge/biome_modifier/gemore_biome_modifier.json
-  data/fine_tuned_weaponry/loot_tables/
-  data/fine_tuned_weaponry/loot_tables/blocks/
-  data/fine_tuned_weaponry/loot_tables/blocks/gemore.json
   data/fine_tuned_weaponry/recipes/
-  data/fine_tuned_weaponry/recipes/bar_bow_recipe.json
-  data/fine_tuned_weaponry/recipes/bark_arrow_recipe.json
-  data/fine_tuned_weaponry/recipes/bark_shield_t_1_recipe.json
-  data/fine_tuned_weaponry/recipes/bark_shield_t_2_recipe.json
-  data/fine_tuned_weaponry/recipes/barkpiercer_recipe.json
-  data/fine_tuned_weaponry/recipes/barkshield_t_3_recipe.json
-  data/fine_tuned_weaponry/recipes/candy_cane_recipe.json
-  data/fine_tuned_weaponry/recipes/cnady_sword_recipe.json
-  data/fine_tuned_weaponry/recipes/gem_recipe.json
-  data/fine_tuned_weaponry/recipes/ginger_bread_mace_recipe.json
-  data/fine_tuned_weaponry/recipes/ginger_bread_recipe.json
-  data/fine_tuned_weaponry/worldgen/
-  data/fine_tuned_weaponry/worldgen/configured_feature/
-  data/fine_tuned_weaponry/worldgen/configured_feature/gemore.json
-  data/fine_tuned_weaponry/worldgen/placed_feature/
-  data/fine_tuned_weaponry/worldgen/placed_feature/gemore.json
+  data/fine_tuned_weaponry/recipes/blood_katana_recipe.json
+  data/fine_tuned_weaponry/recipes/classic_katana_recipe.json
+  data/fine_tuned_weaponry/recipes/hollowmans_recipe.json
+  data/fine_tuned_weaponry/recipes/kurasai_katana_recipe.json
+  data/fine_tuned_weaponry/recipes/moons_lunar_bloomfang_recipe.json
   data/minecraft/
   data/minecraft/tags/
-  data/minecraft/tags/blocks/
-  data/minecraft/tags/blocks/mineable/
-  data/minecraft/tags/blocks/mineable/pickaxe.json
-  data/minecraft/tags/blocks/needs_iron_tool.json
   data/minecraft/tags/items/
-  data/minecraft/tags/items/pickaxes.json
   data/minecraft/tags/items/swords.json
   logo.png
   pack.mcmeta

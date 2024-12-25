@@ -1,0 +1,42 @@
+{
+  "_fv": 66,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 1,
+    "blockingRenderType": 0,
+    "texture": "minecraft:golden_sword",
+    "customModelName": "kurasais_katana:default",
+    "blockingModelName": "Normal blocking",
+    "name": "§6Kurasai's §eKatana",
+    "specialInformation": {
+      "fixedValue": [
+        "§7Forged in the storms, this blade channels lightning",
+        "§eRight-click : Summon a lightning strike around you and gain Grants §6Resistance V §efor 1 second",
+        "§9Cooldown : 7 sec"
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:FineTunedWeapons"
+      }
+    ],
+    "efficiency": 4.0,
+    "attackSpeed": 1.8,
+    "enchantability": 15,
+    "damageVsEntity": 15.0,
+    "usageCount": 300,
+    "glowCondition": {
+      "fixedValue": true
+    },
+    "repairItems": [],
+    "immuneToFire": false,
+    "blockDropsTier": "WOOD",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "KuasaiKatanaRightclicked"
+    }
+  }
+}

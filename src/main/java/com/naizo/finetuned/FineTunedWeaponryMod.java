@@ -27,9 +27,8 @@ import java.util.ArrayList;
 import java.util.AbstractMap;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModTabs;
+import com.naizo.finetuned.init.FineTunedWeaponryModSounds;
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
-import com.naizo.finetuned.init.FineTunedWeaponryModEntities;
-import com.naizo.finetuned.init.FineTunedWeaponryModBlocks;
 
 @Mod("fine_tuned_weaponry")
 public class FineTunedWeaponryMod {
@@ -41,11 +40,9 @@ public class FineTunedWeaponryMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-		FineTunedWeaponryModBlocks.REGISTRY.register(bus);
+		FineTunedWeaponryModSounds.REGISTRY.register(bus);
 
 		FineTunedWeaponryModItems.REGISTRY.register(bus);
-		FineTunedWeaponryModEntities.REGISTRY.register(bus);
 
 		FineTunedWeaponryModTabs.REGISTRY.register(bus);
 

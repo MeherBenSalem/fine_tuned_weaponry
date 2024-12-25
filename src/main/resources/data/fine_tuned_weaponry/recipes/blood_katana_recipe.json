@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:redstone_block"
+  },
+  "base": {
+    "item": "fine_tuned_weaponry:classic_katana"
+  },
+  "addition": {
+    "item": "minecraft:golden_apple"
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:blood_katana"
+  }
+}

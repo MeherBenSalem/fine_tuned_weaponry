@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "kurasai_katana_texture"
+      },
+      "name": "default"
+    }
+  }
+}

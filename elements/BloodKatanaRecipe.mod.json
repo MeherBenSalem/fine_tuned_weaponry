@@ -1,0 +1,28 @@
+{
+  "_fv": 66,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smithing",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "smithingInputStack": {
+      "value": "CUSTOM:ClassicKatana"
+    },
+    "smithingInputAdditionStack": {
+      "value": "Items.GOLDEN_APPLE#0"
+    },
+    "smithingInputTemplateStack": {
+      "value": "Blocks.REDSTONE_BLOCK"
+    },
+    "smithingReturnStack": {
+      "value": "CUSTOM:BloodKatana"
+    },
+    "name": "blood_katana_recipe",
+    "namespace": "mod"
+  }
+}

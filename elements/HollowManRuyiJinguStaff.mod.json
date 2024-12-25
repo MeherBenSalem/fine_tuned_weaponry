@@ -1,0 +1,46 @@
+{
+  "_fv": 66,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 1,
+    "blockingRenderType": 0,
+    "texture": "minecraft:stick",
+    "customModelName": "pole:default",
+    "blockingModelName": "Normal blocking",
+    "name": "§6Hollow Man's §eRuyi Jingu Staff",
+    "specialInformation": {
+      "fixedValue": [
+        "§7A mythical staff wielded by the §khollow man",
+        "§eRight-click : Grants §6Haste II §efor 7 seconds",
+        "§9Cooldown : 12.5 sec"
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:FineTunedWeapons"
+      }
+    ],
+    "efficiency": 4.0,
+    "attackSpeed": 1.8,
+    "enchantability": 15,
+    "damageVsEntity": 9.0,
+    "usageCount": 300,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "Blocks.OAK_WOOD"
+      }
+    ],
+    "immuneToFire": false,
+    "blockDropsTier": "STONE",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "HollowmancombatpoleRightclicked"
+    }
+  }
+}

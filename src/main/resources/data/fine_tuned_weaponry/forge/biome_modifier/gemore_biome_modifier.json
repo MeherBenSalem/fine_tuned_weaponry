@@ -1,8 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": {
-    "type": "forge:any"
-  },
-  "features": "fine_tuned_weaponry:gemore",
-  "step": "underground_ores"
-}

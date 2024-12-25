@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:iron_sword"
+  },
+  "result": "fine_tuned_weaponry:classic_katana"
+}
