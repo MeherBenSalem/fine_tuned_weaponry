@@ -8,12 +8,13 @@
     "texture": "minecraft:axolotl_bucket",
     "customModelName": "moonrayys_sword:default",
     "blockingModelName": "Normal blocking",
-    "name": "§6Moon's §eLunar Bloomfang",
+    "name": "§5Moon's §dLunar Bloomfang",
     "specialInformation": {
       "fixedValue": [
         "§7A mystical blade imbued with the power of the lunar bloom",
         "§eRight-click : tame nearby passive mobs",
-        "§9Passive: §bOn kill, enrich the soil with a bone meal effect"
+        "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
+        "§9Cooldown : 30 sec"
       ]
     },
     "creativeTabs": [

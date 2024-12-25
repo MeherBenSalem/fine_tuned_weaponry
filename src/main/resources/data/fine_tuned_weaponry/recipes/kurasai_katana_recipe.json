@@ -1,15 +1,19 @@
 {
-  "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "fine_tuned_weaponry:blood_katana"
-  },
-  "base": {
-    "item": "minecraft:golden_apple"
-  },
-  "addition": {
-    "item": "minecraft:golden_sword"
-  },
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "fine_tuned_weaponry:classic_katana"
+    },
+    {
+      "item": "minecraft:golden_sword"
+    }
+  ],
   "result": {
-    "item": "fine_tuned_weaponry:kurasai_katana"
+    "item": "fine_tuned_weaponry:kurasai_katana",
+    "count": 1
   }
 }

@@ -2,24 +2,44 @@
   "_fv": 66,
   "_type": "recipe",
   "definition": {
-    "recipeType": "Smithing",
+    "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
     "cookingTime": 200,
     "craftingBookCategory": "MISC",
-    "recipeShapeless": false,
-    "smithingInputStack": {
-      "value": "Items.GOLDEN_APPLE"
-    },
-    "smithingInputAdditionStack": {
-      "value": "Items.GOLDEN_SWORD"
-    },
-    "smithingInputTemplateStack": {
-      "value": "CUSTOM:BloodKatana"
-    },
-    "smithingReturnStack": {
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.GOLDEN_APPLE"
+      },
+      {
+        "value": "CUSTOM:ClassicKatana"
+      },
+      {
+        "value": "Items.GOLDEN_SWORD"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
       "value": "CUSTOM:KurasaiKatana"
     },
     "name": "kurasai_katana_recipe",

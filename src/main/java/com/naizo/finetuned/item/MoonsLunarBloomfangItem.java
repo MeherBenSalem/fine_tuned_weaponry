@@ -60,5 +60,6 @@ public class MoonsLunarBloomfangItem extends SwordItem {
 		list.add(Component.literal("\u00A77A mystical blade imbued with the power of the lunar bloom"));
 		list.add(Component.literal("\u00A7eRight-click : tame nearby passive mobs"));
 		list.add(Component.literal("\u00A79Passive: \u00A7bOn kill, enrich the soil with a bone meal effect"));
+		list.add(Component.literal("\u00A79Cooldown : 30 sec"));
 	}
 }
