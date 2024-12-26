@@ -2,22 +2,25 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "aba",
+    " ab",
     "cdc",
-    "aca"
+    "be "
   ],
   "key": {
     "a": {
-      "tag": "minecraft:small_flowers"
+      "item": "fine_tuned_weaponry:weapontemplate"
     },
     "b": {
-      "item": "minecraft:golden_apple"
+      "item": "minecraft:bone"
     },
     "c": {
-      "item": "minecraft:diamond"
+      "tag": "minecraft:small_flowers"
     },
     "d": {
       "item": "minecraft:iron_sword"
+    },
+    "e": {
+      "item": "minecraft:golden_apple"
     }
   },
   "result": {

@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.item.Item;
 
+import com.naizo.finetuned.item.WeapontemplateItem;
 import com.naizo.finetuned.item.MoonsLunarBloomfangItem;
 import com.naizo.finetuned.item.KurasaiKatanaItem;
 import com.naizo.finetuned.item.HollowManRuyiJinguStaffItem;
@@ -24,6 +25,7 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> MOONS_LUNAR_BLOOMFANG = REGISTRY.register("moons_lunar_bloomfang", () -> new MoonsLunarBloomfangItem());
 	public static final RegistryObject<Item> KURASAI_KATANA = REGISTRY.register("kurasai_katana", () -> new KurasaiKatanaItem());
 	public static final RegistryObject<Item> HOLLOW_MAN_RUYI_JINGU_STAFF = REGISTRY.register("hollow_man_ruyi_jingu_staff", () -> new HollowManRuyiJinguStaffItem());
+	public static final RegistryObject<Item> WEAPONTEMPLATE = REGISTRY.register("weapontemplate", () -> new WeapontemplateItem());
 	// Start of user code block custom items
 	// End of user code block custom items
 }

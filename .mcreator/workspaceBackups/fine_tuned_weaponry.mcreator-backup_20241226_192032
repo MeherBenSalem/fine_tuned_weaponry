@@ -407,7 +407,7 @@
       "subtitles.katana_dash_sound": "",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
       "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
-      "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§6Moon\u0027s §eLunar Bloomfang",
+      "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
       "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
@@ -462,6 +462,10 @@
       {
         "name": "Misc",
         "children": []
+      },
+      {
+        "name": "Items",
+        "children": []
       }
     ]
   },
@@ -479,7 +483,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.19.2",
+    "currentGenerator": "forge-1.20.1",
     "credits": "no credits yet",
     "modElementsPackage": "com.naizo.finetuned"
   },

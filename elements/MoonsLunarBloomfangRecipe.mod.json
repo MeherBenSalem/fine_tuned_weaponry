@@ -12,31 +12,31 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Weapontemplate"
+      },
+      {
+        "value": "Items.BONE"
+      },
+      {
         "value": "Blocks.RED_FLOWER"
-      },
-      {
-        "value": "Items.GOLDEN_APPLE"
-      },
-      {
-        "value": "Blocks.RED_FLOWER"
-      },
-      {
-        "value": "Items.DIAMOND"
       },
       {
         "value": "Items.IRON_SWORD"
       },
       {
-        "value": "Items.DIAMOND"
-      },
-      {
         "value": "Blocks.RED_FLOWER"
       },
       {
-        "value": "Items.DIAMOND"
+        "value": "Items.BONE"
       },
       {
-        "value": "Blocks.RED_FLOWER"
+        "value": "Items.GOLDEN_APPLE"
+      },
+      {
+        "value": ""
       }
     ],
     "recipeReturnStack": {

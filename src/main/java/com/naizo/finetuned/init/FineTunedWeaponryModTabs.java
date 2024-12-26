@@ -23,6 +23,7 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.MOONS_LUNAR_BLOOMFANG.get());
 				tabData.accept(FineTunedWeaponryModItems.KURASAI_KATANA.get());
 				tabData.accept(FineTunedWeaponryModItems.HOLLOW_MAN_RUYI_JINGU_STAFF.get());
+				tabData.accept(FineTunedWeaponryModItems.WEAPONTEMPLATE.get());
 			})
 
 					.build());

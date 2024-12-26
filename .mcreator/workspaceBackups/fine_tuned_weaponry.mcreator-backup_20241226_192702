@@ -312,19 +312,6 @@
       "path": "~/Weapons/Katana/Classic"
     },
     {
-      "name": "BloodKatanaRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "blood_katana_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/fine_tuned_weaponry/recipes/blood_katana_recipe.json"
-        ]
-      },
-      "path": "~/Weapons/Katana/Blood Katana"
-    },
-    {
       "name": "KurasaiKatanaRecipe",
       "type": "recipe",
       "compiles": true,
@@ -350,6 +337,59 @@
         ]
       },
       "path": "~/Weapons/Poles/GrandMasterPole"
+    },
+    {
+      "name": "MoonsLunarBloomfangRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moons_lunar_bloomfang_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/moons_lunar_bloomfang_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Fangs/MoonsBloomfang"
+    },
+    {
+      "name": "BloodKatanaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blood_katana_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/blood_katana_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "Weapontemplate",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapontemplate",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/weapontemplate.json",
+          "src/main/java/com/naizo/finetuned/item/WeapontemplateItem.java"
+        ]
+      },
+      "path": "~/Items/WeaponTemplate"
+    },
+    {
+      "name": "WeaponTemplateRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_template_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/weapon_template_recipe.json"
+        ]
+      },
+      "path": "~/Items/WeaponTemplate"
     }
   ],
   "variable_elements": [],
@@ -394,10 +434,12 @@
       "subtitles.katana_dash_sound": "",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
       "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
-      "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§6Moon\u0027s §eLunar Bloomfang",
+      "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
+      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
       "subtitles.love_effect_sound": "",
+      "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
       "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
       "item.fine_tuned_weaponry.kurasai_katana": "§6Kurasai\u0027s §eKatana"
     }
@@ -448,14 +490,23 @@
       {
         "name": "Misc",
         "children": []
+      },
+      {
+        "name": "Items",
+        "children": [
+          {
+            "name": "WeaponTemplate",
+            "children": []
+          }
+        ]
       }
     ]
   },
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Fine-Tuned Weaponry",
-    "version": "0.1.0a",
-    "description": "This mod offers ALOT of new Items and mechanics",
+    "version": "1.0.0",
+    "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
     "license": "All Rights Reserved",

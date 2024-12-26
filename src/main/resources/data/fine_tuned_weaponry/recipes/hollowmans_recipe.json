@@ -14,7 +14,7 @@
       "tag": "minecraft:logs"
     },
     "c": {
-      "item": "minecraft:stick"
+      "item": "fine_tuned_weaponry:weapontemplate"
     }
   },
   "result": {
