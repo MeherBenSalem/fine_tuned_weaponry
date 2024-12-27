@@ -363,6 +363,33 @@
         ]
       },
       "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "Weapontemplate",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapontemplate",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/weapontemplate.json",
+          "src/main/java/com/naizo/finetuned/item/WeapontemplateItem.java"
+        ]
+      },
+      "path": "~/Items/WeaponTemplate"
+    },
+    {
+      "name": "WeaponTemplateRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_template_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/weapon_template_recipe.json"
+        ]
+      },
+      "path": "~/Items/WeaponTemplate"
     }
   ],
   "variable_elements": [],
@@ -412,6 +439,7 @@
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
       "subtitles.love_effect_sound": "",
+      "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
       "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
       "item.fine_tuned_weaponry.kurasai_katana": "§6Kurasai\u0027s §eKatana"
     }
@@ -462,13 +490,22 @@
       {
         "name": "Misc",
         "children": []
+      },
+      {
+        "name": "Items",
+        "children": [
+          {
+            "name": "WeaponTemplate",
+            "children": []
+          }
+        ]
       }
     ]
   },
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Fine-Tuned Weaponry",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
@@ -479,7 +516,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.20.1",
+    "currentGenerator": "forge-1.19.2",
     "credits": "no credits yet",
     "modElementsPackage": "com.naizo.finetuned"
   },
