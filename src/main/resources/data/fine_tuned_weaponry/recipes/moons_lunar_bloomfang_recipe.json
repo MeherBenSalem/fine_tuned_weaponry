@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " ab",
+    "cdc",
+    "be "
+  ],
+  "key": {
+    "a": {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    },
+    "b": {
+      "item": "minecraft:bone"
+    },
+    "c": {
+      "tag": "minecraft:small_flowers"
+    },
+    "d": {
+      "item": "minecraft:iron_sword"
+    },
+    "e": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:moons_lunar_bloomfang",
+    "count": 1
+  }
+}

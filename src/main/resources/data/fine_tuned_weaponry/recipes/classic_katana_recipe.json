@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_sword"
+    },
+    {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    }
+  ],
+  "result": {
+    "item": "fine_tuned_weaponry:classic_katana",
+    "count": 1
+  }
+}
