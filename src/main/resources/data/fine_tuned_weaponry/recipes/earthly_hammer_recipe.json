@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    },
+    "b": {
+      "item": "fine_tuned_weaponry:earthly_ingot"
+    },
+    "c": {
+      "item": "fine_tuned_weaponry:classichammer"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:earthlyhammer",
+    "count": 1
+  }
+}

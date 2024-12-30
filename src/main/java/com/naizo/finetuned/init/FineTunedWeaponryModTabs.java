@@ -24,6 +24,13 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.KURASAI_KATANA.get());
 				tabData.accept(FineTunedWeaponryModItems.HOLLOW_MAN_RUYI_JINGU_STAFF.get());
 				tabData.accept(FineTunedWeaponryModItems.WEAPONTEMPLATE.get());
+				tabData.accept(FineTunedWeaponryModItems.CLASSICHAMMER.get());
+				tabData.accept(FineTunedWeaponryModItems.EARTHLYHAMMER.get());
+				tabData.accept(FineTunedWeaponryModItems.OBSIDIANHAMMER.get());
+				tabData.accept(FineTunedWeaponryModItems.ROSEGOLDHAMMER.get());
+				tabData.accept(FineTunedWeaponryModItems.EARTHLY_INGOT.get());
+				tabData.accept(FineTunedWeaponryModItems.OBSIDIAN_FORGED_INGOT.get());
+				tabData.accept(FineTunedWeaponryModItems.ROSE_GOLD_INGOT.get());
 			})
 
 					.build());

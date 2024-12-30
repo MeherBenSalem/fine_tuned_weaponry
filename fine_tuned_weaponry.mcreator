@@ -390,6 +390,326 @@
         ]
       },
       "path": "~/Items/WeaponTemplate"
+    },
+    {
+      "name": "Classichammer",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "classichammer",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/ClassichammerItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/classichammer.json"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Classic Hammer"
+    },
+    {
+      "name": "Earthlyhammer",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthlyhammer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/earthlyhammer.json",
+          "src/main/java/com/naizo/finetuned/item/EarthlyhammerItem.java"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Earthly Hammer"
+    },
+    {
+      "name": "Obsidianhammer",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidianhammer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/obsidianhammer.json",
+          "src/main/java/com/naizo/finetuned/item/ObsidianhammerItem.java"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Obsidian Hammer"
+    },
+    {
+      "name": "Rosegoldhammer",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosegoldhammer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/rosegoldhammer.json",
+          "src/main/java/com/naizo/finetuned/item/RosegoldhammerItem.java"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Rose Gold Hammer"
+    },
+    {
+      "name": "SmashStrikeProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smash_strike_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/SmashStrikeProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Earthly Hammer"
+    },
+    {
+      "name": "VoidCrushProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "void_crush_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/VoidCrushProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Obsidian Hammer"
+    },
+    {
+      "name": "RoseParticle",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_particle",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/particles/rose_particle.json",
+          "src/main/java/com/naizo/finetuned/client/particle/RoseParticleParticle.java"
+        ]
+      },
+      "path": "~/Particles"
+    },
+    {
+      "name": "PetalBurstProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petal_burst_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/PetalBurstProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Rose Gold Hammer"
+    },
+    {
+      "name": "EarthlyIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthly_ingot",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/earthly_ingot.json",
+          "src/main/java/com/naizo/finetuned/item/EarthlyIngotItem.java"
+        ]
+      },
+      "path": "~/Items/Ingots/Earthly Ingot"
+    },
+    {
+      "name": "ObsidianForgedIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidian_forged_ingot",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/obsidian_forged_ingot.json",
+          "src/main/java/com/naizo/finetuned/item/ObsidianForgedIngotItem.java"
+        ]
+      },
+      "path": "~/Items/Ingots/Obsidian Ingot"
+    },
+    {
+      "name": "RoseGoldIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_gold_ingot",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/rose_gold_ingot.json",
+          "src/main/java/com/naizo/finetuned/item/RoseGoldIngotItem.java"
+        ]
+      },
+      "path": "~/Items/Ingots/Rose Gold Ingot"
+    },
+    {
+      "name": "RoseGoldIngotRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_gold_ingot_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/rose_gold_ingot_recipe.json"
+        ]
+      },
+      "path": "~/Items/Ingots/Rose Gold Ingot"
+    },
+    {
+      "name": "ObsidianForgedIngotRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidian_forged_ingot_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/obsidian_forged_ingot_recipe.json"
+        ]
+      },
+      "path": "~/Items/Ingots/Obsidian Ingot"
+    },
+    {
+      "name": "EarthlyIngotRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthly_ingot_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/earthly_ingot_recipe.json"
+        ]
+      },
+      "path": "~/Items/Ingots/Earthly Ingot"
+    },
+    {
+      "name": "ClassicHammerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "classic_hammer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/classic_hammer_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Classic Hammer"
+    },
+    {
+      "name": "EarthlyHammerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthly_hammer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/earthly_hammer_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Earthly Hammer"
+    },
+    {
+      "name": "ObsidianHammerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidian_hammer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/obsidian_hammer_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Obsidian Hammer"
+    },
+    {
+      "name": "RoseGoldHammerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_gold_hammer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/rose_gold_hammer_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Hammers/Rose Gold Hammer"
     }
   ],
   "variable_elements": [],
@@ -421,6 +741,10 @@
   ],
   "tag_elements": {
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:Rosegoldhammer",
+      "~CUSTOM:Obsidianhammer",
+      "~CUSTOM:Earthlyhammer",
+      "~CUSTOM:Classichammer",
       "~CUSTOM:HollowManRuyiJinguStaff",
       "~CUSTOM:KurasaiKatana",
       "~CUSTOM:MoonsLunarBloomfang",
@@ -431,17 +755,24 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "subtitles.katana_dash_sound": "",
+      "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
+      "item.fine_tuned_weaponry.rose_gold_ingot": "Rose Gold Ingot",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
-      "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
-      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
+      "item.fine_tuned_weaponry.obsidianhammer": "Obsidian Hammer",
       "subtitles.activation_sound_effect": "",
-      "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
+      "item.fine_tuned_weaponry.obsidian_forged_ingot": "Forged Obsidian Ingot",
       "subtitles.love_effect_sound": "",
-      "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
+      "item.fine_tuned_weaponry.earthly_ingot": "Earthly Ingot",
       "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
-      "item.fine_tuned_weaponry.kurasai_katana": "§6Kurasai\u0027s §eKatana"
+      "item.fine_tuned_weaponry.earthlyhammer": "Earthly Hammer",
+      "item.fine_tuned_weaponry.kurasai_katana": "§6Kurasai\u0027s §eKatana",
+      "subtitles.katana_dash_sound": "",
+      "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
+      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
+      "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
+      "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
+      "item.fine_tuned_weaponry.rosegoldhammer": "Rose Gold Hammer"
     }
   },
   "foldersRoot": {
@@ -484,6 +815,27 @@
                 "children": []
               }
             ]
+          },
+          {
+            "name": "Hammers",
+            "children": [
+              {
+                "name": "Classic Hammer",
+                "children": []
+              },
+              {
+                "name": "Earthly Hammer",
+                "children": []
+              },
+              {
+                "name": "Obsidian Hammer",
+                "children": []
+              },
+              {
+                "name": "Rose Gold Hammer",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -497,21 +849,42 @@
           {
             "name": "WeaponTemplate",
             "children": []
+          },
+          {
+            "name": "Ingots",
+            "children": [
+              {
+                "name": "Earthly Ingot",
+                "children": []
+              },
+              {
+                "name": "Obsidian Ingot",
+                "children": []
+              },
+              {
+                "name": "Rose Gold Ingot",
+                "children": []
+              }
+            ]
           }
         ]
+      },
+      {
+        "name": "Particles",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Fine-Tuned Weaponry",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
     "license": "All Rights Reserved",
     "serverSideOnly": false,
-    "modPicture": "bow_01a",
+    "modPicture": "weapon_soul",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
