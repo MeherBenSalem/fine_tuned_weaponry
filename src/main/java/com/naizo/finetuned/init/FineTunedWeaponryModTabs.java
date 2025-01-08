@@ -31,7 +31,5 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.EARTHLY_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.OBSIDIAN_FORGED_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.ROSE_GOLD_INGOT.get());
-			})
-
-					.build());
+			}).build());
 }

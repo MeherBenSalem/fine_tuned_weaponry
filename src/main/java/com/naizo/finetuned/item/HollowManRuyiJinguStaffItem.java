@@ -57,8 +57,6 @@ public class HollowManRuyiJinguStaffItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A mythical staff wielded by the \u00A7khollow man"));
-		list.add(Component.literal("\u00A7eRight-click : Grants \u00A76Haste II \u00A7efor 7 seconds"));
-		list.add(Component.literal("\u00A79Cooldown : 12.5 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_0"));
 	}
 }

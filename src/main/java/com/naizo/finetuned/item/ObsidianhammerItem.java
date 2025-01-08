@@ -30,7 +30,7 @@ public class ObsidianhammerItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 6f;
+				return 16f;
 			}
 
 			public int getLevel() {
@@ -44,7 +44,7 @@ public class ObsidianhammerItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
 			}
-		}, 3, -3.2f, new Item.Properties());
+		}, 3, -3f, new Item.Properties());
 	}
 
 	@Override
@@ -57,9 +57,8 @@ public class ObsidianhammerItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77Dark as the void and unyielding as the hardest stone"));
-		list.add(Component.literal("\u00A77this hammer bends the battlefield to its will"));
-		list.add(Component.literal("\u00A7eRight-click : Summon a huge meteor strike from the end dealing heavy damage and igniting monsters on fire within a 10-block radius"));
-		list.add(Component.literal("\u00A79Cooldown : 15 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.obsidianhammer.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.obsidianhammer.description_1"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.obsidianhammer.description_2"));
 	}
 }

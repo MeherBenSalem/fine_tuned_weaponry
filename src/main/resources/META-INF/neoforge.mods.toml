@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="fine_tuned_weaponry"
-version="1.2.0"
+version="1.2.1"
 displayName="Fine-Tuned Weaponry"
 displayURL="https://meherbensalem.github.io"
 logoFile="logo.png"
@@ -18,7 +18,7 @@ description="This mod offers ALOT of new weapons with unique abilities"
 [[dependencies.fine_tuned_weaponry]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.1,)"
+    versionRange="[21.1.65,)"
     ordering="AFTER"
     side="BOTH"
 

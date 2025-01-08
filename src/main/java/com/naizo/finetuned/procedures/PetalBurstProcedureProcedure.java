@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Comparator;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModParticleTypes;
+import com.naizo.finetuned.configuration.HammerConfigConfiguration;
 
 public class PetalBurstProcedureProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
@@ -36,11 +37,12 @@ public class PetalBurstProcedureProcedure {
 			_entity.swing(InteractionHand.MAIN_HAND, true);
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(5 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(((double) HammerConfigConfiguration.RG_HAMMER_RANGE.get()) / 2d), e -> true).stream()
+					.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 			for (Entity entityiterator : _entfound) {
 				if (entity instanceof Player == entity instanceof ServerPlayer) {
 					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-						_entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1, true, true));
+						_entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, (int) (double) HammerConfigConfiguration.RG_HAMMER_BUFF_DURATION.get(), (int) (double) HammerConfigConfiguration.RG_HAMMER_BUFF_POWER.get(), true, true));
 				}
 			}
 		}
@@ -58,6 +60,6 @@ public class PetalBurstProcedureProcedure {
 					(z + 0 + Mth.nextDouble(RandomSource.create(), -1, 1) * particleRadius), 0, 0, 0);
 		}
 		if (entity instanceof Player _player)
-			_player.getCooldowns().addCooldown(itemstack.getItem(), 400);
+			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) HammerConfigConfiguration.RG_HAMMER_CDR.get());
 	}
 }

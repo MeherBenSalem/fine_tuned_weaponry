@@ -27,6 +27,8 @@ import net.minecraft.core.BlockPos;
 import java.util.List;
 import java.util.Comparator;
 
+import com.naizo.finetuned.configuration.HammerConfigConfiguration;
+
 public class SmashStrikeProcedureProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -37,10 +39,11 @@ public class SmashStrikeProcedureProcedure {
 			_entity.swing(InteractionHand.MAIN_HAND, true);
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(10 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(((double) HammerConfigConfiguration.EARTH_HAMMER_RANGE.get()) / 2d), e -> true).stream()
+					.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 			for (Entity entityiterator : _entfound) {
 				if (!(entityiterator instanceof ItemFrame && entityiterator instanceof GlowItemFrame && entityiterator instanceof Player && entityiterator instanceof ItemEntity)) {
-					entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 10);
+					entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), (float) (double) HammerConfigConfiguration.EARTH_HAMMER_DAMAGE.get());
 				}
 			}
 		}
@@ -59,6 +62,6 @@ public class SmashStrikeProcedureProcedure {
 					(Mth.nextDouble(RandomSource.create(), -0.001, 0.001)));
 		}
 		if (entity instanceof Player _player)
-			_player.getCooldowns().addCooldown(itemstack.getItem(), 100);
+			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) HammerConfigConfiguration.EARTH_HAMMER_CDR.get());
 	}
 }

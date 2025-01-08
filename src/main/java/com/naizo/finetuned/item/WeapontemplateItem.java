@@ -27,8 +27,8 @@ public class WeapontemplateItem extends Item {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A blueprint forged from ancient knowledge"));
-		list.add(Component.literal("\u00A77Essential for crafting weapons"));
-		list.add(Component.literal("\u00A7cCoveted by master blacksmiths across the realms"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.weapontemplate.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.weapontemplate.description_1"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.weapontemplate.description_2"));
 	}
 }

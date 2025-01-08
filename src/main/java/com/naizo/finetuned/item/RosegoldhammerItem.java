@@ -57,9 +57,7 @@ public class RosegoldhammerItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A delicate yet potent masterpiece"));
-		list.add(Component.literal("\u00A77With each strike, it balances destruction and renewal"));
-		list.add(Component.literal("\u00A7eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect for 5 seconds."));
-		list.add(Component.literal("\u00A79Cooldown : 20 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_1"));
 	}
 }

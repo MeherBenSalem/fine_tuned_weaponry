@@ -45,7 +45,7 @@ public class ClassichammerItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A timeless tool of power, capable of shattering foes and stone alike"));
-		list.add(Component.literal("\u00A77Feel the weight of tradition in your hands"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.classichammer.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.classichammer.description_1"));
 	}
 }

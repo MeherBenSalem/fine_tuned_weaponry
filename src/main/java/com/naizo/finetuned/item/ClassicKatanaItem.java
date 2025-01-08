@@ -57,8 +57,7 @@ public class ClassicKatanaItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A timeless blade forged for swift combat"));
-		list.add(Component.literal("\u00A7eRight-click : Dash forward a short distance"));
-		list.add(Component.literal("\u00A79Cooldown : 2 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.classic_katana.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.classic_katana.description_1"));
 	}
 }

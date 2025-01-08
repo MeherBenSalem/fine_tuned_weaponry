@@ -59,9 +59,7 @@ public class KurasaiKatanaItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77Forged in the storms, this blade channels lightning"));
-		list.add(Component.literal("\u00A7eRight-click : Summon a lightning strike around you and gain Grants \u00A76Resistance V \u00A7efor 1 second"));
-		list.add(Component.literal("\u00A79Cooldown : 7 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.kurasai_katana.description_0"));
 	}
 
 	@Override

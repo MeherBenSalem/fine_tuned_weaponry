@@ -17,6 +17,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
 
+import com.naizo.finetuned.configuration.PoolConfigConfiguration;
+
 public class HollowmancombatpoleRightclickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -24,9 +26,9 @@ public class HollowmancombatpoleRightclickedProcedure {
 		double particleRadius = 0;
 		double particleAmount = 0;
 		if (entity instanceof Player _player)
-			_player.getCooldowns().addCooldown(itemstack.getItem(), 250);
+			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) PoolConfigConfiguration.HOLLOW_HASTE_CDR.get());
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 150, 2, true, true));
+			_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, (int) (double) PoolConfigConfiguration.HOLLOW_HASTE_DURATION.get(), (int) (double) PoolConfigConfiguration.HOLLOW_HASTE_POWER.get(), true, true));
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
 				_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("fine_tuned_weaponry:activation_sound_effect")), SoundSource.PLAYERS, 1, 1);

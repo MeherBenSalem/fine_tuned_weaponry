@@ -57,9 +57,7 @@ public class EarthlyhammerItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77Forged from the heart of the earth"));
-		list.add(Component.literal("\u00A77this hammer channels the primal force of tectonic fury"));
-		list.add(Component.literal("\u00A7eRight-click : Deals heavy knockback and AOE damage to mobs within a 10-block radius"));
-		list.add(Component.literal("\u00A79Cooldown : 5 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.earthlyhammer.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.earthlyhammer.description_1"));
 	}
 }

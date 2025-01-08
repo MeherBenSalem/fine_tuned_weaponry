@@ -18,7 +18,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
-import com.naizo.finetuned.procedures.ClassicKatanaRightclickedProcedure;
+import com.naizo.finetuned.procedures.BloodKatanaRightClickedProcedure;
 
 public class BloodKatanaItem extends SwordItem {
 	public BloodKatanaItem() {
@@ -52,17 +52,16 @@ public class BloodKatanaItem extends SwordItem {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
 		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
-		ClassicKatanaRightclickedProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
+		BloodKatanaRightClickedProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
 		return ar;
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.literal("\u00A77A cursed blade imbued with dark power"));
-		list.add(Component.literal("\u00A7eRight-click : Dash forward a short distance"));
-		list.add(Component.literal("\u00A79Passive: \u00A7bLife-steal with each strike"));
-		list.add(Component.literal("\u00A79Cooldown : 2 sec"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.blood_katana.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.blood_katana.description_1"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.blood_katana.description_2"));
 	}
 
 	@Override

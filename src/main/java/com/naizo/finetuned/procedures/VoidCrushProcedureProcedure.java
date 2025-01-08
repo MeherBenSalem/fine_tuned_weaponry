@@ -27,6 +27,8 @@ import net.minecraft.client.Minecraft;
 import java.util.List;
 import java.util.Comparator;
 
+import com.naizo.finetuned.configuration.HammerConfigConfiguration;
+
 public class VoidCrushProcedureProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -40,7 +42,8 @@ public class VoidCrushProcedureProcedure {
 			Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(Blocks.DRAGON_HEAD));
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(10 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(((double) HammerConfigConfiguration.OB_HAMMER_RANGE.get()) / 2d), e -> true).stream()
+					.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 			for (Entity entityiterator : _entfound) {
 				if (!(entityiterator instanceof ItemEntity || entityiterator == entity)) {
 					particleAmount = 4;
@@ -50,8 +53,8 @@ public class VoidCrushProcedureProcedure {
 								(entityiterator.getY() + 0 + Mth.nextDouble(RandomSource.create(), 0, 5) * particleRadius), (entityiterator.getZ() + 0 + Mth.nextDouble(RandomSource.create(), -0.1, 0.1) * particleRadius), 0, 0, 0);
 					}
 					if (world instanceof ServerLevel _level)
-						FallingBlockEntity.fall(_level, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), Blocks.FIRE.defaultBlockState());
-					entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 30);
+						FallingBlockEntity.fall(_level, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), Blocks.SOUL_FIRE.defaultBlockState());
+					entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), (float) (double) HammerConfigConfiguration.OB_HAMMER_DAMAGE.get());
 				}
 			}
 		}
@@ -63,6 +66,6 @@ public class VoidCrushProcedureProcedure {
 			}
 		}
 		if (entity instanceof Player _player)
-			_player.getCooldowns().addCooldown(itemstack.getItem(), 300);
+			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) HammerConfigConfiguration.OB_HAMMER_CDR.get());
 	}
 }
