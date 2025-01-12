@@ -17,7 +17,9 @@ import com.naizo.finetuned.item.ObsidianhammerItem;
 import com.naizo.finetuned.item.ObsidianForgedIngotItem;
 import com.naizo.finetuned.item.MoonsLunarBloomfangItem;
 import com.naizo.finetuned.item.KurasaiKatanaItem;
+import com.naizo.finetuned.item.ImmortalScytheItem;
 import com.naizo.finetuned.item.HollowManRuyiJinguStaffItem;
+import com.naizo.finetuned.item.HelishSwordItem;
 import com.naizo.finetuned.item.EarthlyhammerItem;
 import com.naizo.finetuned.item.EarthlyIngotItem;
 import com.naizo.finetuned.item.ClassichammerItem;
@@ -40,6 +42,8 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> EARTHLY_INGOT = REGISTRY.register("earthly_ingot", () -> new EarthlyIngotItem());
 	public static final RegistryObject<Item> OBSIDIAN_FORGED_INGOT = REGISTRY.register("obsidian_forged_ingot", () -> new ObsidianForgedIngotItem());
 	public static final RegistryObject<Item> ROSE_GOLD_INGOT = REGISTRY.register("rose_gold_ingot", () -> new RoseGoldIngotItem());
+	public static final RegistryObject<Item> HELISH_SWORD = REGISTRY.register("helish_sword", () -> new HelishSwordItem());
+	public static final RegistryObject<Item> IMMORTAL_SCYTHE = REGISTRY.register("immortal_scythe", () -> new ImmortalScytheItem());
 	// Start of user code block custom items
 	// End of user code block custom items
 }

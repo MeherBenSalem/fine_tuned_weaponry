@@ -31,5 +31,7 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.EARTHLY_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.OBSIDIAN_FORGED_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.ROSE_GOLD_INGOT.get());
+				tabData.accept(FineTunedWeaponryModItems.HELISH_SWORD.get());
+				tabData.accept(FineTunedWeaponryModItems.IMMORTAL_SCYTHE.get());
 			}).build());
 }

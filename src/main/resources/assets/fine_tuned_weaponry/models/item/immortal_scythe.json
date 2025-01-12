@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/deathscythe",
+  "textures": {
+    "2": "fine_tuned_weaponry:block/javion_scythe_texture",
+    "particle": "minecraft:item/empty_slot_sword"
+  }
+}

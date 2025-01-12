@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "2": "javion_scythe_texture"
+      },
+      "name": "default"
+    }
+  }
+}
