@@ -1,45 +1,6 @@
 {
   "mod_elements": [
     {
-      "name": "HollowmancombatpoleRightclicked",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hollowmancombatpole_rightclicked",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/HollowmancombatpoleRightclickedProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Weapons/Poles/GrandMasterPole"
-    },
-    {
       "name": "ClassicKatanaRightclicked",
       "type": "procedure",
       "compiles": true,
@@ -105,64 +66,6 @@
         ]
       },
       "path": "~/Weapons/Katana/Blood Katana"
-    },
-    {
-      "name": "BloodKatanaSpecial",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "blood_katana_special",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/BloodKatanaSpecialProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Weapons/Katana/Blood Katana"
-    },
-    {
-      "name": "KuasaiKatanaRightclicked",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kuasai_katana_rightclicked",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/KuasaiKatanaRightclickedProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Weapons/Katana/Kurasai Katana"
     },
     {
       "name": "MoonsLunarBloomfang",
@@ -268,20 +171,6 @@
       "path": "~/Misc"
     },
     {
-      "name": "KurasaiKatana",
-      "type": "tool",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kurasai_katana",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/fine_tuned_weaponry/models/item/kurasai_katana.json",
-          "src/main/java/com/naizo/finetuned/item/KurasaiKatanaItem.java"
-        ]
-      },
-      "path": "~/Weapons/Katana/Kurasai Katana"
-    },
-    {
       "name": "HollowmansRecipe",
       "type": "recipe",
       "compiles": true,
@@ -306,19 +195,6 @@
         ]
       },
       "path": "~/Weapons/Katana/Classic"
-    },
-    {
-      "name": "KurasaiKatanaRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kurasai_katana_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/fine_tuned_weaponry/recipes/kurasai_katana_recipe.json"
-        ]
-      },
-      "path": "~/Weapons/Katana/Kurasai Katana"
     },
     {
       "name": "HollowManRuyiJinguStaff",
@@ -439,137 +315,6 @@
         "files": [
           "src/main/resources/assets/fine_tuned_weaponry/models/item/rosegoldhammer.json",
           "src/main/java/com/naizo/finetuned/item/RosegoldhammerItem.java"
-        ]
-      },
-      "path": "~/Weapons/Hammers/Rose Gold Hammer"
-    },
-    {
-      "name": "SmashStrikeProcedure",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "smash_strike_procedure",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/SmashStrikeProcedureProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Weapons/Hammers/Earthly Hammer"
-    },
-    {
-      "name": "VoidCrushProcedure",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "void_crush_procedure",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/VoidCrushProcedureProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Weapons/Hammers/Obsidian Hammer"
-    },
-    {
-      "name": "RoseParticle",
-      "type": "particle",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "rose_particle",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/fine_tuned_weaponry/particles/rose_particle.json",
-          "src/main/java/com/naizo/finetuned/client/particle/RoseParticleParticle.java"
-        ]
-      },
-      "path": "~/Particles"
-    },
-    {
-      "name": "PetalBurstProcedure",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "petal_burst_procedure",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/PetalBurstProcedureProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
         ]
       },
       "path": "~/Weapons/Hammers/Rose Gold Hammer"
@@ -708,42 +453,6 @@
       "path": "~/Weapons/Hammers/Rose Gold Hammer"
     },
     {
-      "name": "PoolConfig",
-      "type": "config",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "pool_config",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/configuration/PoolConfigConfiguration.java"
-        ]
-      },
-      "path": "~/Weapons/Poles"
-    },
-    {
-      "name": "GiveHastePowerTooltip",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "give_haste_power_tooltip",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/GiveHastePowerTooltipProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "tooltip",
-            "type": "tooltip"
-          }
-        ]
-      },
-      "path": "~/Weapons/Poles/GrandMasterPole"
-    },
-    {
       "name": "GiveKatanaTooltip",
       "type": "procedure",
       "compiles": true,
@@ -842,29 +551,6 @@
       "path": "~/Weapons/Katana/Blood Katana"
     },
     {
-      "name": "GiveKurasaiKatanaTooltip",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "give_kurasai_katana_tooltip",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/GiveKurasaiKatanaTooltipProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "tooltip",
-            "type": "tooltip"
-          }
-        ]
-      },
-      "path": "~/Weapons/Katana/Kurasai Katana"
-    },
-    {
       "name": "FangConfig",
       "type": "config",
       "compiles": true,
@@ -901,120 +587,6 @@
       "path": "~/Weapons/Fangs/MoonsBloomfang"
     },
     {
-      "name": "GiveEarthlyHammerTooltip",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "give_earthly_hammer_tooltip",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/GiveEarthlyHammerTooltipProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "tooltip",
-            "type": "tooltip"
-          }
-        ]
-      },
-      "path": "~/Weapons/Hammers/Earthly Hammer"
-    },
-    {
-      "name": "HammerConfig",
-      "type": "config",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hammer_config",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/configuration/HammerConfigConfiguration.java"
-        ]
-      },
-      "path": "~/Weapons/Hammers"
-    },
-    {
-      "name": "GiveObsidianHammerTooltip",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "give_obsidian_hammer_tooltip",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/GiveObsidianHammerTooltipProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "tooltip",
-            "type": "tooltip"
-          }
-        ]
-      },
-      "path": "~/Weapons/Hammers/Obsidian Hammer"
-    },
-    {
-      "name": "GiveRoseGoldHammerTooltip",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "give_rose_gold_hammer_tooltip",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/GiveRoseGoldHammerTooltipProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "tooltip",
-            "type": "tooltip"
-          }
-        ]
-      },
-      "path": "~/Weapons/Hammers/Rose Gold Hammer"
-    },
-    {
-      "name": "ResetItemdcr",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "reset_itemdcr",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/ResetItemdcrProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Commands"
-    },
-    {
-      "name": "ResetWeaponCdr",
-      "type": "command",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "reset_weapon_cdr",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/command/ResetWeaponCdrCommand.java"
-        ]
-      },
-      "path": "~/Commands"
-    },
-    {
       "name": "HelishSword",
       "type": "tool",
       "compiles": true,
@@ -1043,14 +615,27 @@
       "path": "~/Weapons/Scythe"
     },
     {
-      "name": "ImmortalScytheRightclicked",
+      "name": "Stonefall",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stonefall",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/enchantment/StonefallEnchantment.java"
+        ]
+      },
+      "path": "~/Enchantements/Stonefall"
+    },
+    {
+      "name": "StonefallEffect",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "immortal_scythe_rightclicked",
+      "registry_name": "stonefall_effect",
       "metadata": {
         "files": [
-          "src/main/java/com/naizo/finetuned/procedures/ImmortalScytheRightclickedProcedure.java"
+          "src/main/java/com/naizo/finetuned/procedures/StonefallEffectProcedure.java"
         ],
         "dependencies": [
           {
@@ -1058,8 +643,48 @@
             "type": "entity"
           },
           {
-            "name": "itemstack",
-            "type": "itemstack"
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Enchantements/Stonefall"
+    },
+    {
+      "name": "Launchstrike",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "launchstrike",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/enchantment/LaunchstrikeEnchantment.java"
+        ]
+      },
+      "path": "~/Enchantements/Launchstrike"
+    },
+    {
+      "name": "LaunchstrikeEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "launchstrike_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/LaunchstrikeEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
           },
           {
             "name": "x",
@@ -1079,17 +704,30 @@
           }
         ]
       },
-      "path": "~/Weapons/Scythe"
+      "path": "~/Enchantements/Launchstrike"
     },
     {
-      "name": "HelishSwordRightclicked",
+      "name": "ThunderFury",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "thunder_fury",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/enchantment/ThunderFuryEnchantment.java"
+        ]
+      },
+      "path": "~/Enchantements/ThunderFury"
+    },
+    {
+      "name": "ThunderFuryEffect",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "helish_sword_rightclicked",
+      "registry_name": "thunder_fury_effect",
       "metadata": {
         "files": [
-          "src/main/java/com/naizo/finetuned/procedures/HelishSwordRightclickedProcedure.java"
+          "src/main/java/com/naizo/finetuned/procedures/ThunderFuryEffectProcedure.java"
         ],
         "dependencies": [
           {
@@ -1097,20 +735,126 @@
             "type": "entity"
           },
           {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Enchantements/ThunderFury"
+    },
+    {
+      "name": "HelishSwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "helish_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/helish_sword_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Swords/HellishSword"
+    },
+    {
+      "name": "ScytheRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scythe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/scythe_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Scythe"
+    },
+    {
+      "name": "ObsidianhammerItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidianhammer_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/ObsidianhammerItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
             "name": "itemstack",
             "type": "itemstack"
           },
           {
-            "name": "x",
-            "type": "number"
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Obsidian Hammer"
+    },
+    {
+      "name": "EarthlyhammerItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthlyhammer_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/EarthlyhammerItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
           },
           {
-            "name": "y",
-            "type": "number"
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Earthly Hammer"
+    },
+    {
+      "name": "RosegoldhammerItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosegoldhammer_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/RosegoldhammerItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
           },
           {
-            "name": "z",
-            "type": "number"
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Hammers/Rose Gold Hammer"
+    },
+    {
+      "name": "HelishSwordItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "helish_sword_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/HelishSwordItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
           },
           {
             "name": "world",
@@ -1119,6 +863,29 @@
         ]
       },
       "path": "~/Weapons/Swords/HellishSword"
+    },
+    {
+      "name": "ImmortalScytheItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "immortal_scythe_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/ImmortalScytheItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Scythe"
     }
   ],
   "variable_elements": [],
@@ -1157,7 +924,6 @@
       "~CUSTOM:Earthlyhammer",
       "~CUSTOM:Classichammer",
       "~CUSTOM:HollowManRuyiJinguStaff",
-      "~CUSTOM:KurasaiKatana",
       "~CUSTOM:MoonsLunarBloomfang",
       "~CUSTOM:BloodKatana",
       "~CUSTOM:ClassicKatana"
@@ -1166,22 +932,25 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "item.fine_tuned_weaponry.earthly_ingot": "Earthly Ingot",
       "subtitles.love_effect_sound": "",
+      "item.fine_tuned_weaponry.earthly_ingot": "Earthly Ingot",
       "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
       "item.fine_tuned_weaponry.earthlyhammer": "§6Earthly §eHammer",
       "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
       "item.fine_tuned_weaponry.rosegoldhammer.description_1": "§eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect",
+      "item.fine_tuned_weaponry.immortal_scythe.description_0": "§5Forged by ancient beings who transcended death, the Immortal Scythe is a weapon that embodies both the end and the rebirth of life. Its blade gleams with an eerie, otherworldly glow that drains the life force from anyone it touches. ",
       "item.fine_tuned_weaponry.rosegoldhammer.description_0": "§7A delicate yet potent masterpiece",
       "item.fine_tuned_weaponry.rosegoldhammer.description_3": "§9Cooldown : 20 sec",
-      "item.fine_tuned_weaponry.rosegoldhammer": "§5Rose §6Gold §5Hammer",
+      "item.fine_tuned_weaponry.rosegoldhammer": "§5Rose gold §dhammer",
       "item.fine_tuned_weaponry.rosegoldhammer.description_2": "§eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect",
       "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
       "item.fine_tuned_weaponry.classic_katana.description_2": "§9Cooldown : 2 sec",
+      "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana.description_0": "§7A timeless blade forged for swift combat",
       "item.fine_tuned_weaponry.classic_katana.description_1": "§eRight-click : Dash forward a short distance",
       "item.fine_tuned_weaponry.obsidian_forged_ingot": "Forged Obsidian Ingot",
+      "enchantment.fine_tuned_weaponry.launchstrike": "Launchstrike",
       "item.fine_tuned_weaponry.earthlyhammer.description_0": "§7Forged from the heart of the earth",
       "item.fine_tuned_weaponry.earthlyhammer.description_1": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
       "item.fine_tuned_weaponry.earthlyhammer.description_2": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
@@ -1190,9 +959,9 @@
       "item.fine_tuned_weaponry.kurasai_katana.description_2": "§9Cooldown : 7 sec",
       "item.fine_tuned_weaponry.kurasai_katana.description_1": "§eRight-click : Summon a lightning strike around you and gain Grants §6Resistance V §efor 1 second",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_0": "§7A mythical staff wielded by the §khollow man",
-      "item.fine_tuned_weaponry.kurasai_katana.description_0": "§7Forged in the storms, this blade channels lightning",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_1": "§eRight-click : Grants §6Haste II §efor 7 seconds",
       "item.fine_tuned_weaponry.immortal_scythe": "Immortal Scythe",
+      "enchantment.fine_tuned_weaponry.stonefall": "Stonefall",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
       "item.fine_tuned_weaponry.classichammer.description_1": "§7Feel the weight of tradition in your hands",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
@@ -1201,7 +970,6 @@
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_0": "§7A mystical blade imbued with the power of the lunar bloom",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_3": "§9Cooldown : 30 sec",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_2": "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
-      "item.fine_tuned_weaponry.kurasai_katana": "§6Kurasai\u0027s §eKatana",
       "item.fine_tuned_weaponry.weapontemplate.description_1": "§7Essential for crafting weapons",
       "subtitles.katana_dash_sound": "",
       "item.fine_tuned_weaponry.weapontemplate.description_2": "§cCoveted by master blacksmiths across the realms",
@@ -1219,6 +987,7 @@
       "item.fine_tuned_weaponry.helish_sword": "Helish Sword",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
       "item.fine_tuned_weaponry.obsidianhammer.description_1": "§7this hammer bends the battlefield to its will",
+      "enchantment.fine_tuned_weaponry.thunder_fury": "Thunder Fury",
       "item.fine_tuned_weaponry.obsidianhammer.description_0": "§7Dark as the void and unyielding as the hardest stone"
     }
   },
@@ -1246,10 +1015,6 @@
               },
               {
                 "name": "Blood Katana",
-                "children": []
-              },
-              {
-                "name": "Kurasai Katana",
                 "children": []
               }
             ]
@@ -1330,19 +1095,28 @@
         ]
       },
       {
-        "name": "Particles",
-        "children": []
-      },
-      {
-        "name": "Commands",
-        "children": []
+        "name": "Enchantements",
+        "children": [
+          {
+            "name": "Stonefall",
+            "children": []
+          },
+          {
+            "name": "Launchstrike",
+            "children": []
+          },
+          {
+            "name": "ThunderFury",
+            "children": []
+          }
+        ]
       }
     ]
   },
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
-    "modName": "Fine-Tuned Weaponry",
-    "version": "1.2.1",
+    "modName": "Finetuned Weaponry",
+    "version": "1.3.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",

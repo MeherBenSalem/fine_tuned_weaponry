@@ -21,7 +21,6 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.CLASSIC_KATANA.get());
 				tabData.accept(FineTunedWeaponryModItems.BLOOD_KATANA.get());
 				tabData.accept(FineTunedWeaponryModItems.MOONS_LUNAR_BLOOMFANG.get());
-				tabData.accept(FineTunedWeaponryModItems.KURASAI_KATANA.get());
 				tabData.accept(FineTunedWeaponryModItems.HOLLOW_MAN_RUYI_JINGU_STAFF.get());
 				tabData.accept(FineTunedWeaponryModItems.WEAPONTEMPLATE.get());
 				tabData.accept(FineTunedWeaponryModItems.CLASSICHAMMER.get());

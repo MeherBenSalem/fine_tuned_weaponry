@@ -10,13 +10,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
-import com.naizo.finetuned.procedures.SmashStrikeProcedureProcedure;
+import com.naizo.finetuned.procedures.EarthlyhammerItemIsCraftedsmeltedProcedure;
 
 public class EarthlyhammerItem extends SwordItem {
 	public EarthlyhammerItem() {
@@ -48,16 +46,14 @@ public class EarthlyhammerItem extends SwordItem {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
-		SmashStrikeProcedureProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
-		return ar;
-	}
-
-	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
 		list.add(Component.translatable("item.fine_tuned_weaponry.earthlyhammer.description_0"));
-		list.add(Component.translatable("item.fine_tuned_weaponry.earthlyhammer.description_1"));
+	}
+
+	@Override
+	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
+		super.onCraftedBy(itemstack, world, entity);
+		EarthlyhammerItemIsCraftedsmeltedProcedure.execute(world, itemstack);
 	}
 }

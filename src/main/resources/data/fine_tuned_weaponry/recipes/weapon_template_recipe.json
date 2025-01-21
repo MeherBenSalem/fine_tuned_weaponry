@@ -4,17 +4,17 @@
   "pattern": [
     " a ",
     "bcb",
-    "bbb"
+    " b "
   ],
   "key": {
     "a": {
-      "item": "minecraft:iron_sword"
+      "item": "minecraft:lapis_lazuli"
     },
     "b": {
       "item": "minecraft:gold_ingot"
     },
     "c": {
-      "item": "minecraft:book"
+      "item": "minecraft:paper"
     }
   },
   "result": {

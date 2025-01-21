@@ -28,8 +28,8 @@ import java.util.AbstractMap;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModTabs;
 import com.naizo.finetuned.init.FineTunedWeaponryModSounds;
-import com.naizo.finetuned.init.FineTunedWeaponryModParticleTypes;
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
+import com.naizo.finetuned.init.FineTunedWeaponryModEnchantments;
 
 @Mod("fine_tuned_weaponry")
 public class FineTunedWeaponryMod {
@@ -45,9 +45,8 @@ public class FineTunedWeaponryMod {
 
 		FineTunedWeaponryModItems.REGISTRY.register(bus);
 
+		FineTunedWeaponryModEnchantments.REGISTRY.register(bus);
 		FineTunedWeaponryModTabs.REGISTRY.register(bus);
-
-		FineTunedWeaponryModParticleTypes.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

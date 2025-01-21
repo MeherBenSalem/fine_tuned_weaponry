@@ -6,17 +6,15 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
-import com.naizo.finetuned.procedures.PetalBurstProcedureProcedure;
+import com.naizo.finetuned.procedures.RosegoldhammerItemIsCraftedsmeltedProcedure;
+import com.naizo.finetuned.init.FineTunedWeaponryModItems;
 
 public class RosegoldhammerItem extends SwordItem {
 	public RosegoldhammerItem() {
@@ -30,7 +28,7 @@ public class RosegoldhammerItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 6f;
+				return 9f;
 			}
 
 			public int getLevel() {
@@ -42,22 +40,20 @@ public class RosegoldhammerItem extends SwordItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
+				return Ingredient.of(new ItemStack(FineTunedWeaponryModItems.ROSE_GOLD_INGOT.get()));
 			}
-		}, 3, -3.2f, new Item.Properties());
-	}
-
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
-		PetalBurstProcedureProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
-		return ar;
+		}, 3, -3f, new Item.Properties());
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, level, list, flag);
 		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_0"));
-		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_1"));
+	}
+
+	@Override
+	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
+		super.onCraftedBy(itemstack, world, entity);
+		RosegoldhammerItemIsCraftedsmeltedProcedure.execute(world, itemstack);
 	}
 }

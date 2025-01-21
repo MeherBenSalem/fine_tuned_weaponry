@@ -1,7 +1,0 @@
-{
-  "parent": "fine_tuned_weaponry:custom/kurasais_katana",
-  "textures": {
-    "0": "fine_tuned_weaponry:block/kurasai_katana_texture",
-    "particle": "minecraft:item/golden_sword"
-  }
-}

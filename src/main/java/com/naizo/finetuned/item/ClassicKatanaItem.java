@@ -30,7 +30,7 @@ public class ClassicKatanaItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 4f;
+				return 6f;
 			}
 
 			public int getLevel() {

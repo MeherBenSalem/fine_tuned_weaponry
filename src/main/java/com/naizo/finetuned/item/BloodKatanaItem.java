@@ -32,7 +32,7 @@ public class BloodKatanaItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 9f;
+				return 11f;
 			}
 
 			public int getLevel() {

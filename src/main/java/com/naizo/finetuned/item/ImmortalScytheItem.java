@@ -6,15 +6,17 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.network.chat.Component;
 
-import com.naizo.finetuned.procedures.ImmortalScytheRightclickedProcedure;
+import java.util.List;
+
+import com.naizo.finetuned.procedures.ImmortalScytheItemIsCraftedsmeltedProcedure;
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
 
 public class ImmortalScytheItem extends SwordItem {
@@ -47,10 +49,15 @@ public class ImmortalScytheItem extends SwordItem {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
-		ImmortalScytheRightclickedProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
-		return ar;
+	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
+		super.appendHoverText(itemstack, level, list, flag);
+		list.add(Component.translatable("item.fine_tuned_weaponry.immortal_scythe.description_0"));
+	}
+
+	@Override
+	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
+		super.onCraftedBy(itemstack, world, entity);
+		ImmortalScytheItemIsCraftedsmeltedProcedure.execute(world, itemstack);
 	}
 
 	@Override

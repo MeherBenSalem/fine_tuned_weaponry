@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    " a ",
-    "bcb"
+    "aba"
   ],
   "key": {
     "a": {
-      "item": "minecraft:dragon_breath"
-    },
-    "b": {
       "item": "minecraft:crying_obsidian"
     },
-    "c": {
+    "b": {
       "item": "minecraft:iron_block"
     }
   },

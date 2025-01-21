@@ -1,22 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "pattern": [
-    " a ",
-    "bcb",
-    " b "
-  ],
-  "key": {
-    "a": {
+  "ingredients": [
+    {
       "item": "fine_tuned_weaponry:weapontemplate"
     },
-    "b": {
+    {
       "item": "fine_tuned_weaponry:rose_gold_ingot"
     },
-    "c": {
+    {
       "item": "fine_tuned_weaponry:classichammer"
+    },
+    {
+      "item": "fine_tuned_weaponry:rose_gold_ingot"
     }
-  },
+  ],
   "result": {
     "item": "fine_tuned_weaponry:rosegoldhammer",
     "count": 1
