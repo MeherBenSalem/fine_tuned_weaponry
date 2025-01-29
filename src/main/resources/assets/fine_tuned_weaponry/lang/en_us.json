@@ -1,6 +1,6 @@
 {
-  "subtitles.love_effect_sound": "",
   "item.fine_tuned_weaponry.earthly_ingot": "Earthly Ingot",
+  "subtitles.love_effect_sound": "",
   "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
   "item.fine_tuned_weaponry.earthlyhammer": "§6Earthly §eHammer",
   "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
@@ -46,6 +46,7 @@
   "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_2": "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
   "item.fine_tuned_weaponry.inosukessword.description_1": "§7Wielded by the boar-headed warrior",
   "item.fine_tuned_weaponry.inosukessword.description_0": "§7A wild and jagged blade",
+  "itemGroup.tab_fine_tunned_mats": "Fine Tuned Materials",
   "item.fine_tuned_weaponry.weapontemplate.description_1": "§7Essential for crafting weapons",
   "subtitles.katana_dash_sound": "",
   "item.fine_tuned_weaponry.weapontemplate.description_2": "§cCoveted by master blacksmiths across the realms",
