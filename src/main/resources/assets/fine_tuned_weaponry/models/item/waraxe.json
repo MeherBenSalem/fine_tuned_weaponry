@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/war_axe",
+  "textures": {
+    "4": "fine_tuned_weaponry:block/war_axe",
+    "particle": "fine_tuned_weaponry:item/war_axe"
+  }
+}

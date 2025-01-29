@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/inosukes_sword",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/inosukes_sword",
+    "particle": "fine_tuned_weaponry:item/inosukes_sword"
+  }
+}

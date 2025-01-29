@@ -44,7 +44,7 @@ public class ClassicKatanaItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
 			}
-		}, 3, -2f, new Item.Properties());
+		}, 3, -2.4f, new Item.Properties());
 	}
 
 	@Override

@@ -11,11 +11,13 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.item.Item;
 
 import com.naizo.finetuned.item.WeapontemplateItem;
+import com.naizo.finetuned.item.WaraxeItem;
 import com.naizo.finetuned.item.RosegoldhammerItem;
 import com.naizo.finetuned.item.RoseGoldIngotItem;
 import com.naizo.finetuned.item.ObsidianhammerItem;
 import com.naizo.finetuned.item.ObsidianForgedIngotItem;
 import com.naizo.finetuned.item.MoonsLunarBloomfangItem;
+import com.naizo.finetuned.item.InosukesswordItem;
 import com.naizo.finetuned.item.ImmortalScytheItem;
 import com.naizo.finetuned.item.HollowManRuyiJinguStaffItem;
 import com.naizo.finetuned.item.HelishSwordItem;
@@ -42,6 +44,8 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> ROSE_GOLD_INGOT = REGISTRY.register("rose_gold_ingot", () -> new RoseGoldIngotItem());
 	public static final RegistryObject<Item> HELISH_SWORD = REGISTRY.register("helish_sword", () -> new HelishSwordItem());
 	public static final RegistryObject<Item> IMMORTAL_SCYTHE = REGISTRY.register("immortal_scythe", () -> new ImmortalScytheItem());
+	public static final RegistryObject<Item> INOSUKESSWORD = REGISTRY.register("inosukessword", () -> new InosukesswordItem());
+	public static final RegistryObject<Item> WARAXE = REGISTRY.register("waraxe", () -> new WaraxeItem());
 	// Start of user code block custom items
 	// End of user code block custom items
 }

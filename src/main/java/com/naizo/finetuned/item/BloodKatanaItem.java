@@ -12,6 +12,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.network.chat.Component;
@@ -19,6 +20,7 @@ import net.minecraft.network.chat.Component;
 import java.util.List;
 
 import com.naizo.finetuned.procedures.BloodKatanaRightClickedProcedure;
+import com.naizo.finetuned.procedures.BloodKatanaLivingEntityIsHitWithToolProcedure;
 
 public class BloodKatanaItem extends SwordItem {
 	public BloodKatanaItem() {
@@ -46,7 +48,14 @@ public class BloodKatanaItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 3, -2f, new Item.Properties());
+		}, 3, -2.2f, new Item.Properties());
+	}
+
+	@Override
+	public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+		boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
+		BloodKatanaLivingEntityIsHitWithToolProcedure.execute(sourceentity);
+		return retval;
 	}
 
 	@Override

@@ -886,6 +886,123 @@
         ]
       },
       "path": "~/Weapons/Scythe"
+    },
+    {
+      "name": "Inosukessword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inosukessword",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/inosukessword.json",
+          "src/main/java/com/naizo/finetuned/item/InosukesswordItem.java"
+        ]
+      },
+      "path": "~/Weapons/Katana/Inosukes Sword"
+    },
+    {
+      "name": "InosukesswordLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inosukessword_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/InosukesswordLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Katana/Inosukes Sword"
+    },
+    {
+      "name": "InosukeKatanaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inosuke_katana_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/inosuke_katana_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Katana/Inosukes Sword"
+    },
+    {
+      "name": "BloodKatanaLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blood_katana_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BloodKatanaLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons/Katana/Blood Katana"
+    },
+    {
+      "name": "WaraxeLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waraxe_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/WaraxeLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Axes/War Axe"
+    },
+    {
+      "name": "Waraxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waraxe",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/WaraxeItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/waraxe.json"
+        ]
+      },
+      "path": "~/Weapons/Axes/War Axe"
+    },
+    {
+      "name": "FineTunnedMats",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fine_tunned_mats",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Misc"
     }
   ],
   "variable_elements": [],
@@ -916,7 +1033,11 @@
     }
   ],
   "tag_elements": {
+    "ITEMS:minecraft:axes": [
+      "~CUSTOM:Waraxe"
+    ],
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:Inosukessword",
       "~CUSTOM:ImmortalScythe",
       "~CUSTOM:HelishSword",
       "~CUSTOM:Rosegoldhammer",
@@ -929,7 +1050,22 @@
       "~CUSTOM:ClassicKatana"
     ]
   },
-  "tab_element_order": {},
+  "tab_element_order": {
+    "CUSTOM:FineTunedWeapons": [
+      "ClassicKatana",
+      "BloodKatana",
+      "Inosukessword",
+      "MoonsLunarBloomfang",
+      "HelishSword",
+      "ImmortalScythe",
+      "HollowManRuyiJinguStaff",
+      "Classichammer",
+      "Earthlyhammer",
+      "Obsidianhammer",
+      "Rosegoldhammer",
+      "Waraxe"
+    ]
+  },
   "language_map": {
     "en_us": {
       "subtitles.love_effect_sound": "",
@@ -944,8 +1080,12 @@
       "item.fine_tuned_weaponry.rosegoldhammer": "§5Rose gold §dhammer",
       "item.fine_tuned_weaponry.rosegoldhammer.description_2": "§eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect",
       "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
+      "item.fine_tuned_weaponry.waraxe.description_0": "§7A heavy, brutal weapon designed for chaos",
       "item.fine_tuned_weaponry.classic_katana.description_2": "§9Cooldown : 2 sec",
+      "item.fine_tuned_weaponry.waraxe": "§6War Axe of Devastation",
+      "item.fine_tuned_weaponry.waraxe.description_1": "§7Shatters armor and cleaves through enemies",
       "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
+      "item.fine_tuned_weaponry.waraxe.description_2": "§e10% chance to deal §c+50% damage§e on hit",
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana.description_0": "§7A timeless blade forged for swift combat",
       "item.fine_tuned_weaponry.classic_katana.description_1": "§eRight-click : Dash forward a short distance",
@@ -967,16 +1107,22 @@
       "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_1": "§eRight-click : tame nearby passive mobs",
       "item.fine_tuned_weaponry.classichammer.description_0": "§7A timeless tool of power, capable of shattering foes and stone alike",
+      "item.fine_tuned_weaponry.inosukessword": "§cInosuke\u0027s Katana",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_0": "§7A mystical blade imbued with the power of the lunar bloom",
+      "item.fine_tuned_weaponry.inosukessword.description_3": "§e10% chance to deal 15% max health damage",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_3": "§9Cooldown : 30 sec",
+      "item.fine_tuned_weaponry.inosukessword.description_2": "§7Cuts through demons with brutal force",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_2": "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
+      "item.fine_tuned_weaponry.inosukessword.description_1": "§7Wielded by the boar-headed warrior",
+      "item.fine_tuned_weaponry.inosukessword.description_0": "§7A wild and jagged blade",
       "item.fine_tuned_weaponry.weapontemplate.description_1": "§7Essential for crafting weapons",
       "subtitles.katana_dash_sound": "",
       "item.fine_tuned_weaponry.weapontemplate.description_2": "§cCoveted by master blacksmiths across the realms",
       "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
       "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
+      "item_group.fine_tuned_weaponry.fine_tunned_mats": "Fine Tuned Materials",
       "item.fine_tuned_weaponry.weapontemplate.description_0": "§7A blueprint forged from ancient knowledge",
-      "item.fine_tuned_weaponry.blood_katana.description_2": "§9Passive: §bLife-steal with each strike",
+      "item.fine_tuned_weaponry.blood_katana.description_2": "§9Passive: §b10% chance to Life-steal 4 hearts with each strike",
       "item.fine_tuned_weaponry.blood_katana.description_3": "§9Cooldown : 2 sec",
       "item.fine_tuned_weaponry.blood_katana.description_0": "§7A cursed blade imbued with dark power",
       "item.fine_tuned_weaponry.blood_katana.description_1": "§eRight-click : Dash forward a short distance",
@@ -1015,6 +1161,10 @@
               },
               {
                 "name": "Blood Katana",
+                "children": []
+              },
+              {
+                "name": "Inosukes Sword",
                 "children": []
               }
             ]
@@ -1061,6 +1211,15 @@
           {
             "name": "Scythe",
             "children": []
+          },
+          {
+            "name": "Axes",
+            "children": [
+              {
+                "name": "War Axe",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -1116,7 +1275,7 @@
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Finetuned Weaponry",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
