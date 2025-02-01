@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "obs_ham_texture"
+      },
+      "name": "default"
+    }
+  }
+}

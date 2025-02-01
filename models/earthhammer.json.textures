@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "earth_ham_texture"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.item.Item;
 
+import com.naizo.finetuned.item.ZenitsusSwordItem;
 import com.naizo.finetuned.item.WeapontemplateItem;
 import com.naizo.finetuned.item.WaraxeItem;
 import com.naizo.finetuned.item.RosegoldhammerItem;
@@ -25,6 +26,7 @@ import com.naizo.finetuned.item.EarthlyhammerItem;
 import com.naizo.finetuned.item.EarthlyIngotItem;
 import com.naizo.finetuned.item.ClassichammerItem;
 import com.naizo.finetuned.item.ClassicKatanaItem;
+import com.naizo.finetuned.item.BoneSwordItem;
 import com.naizo.finetuned.item.BloodKatanaItem;
 import com.naizo.finetuned.FineTunedWeaponryMod;
 
@@ -46,6 +48,8 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> IMMORTAL_SCYTHE = REGISTRY.register("immortal_scythe", () -> new ImmortalScytheItem());
 	public static final RegistryObject<Item> INOSUKESSWORD = REGISTRY.register("inosukessword", () -> new InosukesswordItem());
 	public static final RegistryObject<Item> WARAXE = REGISTRY.register("waraxe", () -> new WaraxeItem());
+	public static final RegistryObject<Item> ZENITSUS_SWORD = REGISTRY.register("zenitsus_sword", () -> new ZenitsusSwordItem());
+	public static final RegistryObject<Item> BONE_SWORD = REGISTRY.register("bone_sword", () -> new BoneSwordItem());
 	// Start of user code block custom items
 	// End of user code block custom items
 }

@@ -24,6 +24,8 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.MOONS_LUNAR_BLOOMFANG.get());
 				tabData.accept(FineTunedWeaponryModItems.HELISH_SWORD.get());
 				tabData.accept(FineTunedWeaponryModItems.IMMORTAL_SCYTHE.get());
+				tabData.accept(FineTunedWeaponryModItems.ZENITSUS_SWORD.get());
+				tabData.accept(FineTunedWeaponryModItems.BONE_SWORD.get());
 				tabData.accept(FineTunedWeaponryModItems.HOLLOW_MAN_RUYI_JINGU_STAFF.get());
 				tabData.accept(FineTunedWeaponryModItems.CLASSICHAMMER.get());
 				tabData.accept(FineTunedWeaponryModItems.EARTHLYHAMMER.get());

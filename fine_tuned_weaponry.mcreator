@@ -1003,6 +1003,118 @@
         "files": []
       },
       "path": "~/Misc"
+    },
+    {
+      "name": "ZenitsusSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zenitsus_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/item/ZenitsusSwordItem.java",
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/zenitsus_sword.json"
+        ]
+      },
+      "path": "~/Weapons/Swords/Zenitsus Sword"
+    },
+    {
+      "name": "ZenitsusSwordRightclicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zenitsus_sword_rightclicked",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/ZenitsusSwordRightclickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Weapons/Swords/Zenitsus Sword"
+    },
+    {
+      "name": "ZenitsusSwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zenitsus_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/zenitsus_sword_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Swords/Zenitsus Sword"
+    },
+    {
+      "name": "BoneSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bone_sword",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/fine_tuned_weaponry/models/item/bone_sword.json",
+          "src/main/java/com/naizo/finetuned/item/BoneSwordItem.java"
+        ]
+      },
+      "path": "~/Weapons/Swords/Bone Sword"
+    },
+    {
+      "name": "BoneSwordLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bone_sword_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/BoneSwordLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Weapons/Swords/Bone Sword"
+    },
+    {
+      "name": "BoneSwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bone_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/bone_sword_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Swords/Bone Sword"
     }
   ],
   "variable_elements": [],
@@ -1037,6 +1149,8 @@
       "~CUSTOM:Waraxe"
     ],
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:BoneSword",
+      "~CUSTOM:ZenitsusSword",
       "~CUSTOM:Inosukessword",
       "~CUSTOM:ImmortalScythe",
       "~CUSTOM:HelishSword",
@@ -1058,6 +1172,8 @@
       "MoonsLunarBloomfang",
       "HelishSword",
       "ImmortalScythe",
+      "ZenitsusSword",
+      "BoneSword",
       "HollowManRuyiJinguStaff",
       "Classichammer",
       "Earthlyhammer",
@@ -1084,6 +1200,7 @@
       "item.fine_tuned_weaponry.classic_katana.description_2": "§9Cooldown : 2 sec",
       "item.fine_tuned_weaponry.waraxe": "§6War Axe of Devastation",
       "item.fine_tuned_weaponry.waraxe.description_1": "§7Shatters armor and cleaves through enemies",
+      "item.fine_tuned_weaponry.bone_sword.description_0": "§6A sword forged from the bones of ancient creatures",
       "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
       "item.fine_tuned_weaponry.waraxe.description_2": "§e10% chance to deal §c+50% damage§e on hit",
       "subtitles.activation_sound_effect": "",
@@ -1100,8 +1217,12 @@
       "item.fine_tuned_weaponry.kurasai_katana.description_1": "§eRight-click : Summon a lightning strike around you and gain Grants §6Resistance V §efor 1 second",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_0": "§7A mythical staff wielded by the §khollow man",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_1": "§eRight-click : Grants §6Haste II §efor 7 seconds",
+      "item.fine_tuned_weaponry.zenitsus_sword.description_1": "§6Lightning fast and striking with immense power",
       "item.fine_tuned_weaponry.immortal_scythe": "Immortal Scythe",
+      "item.fine_tuned_weaponry.zenitsus_sword.description_0": "§6A sword imbued with the Thunder Breathing techniques of Zenitsu Agatsuma",
       "enchantment.fine_tuned_weaponry.stonefall": "Stonefall",
+      "item.fine_tuned_weaponry.bone_sword.description_2": "§6attacks applies wither effect",
+      "item.fine_tuned_weaponry.bone_sword.description_1": "§6It is both sharp and durable, able to pierce through the toughest of armor with ease",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
       "item.fine_tuned_weaponry.classichammer.description_1": "§7Feel the weight of tradition in your hands",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
@@ -1115,6 +1236,7 @@
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_2": "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
       "item.fine_tuned_weaponry.inosukessword.description_1": "§7Wielded by the boar-headed warrior",
       "item.fine_tuned_weaponry.inosukessword.description_0": "§7A wild and jagged blade",
+      "item.fine_tuned_weaponry.bone_sword": "§fBone Sword",
       "itemGroup.tab_fine_tunned_mats": "Fine Tuned Materials",
       "item.fine_tuned_weaponry.weapontemplate.description_1": "§7Essential for crafting weapons",
       "subtitles.katana_dash_sound": "",
@@ -1132,6 +1254,7 @@
       "item.fine_tuned_weaponry.obsidianhammer.description_3": "§9Cooldown : 15 sec",
       "item.fine_tuned_weaponry.obsidianhammer.description_2": "§eRight-click : Summon a huge meteor strike from the end dealing heavy damage and igniting monsters on fire",
       "item.fine_tuned_weaponry.helish_sword": "Helish Sword",
+      "item.fine_tuned_weaponry.zenitsus_sword": "§6Zenitsus §eSword",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
       "item.fine_tuned_weaponry.obsidianhammer.description_1": "§7this hammer bends the battlefield to its will",
       "enchantment.fine_tuned_weaponry.thunder_fury": "Thunder Fury",
@@ -1206,6 +1329,14 @@
               {
                 "name": "HellishSword",
                 "children": []
+              },
+              {
+                "name": "Zenitsus Sword",
+                "children": []
+              },
+              {
+                "name": "Bone Sword",
+                "children": []
               }
             ]
           },
@@ -1276,7 +1407,7 @@
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Finetuned Weaponry",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",

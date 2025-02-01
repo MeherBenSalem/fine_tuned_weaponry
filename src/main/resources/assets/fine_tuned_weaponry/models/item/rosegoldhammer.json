@@ -1,6 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "fine_tuned_weaponry:custom/rosehammer",
   "textures": {
-    "layer0": "fine_tuned_weaponry:item/rose_gold_hammer"
+    "0": "fine_tuned_weaponry:block/pink_ham_texture",
+    "particle": "minecraft:item/bowl"
   }
 }

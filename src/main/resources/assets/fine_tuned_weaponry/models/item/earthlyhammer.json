@@ -1,6 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "fine_tuned_weaponry:custom/earthhammer",
   "textures": {
-    "layer0": "fine_tuned_weaponry:item/earth_hammer"
+    "0": "fine_tuned_weaponry:block/earth_ham_texture",
+    "particle": "minecraft:item/bowl"
   }
 }

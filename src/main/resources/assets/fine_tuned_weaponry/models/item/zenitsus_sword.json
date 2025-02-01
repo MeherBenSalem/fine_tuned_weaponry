@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/zenitsus_sword",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/zenitsus_sword",
+    "particle": "minecraft:item/empty_slot_sword"
+  }
+}

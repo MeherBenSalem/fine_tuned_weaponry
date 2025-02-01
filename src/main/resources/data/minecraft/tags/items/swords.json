@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "fine_tuned_weaponry:bone_sword",
+    "fine_tuned_weaponry:zenitsus_sword",
     "fine_tuned_weaponry:inosukessword",
     "fine_tuned_weaponry:immortal_scythe",
     "fine_tuned_weaponry:helish_sword",
