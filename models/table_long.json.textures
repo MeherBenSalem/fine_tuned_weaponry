@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "1": "long_table",
+        "2": "book_open",
+        "4": "blue_book",
+        "5": "purple_book",
+        "6": "orange_book"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -39,5 +39,9 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.EARTHLY_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.OBSIDIAN_FORGED_INGOT.get());
 				tabData.accept(FineTunedWeaponryModItems.ROSE_GOLD_INGOT.get());
+				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_FORGE_ACTIVE.get().asItem());
+				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_FORGE_UN_ACTIVE.get().asItem());
+				tabData.accept(FineTunedWeaponryModBlocks.RESEARCH_TABLE.get().asItem());
+				tabData.accept(FineTunedWeaponryModItems.GEM_1.get());
 			}).withTabsBefore(FINE_TUNED_WEAPONS.getId()).build());
 }

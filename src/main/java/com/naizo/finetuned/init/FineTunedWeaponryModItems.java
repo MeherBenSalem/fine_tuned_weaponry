@@ -8,7 +8,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BlockItem;
 
 import com.naizo.finetuned.item.ZenitsusSwordItem;
 import com.naizo.finetuned.item.WeapontemplateItem;
@@ -22,6 +24,7 @@ import com.naizo.finetuned.item.InosukesswordItem;
 import com.naizo.finetuned.item.ImmortalScytheItem;
 import com.naizo.finetuned.item.HollowManRuyiJinguStaffItem;
 import com.naizo.finetuned.item.HelishSwordItem;
+import com.naizo.finetuned.item.Gem1Item;
 import com.naizo.finetuned.item.EarthlyhammerItem;
 import com.naizo.finetuned.item.EarthlyIngotItem;
 import com.naizo.finetuned.item.ClassichammerItem;
@@ -50,6 +53,14 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> WARAXE = REGISTRY.register("waraxe", () -> new WaraxeItem());
 	public static final RegistryObject<Item> ZENITSUS_SWORD = REGISTRY.register("zenitsus_sword", () -> new ZenitsusSwordItem());
 	public static final RegistryObject<Item> BONE_SWORD = REGISTRY.register("bone_sword", () -> new BoneSwordItem());
+	public static final RegistryObject<Item> WEAPONS_FORGE_ACTIVE = block(FineTunedWeaponryModBlocks.WEAPONS_FORGE_ACTIVE);
+	public static final RegistryObject<Item> WEAPONS_FORGE_UN_ACTIVE = block(FineTunedWeaponryModBlocks.WEAPONS_FORGE_UN_ACTIVE);
+	public static final RegistryObject<Item> RESEARCH_TABLE = block(FineTunedWeaponryModBlocks.RESEARCH_TABLE);
+	public static final RegistryObject<Item> GEM_1 = REGISTRY.register("gem_1", () -> new Gem1Item());
+
 	// Start of user code block custom items
 	// End of user code block custom items
+	private static RegistryObject<Item> block(RegistryObject<Block> block) {
+		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+	}
 }
