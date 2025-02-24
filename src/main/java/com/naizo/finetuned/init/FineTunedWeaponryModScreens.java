@@ -12,7 +12,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.client.gui.screens.MenuScreens;
 
 import com.naizo.finetuned.client.gui.WeaponsForgeGUIScreen;
-import com.naizo.finetuned.client.gui.ResearchTableUIScreen;
+import com.naizo.finetuned.client.gui.WeaponsAnvilGUIScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class FineTunedWeaponryModScreens {
@@ -20,7 +20,7 @@ public class FineTunedWeaponryModScreens {
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 			MenuScreens.register(FineTunedWeaponryModMenus.WEAPONS_FORGE_GUI.get(), WeaponsForgeGUIScreen::new);
-			MenuScreens.register(FineTunedWeaponryModMenus.RESEARCH_TABLE_UI.get(), ResearchTableUIScreen::new);
+			MenuScreens.register(FineTunedWeaponryModMenus.WEAPONS_ANVIL_GUI.get(), WeaponsAnvilGUIScreen::new);
 		});
 	}
 }

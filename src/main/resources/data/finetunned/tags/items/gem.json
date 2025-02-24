@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "fine_tuned_weaponry:gem_1"
+    "fine_tuned_weaponry:inferno_core",
+    "fine_tuned_weaponry:storm_shard",
+    "fine_tuned_weaponry:frost_rune"
   ]
 }

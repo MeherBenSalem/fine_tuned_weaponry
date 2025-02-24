@@ -1,0 +1,10 @@
+{
+  "parent": "fine_tuned_weaponry:custom/anvil",
+  "textures": {
+    "all": "fine_tuned_weaponry:block/anvil",
+    "particle": "fine_tuned_weaponry:block/anvil",
+    "3": "fine_tuned_weaponry:block/anvil",
+    "4": "fine_tuned_weaponry:block/ham_texture"
+  },
+  "render_type": "solid"
+}

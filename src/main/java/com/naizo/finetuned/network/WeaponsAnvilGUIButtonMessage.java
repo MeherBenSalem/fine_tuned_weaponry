@@ -14,37 +14,37 @@ import net.minecraft.core.BlockPos;
 import java.util.function.Supplier;
 import java.util.HashMap;
 
-import com.naizo.finetuned.world.inventory.ResearchTableUIMenu;
+import com.naizo.finetuned.world.inventory.WeaponsAnvilGUIMenu;
 import com.naizo.finetuned.procedures.RemoveGemProcedure;
 import com.naizo.finetuned.procedures.InsertGemsProcedure;
 import com.naizo.finetuned.FineTunedWeaponryMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ResearchTableUIButtonMessage {
+public class WeaponsAnvilGUIButtonMessage {
 	private final int buttonID, x, y, z;
 
-	public ResearchTableUIButtonMessage(FriendlyByteBuf buffer) {
+	public WeaponsAnvilGUIButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
 	}
 
-	public ResearchTableUIButtonMessage(int buttonID, int x, int y, int z) {
+	public WeaponsAnvilGUIButtonMessage(int buttonID, int x, int y, int z) {
 		this.buttonID = buttonID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	public static void buffer(ResearchTableUIButtonMessage message, FriendlyByteBuf buffer) {
+	public static void buffer(WeaponsAnvilGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 	}
 
-	public static void handler(ResearchTableUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+	public static void handler(WeaponsAnvilGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
 			Player entity = context.getSender();
@@ -59,7 +59,7 @@ public class ResearchTableUIButtonMessage {
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = ResearchTableUIMenu.guistate;
+		HashMap guistate = WeaponsAnvilGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -75,6 +75,6 @@ public class ResearchTableUIButtonMessage {
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		FineTunedWeaponryMod.addNetworkMessage(ResearchTableUIButtonMessage.class, ResearchTableUIButtonMessage::buffer, ResearchTableUIButtonMessage::new, ResearchTableUIButtonMessage::handler);
+		FineTunedWeaponryMod.addNetworkMessage(WeaponsAnvilGUIButtonMessage.class, WeaponsAnvilGUIButtonMessage::buffer, WeaponsAnvilGUIButtonMessage::new, WeaponsAnvilGUIButtonMessage::handler);
 	}
 }

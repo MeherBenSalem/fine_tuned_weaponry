@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModMenus;
 
-public class ResearchTableUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -40,8 +40,8 @@ public class ResearchTableUIMenu extends AbstractContainerMenu implements Suppli
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public ResearchTableUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(FineTunedWeaponryModMenus.RESEARCH_TABLE_UI.get(), id);
+	public WeaponsAnvilGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(FineTunedWeaponryModMenus.WEAPONS_ANVIL_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(7);
@@ -79,15 +79,20 @@ public class ResearchTableUIMenu extends AbstractContainerMenu implements Suppli
 					});
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 24, 33) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 24, 34) {
 			private final int slot = 0;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(new ResourceLocation("forge:tools")));
+			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 66, 15) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 67, 16) {
 			private final int slot = 1;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -96,33 +101,53 @@ public class ResearchTableUIMenu extends AbstractContainerMenu implements Suppli
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 67, 50) {
 			private final int slot = 2;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:gem")));
 			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 104, 15) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 105, 16) {
 			private final int slot = 3;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
+			}
 		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 104, 49) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 105, 51) {
 			private final int slot = 4;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
+			}
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 139, 15) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 140, 16) {
 			private final int slot = 5;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
+			}
 		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 139, 49) {
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 140, 50) {
 			private final int slot = 6;
-			private int x = ResearchTableUIMenu.this.x;
-			private int y = ResearchTableUIMenu.this.y;
+			private int x = WeaponsAnvilGUIMenu.this.x;
+			private int y = WeaponsAnvilGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)

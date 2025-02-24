@@ -19,6 +19,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
@@ -34,12 +35,13 @@ import io.netty.buffer.Unpooled;
 
 import com.naizo.finetuned.world.inventory.WeaponsForgeGUIMenu;
 import com.naizo.finetuned.procedures.WeaponsForgeActiveOnTickUpdateProcedure;
+import com.naizo.finetuned.procedures.WeaponsForgeActiveEntityWalksOnTheBlockProcedure;
 import com.naizo.finetuned.procedures.WeaponsForgeActiveBlockAddedProcedure;
 import com.naizo.finetuned.block.entity.WeaponsForgeActiveBlockEntity;
 
 public class WeaponsForgeActiveBlock extends Block implements EntityBlock {
 	public WeaponsForgeActiveBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.ANVIL).strength(3f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
 	}
 
 	@Override
@@ -58,6 +60,11 @@ public class WeaponsForgeActiveBlock extends Block implements EntityBlock {
 	}
 
 	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return box(0, 0, 0, 16, 14, 16);
+	}
+
+	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
 		world.scheduleTick(pos, this, 20);
@@ -72,6 +79,12 @@ public class WeaponsForgeActiveBlock extends Block implements EntityBlock {
 		int z = pos.getZ();
 		WeaponsForgeActiveOnTickUpdateProcedure.execute(world, x, y, z);
 		world.scheduleTick(pos, this, 20);
+	}
+
+	@Override
+	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
+		super.stepOn(world, pos, blockstate, entity);
+		WeaponsForgeActiveEntityWalksOnTheBlockProcedure.execute(entity);
 	}
 
 	@Override

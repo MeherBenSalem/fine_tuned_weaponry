@@ -28,7 +28,7 @@ import com.naizo.finetuned.block.entity.WeaponsForgeUnActiveBlockEntity;
 
 public class WeaponsForgeUnActiveBlock extends Block implements EntityBlock {
 	public WeaponsForgeUnActiveBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.ANVIL).strength(3f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
 	}
 
 	@Override
@@ -44,6 +44,11 @@ public class WeaponsForgeUnActiveBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return Shapes.empty();
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return box(0, 0, 0, 16, 14, 16);
 	}
 
 	@Override

@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "3": "anvil",
+        "4": "ham_texture"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -42,6 +42,25 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_FORGE_ACTIVE.get().asItem());
 				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_FORGE_UN_ACTIVE.get().asItem());
 				tabData.accept(FineTunedWeaponryModBlocks.RESEARCH_TABLE.get().asItem());
-				tabData.accept(FineTunedWeaponryModItems.GEM_1.get());
+				tabData.accept(FineTunedWeaponryModItems.INFERNO_CORE.get());
+				tabData.accept(FineTunedWeaponryModItems.STORM_SHARD.get());
+				tabData.accept(FineTunedWeaponryModItems.FROST_RUNE.get());
+				tabData.accept(FineTunedWeaponryModItems.BLAZING_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.WILDFIRE_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.HELLFIRE_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.SMOKESCREEN_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.LAVA_INFUSION_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.PYROCLASM_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.INFERNAL_HUNGER_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.VOLCANIC_BURST_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.GLACIAL_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.PERMAFROST_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.BLIZZARD_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.STORM_FURY_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.STATIC_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.SUPERSTORM_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.CHARGED_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModItems.OVERLOAD_AMPLIFIER.get());
+				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_ANVIL.get().asItem());
 			}).withTabsBefore(FINE_TUNED_WEAPONS.getId()).build());
 }

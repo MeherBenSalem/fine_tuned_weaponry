@@ -30,6 +30,7 @@ import com.naizo.finetuned.init.FineTunedWeaponryModTabs;
 import com.naizo.finetuned.init.FineTunedWeaponryModSounds;
 import com.naizo.finetuned.init.FineTunedWeaponryModMenus;
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
+import com.naizo.finetuned.init.FineTunedWeaponryModEnchantments;
 import com.naizo.finetuned.init.FineTunedWeaponryModBlocks;
 import com.naizo.finetuned.init.FineTunedWeaponryModBlockEntities;
 
@@ -48,6 +49,7 @@ public class FineTunedWeaponryMod {
 		FineTunedWeaponryModBlockEntities.REGISTRY.register(bus);
 		FineTunedWeaponryModItems.REGISTRY.register(bus);
 
+		FineTunedWeaponryModEnchantments.REGISTRY.register(bus);
 		FineTunedWeaponryModTabs.REGISTRY.register(bus);
 
 		FineTunedWeaponryModMenus.REGISTRY.register(bus);
