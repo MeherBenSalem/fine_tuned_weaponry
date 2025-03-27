@@ -40,6 +40,7 @@ import com.naizo.finetuned.item.HellfireAmplifierItem;
 import com.naizo.finetuned.item.HelishSwordItem;
 import com.naizo.finetuned.item.GlacialAmplifierItem;
 import com.naizo.finetuned.item.FrostRuneItem;
+import com.naizo.finetuned.item.FinetunnedGuideItem;
 import com.naizo.finetuned.item.EarthlyhammerItem;
 import com.naizo.finetuned.item.EarthlyIngotItem;
 import com.naizo.finetuned.item.ClassichammerItem;
@@ -94,6 +95,7 @@ public class FineTunedWeaponryModItems {
 	public static final RegistryObject<Item> STORM_FURY_AMPLIFIER = REGISTRY.register("storm_fury_amplifier", () -> new StormFuryAmplifierItem());
 	public static final RegistryObject<Item> STATIC_AMPLIFIER = REGISTRY.register("static_amplifier", () -> new StaticAmplifierItem());
 	public static final RegistryObject<Item> WEAPONS_ANVIL = block(FineTunedWeaponryModBlocks.WEAPONS_ANVIL);
+	public static final RegistryObject<Item> FINETUNNED_GUIDE = REGISTRY.register("finetunned_guide", () -> new FinetunnedGuideItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

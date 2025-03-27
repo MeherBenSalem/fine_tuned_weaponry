@@ -6,8 +6,8 @@
     "1": "fine_tuned_weaponry:block/long_table",
     "2": "fine_tuned_weaponry:block/book_open",
     "4": "fine_tuned_weaponry:block/blue_book",
-    "5": "fine_tuned_weaponry:block/purple_book",
-    "6": "fine_tuned_weaponry:block/orange_book"
+    "5": "fine_tuned_weaponry:block/orange_book",
+    "6": "fine_tuned_weaponry:block/purple_book"
   },
   "render_type": "solid"
 }

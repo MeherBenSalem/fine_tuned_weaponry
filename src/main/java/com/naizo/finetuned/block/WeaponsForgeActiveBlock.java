@@ -1,6 +1,8 @@
 
 package com.naizo.finetuned.block;
 
+import org.checkerframework.checker.units.qual.s;
+
 import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -41,7 +43,7 @@ import com.naizo.finetuned.block.entity.WeaponsForgeActiveBlockEntity;
 
 public class WeaponsForgeActiveBlock extends Block implements EntityBlock {
 	public WeaponsForgeActiveBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 15f).lightLevel(s -> 5).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
 	}
 
 	@Override

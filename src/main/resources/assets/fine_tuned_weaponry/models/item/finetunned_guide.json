@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/book",
+  "textures": {
+    "5": "fine_tuned_weaponry:block/purple_book",
+    "particle": "minecraft:item/book"
+  }
+}

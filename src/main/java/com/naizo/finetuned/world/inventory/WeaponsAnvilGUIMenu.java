@@ -89,7 +89,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("forge:tools")));
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 67, 16) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 67, 18) {
 			private final int slot = 1;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
@@ -99,7 +99,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:gem")));
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 67, 50) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 67, 48) {
 			private final int slot = 2;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
@@ -109,7 +109,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:gem")));
 			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 105, 16) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 104, 17) {
 			private final int slot = 3;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
@@ -119,7 +119,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
 			}
 		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 105, 51) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 104, 48) {
 			private final int slot = 4;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
@@ -129,7 +129,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
 			}
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 140, 16) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 140, 18) {
 			private final int slot = 5;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
@@ -139,7 +139,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				return stack.is(ItemTags.create(new ResourceLocation("finetunned:amp")));
 			}
 		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 140, 50) {
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 140, 48) {
 			private final int slot = 6;
 			private int x = WeaponsAnvilGUIMenu.this.x;
 			private int y = WeaponsAnvilGUIMenu.this.y;
