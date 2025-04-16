@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:storm_fury_amplifier",
+    "count": 1
+  }
+}

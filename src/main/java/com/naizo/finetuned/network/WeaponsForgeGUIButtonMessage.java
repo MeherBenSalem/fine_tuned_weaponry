@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 import java.util.HashMap;
 
 import com.naizo.finetuned.world.inventory.WeaponsForgeGUIMenu;
-import com.naizo.finetuned.procedures.OnCraftForgeProcedure;
+import com.naizo.finetuned.procedures.OnCraftForgeRecipesProcedure;
 import com.naizo.finetuned.FineTunedWeaponryMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -64,7 +64,7 @@ public class WeaponsForgeGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			OnCraftForgeProcedure.execute(world, x, y, z, entity);
+			OnCraftForgeRecipesProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

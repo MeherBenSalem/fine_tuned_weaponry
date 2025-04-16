@@ -23,6 +23,12 @@ description="This mod offers ALOT of new weapons with unique abilities"
     side="BOTH"
 
 
+[[dependencies.fine_tuned_weaponry]]
+    modId="jei"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 
 
 # Start of user code block dependencies configuration

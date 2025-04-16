@@ -1,0 +1,21 @@
+{
+  "type": "fine_tuned_weaponry:weapon_forge_station_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:coal_block"
+    },
+    {
+      "tag": "minecraft:hammer"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:earthly_ingot",
+    "count": 1
+  }
+}

@@ -1094,41 +1094,6 @@
       "path": "~/GUI/WeaponsForge"
     },
     {
-      "name": "OnCraftForge",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "on_craft_forge",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OnCraftForgeProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/GUI/WeaponsForge/Recipes"
-    },
-    {
       "name": "WeaponForgeReturnTime",
       "type": "procedure",
       "compiles": true,
@@ -1879,334 +1844,6 @@
       "path": "~/Blocks/WeaponsAnvil"
     },
     {
-      "name": "FinetunnedGuide",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "finetunned_guide",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/fine_tuned_weaponry/models/item/finetunned_guide.json",
-          "src/main/java/com/naizo/finetuned/item/FinetunnedGuideItem.java",
-          "src/main/java/com/naizo/finetuned/item/inventory/FinetunnedGuideInventoryCapability.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "BookPage2",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_page_2",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/client/gui/BookPage2Screen.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookPage2Menu.java",
-          "src/main/java/com/naizo/finetuned/network/BookPage2ButtonMessage.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "OpenPage1",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_1",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage1Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "OpenPage0",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_0",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage0Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "BookTitle",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_title",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/client/gui/BookTitleScreen.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookTitleMenu.java",
-          "src/main/java/com/naizo/finetuned/network/BookTitleButtonMessage.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "BookPage3",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_page_3",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/client/gui/BookPage3Screen.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookPage3Menu.java",
-          "src/main/java/com/naizo/finetuned/network/BookPage3ButtonMessage.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "BookPage4",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_page_4",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/network/BookPage4ButtonMessage.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookPage4Menu.java",
-          "src/main/java/com/naizo/finetuned/client/gui/BookPage4Screen.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "OpenPage2",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_2",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage2Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "OpenPage3",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_3",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage3Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "BookPage5",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_page_5",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/client/gui/BookPage5Screen.java",
-          "src/main/java/com/naizo/finetuned/network/BookPage5ButtonMessage.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookPage5Menu.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "OpenPage4",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_4",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage4Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "BookPage6",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "book_page_6",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/network/BookPage6ButtonMessage.java",
-          "src/main/java/com/naizo/finetuned/client/gui/BookPage6Screen.java",
-          "src/main/java/com/naizo/finetuned/world/inventory/BookPage6Menu.java"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
-      "name": "OpenPage5",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "open_page_5",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/procedures/OpenPage5Procedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/Book/Logic"
-    },
-    {
-      "name": "FineTunnedGuideRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "fine_tunned_guide_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/fine_tuned_weaponry/recipes/fine_tunned_guide_recipe.json"
-        ]
-      },
-      "path": "~/Items/Book"
-    },
-    {
       "name": "OnMobDeath",
       "type": "procedure",
       "compiles": true,
@@ -2239,6 +1876,327 @@
           }
         ]
       }
+    },
+    {
+      "name": "WeaponForgeStationJEI",
+      "type": "jeirecipetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_forge_station_jei",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/jei_recipes/WeaponForgeStationJEIRecipe.java",
+          "src/main/java/com/naizo/finetuned/jei_recipes/WeaponForgeStationJEIRecipeCategory.java"
+        ]
+      },
+      "path": "~/JEI/WeaponForge"
+    },
+    {
+      "name": "RoseIngotRecipeJEI",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_ingot_recipe_jei",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/rose_ingot_recipe_jei.json"
+        ]
+      },
+      "path": "~/JEI/WeaponForge"
+    },
+    {
+      "name": "OnCraftForgeRecipes",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_craft_forge_recipes",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/OnCraftForgeRecipesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GUI/WeaponsForge/Recipes"
+    },
+    {
+      "name": "WeaponForgeActivate",
+      "type": "jeiinformation",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_forge_activate",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/JEI/WeaponForge"
+    },
+    {
+      "name": "ObsidianIngotRecipeJEI",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obsidian_ingot_recipe_jei",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/obsidian_ingot_recipe_jei.json"
+        ]
+      },
+      "path": "~/JEI/WeaponForge"
+    },
+    {
+      "name": "EarthlyIngotRecipeJEI",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earthly_ingot_recipe_jei",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/earthly_ingot_recipe_jei.json"
+        ]
+      },
+      "path": "~/JEI/WeaponForge"
+    },
+    {
+      "name": "ResearchTableJEI",
+      "type": "jeirecipetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "research_table_jei",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/jei_recipes/ResearchTableJEIRecipeCategory.java",
+          "src/main/java/com/naizo/finetuned/jei_recipes/ResearchTableJEIRecipe.java"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "BlazingAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blazing_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/blazing_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "WildfireAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wildfire_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/wildfire_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "HellfireAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hellfire_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/hellfire_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "PyroclasmAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pyroclasm_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/pyroclasm_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "InfernalHungerRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "infernal_hunger_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/infernal_hunger_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "LavainfusionAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lavainfusion_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/lavainfusion_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "SmokescreenAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smokescreen_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/smokescreen_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "VolcanicBurstAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "volcanic_burst_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/volcanic_burst_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "GlacialAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "glacial_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/glacial_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "PermafrostAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "permafrost_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/permafrost_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "BlizzardAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blizzard_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/blizzard_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "ChargerAmpReicpe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "charger_amp_reicpe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/charger_amp_reicpe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "OverloadAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "overload_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/overload_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "SuperstormAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "superstorm_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/superstorm_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "StormFuryAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_fury_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/storm_fury_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "StaticAmpRecipe",
+      "type": "jeirecipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "static_amp_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/static_amp_recipe.json"
+        ]
+      },
+      "path": "~/JEI/ResearchTable"
     }
   ],
   "variable_elements": [
@@ -2287,6 +2245,12 @@
     "BLOCKS:minecraft:needs_stone_tool": [
       "~CUSTOM:WeaponsAnvil",
       "~CUSTOM:ResearchTable"
+    ],
+    "ITEMS:minecraft:hammer": [
+      "CUSTOM:Classichammer",
+      "CUSTOM:Earthlyhammer",
+      "CUSTOM:Obsidianhammer",
+      "CUSTOM:Rosegoldhammer"
     ],
     "ITEMS:minecraft:axes": [
       "~CUSTOM:Waraxe"
@@ -2373,8 +2337,7 @@
       "SuperstormAmplifier",
       "ChargedAmplifier",
       "OverloadAmplifier",
-      "WeaponsAnvil",
-      "FinetunnedGuide"
+      "WeaponsAnvil"
     ]
   },
   "language_map": {
@@ -2383,188 +2346,120 @@
       "item.fine_tuned_weaponry.overload_amplifier": "Overload Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_iron_sword1": "Soul Lantern",
       "subtitles.love_effect_sound": "",
-      "item.fine_tuned_weaponry.finetunned_guide": "Finetunned Guide",
       "item.fine_tuned_weaponry.hellfire_amplifier": "Hellfire Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_rose_gold_hammer": "Helish Sword",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_iron_sword": "Iron Sword",
-      "gui.fine_tuned_weaponry.book_page_4.label_classic_hammer": "Classic Katana",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_weapons_template": "Redstone",
-      "item.fine_tuned_weaponry.immortal_scythe.description_0": "§5Forged by ancient beings who transcended death, the Immortal Scythe is a weapon that embodies both the end and the rebirth of life. Its blade gleams with an eerie, otherworldly glow that drains the life force from anyone it touches. ",
-      "item.fine_tuned_weaponry.charged_amplifier": "Charged Amplifier",
       "gui.fine_tuned_weaponry.book_page_1.button_empty": "-\u003e",
+      "item.fine_tuned_weaponry.charged_amplifier": "Charged Amplifier",
+      "item.fine_tuned_weaponry.immortal_scythe.description_0": "§5Forged by ancient beings who transcended death, the Immortal Scythe is a weapon that embodies both the end and the rebirth of life. Its blade gleams with an eerie, otherworldly glow that drains the life force from anyone it touches. ",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_golden_apple1": "Golden Apple",
-      "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
-      "item.fine_tuned_weaponry.permafrost_amplifier": "Permafrost Amplifier",
       "gui.fine_tuned_weaponry.book_page_3.label_gems": "Weapons Anvil",
-      "item.fine_tuned_weaponry.bone_sword.description_0": "§6A sword forged from the bones of ancient creatures",
+      "item.fine_tuned_weaponry.permafrost_amplifier": "Permafrost Amplifier",
+      "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
       "item.fine_tuned_weaponry.waraxe": "§6War Axe of Devastation",
+      "item.fine_tuned_weaponry.bone_sword.description_0": "§6A sword forged from the bones of ancient creatures",
       "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
       "gui.fine_tuned_weaponry.book_title.label_materials": "Materials",
       "item.fine_tuned_weaponry.obsidian_forged_ingot": "Forged Obsidian Ingot",
       "item.fine_tuned_weaponry.static_amplifier.description_0": "§bAttacks Gives You HASTE And SPEED",
-      "gui.fine_tuned_weaponry.book_page_3.label_rose_gold_hammer": "Rose Gold Hammer",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_diamond2": "1x Diamond",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_obsidian_ingot": "Obsidian Ingot",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_diamond1": "1x Diamond",
       "gui.fine_tuned_weaponry.book_page_3.label_amplifiers": "Amplifiers",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_wood": "Wood",
       "block.fine_tuned_weaponry.weapons_forge_active": "Weapons Forge",
       "gui.fine_tuned_weaponry.weapons_forge_gui.label_0000": "00:00",
-      "gui.fine_tuned_weaponry.book_page_4.label_ruyi_jingu_staff": "Zenitsus Sword",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stone": "stone",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_iron_block": "Obsidian Ingot",
       "item.fine_tuned_weaponry.bone_sword.description_2": "§6attacks applies wither effect",
-      "gui.fine_tuned_weaponry.book_page_3.label_classic_hammer": "Classic Hammer",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_bone": "Bone",
       "item.fine_tuned_weaponry.bone_sword.description_1": "§6It is both sharp and durable, able to pierce through the toughest of armor with ease",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_string2": "string",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_stick": "Obsidian Ingot",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_string3": "string",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_string1": "string",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff": "§6Hollow Man\u0027s §eRuyi Jingu Staff",
       "item.fine_tuned_weaponry.inosukessword": "§cInosuke\u0027s Katana",
       "item.fine_tuned_weaponry.blazing_amplifier.description_0": "§6Increases burn duration to §c5s§6",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_bone": "Bone",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_flower1": "Flower",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stone2": "stone",
       "gui.fine_tuned_weaponry.weapons_forge_gui.label_forge": "Weapons Forge",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_iron_sword": "Weapons Template",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stone1": "stone",
-      "gui.fine_tuned_weaponry.book_page_3.label_weapons": "Weapons Recipe",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_rose_gold_ingot": "Obsidian Ingot",
-      "gui.fine_tuned_weaponry.book_page_2.label_weapons": "Weapons",
-      "gui.fine_tuned_weaponry.book_page_2.label_gems": "Weapons Anvil",
-      "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
-      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
       "item_group.fine_tuned_weaponry.fine_tunned_mats": "Fine Tuned Materials",
+      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
+      "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
       "gui.fine_tuned_weaponry.book_page_3.label_materials": "Materials",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_classic_hammer2": "Golden Apple",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_classic_hammer1": "Rose Gold Ingot",
-      "block.fine_tuned_weaponry.weapons_forge_un_active": "Weapons Forge",
       "enchantment.fine_tuned_weaponry.super_charge_enchant": "Super Charge Enchant",
-      "gui.fine_tuned_weaponry.book_page_6.label_materials": "Materials",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_classic_hammer3": "Weapons Tempate",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_classic_katana": "Classic Katana",
+      "block.fine_tuned_weaponry.weapons_forge_un_active": "Weapons Forge",
       "item.fine_tuned_weaponry.glacial_amplifier.description_0": "§9Doubles the frost effect when hit",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stick": "Obsidian Ingot",
       "item.fine_tuned_weaponry.smokescreen_amplifier": "Smokescreen Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_obsidian_ingot": "Classic Katana",
-      "item.fine_tuned_weaponry.lava_infusion_amplifier.description_0": "§6Attacks Apply Weakness For 2s",
-      "item.fine_tuned_weaponry.obsidianhammer": "§5Obsidian §dHammer",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_flower1": "Flower",
-      "gui.fine_tuned_weaponry.book_page_4.label_lunar_bloomfang": "Bone Sword",
+      "item.fine_tuned_weaponry.obsidianhammer": "§5Obsidian §dHammer",
+      "item.fine_tuned_weaponry.lava_infusion_amplifier.description_0": "§6Attacks Apply Weakness For 2s",
       "gui.fine_tuned_weaponry.book_page_5.label_rose_gold_hammer": "Helish Sword",
       "item.fine_tuned_weaponry.zenitsus_sword": "§6Zenitsus §eSword",
-      "item.fine_tuned_weaponry.superstorm_amplifier.description_0": "§bLightning jumps to §32 additional enemies§b",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_bone1": "Bone",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_earthly_hammer": "Blood Katana",
+      "item.fine_tuned_weaponry.superstorm_amplifier.description_0": "§bLightning jumps to §32 additional enemies§b",
       "item.fine_tuned_weaponry.lava_infusion_amplifier": "Lava Infusion Amplifier",
       "gui.fine_tuned_weaponry.book_title.label_gems": "Weapons Anvil",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_forge": "forge",
-      "gui.fine_tuned_weaponry.book_page_6.label_all_recipes": "All Recipes ",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_ruyi_jingu_staff": "Zenitsus Sword",
-      "gui.fine_tuned_weaponry.book_page_4.label_obsidian_hammer": "Inosuke\u0027s Katana",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_string1": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_earthly_ingot": "Weapons Template",
       "gui.fine_tuned_weaponry.book_title.label_amplifiers": "Amplifiers",
       "item.fine_tuned_weaponry.storm_shard": "§6Storm Shard",
       "gui.fine_tuned_weaponry.book_page_3.label_blocks": "Forge",
-      "gui.fine_tuned_weaponry.book_page_2.label_guide": "Guide",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_string3": "Obsidian Ingot",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_golden_apple": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_bone1": "Bone",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_rose_gold_ingot1": "Rose Gold Ingot",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_earthly_ingot": "Earthly ingot",
       "item.fine_tuned_weaponry.wildfire_amplifier": "Wildfire Amplifier",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_stick": "Earthly Ingot",
       "item.fine_tuned_weaponry.weapontemplate": "§6§lWeapon Template",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_forge": "forge",
       "item.fine_tuned_weaponry.rosegoldhammer": "§5Rose gold §dhammer",
       "item.fine_tuned_weaponry.permafrost_amplifier.description_0": "§9Frozen enemies take §3double freeze damage§9",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_string": "string",
       "gui.fine_tuned_weaponry.book_page_5.label_lunar_bloomfang": "Bone Sword",
       "gui.fine_tuned_weaponry.book_title.label_research_table": "Research Table",
+      "jei.fine_tuned_weaponry.weapon_forge_activate": "Right-click a Block of Coal to activate.",
       "item.fine_tuned_weaponry.volcanic_burst_amplifier": "Volcanic Burst Amplifier",
       "item.fine_tuned_weaponry.earthlyhammer.description_0": "§7Forged from the heart of the earth",
       "item.fine_tuned_weaponry.wildfire_amplifier.description_0": "§6Fire spreads to §cnearby enemies§6 when they are burning",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_rose_gold_ingot": "Rose Gold Ingot",
       "item.fine_tuned_weaponry.earthlyhammer.description_1": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
-      "item.fine_tuned_weaponry.earthlyhammer.description_2": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_earthly_ingot1": "Earthly Ingot",
+      "item.fine_tuned_weaponry.earthlyhammer.description_2": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
       "item.fine_tuned_weaponry.earthlyhammer.description_3": "§9Cooldown : 5 sec",
       "item.fine_tuned_weaponry.frost_rune.description_0": "§3Adds §bIce Damage§3, slowing enemies for §b5s§3",
       "item.fine_tuned_weaponry.frost_rune.description_1": "§8(A rune infused with the chill of frozen lands)",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_iron_block": "Earthly Ingot",
       "item.fine_tuned_weaponry.infernal_hunger_amplifier.description_0": "§6Life-Steal On Hit",
       "item.fine_tuned_weaponry.zenitsus_sword.description_1": "§6Lightning fast and striking with immense power",
       "gui.fine_tuned_weaponry.book_page_3.label_research_table": "Research Table",
       "item.fine_tuned_weaponry.zenitsus_sword.description_0": "§6A sword imbued with the Thunder Breathing techniques of Zenitsu Agatsuma",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_iron_block": "Iron Block",
-      "gui.fine_tuned_weaponry.book_page_6.label_weapons": "Materials",
       "item.fine_tuned_weaponry.pyroclasm_amplifier.description_0": "§6Mobs Have A 10% Chance To Explode When They Die",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang": "§5Moon\u0027s §dLunar Bloomfang",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_block_of_crying_obsidian": "1x Crying Obsidian",
       "item.fine_tuned_weaponry.bone_sword": "§fBone Sword",
       "gui.fine_tuned_weaponry.book_page_3.label_gems1": "Gems",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_obsidian_hammer": "Obsidian Hammer",
-      "gui.fine_tuned_weaponry.book_page_6.label_obsidian_ingot": "Obsidian Ingot :",
       "gui.fine_tuned_weaponry.book_title.label_guide": "Guide",
       "gui.fine_tuned_weaponry.book_title.label_blocks": "Forge",
       "item.fine_tuned_weaponry.inferno_core.description_1": "§8(Weapons infused with this burn foes upon impact.)  ",
       "item.fine_tuned_weaponry.inferno_core.description_0": "§6Adds §cFire Damage§6, igniting enemies for §c3s§6. ",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template": "Redstone",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_classic_hammer": "Classic Hammer",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_lunar_bloomfang": "Lunar Bloomfang",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_charcoal": "charcoal",
       "item.fine_tuned_weaponry.frost_rune": "§1Frost Rune",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_stone": "stone",
-      "gui.fine_tuned_weaponry.book_page_3.label_earthly_hammer": "Earthly Hammer",
       "item.fine_tuned_weaponry.rose_gold_ingot": "Rose Gold Ingot",
-      "gui.fine_tuned_weaponry.book_page_6.label_1_x_block_of_coal": "1x Block Of Coal",
       "item.fine_tuned_weaponry.obsidianhammer.description_3": "§9Cooldown : 15 sec",
       "item.fine_tuned_weaponry.obsidianhammer.description_2": "§eRight-click : Summon a huge meteor strike from the end dealing heavy damage and igniting monsters on fire",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_stick": "Stick",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_classic_hammer": "Immortal Scythe",
       "gui.fine_tuned_weaponry.book_page_5.label_obsidian_hammer": "Inosuke\u0027s Katana",
       "item.fine_tuned_weaponry.storm_shard.description_1": "§8(A shard crackling with storm energy.)  ",
-      "gui.fine_tuned_weaponry.book_page_5.label_ignite_it_for_120_secs": "Ignite it for 120 secs",
       "item.fine_tuned_weaponry.storm_shard.description_0": "§bAdds §eLightning Damage§b, with a §e10% chance§b to summon lightning",
       "item.fine_tuned_weaponry.classic_katana": "§6Classic §eKatana",
-      "gui.fine_tuned_weaponry.book_page_5.label_classic_hammer": "Immortal Scythe",
       "item.fine_tuned_weaponry.obsidianhammer.description_1": "§7this hammer bends the battlefield to its will",
       "item.fine_tuned_weaponry.obsidianhammer.description_0": "§7Dark as the void and unyielding as the hardest stone",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_obsidian_ingot": "Classic Katana",
-      "gui.fine_tuned_weaponry.book_page_5.label_weapons": "Weapons Recipe",
       "item.fine_tuned_weaponry.inferno_core": "§4Inferno Core",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_golden_apple1": "Golden Apple",
       "item.fine_tuned_weaponry.superstorm_amplifier": "Superstorm Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_classic_hammer1": "Rose Gold Ingot",
       "item.fine_tuned_weaponry.earthly_ingot": "Earthly Ingot",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_classic_hammer": "Classic Katana",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_classic_hammer3": "Weapons Tempate",
       "gui.fine_tuned_weaponry.book_page_5.label_earthly_hammer": "Blood Katana",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_classic_hammer2": "Golden Apple",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_earthly_hammer": "Earthly Hammer",
       "item.fine_tuned_weaponry.pyroclasm_amplifier": "Pyroclasm Amplifier",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_iron1": "1x Iron",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_iron2": "1x Iron",
       "item.fine_tuned_weaponry.rosegoldhammer.description_1": "§eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect",
       "gui.fine_tuned_weaponry.book_page_6.label_a_block_of_coal": "A 1x Block Of Coal To ",
       "item.fine_tuned_weaponry.rosegoldhammer.description_0": "§7A delicate yet potent masterpiece",
-      "gui.fine_tuned_weaponry.book_page_3.label_ruyi_jingu_staff": "Ruyi Jingu Staff",
       "item.fine_tuned_weaponry.rosegoldhammer.description_3": "§9Cooldown : 20 sec",
       "item.fine_tuned_weaponry.rosegoldhammer.description_2": "§eRight-click : Releases a wave of rose petals that heals nearby allies and applies a regeneration effect",
-      "gui.fine_tuned_weaponry.book_page_4.label_earthly_hammer": "Blood Katana",
       "item.fine_tuned_weaponry.waraxe.description_0": "§7A heavy, brutal weapon designed for chaos",
       "item.fine_tuned_weaponry.waraxe.description_1": "§7Shatters armor and cleaves through enemies",
       "item.fine_tuned_weaponry.waraxe.description_2": "§e10% chance to deal §c+50% damage§e on hit",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template1": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template3": "Diamond",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template2": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template5": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_weapons_template4": "Earthly Ingot",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_iron_sword1": "Iron Sword",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_iron_block": "Obsidian Ingot",
       "item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_2": "§9Cooldown : 12.5 sec",
       "item.fine_tuned_weaponry.storm_fury_amplifier": "Storm Fury Amplifier",
       "item.fine_tuned_weaponry.kurasai_katana.description_2": "§9Cooldown : 7 sec",
@@ -2574,38 +2469,27 @@
       "item.fine_tuned_weaponry.immortal_scythe": "Immortal Scythe",
       "gui.fine_tuned_weaponry.book_page_6.label_ignite_it_for_120_secs": "Ignite it for 120 secs",
       "item.fine_tuned_weaponry.classichammer.description_1": "§7Feel the weight of tradition in your hands",
-      "gui.fine_tuned_weaponry.book_page_6.label_require_a_hammer": "Requires A Hammer",
       "item.fine_tuned_weaponry.classichammer.description_0": "§7A timeless tool of power, capable of shattering foes and stone alike",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_1": "§eRight-click : tame nearby passive mobs",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_0": "§7A mystical blade imbued with the power of the lunar bloom",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_3": "§9Cooldown : 30 sec",
       "item.fine_tuned_weaponry.moons_lunar_bloomfang.description_2": "§9Passive: §bOn kill, enrich the soil with a bone meal effect",
-      "gui.fine_tuned_weaponry.book_page_2.label_blocks": "Forge \u0026 Materials",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_diamond": "Diamond",
-      "gui.fine_tuned_weaponry.book_page_6.label_rose_gold_ingot": "Rose Gold Ingot :",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_charcoal": "charcoal",
       "itemGroup.tab_fine_tunned_mats": "Fine Tuned Materials",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_golden_apple": "Golden Apple",
-      "gui.fine_tuned_weaponry.book_page_4.label_rose_gold_hammer": "Helish Sword",
       "item.fine_tuned_weaponry.overload_amplifier.description_0": "§bLightning strikes §3stun enemies§b for §32s§b",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_string": "string",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_earthly_hammer": "Blood Katana",
       "gui.fine_tuned_weaponry.book_page_5.label_ruyi_jingu_staff": "Zenitsus Sword",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_iron_sword": "Wither Skeleton Head",
       "item.fine_tuned_weaponry.volcanic_burst_amplifier.description_0": "§6On Crit, Spawn A Lava Pool Under The Mob",
       "item.fine_tuned_weaponry.blood_katana.description_2": "§9Passive: §b10% chance to Life-steal 4 hearts with each strike",
       "item.fine_tuned_weaponry.blood_katana.description_3": "§9Cooldown : 2 sec",
       "item.fine_tuned_weaponry.blood_katana.description_0": "§7A cursed blade imbued with dark power",
       "item.fine_tuned_weaponry.blood_katana.description_1": "§eRight-click : Dash forward a short distance",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_flower": "Flower",
       "item.fine_tuned_weaponry.helish_sword": "Helish Sword",
-      "gui.fine_tuned_weaponry.book_page_4.label_weapons": "Weapons Recipe",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_rose_gold_hammer": "Helish Sword",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_ruyi_jingu_staff": "Zenitsus Sword",
       "item.fine_tuned_weaponry.charged_amplifier.description_0": "§bIncreases lightning strike chance to §310%§b",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_rose_gold_hammer": "Rose Gold Hammer",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_obsidian_hammer": "Inosuke\u0027s Katana",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_ruyi_jingu_staff": "Ruyi Jingu Staff",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_lunar_bloomfang": "Bone Sword",
       "item.fine_tuned_weaponry.infernal_hunger_amplifier": "Infernal Hunger Amplifier",
       "block.fine_tuned_weaponry.weapons_anvil": "Anvil",
@@ -2614,77 +2498,42 @@
       "gui.fine_tuned_weaponry.book_title.label_gems1": "Gems",
       "item.fine_tuned_weaponry.smokescreen_amplifier.description_0": "§6Attacks Apply Darkness On Hit",
       "item_group.fine_tuned_weaponry.fine_tuned_weapons": "Fine Tuned Weapons",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_wood1": "Wood",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_weapons_template": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_iron_sword": "Weapons Template",
       "item.fine_tuned_weaponry.earthlyhammer": "§6Earthly §eHammer",
-      "gui.fine_tuned_weaponry.book_page_6.label_earthly_ingot": "Earthly Ingot :",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_block_of_gold": "1x Block Of Gold",
-      "gui.fine_tuned_weaponry.book_page_2.label_research_table": "Research Table",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_stone1": "stone",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_stone2": "stone",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_rose_gold_ingot": "Obsidian Ingot",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_earthly_ingot1": "Earthly Ingot",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_obsidian_hammer": "Inosuke\u0027s Katana",
       "item.fine_tuned_weaponry.blizzard_amplifier.description_0": "§9Slows §3all enemies within 3 blocks§9 when attacking",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_golden_apple": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_diamond": "1x Diamond",
       "item.fine_tuned_weaponry.classic_katana.description_2": "§9Cooldown : 2 sec",
-      "gui.fine_tuned_weaponry.book_page_5.label_craft_a_forge_first": "Craft a Forge Then Use",
       "item.fine_tuned_weaponry.classic_katana.description_0": "§7A timeless blade forged for swift combat",
       "subtitles.activation_sound_effect": "",
       "item.fine_tuned_weaponry.classic_katana.description_1": "§eRight-click : Dash forward a short distance",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_classic_hammer1": "Classic Hammer",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_classic_hammer2": "Classic Hammer",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_classic_hammer3": "Classic Hammer",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_lunar_bloomfang": "Bone Sword",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_wood": "Wood",
       "item.fine_tuned_weaponry.blazing_amplifier": "Blazing Amplifier",
       "item.fine_tuned_weaponry.hellfire_amplifier.description_0": "§6Burning enemies take §c+20% more damage§6",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_diamond": "Diamond",
       "item.fine_tuned_weaponry.glacial_amplifier": "Glacial Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_earthly_ingot": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_weapons_template1": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_weapons_template2": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_weapons_template3": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_3.tooltip_weapons_template4": "Weapons Template",
       "block.fine_tuned_weaponry.research_table": "Research Table",
       "gui.fine_tuned_weaponry.book_page_6.label_classic_hammer": "Immortal Scythe",
       "item.fine_tuned_weaponry.inosukessword.description_3": "§e10% chance to deal 15% max health damage",
       "item.fine_tuned_weaponry.inosukessword.description_2": "§7Cuts through demons with brutal force",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_classic_hammer": "Immortal Scythe",
       "item.fine_tuned_weaponry.inosukessword.description_1": "§7Wielded by the boar-headed warrior",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_rose_gold_ingot1": "Rose Gold Ingot",
       "item.fine_tuned_weaponry.inosukessword.description_0": "§7A wild and jagged blade",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_weapons_template3": "Soul Lantern",
-      "gui.fine_tuned_weaponry.book_page_2.label_gems1": "Gems",
-      "gui.fine_tuned_weaponry.book_page_3.label_obsidian_hammer": "Obsidian Hammer",
       "item.fine_tuned_weaponry.weapontemplate.description_1": "§7Essential for crafting weapons",
       "subtitles.katana_dash_sound": "",
       "item.fine_tuned_weaponry.weapontemplate.description_2": "§cCoveted by master blacksmiths across the realms",
       "gui.fine_tuned_weaponry.book_title.label_weapons": "Weapons",
       "item.fine_tuned_weaponry.weapontemplate.description_0": "§7A blueprint forged from ancient knowledge",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_weapons_template1": "Weapons Template",
-      "gui.fine_tuned_weaponry.book_page_6.label_1x_iron": "1x Iron",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_weapons_template5": "Weapons Template",
       "gui.fine_tuned_weaponry.book_page_6.label_craft_a_forge_first": "Craft a Forge Then Use",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_weapons_template3": "Soul Lantern",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_weapons_template4": "Earthly Ingot",
-      "gui.fine_tuned_weaponry.book_page_5.label_materials": "Forge",
       "item.fine_tuned_weaponry.storm_fury_amplifier.description_0": "§bEvery 6th Attack Charge Your Weapon With Triple The Damage",
       "gui.fine_tuned_weaponry.book_page_1.button_empty1": "\u003c-",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_string1": "Weapons Template",
       "item.fine_tuned_weaponry.static_amplifier": "StaticAmplifier",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_string2": "string",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_wood1": "Wood",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_string3": "Obsidian Ingot",
       "gui.fine_tuned_weaponry.book_page_2.label_materials": "Materials",
-      "gui.fine_tuned_weaponry.book_page_5.label_a_block_of_coal": "A 1x Block Of Coal To ",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_flower": "Flower",
-      "gui.fine_tuned_weaponry.book_page_3.label_lunar_bloomfang": "Lunar Bloomfang",
-      "gui.fine_tuned_weaponry.book_page_2.label_amplifiers": "Amplifiers",
-      "gui.fine_tuned_weaponry.book_page_6.label_forge_recipe": "Forge Recipe",
-      "gui.fine_tuned_weaponry.book_page_5.label_forge_recipe": "Forge Recipe"
+      "gui.fine_tuned_weaponry.book_page_6.label_forge_recipe": "Forge Recipe"
     }
   },
   "foldersRoot": {
@@ -2830,15 +2679,6 @@
                 ]
               }
             ]
-          },
-          {
-            "name": "Book",
-            "children": [
-              {
-                "name": "Logic",
-                "children": []
-              }
-            ]
           }
         ]
       },
@@ -2887,15 +2727,24 @@
         ]
       },
       {
-        "name": "Config",
-        "children": []
+        "name": "JEI",
+        "children": [
+          {
+            "name": "WeaponForge",
+            "children": []
+          },
+          {
+            "name": "ResearchTable",
+            "children": []
+          }
+        ]
       }
     ]
   },
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Finetuned Weaponry",
-    "version": "2.0.0a",
+    "version": "2.0.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
@@ -2905,7 +2754,9 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "jei"
+    ],
     "currentGenerator": "forge-1.20.1",
     "credits": "no credits yet",
     "modElementsPackage": "com.naizo.finetuned"

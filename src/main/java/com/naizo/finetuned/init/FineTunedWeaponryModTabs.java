@@ -61,6 +61,5 @@ public class FineTunedWeaponryModTabs {
 				tabData.accept(FineTunedWeaponryModItems.CHARGED_AMPLIFIER.get());
 				tabData.accept(FineTunedWeaponryModItems.OVERLOAD_AMPLIFIER.get());
 				tabData.accept(FineTunedWeaponryModBlocks.WEAPONS_ANVIL.get().asItem());
-				tabData.accept(FineTunedWeaponryModItems.FINETUNNED_GUIDE.get());
 			}).withTabsBefore(FINE_TUNED_WEAPONS.getId()).build());
 }
