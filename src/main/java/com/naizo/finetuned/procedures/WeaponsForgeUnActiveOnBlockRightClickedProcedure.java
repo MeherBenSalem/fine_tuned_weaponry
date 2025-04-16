@@ -22,6 +22,10 @@ public class WeaponsForgeUnActiveOnBlockRightClickedProcedure {
 			return;
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Blocks.COAL_BLOCK.asItem()) {
 			world.setBlock(BlockPos.containing(x, y, z), FineTunedWeaponryModBlocks.WEAPONS_FORGE_ACTIVE.get().defaultBlockState(), 3);
+			if (entity instanceof Player _player) {
+				ItemStack _stktoremove = new ItemStack(Blocks.COAL_BLOCK);
+				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
+			}
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")), SoundSource.NEUTRAL, 1, 1);

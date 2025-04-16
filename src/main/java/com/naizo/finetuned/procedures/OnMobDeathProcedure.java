@@ -46,7 +46,7 @@ public class OnMobDeathProcedure {
 			}
 		}
 		if (entity instanceof Illusioner) {
-			if (Mth.nextInt(RandomSource.create(), 0, 100) <= 10) {
+			if (Mth.nextInt(RandomSource.create(), 0, 100) <= 30) {
 				if (world instanceof ServerLevel _level) {
 					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(FineTunedWeaponryModItems.STORM_SHARD.get()));
 					entityToSpawn.setPickUpDelay(10);
