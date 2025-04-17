@@ -6,14 +6,20 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.MenuProvider;
@@ -27,8 +33,11 @@ import com.naizo.finetuned.procedures.WeaponsForgeUnActiveOnBlockRightClickedPro
 import com.naizo.finetuned.block.entity.WeaponsForgeUnActiveBlockEntity;
 
 public class WeaponsForgeUnActiveBlock extends Block implements EntityBlock {
+	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
 	public WeaponsForgeUnActiveBlock() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 15f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.IGNORE).isRedstoneConductor((bs, br, bp) -> false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
 	@Override
@@ -48,7 +57,31 @@ public class WeaponsForgeUnActiveBlock extends Block implements EntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return box(0, 0, 0, 16, 14, 16);
+		return switch (state.getValue(FACING)) {
+			default -> box(0, 0, 0, 16, 14, 16);
+			case NORTH -> box(0, 0, 0, 16, 14, 16);
+			case EAST -> box(0, 0, 0, 16, 14, 16);
+			case WEST -> box(0, 0, 0, 16, 14, 16);
+		};
+	}
+
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		super.createBlockStateDefinition(builder);
+		builder.add(FACING);
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite());
+	}
+
+	public BlockState rotate(BlockState state, Rotation rot) {
+		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
+	}
+
+	public BlockState mirror(BlockState state, Mirror mirrorIn) {
+		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
 	}
 
 	@Override

@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "fine_tuned_weaponry:block/weapons_forge_active"
+    },
+    "facing=east": {
+      "model": "fine_tuned_weaponry:block/weapons_forge_active",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fine_tuned_weaponry:block/weapons_forge_active",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fine_tuned_weaponry:block/weapons_forge_active",
+      "y": 270
     }
   }
 }

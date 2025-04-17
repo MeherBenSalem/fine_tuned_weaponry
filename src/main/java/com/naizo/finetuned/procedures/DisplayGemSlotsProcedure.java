@@ -66,35 +66,35 @@ public class DisplayGemSlotsProcedure {
 				if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.STORM_SHARD.get()).toString()))) {
 					tooltip.add(Component.literal("\u00A7eStorm Shard"));
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.CHARGED_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Charged Amplifier"));
+						tooltip.add(Component.literal("\u00A76- Charged Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.CHARGED_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Overload Amplifier"));
+						tooltip.add(Component.literal("\u00A76- Overload Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.SUPERSTORM_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Superstorm Amplifier"));
+						tooltip.add(Component.literal("\u00A76- Superstorm Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.STORM_FURY_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Storm Fury Amplifier"));
+						tooltip.add(Component.literal("\u00A76- Storm Fury Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.STATIC_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Static Amplifier"));
+						tooltip.add(Component.literal("\u00A76- Static Amplifier"));
 					}
 				}
 				if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.FROST_RUNE.get()).toString()))) {
 					tooltip.add(Component.literal("\u00A73Frost Rune"));
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.GLACIAL_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Glacial Amplifier"));
+						tooltip.add(Component.literal("\u00A71- Glacial Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.PERMAFROST_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Permafrost Amplifier"));
+						tooltip.add(Component.literal("\u00A71- Permafrost Amplifier"));
 					}
 					if (itemstack.getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.BLIZZARD_AMPLIFIER.get()).toString()))) {
-						tooltip.add(Component.literal("\u00A74- Blizzard Amplifier"));
+						tooltip.add(Component.literal("\u00A71- Blizzard Amplifier"));
 					}
 				}
 			} else {
-				tooltip.add(Component.literal("<Press Shift To Show Upgrades>"));
+				tooltip.add(Component.literal("<Press shift to show more>"));
 			}
 		}
 	}
