@@ -80,7 +80,7 @@ public class InfernoCoreTriggerProcedure {
 					}
 				}
 				if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().getBoolean((ForgeRegistries.ITEMS.getKey(FineTunedWeaponryModItems.INFERNAL_HUNGER_AMPLIFIER.get()).toString()))) {
-					if (entity instanceof LivingEntity _entity)
+					if (sourceentity instanceof LivingEntity _entity)
 						_entity.setHealth((float) ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) + amount + 0.2));
 				}
 			}
