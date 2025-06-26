@@ -3,7 +3,7 @@
     "default": {
       "map": {
         "3": "anvil",
-        "4": "ham_texture"
+        "4": "earth_ham_texture"
       },
       "name": "default"
     }

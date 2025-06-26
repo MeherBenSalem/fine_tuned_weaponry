@@ -1,12 +1,8 @@
 {
+	"format_version": "1.21.6",
 	"credit": "MadewithBlockbench",
 	"parent": "anvil",
 	"texture_size": [64, 64],
-	"textures": {
-		"3": "anvil",
-		"4": "pasted",
-		"particle": "anvil"
-	},
 	"elements": [
 		{
 			"name": "head",
@@ -218,11 +214,10 @@
 		},
 		"gui": {
 			"rotation": [30, 135, 0],
-			"translation": [0, 2.25, 0],
-			"scale": [0.90109, 0.90109, 0.90109]
+			"scale": [0.5, 0.5, 0.5]
 		},
 		"head": {
-			"rotation": [0, 180, 0],
+			"rotation": [0, -180, 0],
 			"translation": [0, -30.4, 0],
 			"scale": [1.6, 1.6, 1.6]
 		},

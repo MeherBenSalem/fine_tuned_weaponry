@@ -1,4 +1,5 @@
 {
+  "format_version": "1.21.6",
   "credit": "MadewithBlockbench",
   "parent": "anvil",
   "texture_size": [
@@ -1161,21 +1162,16 @@
         135,
         0
       ],
-      "translation": [
-        0,
-        2.25,
-        0
-      ],
       "scale": [
-        0.90109,
-        0.90109,
-        0.90109
+        0.5,
+        0.5,
+        0.5
       ]
     },
     "head": {
       "rotation": [
         0,
-        180,
+        -180,
         0
       ],
       "translation": [
