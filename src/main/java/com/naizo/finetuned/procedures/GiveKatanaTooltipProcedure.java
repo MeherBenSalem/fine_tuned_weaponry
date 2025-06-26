@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -15,7 +17,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
-import com.naizo.finetuned.configuration.KatanaConfigConfiguration;
 
 @Mod.EventBusSubscriber
 public class GiveKatanaTooltipProcedure {
@@ -33,7 +34,7 @@ public class GiveKatanaTooltipProcedure {
 		if (tooltip == null)
 			return;
 		if (itemstack.getItem() == FineTunedWeaponryModItems.CLASSIC_KATANA.get()) {
-			tooltip.add(3, Component.literal(("\u00A79Cooldown : " + (double) KatanaConfigConfiguration.CLASSIC_KATANA_COOLDOWN.get() * 0.05 + " sec")));
+			tooltip.add(3, Component.literal(("\u00A79Cooldown : " + JaumlConfigLib.getNumberValue("finetunned/weapons", "katana_config", "dash_cooldown") * 0.05 + " s")));
 		}
 	}
 }

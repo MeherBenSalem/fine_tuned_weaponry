@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -15,7 +17,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
-import com.naizo.finetuned.configuration.FangConfigConfiguration;
 
 @Mod.EventBusSubscriber
 public class GiveMoonFangTooltipProcedure {
@@ -33,7 +34,7 @@ public class GiveMoonFangTooltipProcedure {
 		if (tooltip == null)
 			return;
 		if (itemstack.getItem() == FineTunedWeaponryModItems.MOONS_LUNAR_BLOOMFANG.get()) {
-			tooltip.add(3, Component.literal(("\u00A79Cooldown : " + (double) FangConfigConfiguration.MOON_FANG_CDR.get() * 0.05 + " sec")));
+			tooltip.add(3, Component.literal(("\u00A79Cooldown : " + JaumlConfigLib.getNumberValue("finetunned/weapons", "fang_config", "cooldown") * 0.05 + " s")));
 		}
 	}
 }

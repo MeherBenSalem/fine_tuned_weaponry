@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
@@ -13,7 +15,7 @@ public class WeaponsForgeActiveBlockAddedProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getPersistentData().putDouble("forge_timer", 120);
+				_blockEntity.getPersistentData().putDouble("forge_timer", JaumlConfigLib.getNumberValue("finetunned", "main_config", "forge_timer"));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

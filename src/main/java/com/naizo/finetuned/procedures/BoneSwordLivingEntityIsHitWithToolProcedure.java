@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
@@ -10,6 +12,7 @@ public class BoneSwordLivingEntityIsHitWithToolProcedure {
 		if (entity == null)
 			return;
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 60, 1, false, false));
+			_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, (int) JaumlConfigLib.getNumberValue("finetunned/weapons", "swords_config", "bone_sword_effect_duration"),
+					(int) JaumlConfigLib.getNumberValue("finetunned/weapons", "swords_config", "bone_sword_effect_level"), false, false));
 	}
 }

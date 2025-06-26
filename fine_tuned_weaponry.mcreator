@@ -437,19 +437,6 @@
       "path": "~/Weapons/Katana/Classic"
     },
     {
-      "name": "KatanaConfig",
-      "type": "config",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "katana_config",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/configuration/KatanaConfigConfiguration.java"
-        ]
-      },
-      "path": "~/Weapons/Katana"
-    },
-    {
       "name": "GiveBloodKatanaTooltip",
       "type": "procedure",
       "compiles": true,
@@ -510,19 +497,6 @@
         ]
       },
       "path": "~/Weapons/Katana/Blood Katana"
-    },
-    {
-      "name": "FangConfig",
-      "type": "config",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "fang_config",
-      "metadata": {
-        "files": [
-          "src/main/java/com/naizo/finetuned/configuration/FangConfigConfiguration.java"
-        ]
-      },
-      "path": "~/Weapons/Fangs"
     },
     {
       "name": "GiveMoonFangTooltip",
@@ -2197,6 +2171,117 @@
         ]
       },
       "path": "~/JEI/ResearchTable"
+    },
+    {
+      "name": "CreateKatanConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_katan_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateKatanConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Katana"
+    },
+    {
+      "name": "CreateFangConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_fang_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateFangConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Fangs"
+    },
+    {
+      "name": "WarAxeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "war_axe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/fine_tuned_weaponry/recipes/war_axe_recipe.json"
+        ]
+      },
+      "path": "~/Weapons/Axes/War Axe"
+    },
+    {
+      "name": "CreateHammerConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_hammer_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateHammerConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Hammers"
+    },
+    {
+      "name": "CreateSwordsConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_swords_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateSwordsConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Swords"
+    },
+    {
+      "name": "CreateScytheConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_scythe_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateScytheConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Scythe"
+    },
+    {
+      "name": "CreateAxesConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_axes_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateAxesConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Weapons/Axes"
+    },
+    {
+      "name": "CreateMainConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_main_config",
+      "metadata": {
+        "files": [
+          "src/main/java/com/naizo/finetuned/procedures/CreateMainConfigProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Blocks"
     }
   ],
   "variable_elements": [
@@ -2358,8 +2443,8 @@
       "item.fine_tuned_weaponry.classichammer": "Classic Hammer",
       "item.fine_tuned_weaponry.waraxe": "§6War Axe of Devastation",
       "item.fine_tuned_weaponry.bone_sword.description_0": "§6A sword forged from the bones of ancient creatures",
-      "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
       "gui.fine_tuned_weaponry.book_title.label_materials": "Materials",
+      "item.fine_tuned_weaponry.helish_sword.description_0": "§4A blade forged in the heart of the Nether, it radiates a fierce heat and crackles with the power of Hell itself. ",
       "item.fine_tuned_weaponry.obsidian_forged_ingot": "Forged Obsidian Ingot",
       "item.fine_tuned_weaponry.static_amplifier.description_0": "§bAttacks Gives You HASTE And SPEED",
       "gui.fine_tuned_weaponry.book_page_3.label_amplifiers": "Amplifiers",
@@ -2378,19 +2463,19 @@
       "gui.fine_tuned_weaponry.book_page_6.tooltip_iron_sword": "Weapons Template",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stone1": "stone",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_rose_gold_ingot": "Obsidian Ingot",
-      "item_group.fine_tuned_weaponry.fine_tunned_mats": "Fine Tuned Materials",
-      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
       "item.fine_tuned_weaponry.blood_katana": "§4Blood §cKatana",
+      "itemGroup.tab_fine_tuned_weapons": "Fine Tuned Weapons",
+      "item_group.fine_tuned_weaponry.fine_tunned_mats": "Fine Tuned Materials",
       "gui.fine_tuned_weaponry.book_page_3.label_materials": "Materials",
-      "enchantment.fine_tuned_weaponry.super_charge_enchant": "Super Charge Enchant",
       "block.fine_tuned_weaponry.weapons_forge_un_active": "Weapons Forge",
+      "enchantment.fine_tuned_weaponry.super_charge_enchant": "Super Charge Enchant",
       "item.fine_tuned_weaponry.glacial_amplifier.description_0": "§9Doubles the frost effect when hit",
       "gui.fine_tuned_weaponry.book_page_6.tooltip_stick": "Obsidian Ingot",
       "item.fine_tuned_weaponry.smokescreen_amplifier": "Smokescreen Amplifier",
       "gui.fine_tuned_weaponry.book_page_5.tooltip_obsidian_ingot": "Classic Katana",
-      "gui.fine_tuned_weaponry.book_page_4.tooltip_flower1": "Flower",
-      "item.fine_tuned_weaponry.obsidianhammer": "§5Obsidian §dHammer",
       "item.fine_tuned_weaponry.lava_infusion_amplifier.description_0": "§6Attacks Apply Weakness For 2s",
+      "item.fine_tuned_weaponry.obsidianhammer": "§5Obsidian §dHammer",
+      "gui.fine_tuned_weaponry.book_page_4.tooltip_flower1": "Flower",
       "gui.fine_tuned_weaponry.book_page_5.label_rose_gold_hammer": "Helish Sword",
       "item.fine_tuned_weaponry.zenitsus_sword": "§6Zenitsus §eSword",
       "gui.fine_tuned_weaponry.book_page_4.tooltip_bone1": "Bone",
@@ -2416,8 +2501,8 @@
       "item.fine_tuned_weaponry.earthlyhammer.description_0": "§7Forged from the heart of the earth",
       "item.fine_tuned_weaponry.wildfire_amplifier.description_0": "§6Fire spreads to §cnearby enemies§6 when they are burning",
       "item.fine_tuned_weaponry.earthlyhammer.description_1": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
-      "gui.fine_tuned_weaponry.book_page_5.tooltip_earthly_ingot1": "Earthly Ingot",
       "item.fine_tuned_weaponry.earthlyhammer.description_2": "§eRight-click : Deals heavy knockback and AOE damage to mobs",
+      "gui.fine_tuned_weaponry.book_page_5.tooltip_earthly_ingot1": "Earthly Ingot",
       "item.fine_tuned_weaponry.earthlyhammer.description_3": "§9Cooldown : 5 sec",
       "item.fine_tuned_weaponry.frost_rune.description_0": "§3Adds §bIce Damage§3, slowing enemies for §b5s§3",
       "item.fine_tuned_weaponry.frost_rune.description_1": "§8(A rune infused with the chill of frozen lands)",
@@ -2744,7 +2829,7 @@
   "workspaceSettings": {
     "modid": "fine_tuned_weaponry",
     "modName": "Finetuned Weaponry",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "This mod offers ALOT of new weapons with unique abilities",
     "author": "NAIZO",
     "websiteURL": "https://meherbensalem.github.io",
@@ -2755,6 +2840,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
+      "jauml",
       "jei"
     ],
     "currentGenerator": "forge-1.20.1",

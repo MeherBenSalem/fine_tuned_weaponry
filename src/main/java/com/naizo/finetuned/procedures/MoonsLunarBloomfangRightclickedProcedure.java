@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.phys.Vec3;
@@ -20,8 +22,6 @@ import net.minecraft.core.BlockPos;
 import java.util.List;
 import java.util.Comparator;
 
-import com.naizo.finetuned.configuration.FangConfigConfiguration;
-
 public class MoonsLunarBloomfangRightclickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -31,7 +31,7 @@ public class MoonsLunarBloomfangRightclickedProcedure {
 		double particleAmount = 0;
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(((double) FangConfigConfiguration.MOON_FANG_RANGE.get()) / 2d), e -> true).stream()
+			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(JaumlConfigLib.getNumberValue("finetunned/weapons", "fang_config", "range") / 2d), e -> true).stream()
 					.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 			for (Entity entityiterator : _entfound) {
 				if (!(entityiterator == entity)) {
@@ -55,6 +55,6 @@ public class MoonsLunarBloomfangRightclickedProcedure {
 			}
 		}
 		if (entity instanceof Player _player)
-			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) FangConfigConfiguration.MOON_FANG_CDR.get());
+			_player.getCooldowns().addCooldown(itemstack.getItem(), (int) JaumlConfigLib.getNumberValue("finetunned/weapons", "fang_config", "cooldown"));
 	}
 }

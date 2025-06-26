@@ -1,5 +1,7 @@
 package com.naizo.finetuned.procedures;
 
+import tn.naizo.jauml.JaumlConfigLib;
+
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.phys.Vec3;
@@ -16,8 +18,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
 
-import com.naizo.finetuned.configuration.KatanaConfigConfiguration;
-
 public class BloodKatanaRightClickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -25,9 +25,9 @@ public class BloodKatanaRightClickedProcedure {
 		double particleRadius = 0;
 		double particleAmount = 0;
 		if (entity.onGround()) {
-			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() + entity.getLookAngle().x * (double) KatanaConfigConfiguration.BLOOD_KATANA_DASH_POWER.get()),
-					(entity.getDeltaMovement().y() + entity.getLookAngle().y * (double) KatanaConfigConfiguration.BLOOD_KATANA_DASH_POWER.get()),
-					(entity.getDeltaMovement().z() + entity.getLookAngle().z * (double) KatanaConfigConfiguration.BLOOD_KATANA_DASH_POWER.get())));
+			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() + entity.getLookAngle().x * JaumlConfigLib.getNumberValue("finetunned/weapons", "katana_config", "blood_dash_power")),
+					(entity.getDeltaMovement().y() + entity.getLookAngle().y * JaumlConfigLib.getNumberValue("finetunned/weapons", "katana_config", "blood_dash_power")),
+					(entity.getDeltaMovement().z() + entity.getLookAngle().z * JaumlConfigLib.getNumberValue("finetunned/weapons", "katana_config", "blood_dash_power"))));
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("fine_tuned_weaponry:katana_dash_sound")), SoundSource.NEUTRAL, 1, 1);
@@ -36,7 +36,7 @@ public class BloodKatanaRightClickedProcedure {
 				}
 			}
 			if (entity instanceof Player _player)
-				_player.getCooldowns().addCooldown(itemstack.getItem(), (int) (double) KatanaConfigConfiguration.BLOOD_KATANA_COOLDOWN.get());
+				_player.getCooldowns().addCooldown(itemstack.getItem(), (int) JaumlConfigLib.getNumberValue("finetunned/weapons", "katana_config", "blood_dash_cooldown"));
 			particleAmount = 30;
 			particleRadius = 4;
 			for (int index0 = 0; index0 < (int) particleAmount; index0++) {
