@@ -1,4 +1,13 @@
 =============================================
+## Changelog 2.1.0
+=============================================
+
+- Now using the powerful [jauml](https://github.com/MeherBenSalem/jauml) config library (required).
+- Changed all the configs into json files with real time updates.
+- Added alot of more configs for diffrent weapons and blocks.
+- Fixed the display of the forge anvil in GUI slot.
+
+=============================================
 ## Changelog 2.0.0
 =============================================
 
