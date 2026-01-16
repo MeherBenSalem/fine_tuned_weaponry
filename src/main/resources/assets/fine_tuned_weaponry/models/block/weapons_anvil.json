@@ -4,7 +4,7 @@
     "all": "fine_tuned_weaponry:block/anvil",
     "particle": "fine_tuned_weaponry:block/anvil",
     "3": "fine_tuned_weaponry:block/anvil",
-    "4": "fine_tuned_weaponry:block/ham_texture"
+    "4": "fine_tuned_weaponry:block/earth_ham_texture"
   },
   "render_type": "solid"
 }

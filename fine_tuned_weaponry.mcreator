@@ -2836,7 +2836,9 @@
     "license": "All Rights Reserved",
     "serverSideOnly": false,
     "modPicture": "weapon_soul",
-    "requiredMods": [],
+    "requiredMods": [
+      "jauml"
+    ],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [

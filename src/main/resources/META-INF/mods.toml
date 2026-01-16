@@ -22,6 +22,12 @@ description="This mod offers ALOT of new weapons with unique abilities"
     ordering="AFTER"
     side="BOTH"
 
+[[dependencies.fine_tuned_weaponry]]
+    modId="jauml"
+    mandatory=true
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.fine_tuned_weaponry]]
     modId="jauml"
@@ -36,13 +42,12 @@ description="This mod offers ALOT of new weapons with unique abilities"
     ordering="NONE"
     side="BOTH"
 
+
+# Start of user code block dependencies configuration
 [[dependencies.memory_of_the_past]]
     modId="jauml"
     mandatory=true
     versionRange="[1.0.3,)"
     ordering="NONE"
     side="BOTH"
-
-
-# Start of user code block dependencies configuration
 # End of user code block dependencies configuration
