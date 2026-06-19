@@ -21,7 +21,3 @@ build
 # other
 eclipse
 run
-
-# OS
-.DS_Store
-Thumbs.db

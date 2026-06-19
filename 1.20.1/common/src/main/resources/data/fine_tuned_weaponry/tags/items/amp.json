@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "fine_tuned_weaponry:blazing_amplifier",
+    "fine_tuned_weaponry:wildfire_amplifier",
+    "fine_tuned_weaponry:hellfire_amplifier",
+    "fine_tuned_weaponry:charged_amplifier",
+    "fine_tuned_weaponry:overload_amplifier",
+    "fine_tuned_weaponry:superstorm_amplifier",
+    "fine_tuned_weaponry:glacial_amplifier",
+    "fine_tuned_weaponry:permafrost_amplifier",
+    "fine_tuned_weaponry:blizzard_amplifier",
+    "fine_tuned_weaponry:pyroclasm_amplifier",
+    "fine_tuned_weaponry:infernal_hunger_amplifier",
+    "fine_tuned_weaponry:lava_infusion_amplifier",
+    "fine_tuned_weaponry:smokescreen_amplifier",
+    "fine_tuned_weaponry:volcanic_burst_amplifier",
+    "fine_tuned_weaponry:storm_fury_amplifier",
+    "fine_tuned_weaponry:static_amplifier"
+  ]
+}
