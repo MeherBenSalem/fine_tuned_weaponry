@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "fine_tuned_weaponry:blocks/weapons_forge_un_active",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "fine_tuned_weaponry:weapons_forge_un_active"
+        }
+      ]
+    }
+  ]
+}

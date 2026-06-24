@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "aba",
+    " c "
+  ],
+  "key": {
+    "a": {
+      "item": "fine_tuned_weaponry:earthly_ingot"
+    },
+    "b": {
+      "item": "minecraft:iron_sword"
+    },
+    "c": {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:classic_katana",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fine_tuned_weaponry:classichammer",
+    "fine_tuned_weaponry:earthlyhammer",
+    "fine_tuned_weaponry:obsidianhammer",
+    "fine_tuned_weaponry:rosegoldhammer"
+  ]
+}

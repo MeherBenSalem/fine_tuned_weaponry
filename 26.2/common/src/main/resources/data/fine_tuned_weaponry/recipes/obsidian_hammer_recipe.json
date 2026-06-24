@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    },
+    {
+      "item": "fine_tuned_weaponry:obsidian_forged_ingot"
+    },
+    {
+      "item": "fine_tuned_weaponry:classichammer"
+    },
+    {
+      "item": "fine_tuned_weaponry:obsidian_forged_ingot"
+    }
+  ],
+  "result": {
+    "item": "fine_tuned_weaponry:obsidianhammer",
+    "count": 1
+  }
+}

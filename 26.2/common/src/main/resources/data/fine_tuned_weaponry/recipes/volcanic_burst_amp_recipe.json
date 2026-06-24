@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:fire_charge"
+    },
+    {
+      "item": "minecraft:lava_bucket"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:volcanic_burst_amplifier",
+    "count": 1
+  }
+}

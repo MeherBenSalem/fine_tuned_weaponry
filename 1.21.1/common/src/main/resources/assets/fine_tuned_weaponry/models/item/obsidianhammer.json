@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/obshammer",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/obs_ham_texture",
+    "particle": "minecraft:item/bowl"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    },
+    {
+      "item": "fine_tuned_weaponry:earthly_ingot"
+    },
+    {
+      "item": "fine_tuned_weaponry:classichammer"
+    },
+    {
+      "item": "fine_tuned_weaponry:earthly_ingot"
+    }
+  ],
+  "result": {
+    "item": "fine_tuned_weaponry:earthlyhammer",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "fine_tuned_weaponry:classichammer"
+    },
+    "b": {
+      "item": "minecraft:iron_block"
+    },
+    "c": {
+      "item": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "item": "fine_tuned_weaponry:weapons_anvil",
+    "count": 1
+  }
+}

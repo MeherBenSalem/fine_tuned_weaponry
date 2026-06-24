@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/blood_katana",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/blood_katana_texture",
+    "particle": "minecraft:item/iron_sword"
+  }
+}

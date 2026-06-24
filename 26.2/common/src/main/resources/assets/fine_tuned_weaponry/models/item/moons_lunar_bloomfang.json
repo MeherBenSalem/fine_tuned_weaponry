@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/moonrayys_sword",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/lunar_text",
+    "particle": "minecraft:item/axolotl_bucket"
+  }
+}

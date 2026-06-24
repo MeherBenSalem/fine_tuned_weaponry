@@ -1,0 +1,7 @@
+{
+  "parent": "fine_tuned_weaponry:custom/deathbringer",
+  "textures": {
+    "0": "fine_tuned_weaponry:block/death_bringer_texture",
+    "particle": "minecraft:item/empty_slot_sword"
+  }
+}

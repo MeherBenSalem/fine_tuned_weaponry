@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:rabbit_hide"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:static_amplifier",
+    "count": 1
+  }
+}

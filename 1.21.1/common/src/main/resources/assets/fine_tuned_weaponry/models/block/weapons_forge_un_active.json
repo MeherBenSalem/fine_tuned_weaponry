@@ -1,0 +1,9 @@
+{
+  "parent": "fine_tuned_weaponry:custom/unlit_forge",
+  "textures": {
+    "all": "fine_tuned_weaponry:block/forge",
+    "particle": "fine_tuned_weaponry:block/forge",
+    "3": "fine_tuned_weaponry:block/forge"
+  },
+  "render_type": "solid"
+}

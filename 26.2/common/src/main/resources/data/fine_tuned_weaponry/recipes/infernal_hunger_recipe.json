@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:fire_charge"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:infernal_hunger_amplifier",
+    "count": 1
+  }
+}

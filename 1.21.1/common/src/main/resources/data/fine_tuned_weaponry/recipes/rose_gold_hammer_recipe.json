@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fine_tuned_weaponry:weapontemplate"
+    },
+    {
+      "item": "fine_tuned_weaponry:rose_gold_ingot"
+    },
+    {
+      "item": "fine_tuned_weaponry:classichammer"
+    },
+    {
+      "item": "fine_tuned_weaponry:rose_gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "fine_tuned_weaponry:rosegoldhammer",
+    "count": 1
+  }
+}

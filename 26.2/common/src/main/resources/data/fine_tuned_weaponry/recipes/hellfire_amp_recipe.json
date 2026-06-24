@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:fire_charge"
+    },
+    {
+      "item": "minecraft:soul_campfire"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:hellfire_amplifier",
+    "count": 1
+  }
+}
