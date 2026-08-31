@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-| Minecraft | Workspace | Loaders        | Status        |
-|-----------|-----------|----------------|---------------|
-| 1.21.1    | `26.2/`   | Fabric, NeoForge | Supported   |
-| 1.21.1    | `1.21.1/` | Fabric, NeoForge | Maintenance |
-| 1.20.1    | `1.20.1/` | Forge, Fabric    | Legacy      |
+| Minecraft | Loaders        | Status    |
+|-----------|----------------|-----------|
+| **1.21.1** | Fabric, NeoForge | Supported |
 
-Security fixes are prioritized for the active `26.2/` workspace.
+Older in-repo workspaces (`1.20.1/`, `1.21.1/`) are not published or supported for new releases.
+
+Security fixes are prioritized for the active [`26.2/`](26.2/) workspace.
 
 ## Reporting a Vulnerability
 
