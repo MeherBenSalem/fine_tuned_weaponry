@@ -2,9 +2,8 @@
 
 MultiLoader Minecraft mod for **Fabric** and **NeoForge** on **Minecraft 1.21.1** — weapons with unique abilities, crafting stations, and progression.
 
-> **Supported game version:** Minecraft **1.21.1** only (Fabric + NeoForge).  
-> The [`26.2/`](26.2/) folder name is the MultiLoader **build template**, not a Minecraft version.  
-> Legacy [`1.20.1/`](1.20.1/) sources remain in-repo for reference but are **not published** on Modrinth/CurseForge.
+> **Supported game versions:** Minecraft **1.21.1** (Fabric + NeoForge) and **1.20.1** (Forge + Fabric).  
+> The [`26.2/`](26.2/) folder name is the MultiLoader **build template**, not a Minecraft version.
 
 ## Download
 
@@ -13,7 +12,12 @@ MultiLoader Minecraft mod for **Fabric** and **NeoForge** on **Minecraft 1.21.1*
 | **Modrinth** | [fine-tunned-weaponry](https://modrinth.com/mod/fine-tunned-weaponry/versions) |
 | **CurseForge** | [Fine-Tuned Weaponry (1150827)](https://www.curseforge.com/minecraft/mc-mods/fine-tuned-weaponry/files) |
 
-Latest release: **2.3.0** — Minecraft **1.21.1**, **Fabric** and **NeoForge** jars.
+Latest release: **2.3.0**
+
+| Minecraft | Loaders |
+|-----------|---------|
+| 1.21.1 | Fabric, NeoForge |
+| 1.20.1 | Fabric, Forge |
 
 ## Development
 

@@ -16,8 +16,8 @@ on:
       version:
         description: Version (without v) when not tagging
         required: false
-      dry_run:
-        description: Skip uploads if true
+      legacy_only:
+        description: Build/upload only 1.20.1 jars (skip 1.21.1 re-upload)
         required: false
         default: "false"
 
@@ -49,18 +49,34 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
-      - name: Build 26.2 workspace
+      - name: Build 26.2 workspace (1.21.1)
+        if: ${{ inputs.legacy_only != 'true' }}
         working-directory: 26.2
         run: |
           chmod +x gradlew
           ./gradlew :fabric:build :neoforge:build --no-daemon
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Build 1.20.1 workspace
+        working-directory: 1.20.1
+        run: |
+          chmod +x gradlew
+          ./gradlew :forge:build :fabric:build --no-daemon
 
       - name: Find release jars
         id: jars
         shell: bash
         run: |
           VERSION="${{ steps.ver.outputs.version }}"
-          mapfile -t JARS < <(find 26.2 -type f -path "*/build/libs/*-${VERSION}.jar" \
+          SEARCH_PATHS=(1.20.1)
+          if [[ "${{ inputs.legacy_only }}" != "true" ]]; then
+            SEARCH_PATHS=(26.2 "${SEARCH_PATHS[@]}")
+          fi
+          mapfile -t JARS < <(find "${SEARCH_PATHS[@]}" -type f -path "*/build/libs/*-${VERSION}.jar" \
             ! -name "*-sources.jar" ! -name "*-javadoc.jar" \
             ! -name "*-dev.jar" ! -name "*-dev-shadow.jar" \
             ! -path "*/common/build/*" | sort)
@@ -125,10 +141,10 @@ jobs:
             let loader = null;
             if (n.includes('neoforge') || p.includes('/neoforge/')) loader = 'neoforge';
             else if (n.includes('fabric') || p.includes('/fabric/')) loader = 'fabric';
-            else if (n.includes('forge') || p.includes('/forge/')) loader = 'forge';
+            else if ((n.includes('forge') && !n.includes('neoforge')) || p.includes('/forge/')) loader = 'forge';
             else loader = 'fabric';
             const m = n.match(/(?:^|-)(1\.\d+(?:\.\d+)?)(?:-|$)/) || p.match(/1\.\d+(?:\.\d+)?/);
-            const gv = m ? (m[1] || m[0]) : '1.21.1';
+            const gv = m ? (m[1] || m[0]) : (p.includes('1.20.1') ? '1.20.1' : '1.21.1');
             return { loader, gv };
           }
 
@@ -153,11 +169,29 @@ jobs:
           }
 
           (async () => {
+            let existingMr = new Set();
+            try {
+              const listRes = await fetch(
+                `https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version?limit=100`,
+                { headers: { Authorization: process.env.MODRINTH_TOKEN } },
+              );
+              if (listRes.ok) {
+                for (const v of await listRes.json()) existingMr.add(v.version_number);
+              }
+            } catch (e) {
+              console.warn('Could not list Modrinth versions', e.message);
+            }
+
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
+              const versionNumber = `${version}+${loader}-${gv}`;
+              if (existingMr.has(versionNumber)) {
+                console.log('Modrinth skip (exists)', versionNumber);
+                continue;
+              }
               const body = {
                 name: `${version} · ${loader} · ${gv}`,
-                version_number: `${version}+${loader}-${gv}`,
+                version_number: versionNumber,
                 changelog,
                 dependencies: [],
                 game_versions: [gv],
