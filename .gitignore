@@ -22,6 +22,17 @@ build
 eclipse
 run
 
+# vscode (local launch configs may contain machine paths)
+.vscode/
+
+# env / secrets
+.env
+.env.*
+
 # OS
 .DS_Store
 Thumbs.db
+
+# logs and local artifacts
+*.log
+releases/

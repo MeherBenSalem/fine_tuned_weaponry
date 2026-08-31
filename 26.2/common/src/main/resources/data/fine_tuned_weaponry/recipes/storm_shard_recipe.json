@@ -1,0 +1,18 @@
+{
+  "type": "fine_tuned_weaponry:research_table_jei",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "minecraft:lightning_rod"
+    }
+  ],
+  "output": {
+    "item": "fine_tuned_weaponry:storm_shard",
+    "count": 1
+  }
+}

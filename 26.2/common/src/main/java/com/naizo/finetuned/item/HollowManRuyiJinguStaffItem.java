@@ -14,6 +14,10 @@ import net.minecraft.network.chat.Component;
 import java.util.List;
 
 import com.naizo.finetuned.util.WeaponTierHelper;
+import com.naizo.finetuned.procedures.HollowManStaffRightclickedProcedure;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 
 public class HollowManRuyiJinguStaffItem extends SwordItem {
 	private static final Tier TIER = WeaponTierHelper.create(300, 4f, 5f, 1, 15, Ingredient.of(new ItemStack(Blocks.OAK_WOOD)));
@@ -23,8 +27,17 @@ public class HollowManRuyiJinguStaffItem extends SwordItem {
 	}
 
 	@Override
+	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
+		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
+		HollowManStaffRightclickedProcedure.execute(world, entity, ar.getObject());
+		return ar;
+	}
+
+	@Override
 	public void appendHoverText(ItemStack itemstack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, context, list, flag);
 		list.add(Component.translatable("item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_1"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.hollow_man_ruyi_jingu_staff.description_2"));
 	}
 }

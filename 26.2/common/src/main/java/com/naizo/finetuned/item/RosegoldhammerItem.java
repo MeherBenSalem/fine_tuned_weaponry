@@ -15,6 +15,9 @@ import java.util.List;
 
 import com.naizo.finetuned.util.WeaponTierHelper;
 import com.naizo.finetuned.procedures.RosegoldhammerItemIsCraftedsmeltedProcedure;
+import com.naizo.finetuned.procedures.RosegoldhammerRightclickedProcedure;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import com.naizo.finetuned.init.FineTunedWeaponryModItems;
 
 public class RosegoldhammerItem extends SwordItem {
@@ -25,9 +28,18 @@ public class RosegoldhammerItem extends SwordItem {
 	}
 
 	@Override
+	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
+		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
+		RosegoldhammerRightclickedProcedure.execute(world, entity, ar.getObject());
+		return ar;
+	}
+
+	@Override
 	public void appendHoverText(ItemStack itemstack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, context, list, flag);
 		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_0"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_1"));
+		list.add(Component.translatable("item.fine_tuned_weaponry.rosegoldhammer.description_3"));
 	}
 
 	@Override
