@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 
 public final class ModTags {
 	public static final TagKey<Item> FORGE_TOOLS = itemTag("forge:tools");
+	public static final TagKey<Item> ANVIL_TOOLS = itemTag("fine_tuned_weaponry:anvil_tools");
 	public static final TagKey<Item> GEM = itemTag("fine_tuned_weaponry:gem");
 	public static final TagKey<Item> AMP = itemTag("fine_tuned_weaponry:amp");
 	public static final TagKey<Item> TOOLS = itemTag("tools");

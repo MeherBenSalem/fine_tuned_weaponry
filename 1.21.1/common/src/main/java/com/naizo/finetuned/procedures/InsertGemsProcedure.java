@@ -20,7 +20,7 @@ public class InsertGemsProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		double count = 0;
+		int count = 0;
 		if (new Object() {
 			public int getAmount(int sltid) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -44,7 +44,7 @@ public class InsertGemsProcedure {
 					}
 				}.getAmount((int) count) > 0) {
 					ItemStack weaponCheck = entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY;
-					if (!ItemStackDataHelper.getOrCreateTag(weaponCheck).getString(("ft_slot" + count)).isEmpty()) {
+					if (!GemNbtKeys.getSocketItemId(weaponCheck, count).isEmpty()) {
 						if (entity instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal(("Slot " + count + " already contains a modification")), false);
 					} else {

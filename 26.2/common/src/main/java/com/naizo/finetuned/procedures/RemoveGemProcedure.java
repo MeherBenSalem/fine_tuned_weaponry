@@ -18,7 +18,7 @@ public class RemoveGemProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		double count = 0;
+		int count = 0;
 		if (new Object() {
 			public int getAmount(int sltid) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -31,8 +31,7 @@ public class RemoveGemProcedure {
 		}.getAmount(0) > 0) {
 			count = 1;
 			for (int index0 = 0; index0 < 6; index0++) {
-				if (!(ItemStackDataHelper.getOrCreateTag(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
-						.getString(("ft_slot" + count))).equals("")) {
+				if (!GemNbtKeys.getSocketItemId(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY, count).isEmpty()) {
 					if (new Object() {
 						public int getAmount(int sltid) {
 							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -44,8 +43,7 @@ public class RemoveGemProcedure {
 						}
 					}.getAmount((int) count) == 0) {
 						if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-							ItemStack _setstack = new ItemStack(RegistryHelper.getItem((ItemStackDataHelper.getOrCreateTag(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
-											.getString(("ft_slot" + count))).toLowerCase(java.util.Locale.ENGLISH)))
+							ItemStack _setstack = new ItemStack(RegistryHelper.getItem(GemNbtKeys.getSocketItemId(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY, count).toLowerCase(java.util.Locale.ENGLISH)))
 									.copy();
 							_setstack.setCount(1);
 							((Slot) _slots.get((int) count)).set(_setstack);
@@ -53,7 +51,7 @@ public class RemoveGemProcedure {
 						}
 						ItemStack weaponSlot = entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY;
 						final int slotIndex = (int) count;
-						ItemStackDataHelper.updateTag(weaponSlot, tag -> tag.putString(("ft_slot" + slotIndex), ""));
+						GemNbtKeys.clearSocket(weaponSlot, slotIndex);
 						ItemStack removedGem = entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(slotIndex)).getItem() : ItemStack.EMPTY;
 						ItemStackDataHelper.updateTag(weaponSlot, tag -> tag.putBoolean((net.minecraft.core.registries.BuiltInRegistries.ITEM
 								.getKey(removedGem.getItem())

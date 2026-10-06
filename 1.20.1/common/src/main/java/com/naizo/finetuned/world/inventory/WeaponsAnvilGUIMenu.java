@@ -48,7 +48,7 @@ public class WeaponsAnvilGUIMenu extends AbstractContainerMenu implements Suppli
 				this.bound = true;
 			}
 		}
-		addTaggedSlot(0, 24, 34, stack -> stack.is(ModTags.FORGE_TOOLS));
+		addTaggedSlot(0, 24, 34, stack -> stack.is(ModTags.ANVIL_TOOLS));
 		addTaggedSlot(1, 67, 18, stack -> stack.is(ModTags.GEM));
 		addTaggedSlot(2, 67, 48, stack -> stack.is(ModTags.GEM));
 		addTaggedSlot(3, 104, 17, stack -> stack.is(ModTags.AMP));

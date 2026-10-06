@@ -100,6 +100,13 @@ jobs:
           printf '%s\n' "${JARS[@]}" >> "$GITHUB_OUTPUT"
           echo "$EOF" >> "$GITHUB_OUTPUT"
 
+      - name: Preserve exact release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fine-tuned-weaponry-${{ steps.ver.outputs.version }}
+          path: ${{ steps.jars.outputs.list }}
+          if-no-files-found: error
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -121,6 +128,7 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
+          const crypto = require('crypto');
           const version = process.env.VERSION;
           const jars = process.env.JAR_LIST.split(/\n/).map(s => s.trim()).filter(Boolean);
           if (!jars.length) throw new Error('No jars to upload');
@@ -134,6 +142,13 @@ jobs:
           const changelog = resolveChangelog(version);
 
           const LOADER_IDS = { fabric: 7499, forge: 7498, neoforge: 10150, quilt: 9153 };
+          // Match the existing build pins; do not silently select another game/loader.
+          const JAUML_VERSIONS = {
+            'neoforge-1.21.1': 'a1yuBbgk',
+            'fabric-1.21.1': 'qhE3mjqW',
+            'forge-1.20.1': 'LDZdiuuA',
+            'fabric-1.20.1': 'echba2hV',
+          };
 
           function detect(jar) {
             const n = path.basename(jar).toLowerCase();
@@ -169,31 +184,55 @@ jobs:
           }
 
           (async () => {
-            let existingMr = new Set();
-            try {
-              const listRes = await fetch(
-                `https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version?limit=100`,
-                { headers: { Authorization: process.env.MODRINTH_TOKEN } },
-              );
-              if (listRes.ok) {
-                for (const v of await listRes.json()) existingMr.add(v.version_number);
+            const hash = (jar, algorithm) => crypto.createHash(algorithm).update(fs.readFileSync(jar)).digest('hex');
+            const targets = new Set();
+            for (const jar of jars) {
+              const { loader, gv } = detect(jar);
+              const target = `${loader}-${gv}`;
+              if (!JAUML_VERSIONS[target] || targets.has(target) || path.basename(jar) !== `fine_tuned_weaponry-${target}-${version}.jar`) {
+                throw new Error('Unexpected or duplicate release artifact: ' + jar);
               }
-            } catch (e) {
-              console.warn('Could not list Modrinth versions', e.message);
+              targets.add(target);
+            }
+            const listRes = await fetch(
+              `https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version`,
+              { headers: { Authorization: process.env.MODRINTH_TOKEN } },
+            );
+            if (!listRes.ok) throw new Error('Modrinth preflight ' + listRes.status);
+            const existingMr = new Map((await listRes.json()).map(v => [v.version_number, v]));
+            const existingCf = new Map();
+            for (let index = 0; ; index += 50) {
+              const cfList = await fetch(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}/files?pageSize=50&index=${index}`, {
+                headers: { 'x-api-key': process.env.CURSEFORGE_API_KEY },
+              });
+              if (!cfList.ok) throw new Error('CurseForge preflight ' + cfList.status);
+              const page = await cfList.json();
+              for (const file of page.data) existingCf.set(file.fileName, file);
+              if (index + page.data.length >= page.pagination.totalCount) break;
+              if (!page.data.length) throw new Error('Incomplete CurseForge file listing');
             }
 
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
               const versionNumber = `${version}+${loader}-${gv}`;
               if (existingMr.has(versionNumber)) {
-                console.log('Modrinth skip (exists)', versionNumber);
+                const existing = existingMr.get(versionNumber);
+                if (!existing.files.some(f => f.primary && f.filename === path.basename(jar) && f.hashes.sha1 === hash(jar, 'sha1')) ||
+                    !existing.dependencies.some(d => d.version_id === JAUML_VERSIONS[`${loader}-${gv}`] && d.dependency_type === 'required')) {
+                  throw new Error('Existing Modrinth version differs; inspect before retry: ' + versionNumber);
+                }
+                console.log('Modrinth skip (verified exists)', existing.id, versionNumber);
                 continue;
               }
               const body = {
                 name: `${version} · ${loader} · ${gv}`,
                 version_number: versionNumber,
                 changelog,
-                dependencies: [],
+                dependencies: [{
+                  project_id: 'ihvBalM2',
+                  version_id: JAUML_VERSIONS[`${loader}-${gv}`],
+                  dependency_type: 'required',
+                }],
                 game_versions: [gv],
                 version_type: 'release',
                 loaders: [loader],
@@ -213,7 +252,9 @@ jobs:
               });
               const mrText = await mrRes.text();
               if (!mrRes.ok) throw new Error('Modrinth ' + mrRes.status + ' ' + mrText.slice(0, 500));
-              console.log('Modrinth OK', body.version_number, path.basename(jar));
+              const mrReceipt = JSON.parse(mrText);
+              if (!mrReceipt.id) throw new Error('Modrinth upload returned no version id');
+              console.log('Modrinth OK', mrReceipt.id, body.version_number, path.basename(jar), 'sha256=' + hash(jar, 'sha256'));
             }
 
             let flat = [];
@@ -231,6 +272,15 @@ jobs:
 
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
+              const existing = existingCf.get(path.basename(jar));
+              if (existing) {
+                if (!existing.hashes.some(h => h.algo === 1 && h.value === hash(jar, 'sha1')) ||
+                    !existing.dependencies.some(d => d.modId === 1281310 && d.relationType === 3)) {
+                  throw new Error('Existing CurseForge file differs; inspect before retry: ' + existing.id);
+                }
+                console.log('CurseForge skip (verified exists)', existing.id, path.basename(jar));
+                continue;
+              }
               const mcId = findVersionId(flat, gv);
               const loaderId = LOADER_IDS[loader];
               const clientId = findVersionId(flat, 'Client');
@@ -246,6 +296,7 @@ jobs:
                 displayName: `${version} · ${loader} · ${gv}`,
                 gameVersions,
                 releaseType: 'release',
+                relations: { projects: [{ slug: 'jauml', projectID: '1281310', type: 'requiredDependency' }] },
               };
               const cfForm = new FormData();
               cfForm.append('metadata', JSON.stringify(meta));
@@ -256,7 +307,9 @@ jobs:
               );
               const cfText = await cfRes.text();
               if (!cfRes.ok) throw new Error('CurseForge ' + cfRes.status + ' ' + cfText.slice(0, 500));
-              console.log('CurseForge OK', meta.displayName, path.basename(jar));
+              const cfReceipt = JSON.parse(cfText);
+              if (!cfReceipt.id) throw new Error('CurseForge upload returned no file id');
+              console.log('CurseForge OK', cfReceipt.id, meta.displayName, path.basename(jar), 'sha256=' + hash(jar, 'sha256'));
             }
           })().catch((e) => { console.error(e); process.exit(1); });
           NODE

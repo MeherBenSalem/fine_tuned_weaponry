@@ -12,7 +12,7 @@ MultiLoader Minecraft mod for **Fabric** and **NeoForge** on **Minecraft 1.21.1*
 | **Modrinth** | [fine-tunned-weaponry](https://modrinth.com/mod/fine-tunned-weaponry/versions) |
 | **CurseForge** | [Fine-Tuned Weaponry (1150827)](https://www.curseforge.com/minecraft/mc-mods/fine-tuned-weaponry/files) |
 
-Latest release: **2.3.0**
+Latest release: **2.3.1**
 
 | Minecraft | Loaders |
 |-----------|---------|

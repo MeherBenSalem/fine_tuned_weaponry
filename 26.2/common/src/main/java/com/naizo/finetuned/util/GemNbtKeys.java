@@ -37,6 +37,23 @@ public final class GemNbtKeys {
 		return BuiltInRegistries.ITEM.getKey(item).toString();
 	}
 
+	public static String getSocketItemId(ItemStack stack, int slot) {
+		var tag = ItemStackDataHelper.getTag(stack);
+		if (tag == null) {
+			return "";
+		}
+		String itemId = tag.getString("ft_slot" + slot);
+		// Older releases used a double as the socket counter.
+		return itemId.isEmpty() ? tag.getString("ft_slot" + slot + ".0") : itemId;
+	}
+
+	public static void clearSocket(ItemStack stack, int slot) {
+		ItemStackDataHelper.updateTag(stack, tag -> {
+			tag.putString("ft_slot" + slot, "");
+			tag.remove("ft_slot" + slot + ".0");
+		});
+	}
+
 	public static boolean isModified(ItemStack stack) {
 		if (stack.isEmpty()) {
 			return false;
