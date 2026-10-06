@@ -296,7 +296,7 @@ jobs:
                 displayName: `${version} · ${loader} · ${gv}`,
                 gameVersions,
                 releaseType: 'release',
-                relations: { projects: [{ slug: 'jauml', projectID: '1281310', type: 'requiredDependency' }] },
+                relations: { projects: [{ slug: 'jauml', projectID: 1281310, type: 'requiredDependency' }] },
               };
               const cfForm = new FormData();
               cfForm.append('metadata', JSON.stringify(meta));

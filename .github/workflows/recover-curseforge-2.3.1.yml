@@ -1,0 +1,65 @@
+name: Recover CurseForge 2.3.1
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: curseforge-2.3.1-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify immutable source artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node <<'NODE'
+          (async () => {
+            const response = await fetch('https://api.github.com/repos/MeherBenSalem/fine_tuned_weaponry/actions/artifacts/11421202405', {
+              headers: { Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json' },
+            });
+            if (!response.ok) throw new Error('Artifact lookup ' + response.status);
+            const artifact = await response.json();
+            if (artifact.id !== 11421202405 || artifact.expired || artifact.name !== 'fine-tuned-weaponry-2.3.1' ||
+                artifact.workflow_run.id !== 37480066347 || artifact.workflow_run.head_sha !== '4b0555836962326c4110aeb4ebb7626264a4034c' ||
+                artifact.digest !== 'sha256:4a5f401c76dd77fde5d529f4eccac03b65947a5ac3d16e9c0b1859f9ab44a565') {
+              throw new Error('Source artifact identity differs');
+            }
+            console.log('Verified immutable 2.3.1 artifact', artifact.id, artifact.workflow_run.head_sha);
+          })().catch(error => { console.error(error); process.exit(1); });
+          NODE
+
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: "11421202405"
+          run-id: "37480066347"
+          github-token: ${{ github.token }}
+          merge-multiple: true
+          path: release-artifacts
+
+      - name: Verify dependency metadata regression
+        run: node tests/release/cf-publish-metadata.cjs
+
+      - name: Publish only missing CurseForge files
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+        run: node .github/scripts/recover_cf_231.cjs
+
+      - name: Preserve recovery receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: curseforge-2.3.1-recovery-receipts
+          path: cf-recovery-receipts.json
+          if-no-files-found: warn
