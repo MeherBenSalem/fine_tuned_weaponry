@@ -295,7 +295,7 @@ public final class Shrines {
         d.attrs = attrs.clone();
         Players.applyAttributes(player);
         Fx.sound(player, Fx.S.LEVEL_UP, 1f, 0.7f);
-        Fx.column((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 2.5, 30, 0.4);
+        Fx.helix((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 1.1, 2.4, 24);
     }
 
     static ItemStack slotStack(ServerPlayer player, int slot) {

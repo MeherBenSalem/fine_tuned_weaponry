@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "runeborn:blank_whetstone"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    }
+  ],
+  "result": {
+    "id": "runeborn:cold_whetstone",
+    "count": 1
+  }
+}

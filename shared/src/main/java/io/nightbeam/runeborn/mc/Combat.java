@@ -102,6 +102,12 @@ public final class Combat {
         }
         PlayerData d = RbServer.data(player);
         Session s = RbServer.session(player);
+        if (s.lastMeleeAt == now && s.lastMeleeTarget != target.getId()) {
+            // A vanilla sweep follow-up from the same swing: Runeborn sweeps by weapon class instead.
+            return -1;
+        }
+        s.lastMeleeAt = now;
+        s.lastMeleeTarget = target.getId();
         int[] attrs = d.effectiveAttrs();
         AttackRating ar = AttackRating.of(spec, Stacks.upgrade(held), Stacks.affinity(held), attrs);
         double base = spec.baseAttack();

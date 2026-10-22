@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "minecraft:blue_ice"
+  ],
+  "result": {
+    "id": "runeborn:sigil_sylvara",
+    "count": 1
+  }
+}

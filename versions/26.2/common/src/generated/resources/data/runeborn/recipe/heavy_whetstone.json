@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:iron_block"
+  ],
+  "result": {
+    "id": "runeborn:heavy_whetstone",
+    "count": 1
+  }
+}

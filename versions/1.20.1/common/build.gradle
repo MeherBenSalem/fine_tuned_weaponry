@@ -1,0 +1,36 @@
+plugins {
+    id 'multiloader-common'
+    id 'net.neoforged.moddev.legacyforge'
+}
+
+// Version-independent code and assets shared by every Minecraft version.
+sourceSets.main.java.srcDirs += [rootProject.file('../../core/src/main/java'), rootProject.file('../../shared/src/main/java')]
+sourceSets.main.resources.srcDirs += [rootProject.file('../../shared/src/main/resources'), file('src/generated/resources')]
+
+legacyForge {
+    mcpVersion = minecraft_version
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+}
+
+dependencies {
+    compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+}
+
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    sourceSets.main.java.sourceDirectories.each { commonJava it }
+    sourceSets.main.resources.sourceDirectories.each { commonResources it }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/deathscythe",
+  "textures": {
+    "2": "runeborn:item/legacy/javion_scythe_texture",
+    "particle": "runeborn:item/legacy/javion_scythe_texture"
+  }
+}

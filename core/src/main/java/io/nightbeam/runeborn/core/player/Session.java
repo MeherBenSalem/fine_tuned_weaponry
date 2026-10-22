@@ -13,6 +13,9 @@ public final class Session {
     public long lastFlaskAt;
     public long lastDodgeAt;
     public long lastTravelAt;
+    /** Tick of the last melee swing, so vanilla sweep follow-up hits in the same tick can be told apart. */
+    public long lastMeleeAt = -1;
+    public int lastMeleeTarget = -1;
     public final Map<String, Long> cooldowns = new HashMap<>();
 
     /** Shrine the player opened most recently; actions are only accepted near it. */

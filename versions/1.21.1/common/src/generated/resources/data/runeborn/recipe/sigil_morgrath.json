@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "runeborn:sovereign_fragment"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    }
+  ],
+  "result": {
+    "id": "runeborn:sigil_morgrath",
+    "count": 1
+  }
+}

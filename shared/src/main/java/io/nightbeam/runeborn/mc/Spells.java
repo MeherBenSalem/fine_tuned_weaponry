@@ -145,7 +145,7 @@ public final class Spells {
                     if (ally.distanceToSqr(player) <= spell.range * spell.range && (ally == player || !Targets.hostile(player, ally))) {
                         ally.heal((float) (ally.getMaxHealth() * fraction));
                         Compat.addEffect(ally, Fx.E.REGENERATION, 80, 0);
-                        Fx.column(level, Fx.P.GLOW, ally.position(), 2.4, 16, 0.4);
+                        Fx.helix(level, Fx.P.GLOW, ally.position(), 0.9, 2.2, 14);
                         Fx.burst(level, Fx.P.HAPPY, ally, 12, 0.05);
                     }
                 }

@@ -72,6 +72,19 @@ public final class Fx {
         }
     }
 
+    /** Rising double helix around a point; keeps particles out of the player's own view. */
+    public static void helix(ServerLevel level, P p, Vec3 base, double radius, double height, int points) {
+        for (int i = 0; i < points; i++) {
+            double t = (double) i / points;
+            double a = t * Math.PI * 6;
+            for (int strand = 0; strand < 2; strand++) {
+                double ang = a + strand * Math.PI;
+                Compat.particles(level, p, base.x + Math.cos(ang) * radius, base.y + t * height,
+                        base.z + Math.sin(ang) * radius, 1, 0.01, 0.01, 0.01, 0.005);
+            }
+        }
+    }
+
     /** Arc of particles in front of an entity, used for slashes. */
     public static void slash(ServerLevel level, P p, Entity e, double radius, double degrees, double heightOffset) {
         double yaw = Math.toRadians(e.getYRot() + 90);

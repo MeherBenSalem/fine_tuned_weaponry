@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:redstone_block",
+    "minecraft:nether_wart"
+  ],
+  "result": {
+    "id": "runeborn:blood_whetstone",
+    "count": 1
+  }
+}

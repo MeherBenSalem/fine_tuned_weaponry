@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/war_axe",
+  "textures": {
+    "4": "runeborn:item/legacy/war_axe",
+    "particle": "runeborn:item/legacy/war_axe"
+  }
+}

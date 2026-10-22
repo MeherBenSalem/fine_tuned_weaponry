@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:lapis_block"
+  ],
+  "result": {
+    "id": "runeborn:magic_whetstone",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/deathbringer",
+  "textures": {
+    "0": "runeborn:item/legacy/death_bringer_texture",
+    "particle": "runeborn:item/legacy/death_bringer_texture"
+  }
+}

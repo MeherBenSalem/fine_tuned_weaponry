@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:flint",
+    "minecraft:feather"
+  ],
+  "result": {
+    "id": "runeborn:keen_whetstone",
+    "count": 1
+  }
+}

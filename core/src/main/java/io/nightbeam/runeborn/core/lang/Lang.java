@@ -76,11 +76,11 @@ public final class Lang {
     public static final String SHRINE_LEVEL_UP = k("runeborn.ui.shrine.level_up", "Level Up");
     public static final String SHRINE_REST = k("runeborn.ui.shrine.rest", "Rest");
     public static final String SHRINE_TRAVEL = k("runeborn.ui.shrine.travel", "Travel");
-    public static final String SHRINE_SMITHING = k("runeborn.ui.shrine.smithing", "Strengthen Armaments");
-    public static final String SHRINE_INFUSE = k("runeborn.ui.shrine.infuse", "Infuse Affinity");
+    public static final String SHRINE_SMITHING = k("runeborn.ui.shrine.smithing", "Reinforce");
+    public static final String SHRINE_INFUSE = k("runeborn.ui.shrine.infuse", "Infuse");
     public static final String SHRINE_FLASKS = k("runeborn.ui.shrine.flasks", "Flasks");
-    public static final String SHRINE_MERCHANT = k("runeborn.ui.shrine.merchant", "Rune Merchant");
-    public static final String SHRINE_RELICS = k("runeborn.ui.shrine.relics", "Exchange Relics");
+    public static final String SHRINE_MERCHANT = k("runeborn.ui.shrine.merchant", "Merchant");
+    public static final String SHRINE_RELICS = k("runeborn.ui.shrine.relics", "Relics");
     public static final String SHRINE_SHARDS = k("runeborn.ui.shrine.shards", "Crown Shards");
     public static final String SHRINE_REBIRTH = k("runeborn.ui.shrine.rebirth", "Rebirth");
     public static final String SHRINE_LEAVE = k("runeborn.ui.shrine.leave", "Leave");
@@ -167,6 +167,7 @@ public final class Lang {
     public static final String MSG_TEAR_MAX = k("runeborn.msg.tear_max", "Your flasks are as potent as they can be.");
     public static final String MSG_SHARD_KNOWN = k("runeborn.msg.shard_known", "You already hold this shard.");
     public static final String MSG_RUNES_LOST = k("runeborn.msg.runes_lost", "Your runes lie where you fell.");
+    public static final String NO_REST = k("runeborn.ui.rest.enemies", "You cannot rest while enemies are near.");
     public static final String MSG_NOT_SUMMONABLE = k("runeborn.msg.no_space", "There is no room for a sovereign here.");
     public static final String KEY_CATEGORY = k("key.categories.runeborn", "Runeborn");
     public static final String KEY_DODGE = k("key.runeborn.dodge", "Dodge Roll");

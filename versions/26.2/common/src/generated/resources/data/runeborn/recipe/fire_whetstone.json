@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:blaze_powder",
+    "minecraft:magma_cream"
+  ],
+  "result": {
+    "id": "runeborn:fire_whetstone",
+    "count": 1
+  }
+}

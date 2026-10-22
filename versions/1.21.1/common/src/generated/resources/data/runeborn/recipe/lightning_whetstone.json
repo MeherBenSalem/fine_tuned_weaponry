@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "runeborn:blank_whetstone"
+    },
+    {
+      "item": "minecraft:lightning_rod"
+    }
+  ],
+  "result": {
+    "id": "runeborn:lightning_whetstone",
+    "count": 1
+  }
+}

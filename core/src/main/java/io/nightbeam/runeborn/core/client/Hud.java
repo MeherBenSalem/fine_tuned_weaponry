@@ -19,6 +19,8 @@ import io.nightbeam.runeborn.core.weapon.WeaponSpec;
  */
 public final class Hud {
     private static float lastTime;
+    /** Right edge of the stat bars last frame, so centred bars can avoid them. */
+    private static int barsRight;
 
     public static void render(Canvas c, ClientHost host) {
         float now = c.time();
@@ -43,6 +45,10 @@ public final class Hud {
             equipment(c, host, d);
         }
         int top = 6 + host.vanillaBossBars() * 19;
+        int centredLeft = c.width() / 2 - bossWidth(c) / 2;
+        if (centredLeft < barsRight + 8) {
+            top = Math.max(top, 44);
+        }
         if (cfg.showBossBars) {
             top = bosses(c, now, dt, top);
         }
@@ -68,11 +74,19 @@ public final class Hud {
 
         int x = 10;
         int y = 10;
-        int wHp = Math.round(Math.min(200, 92 + (maxHp - 20) * 2.2f));
+        int wHp = Math.round(Math.min(170, 92 + (maxHp - 20) * 2.0f));
         int wFp = Math.round(Math.min(190, 70 + (maxFp - 80) * 0.3f));
         int wSt = Math.round(Math.min(170, 70 + (maxSt - 98) * 1.3f));
 
         Ui.bar(c, x, y, wHp, 6, hp, ClientState.hpChip, Theme.HP, Theme.HP_LIGHT);
+        barsRight = x + Math.max(wHp, Math.max(wFp, wSt)) + 4;
+        int armor = host.armor();
+        if (armor > 0) {
+            int ax = x + wHp + 5;
+            shield(c, ax, y - 1);
+            c.text(String.valueOf(armor), ax + 9, y - 1, Theme.TEXT_DIM, true);
+            barsRight = Math.max(barsRight, ax + 9 + c.textWidth(String.valueOf(armor)));
+        }
         if (host.absorption() > 0) {
             float abs = Ui.clamp01(host.absorption() / maxHp);
             c.fill(x, y, x + Math.round(wHp * abs), y + 2, 0xFFE8C870);
@@ -88,6 +102,19 @@ public final class Hud {
             c.text(Math.round(host.health() * s) + " / " + Math.round(maxHp * s), x + wHp + 5, y - 1, Theme.TEXT, true);
             c.text(Math.round(ClientState.fp) + " / " + Math.round(maxFp), x + wFp + 5, y + 8, Theme.BLUE, true);
         }
+    }
+
+    /** Tiny shield glyph for the armor readout. */
+    private static void shield(Canvas c, int x, int y) {
+        int edge = 0xFF9A9384;
+        int fill = 0xFF4E4A44;
+        c.fill(x, y, x + 7, y + 1, edge);
+        c.fill(x, y + 1, x + 1, y + 5, edge);
+        c.fill(x + 6, y + 1, x + 7, y + 5, edge);
+        c.fill(x + 1, y + 1, x + 6, y + 5, fill);
+        c.fill(x + 1, y + 5, x + 6, y + 6, edge);
+        c.fill(x + 2, y + 6, x + 5, y + 7, edge);
+        c.fill(x + 3, y + 7, x + 4, y + 8, edge);
     }
 
     private static float chip(float chip, float value, float dt) {
@@ -162,7 +189,7 @@ public final class Hud {
         if (ClientState.bosses.isEmpty() || now - ClientState.bossesTime > 40) {
             return top;
         }
-        int w = Math.min(360, Math.round(c.width() * 0.55f));
+        int w = bossWidth(c);
         int x = c.width() / 2 - w / 2;
         int y = top + 10;
         for (Packets.BossBar bar : ClientState.bosses) {
@@ -180,10 +207,21 @@ public final class Hud {
         return y - 4;
     }
 
+    private static int bossWidth(Canvas c) {
+        return Math.min(340, Math.round(c.width() * 0.5f));
+    }
+
     private static void target(Canvas c, float now, float dt, int top) {
         Packets.Target t = ClientState.target;
         if (t == null) {
             return;
+        }
+        if (now - ClientState.bossesTime < 40) {
+            for (Packets.BossBar bar : ClientState.bosses) {
+                if (bar.entityId() == t.entityId()) {
+                    return;
+                }
+            }
         }
         float since = now - ClientState.targetTime;
         if (since > 90) {
@@ -216,8 +254,8 @@ public final class Hud {
 
     private static void banner(Canvas c, float now) {
         Packets.BannerMsg b = ClientState.banner;
-        if (b == null) {
-            return;
+        if (b == null || b.kind() == Packets.Banner.YOU_DIED) {
+            return; // drawn by the death screen instead
         }
         float t = now - ClientState.bannerTime;
         float total = b.kind() == Packets.Banner.YOU_DIED ? 110 : 80;
@@ -264,6 +302,22 @@ public final class Hud {
             int rw = Math.min(320, c.width() / 2);
             Ui.rule(c, c.width() / 2 - rw / 2, cy + band / 2 - 3, rw, Theme.alpha(color, a * 0.6f));
         }
+    }
+
+    /**
+     * Death-screen banner: an opaque band over the vanilla "You Died!" title (drawn at y 60-78 at
+     * 2x scale), so the cause of death and the buttons stay readable below it.
+     */
+    public static void drawDeathBanner(Canvas c, float t) {
+        float a = Ui.ease(Math.min(1, t / 14f));
+        int cy = 69;
+        int band = 36;
+        int mid = Theme.alpha(0xF2000000, a);
+        Ui.hgradient(c, 0, cy - band / 2, c.width() / 2, cy + band / 2, 0x00000000, mid);
+        Ui.hgradient(c, c.width() / 2, cy - band / 2, c.width(), cy + band / 2, mid, 0x00000000);
+        c.fill(c.width() / 2 - 150, cy - band / 2, c.width() / 2 + 150, cy + band / 2, Theme.alpha(0xF2000000, a));
+        float scale = 3.2f * (1 + 0.04f * Ui.clamp01(t / 80f));
+        Ui.titleCentered(c, "YOU DIED", c.width() / 2, cy - 9 * scale / 2 + 1, Theme.alpha(0xFFB8261E, a), scale);
     }
 
     private static void flash(Canvas c, float now) {

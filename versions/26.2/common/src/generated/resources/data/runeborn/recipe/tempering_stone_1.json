@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:flint",
+    "minecraft:cobbled_deepslate"
+  ],
+  "result": {
+    "id": "runeborn:tempering_stone_1",
+    "count": 2
+  }
+}

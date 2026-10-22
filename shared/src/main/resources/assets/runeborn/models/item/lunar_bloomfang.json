@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/moonrayys_sword",
+  "textures": {
+    "0": "runeborn:item/legacy/lunar_text",
+    "particle": "runeborn:item/legacy/lunar_text"
+  }
+}

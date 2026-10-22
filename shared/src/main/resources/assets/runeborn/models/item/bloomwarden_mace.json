@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/rosehammer",
+  "textures": {
+    "0": "runeborn:item/legacy/pink_ham_texture",
+    "particle": "runeborn:item/legacy/pink_ham_texture"
+  }
+}

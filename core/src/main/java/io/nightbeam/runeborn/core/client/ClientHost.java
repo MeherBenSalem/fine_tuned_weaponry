@@ -24,6 +24,8 @@ public interface ClientHost {
 
     float absorption();
 
+    int armor();
+
     String dimension();
 
     double x();

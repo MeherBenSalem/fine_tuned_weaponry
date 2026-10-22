@@ -119,7 +119,7 @@ public final class ItemUse {
                 }
                 Players.banner(player, Packets.Banner.CROWN_SHARD, Lang.en(Lang.B_SHARD), spec.name());
                 Fx.sound(player, Fx.S.SHARD, 1f, 1f);
-                Fx.column(level, Fx.P.END_ROD, player.position(), 3, 40, 0.4);
+                Fx.helix(level, Fx.P.END_ROD, player.position(), 1.1, 2.6, 30);
             }
             default -> {
                 return false;

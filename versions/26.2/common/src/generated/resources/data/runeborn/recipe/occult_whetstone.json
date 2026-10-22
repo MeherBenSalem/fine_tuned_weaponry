@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:echo_shard"
+  ],
+  "result": {
+    "id": "runeborn:occult_whetstone",
+    "count": 1
+  }
+}

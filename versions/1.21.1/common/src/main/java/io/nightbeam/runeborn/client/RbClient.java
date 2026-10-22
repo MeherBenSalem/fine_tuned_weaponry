@@ -98,6 +98,9 @@ public final class RbClient {
         while (DODGE.consumeClick()) {
             dodge(player);
         }
+        if (UiTest.enabled()) {
+            UiTest.tick();
+        }
     }
 
     private static void dodge(LocalPlayer player) {
@@ -145,9 +148,9 @@ public final class RbClient {
         if (b == null || b.kind() != Packets.Banner.YOU_DIED) {
             return;
         }
+        graphics.flush(); // vanilla text is batched; flush it so the banner covers the old title
         VanillaCanvas c = new VanillaCanvas(graphics, partial);
-        float t = Math.min(c.time() - ClientState.bannerTime, 60);
-        Hud.drawBanner(c, b, t, 1000);
+        Hud.drawDeathBanner(c, c.time() - ClientState.bannerTime);
     }
 
     /** Extra tooltip line for vanilla and third-party weapons: they scale with attributes too. */
@@ -247,6 +250,12 @@ public final class RbClient {
         public float absorption() {
             LocalPlayer p = Minecraft.getInstance().player;
             return p == null ? 0 : p.getAbsorptionAmount();
+        }
+
+        @Override
+        public int armor() {
+            LocalPlayer p = Minecraft.getInstance().player;
+            return p == null ? 0 : p.getArmorValue();
         }
 
         @Override

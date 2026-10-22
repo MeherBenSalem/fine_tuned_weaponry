@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/pole",
+  "textures": {
+    "2": "runeborn:item/legacy/classic_pole_texture",
+    "particle": "runeborn:item/legacy/classic_pole_texture"
+  }
+}

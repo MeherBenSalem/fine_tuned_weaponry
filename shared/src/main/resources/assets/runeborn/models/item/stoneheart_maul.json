@@ -1,0 +1,7 @@
+{
+  "parent": "runeborn:custom/earthhammer",
+  "textures": {
+    "0": "runeborn:item/legacy/earth_ham_texture",
+    "particle": "runeborn:item/legacy/earth_ham_texture"
+  }
+}

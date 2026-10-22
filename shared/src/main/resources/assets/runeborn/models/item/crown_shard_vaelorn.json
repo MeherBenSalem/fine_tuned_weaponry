@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "runeborn:item/crown_shard_vaelorn"
+  }
+}

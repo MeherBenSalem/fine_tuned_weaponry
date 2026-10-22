@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:iron_ingot",
+    "minecraft:gold_ingot"
+  ],
+  "result": {
+    "id": "runeborn:quality_whetstone",
+    "count": 1
+  }
+}

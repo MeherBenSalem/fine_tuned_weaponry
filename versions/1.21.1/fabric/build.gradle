@@ -20,6 +20,9 @@ loom {
             setConfigName('Fabric Client')
             ideConfigGenerated(true)
             runDir('runs/client')
+            if (System.getenv('RUNEBORN_UITEST')) {
+                programArgs('--quickPlaySingleplayer', 'uitest', '--width', '1280', '--height', '720')
+            }
         }
         server {
             server()

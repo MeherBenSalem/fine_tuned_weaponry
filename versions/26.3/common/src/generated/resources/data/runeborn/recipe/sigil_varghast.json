@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "minecraft:iron_block"
+  ],
+  "result": {
+    "id": "runeborn:sigil_varghast",
+    "count": 1
+  }
+}

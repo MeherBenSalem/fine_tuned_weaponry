@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "minecraft:dragon_breath"
+  ],
+  "result": {
+    "id": "runeborn:sigil_vaelorn",
+    "count": 1
+  }
+}

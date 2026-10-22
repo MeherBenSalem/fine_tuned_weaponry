@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:blank_whetstone",
+    "minecraft:spider_eye",
+    "minecraft:fermented_spider_eye"
+  ],
+  "result": {
+    "id": "runeborn:poison_whetstone",
+    "count": 1
+  }
+}

@@ -570,7 +570,7 @@ public final class ShrineScreen extends RbScreen {
             }
             String priceText = Runes.format(price);
             Ui.right(c, priceText, x + w - 2, ry + 5, locked ? Theme.TEXT_FAINT : afford ? Theme.GOLD : Theme.BAD, false);
-            Ui.runeGlyph(c, x + w - 8 - c.textWidth(priceText), ry + 9);
+            Ui.runeGlyph(c, x + w - 9 - c.textWidth(priceText), ry + 9);
             if (Ui.hit(mx, my, x, ry, 18, 18)) {
                 c.itemTooltip(Rb.id(offer.itemId()), mx, my);
             }

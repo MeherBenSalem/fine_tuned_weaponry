@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "runeborn:sovereign_fragment",
+    "minecraft:clock"
+  ],
+  "result": {
+    "id": "runeborn:sigil_dusk_rider",
+    "count": 1
+  }
+}

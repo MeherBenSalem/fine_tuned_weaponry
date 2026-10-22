@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " F ",
+    "GBG",
+    "SSS"
+  ],
+  "key": {
+    "F": "minecraft:blaze_powder",
+    "G": "minecraft:gold_ingot",
+    "B": "minecraft:campfire",
+    "S": "minecraft:polished_deepslate"
+  },
+  "result": {
+    "id": "runeborn:ember_shrine",
+    "count": 1
+  }
+}

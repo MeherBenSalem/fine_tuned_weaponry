@@ -167,7 +167,7 @@ public final class Arts {
             }
             case BUFF_HOLY -> {
                 s.holyBuffUntil = now + 600;
-                Fx.column(level, Fx.P.GLOW, player.position(), 2.2, 20, 0.3);
+                Fx.helix(level, Fx.P.GLOW, player.position(), 0.9, 2.2, 18);
                 Fx.burst(level, Fx.P.END_ROD, player, 20, 0.05);
                 Fx.sound(player, Fx.S.HEAL, 1f, 1.5f);
             }

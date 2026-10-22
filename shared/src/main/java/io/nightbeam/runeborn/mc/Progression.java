@@ -43,7 +43,7 @@ public final class Progression {
         player.setHealth(player.getMaxHealth());
         Players.banner(player, Packets.Banner.RISE, Lang.en(Lang.B_RISE), origin.displayName);
         Fx.sound(player, Fx.S.SHRINE_KINDLE, 1f, 0.8f);
-        Fx.column((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 2.5, 40, 0.5);
+        Fx.helix((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 1.1, 2.4, 30);
         Players.sync(player);
         RbServer.save(player);
     }
@@ -71,7 +71,7 @@ public final class Progression {
         d.attrs = target.clone();
         Players.applyAttributes(player);
         Fx.sound(player, Fx.S.LEVEL_UP, 1f, 1f);
-        Fx.column((ServerLevel) player.level(), Fx.P.END_ROD, player.position(), 2.2, 24, 0.35);
+        Fx.helix((ServerLevel) player.level(), Fx.P.END_ROD, player.position(), 1.0, 2.2, 20);
         Players.sync(player);
     }
 
