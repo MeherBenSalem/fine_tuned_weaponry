@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "runeborn:crown_shard_morgrath"
+    },
+    "title": {
+      "translate": "runeborn.feat.crown"
+    },
+    "description": {
+      "translate": "runeborn.feat.crown.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/summon"
+}

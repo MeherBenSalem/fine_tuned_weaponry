@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "runeborn:relic_vaelorn"
+    },
+    "title": {
+      "translate": "runeborn.feat.fell_vaelorn"
+    },
+    "description": {
+      "translate": "runeborn.feat.fell_vaelorn.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/summon"
+}

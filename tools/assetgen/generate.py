@@ -38,15 +38,18 @@ LEGACY = os.path.join(HERE, 'legacy')
 NS = 'runeborn'
 
 VERSIONS = {
-    # mc: (folder style, recipe style, enchantable tags, item model definitions)
-    '1.20.1': {'plural': True, 'recipe': 'legacy', 'enchant': None, 'items_dir': False},
+    # plural: data folder names (recipes/ vs recipe/); recipe: ingredient/result syntax;
+    # enchant: enchantable item tags; items_dir: assets/<ns>/items definitions;
+    # advancement: icon and background syntax.
+    '1.20.1': {'plural': True, 'recipe': 'legacy', 'enchant': None, 'items_dir': False, 'advancement': 'legacy'},
     '1.21.1': {'plural': False, 'recipe': 'object', 'enchant': ['sword', 'sharp_weapon', 'fire_aspect'],
-               'items_dir': False},
+               'items_dir': False, 'advancement': 'object'},
     '26.2': {'plural': False, 'recipe': 'string', 'enchant': ['melee_weapon', 'sharp_weapon', 'fire_aspect'],
-             'items_dir': True},
+             'items_dir': True, 'advancement': 'asset'},
     '26.3': {'plural': False, 'recipe': 'string', 'enchant': ['melee_weapon', 'sharp_weapon', 'fire_aspect'],
-             'items_dir': True},
+             'items_dir': True, 'advancement': 'asset'},
 }
+FEAT_BACKGROUND = 'block/polished_blackstone_bricks'
 
 
 def write_json(path, data):
@@ -334,6 +337,29 @@ def shapeless(items, out, count, style):
             'ingredients': [ingredient(i, style) for i in items], 'result': result(out, count, style)}
 
 
+def advancement(feat, style):
+    """One feat as an advancement with a single impossible criterion; the mod grants it."""
+    icon = {'item': feat['icon']} if style == 'legacy' else {'id': feat['icon']}
+    display = {
+        'icon': icon,
+        'title': {'translate': feat['title']},
+        'description': {'translate': feat['description']},
+        'frame': feat['frame'],
+        'show_toast': True,
+        'announce_to_chat': feat['frame'] != 'task',
+        'hidden': feat['hidden'],
+    }
+    if 'parent' not in feat:
+        display['background'] = (f'minecraft:{FEAT_BACKGROUND}' if style == 'asset'
+                                 else f'minecraft:textures/{FEAT_BACKGROUND}.png')
+        display['show_toast'] = False
+        display['announce_to_chat'] = False
+    adv = {'display': display, 'criteria': {'granted': {'trigger': 'minecraft:impossible'}}}
+    if 'parent' in feat:
+        adv['parent'] = f"{NS}:{feat['parent']}"
+    return adv
+
+
 def gen_version(mc, cfg, catalog):
     base = os.path.join(STAGE, version_generated_rel(mc))
     data = os.path.join(base, 'data')
@@ -357,6 +383,10 @@ def gen_version(mc, cfg, catalog):
         else:
             recipe = shapeless(r['ingredients'], r['result'], r['count'], style)
         write_json(os.path.join(recipes, r['id'] + '.json'), recipe)
+
+    advancements = os.path.join(data, NS, 'advancements' if cfg['plural'] else 'advancement')
+    for feat in catalog['feats']:
+        write_json(os.path.join(advancements, feat['path'] + '.json'), advancement(feat, cfg['advancement']))
 
     if cfg['enchant']:
         weapons = [f'{NS}:{w["id"]}' for w in catalog['weapons'] if not w['catalyst']]

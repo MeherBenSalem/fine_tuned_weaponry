@@ -50,6 +50,14 @@ repositories {
     }
 }
 
+// Files in common/src/main/resources that shadow a shared asset for this version; the first copy wins.
+def versionOverrides = ['assets/runeborn/font/title.json']
+tasks.withType(AbstractCopyTask).configureEach {
+    filesMatching(versionOverrides) {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+}
+
 tasks.withType(Jar).configureEach {
     from(rootProject.file('../../LICENSE')) {
         rename { "${it}_${mod_name}" }

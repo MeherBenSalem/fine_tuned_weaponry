@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "runeborn:ember_shrine"
+    },
+    "title": {
+      "translate": "runeborn.feat.root"
+    },
+    "description": {
+      "translate": "runeborn.feat.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "minecraft:textures/block/polished_blackstone_bricks.png"
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

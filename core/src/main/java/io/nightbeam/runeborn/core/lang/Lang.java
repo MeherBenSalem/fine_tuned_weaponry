@@ -6,6 +6,7 @@ import io.nightbeam.runeborn.core.art.Spell;
 import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.boss.CrownShard;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.item.MaterialSpec;
 import io.nightbeam.runeborn.core.item.Materials;
 import io.nightbeam.runeborn.core.mob.EliteAffix;
@@ -304,6 +305,10 @@ public final class Lang {
         }
         for (CrownShard s : CrownShard.values()) {
             k(s.descKey(), s.description);
+        }
+        for (Feat f : Feat.all()) {
+            k(f.titleKey(), f.title);
+            k(f.descKey(), f.description);
         }
         for (BossSpec b : Bosses.all()) {
             k(b.nameKey(), b.name());

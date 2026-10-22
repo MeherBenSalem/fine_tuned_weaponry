@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "runeborn:rebirth_tear"
+    },
+    "title": {
+      "translate": "runeborn.feat.rebirth"
+    },
+    "description": {
+      "translate": "runeborn.feat.rebirth.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/kindle"
+}

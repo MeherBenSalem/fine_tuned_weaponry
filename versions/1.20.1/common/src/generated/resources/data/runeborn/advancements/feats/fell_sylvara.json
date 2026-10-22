@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "runeborn:relic_sylvara"
+    },
+    "title": {
+      "translate": "runeborn.feat.fell_sylvara"
+    },
+    "description": {
+      "translate": "runeborn.feat.fell_sylvara.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/summon"
+}

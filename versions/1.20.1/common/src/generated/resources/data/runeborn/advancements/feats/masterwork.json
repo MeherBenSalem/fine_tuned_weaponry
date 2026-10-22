@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "runeborn:sovereign_tempering_stone"
+    },
+    "title": {
+      "translate": "runeborn.feat.masterwork"
+    },
+    "description": {
+      "translate": "runeborn.feat.masterwork.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/tempered"
+}

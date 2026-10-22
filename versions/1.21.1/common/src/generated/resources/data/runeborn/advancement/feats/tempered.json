@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "runeborn:tempering_stone_4"
+    },
+    "title": {
+      "translate": "runeborn.feat.tempered"
+    },
+    "description": {
+      "translate": "runeborn.feat.tempered.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/kindle"
+}

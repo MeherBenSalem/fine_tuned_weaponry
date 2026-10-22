@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.nightbeam.runeborn.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "LivingEntityMixin"
+  ],
+  "client": [
+    "BossOverlayAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

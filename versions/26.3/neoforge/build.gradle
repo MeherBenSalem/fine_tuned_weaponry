@@ -12,6 +12,9 @@ neoForge {
         client {
             client()
             gameDirectory = this.mkdir(this.file('runs/client'))
+            if (System.getenv('RUNEBORN_UITEST')) {
+                programArguments.addAll('--quickPlaySingleplayer', 'uitest', '--width', '1280', '--height', '720')
+            }
         }
         server {
             server()

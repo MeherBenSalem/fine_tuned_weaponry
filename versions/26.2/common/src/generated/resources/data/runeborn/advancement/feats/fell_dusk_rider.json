@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "runeborn:relic_dusk_rider"
+    },
+    "title": {
+      "translate": "runeborn.feat.fell_dusk_rider"
+    },
+    "description": {
+      "translate": "runeborn.feat.fell_dusk_rider.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "runeborn:feats/summon"
+}

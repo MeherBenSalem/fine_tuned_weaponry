@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.item.MaterialSpec;
 import io.nightbeam.runeborn.core.item.Materials;
 import io.nightbeam.runeborn.core.item.Recipes;
@@ -87,6 +88,22 @@ public final class Export {
             recipes.add(o);
         }
         root.add("recipes", recipes);
+
+        JsonArray feats = new JsonArray();
+        for (Feat f : Feat.all()) {
+            JsonObject o = new JsonObject();
+            o.addProperty("path", f.path());
+            if (f.parent != null) {
+                o.addProperty("parent", Feat.get(f.parent).path());
+            }
+            o.addProperty("icon", f.icon);
+            o.addProperty("frame", f.frame.name().toLowerCase());
+            o.addProperty("title", f.titleKey());
+            o.addProperty("description", f.descKey());
+            o.addProperty("hidden", f.hidden);
+            feats.add(o);
+        }
+        root.add("feats", feats);
 
         JsonObject affinities = new JsonObject();
         for (Affinity a : Affinity.ALL) {

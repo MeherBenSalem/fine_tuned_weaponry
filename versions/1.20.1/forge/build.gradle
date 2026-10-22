@@ -6,7 +6,6 @@ plugins {
 mixin {
     add(sourceSets.main, "${mod_id}.refmap.json")
     config("${mod_id}.mixins.json")
-    config("${mod_id}.forge.mixins.json")
 }
 
 legacyForge {
@@ -16,13 +15,19 @@ legacyForge {
         mappingsVersion = parchment_version
     }
     runs {
+        configureEach {
+            ideName = "Forge ${it.name.capitalize()} (${project.path})"
+        }
         client {
             client()
-            gameDirectory = project.file('runs/client')
+            gameDirectory = project.mkdir(project.file('runs/client'))
+            if (System.getenv('RUNEBORN_UITEST')) {
+                programArguments.addAll('--quickPlaySingleplayer', 'uitest', '--width', '1280', '--height', '720')
+            }
         }
         server {
             server()
-            gameDirectory = project.file('runs/server')
+            gameDirectory = project.mkdir(project.file('runs/server'))
         }
     }
     mods {
@@ -33,13 +38,13 @@ legacyForge {
 }
 
 dependencies {
-    compileOnly project(":common")
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+    compileOnly project(':common')
+    annotationProcessor('org.spongepowered:mixin:0.8.5-SNAPSHOT:processor')
 }
 
 jar {
     finalizedBy('reobfJar')
     manifest.attributes([
-            "MixinConfigs": "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+            'MixinConfigs': "${mod_id}.mixins.json"
     ])
 }

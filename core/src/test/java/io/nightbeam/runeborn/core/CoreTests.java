@@ -6,8 +6,10 @@ import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.config.ConfigIO;
 import io.nightbeam.runeborn.core.config.ServerConfig;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.item.MaterialSpec;
 import io.nightbeam.runeborn.core.item.Materials;
+import io.nightbeam.runeborn.core.item.Recipes;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Buf;
 import io.nightbeam.runeborn.core.net.Packets;
@@ -47,6 +49,7 @@ public final class CoreTests {
         run("weapon catalog", CoreTests::weaponCatalog);
         run("materials and bosses", CoreTests::materialsAndBosses);
         run("origins", CoreTests::origins);
+        run("feats and recipes", CoreTests::featsAndRecipes);
         run("leveling", CoreTests::leveling);
         run("attack rating", CoreTests::attackRating);
         run("upgrades", CoreTests::upgrades);
@@ -148,6 +151,48 @@ public final class CoreTests {
                         "origin " + o + " kit has unknown item " + item.id());
             }
         }
+    }
+
+    /** Runeborn ids must exist; vanilla ids are trusted (the game rejects unknown ones on load). */
+    private static boolean knownItem(String id) {
+        if (id.startsWith("minecraft:")) {
+            return true;
+        }
+        String path = id.substring(id.indexOf(':') + 1);
+        return id.startsWith(Rb.MOD_ID + ":")
+                && (Weapons.get(path) != null || Materials.get(path) != null || path.equals("ember_shrine"));
+    }
+
+    private static void featsAndRecipes() {
+        Set<String> seen = new HashSet<>();
+        int roots = 0;
+        for (Feat f : Feat.all()) {
+            check(knownItem(f.icon), "feat " + f.id + " has unknown icon " + f.icon);
+            if (f.parent == null) {
+                roots++;
+            } else {
+                check(seen.contains(f.parent), "feat " + f.id + " comes before its parent " + f.parent);
+            }
+            seen.add(f.id);
+        }
+        check(roots == 1, "exactly one root feat");
+        for (String feat : Feat.LEVEL_FEATS) {
+            check(Feat.get(feat) != null, "missing level feat " + feat);
+        }
+        check(Feat.LEVEL_FEATS.length == Feat.LEVEL_THRESHOLDS.length, "level feats and thresholds pair up");
+        for (Recipes.Recipe r : Recipes.all()) {
+            check(knownItem(r.result()), "recipe makes unknown item " + r.result());
+            for (String cell : r.grid()) {
+                check(cell == null || knownItem(cell), "recipe for " + r.result() + " uses unknown item " + cell);
+            }
+            if (r.shaped()) {
+                check(r.pattern().size() <= 3 && r.pattern().stream().allMatch(row -> row.length() <= 3),
+                        "pattern too large for " + r.result());
+            } else {
+                check(r.ingredients().size() <= 9, "too many ingredients for " + r.result());
+            }
+        }
+        check(Recipes.forResult(Rb.id("ember_shrine")) != null, "the shrine must be craftable");
     }
 
     // ------------------------------------------------------------------ formulas
