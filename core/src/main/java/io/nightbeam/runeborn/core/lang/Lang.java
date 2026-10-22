@@ -70,6 +70,8 @@ public final class Lang {
             "The crown is sundered. Rise, Runeborn, and choose who you were.");
     public static final String ORIGIN_BEGIN = k("runeborn.ui.origin.begin", "Rise");
     public static final String ORIGIN_WEAPON = k("runeborn.ui.origin.weapon", "Starting Armament");
+    public static final String ORIGIN_HINT = k("runeborn.ui.origin.hint",
+            "Press K at any time to see your status and open the Codex.");
 
     // ---- Shrine screen
     public static final String SHRINE = k("runeborn.ui.shrine", "Ember Shrine");
@@ -125,6 +127,86 @@ public final class Lang {
     public static final String ORIGIN = k("runeborn.ui.origin", "Origin");
     public static final String EQUIPPED_SHARD = k("runeborn.ui.equipped_shard", "Crown Shard");
     public static final String LOST_RUNES = k("runeborn.ui.lost_runes", "Runes lost where you fell");
+    public static final String OPEN_CODEX = k("runeborn.ui.open_codex", "Codex");
+
+    // ---- Codex
+    public static final String CODEX = k("runeborn.codex", "Codex");
+    public static final String CODEX_HINT = k("runeborn.codex.hint", "All a Runeborn must know.");
+    public static final String CODEX_RECIPE = k("runeborn.codex.recipe", "Crafting");
+    public static final String CODEX_DEFAULT_KEY = k("runeborn.codex.default_key", "default key");
+    public static final String CODEX_UNKNOWN = k("runeborn.codex.unknown", "Fell this Sovereign to learn its blessing.");
+    public static final String CX_RUNES = k("runeborn.codex.runes", "Runes and Levels");
+    public static final String CX_RUNES_BODY = k("runeborn.codex.runes.body",
+            "Runes are the currency of growth. Every foe you slay yields runes, more for foes of higher level and far more"
+                    + " for champions and Sovereigns.\nSpend runes at an Ember Shrine to raise an attribute by one. Your"
+                    + " rune level is the sum of your attributes, and every level costs more than the last.\nWhen you"
+                    + " fall, the runes you carry stay where you died, marked by a green glow. Walk back to them to"
+                    + " reclaim them. Fall again on the way and they are lost for good.");
+    public static final String CX_SHRINES = k("runeborn.codex.shrines", "Ember Shrines");
+    public static final String CX_SHRINES_BODY = k("runeborn.codex.shrines.body",
+            "Craft an Ember Shrine, place it and use it to kindle it. A kindled shrine takes a name from the land"
+                    + " around it and is never forgotten.\nResting at a shrine restores HP and FP, refills your flasks"
+                    + " and binds you to it, so you return there when you fall.\nFrom a shrine you can level up,"
+                    + " reinforce and infuse armaments, divide your flasks, travel to any kindled shrine, trade with the"
+                    + " merchant, exchange relics, equip crown shards and seek rebirth.");
+    public static final String CX_ATTRS = k("runeborn.codex.attributes", "Attributes");
+    public static final String CX_ATTRS_BODY = k("runeborn.codex.attributes.body",
+            "Eight attributes shape a Runeborn. Each armament lists the attributes it requires and how strongly it"
+                    + " scales with each one.");
+    public static final String CX_ATTR_VIG = k("runeborn.codex.attr.vigor", "Maximum HP, and resistance to poison and blight.");
+    public static final String CX_ATTR_MND = k("runeborn.codex.attr.mind", "Maximum FP, spent on weapon arts and spells.");
+    public static final String CX_ATTR_END = k("runeborn.codex.attr.endurance", "Maximum stamina, poise, and resistance to bleed and frost.");
+    public static final String CX_ATTR_STR = k("runeborn.codex.attr.strength", "Damage of heavy armaments.");
+    public static final String CX_ATTR_DEX = k("runeborn.codex.attr.dexterity", "Damage of quick and keen armaments.");
+    public static final String CX_ATTR_INT = k("runeborn.codex.attr.intelligence", "Sorceries, magic damage and magic warding.");
+    public static final String CX_ATTR_FTH = k("runeborn.codex.attr.faith", "Incantations, holy and fire damage, and healing.");
+    public static final String CX_ATTR_ARC = k("runeborn.codex.attr.arcane", "Status potency and item discovery.");
+    public static final String CX_FLASKS = k("runeborn.codex.flasks", "Flasks");
+    public static final String CX_FLASKS_BODY = k("runeborn.codex.flasks.body",
+            "The Ember Flask restores HP and the Azure Flask restores FP. Their charges refill whenever you rest at a"
+                    + " shrine, and the Flasks service divides charges between the two.\nSunseeds add a charge and"
+                    + " Hallowed Tears raise potency. Champions sometimes carry them, and every Sovereign does.");
+    public static final String CX_ARMAMENTS = k("runeborn.codex.armaments", "Armaments");
+    public static final String CX_ARMAMENTS_BODY = k("runeborn.codex.armaments.body",
+            "An armament deals up to five kinds of damage, scales with attributes on a grade from S down to E and"
+                    + " has attribute requirements. Wield one without meeting them and its damage suffers badly.\n"
+                    + "Tempering stones reinforce standard armaments up to +25, lustrous stones reinforce legendary ones"
+                    + " up to +10. Foes drop stones, with higher tiers deeper in the world, and the merchant sells them.\n"
+                    + "A whetstone infuses a standard armament with an affinity that reshapes its damage and scaling."
+                    + " Craft a blank whetstone, then combine it with reagents.");
+    public static final String CX_WHETSTONES = k("runeborn.codex.whetstones", "Whetstones");
+    public static final String CX_ARTS = k("runeborn.codex.arts", "Arts and Spells");
+    public static final String CX_ARTS_BODY = k("runeborn.codex.arts.body",
+            "Every armament carries a weapon art. Unleash it with the art key. Arts cost FP and recover after a short"
+                    + " cooldown.\nStaves cast sorceries that scale with Intelligence, and sacred seals cast"
+                    + " incantations that scale with Faith. A catalyst's art is its spell, and its spell power is"
+                    + " shown in its tooltip.");
+    public static final String CX_COMBAT = k("runeborn.codex.combat", "Combat");
+    public static final String CX_COMBAT_BODY = k("runeborn.codex.combat.body",
+            "Attacks and dodges cost stamina, which recovers quickly once you stop. Fight exhausted and your blows"
+                    + " weaken.\nDodge roll to slip through attacks, untouchable for a moment.\nStatus builds up with"
+                    + " every hit and bursts when full. Bleed tears away a share of max HP, frost deals damage and"
+                    + " leaves the foe slowed and vulnerable, poison and blight eat away over time.");
+    public static final String CX_WORLD = k("runeborn.codex.world", "The World");
+    public static final String CX_WORLD_BODY = k("runeborn.codex.world.body",
+            "The farther you roam from the world's spawn, the stronger foes become. The Nether and the End are far"
+                    + " deadlier. A foe's level is shown above its health bar.\nChampions bear affixes such as"
+                    + " Ironclad, Frenzied or Phasing. They are dangerous, and they carry rich spoils: stones,"
+                    + " Sovereign Fragments, runes, flask upgrades and armaments.");
+    public static final String CX_SOVEREIGNS = k("runeborn.codex.sovereigns", "Sovereigns");
+    public static final String CX_SOVEREIGNS_BODY = k("runeborn.codex.sovereigns.body",
+            "Combine six Sovereign Fragments, carried by champions, with a token to craft a sigil, then use the sigil"
+                    + " to call its Sovereign before you.\nA felled Sovereign leaves a relic, exchanged at a shrine for"
+                    + " its legendary armaments, and a crown shard, a blessing you equip at a shrine. The Wither, the"
+                    + " Ender Dragon, the Warden and the Elder Guardian guard relics of their own.");
+    public static final String CX_CONTROLS = k("runeborn.codex.controls", "Controls");
+    public static final String CX_CONTROLS_BODY = k("runeborn.codex.controls.body",
+            "Keys can be changed in the game's controls menu, under Runeborn.");
+    public static final String CX_KEY_ART = k("runeborn.codex.key.art", "Weapon art");
+    public static final String CX_KEY_DODGE = k("runeborn.codex.key.dodge", "Dodge roll");
+    public static final String CX_KEY_STATUS = k("runeborn.codex.key.status", "Status and Codex");
+    public static final String CX_KEY_FLASK = k("runeborn.codex.key.flask", "Drink a flask");
+    public static final String CX_KEY_FLASK_HOW = k("runeborn.codex.key.flask_how", "Use item");
 
     // ---- Tooltip
     public static final String TT_ATTACK = k("runeborn.tooltip.attack", "Attack Rating");
@@ -202,7 +284,6 @@ public final class Lang {
             k(c.langKey(), switch (c) {
                 case CLAW -> "Fist";
                 case SEAL -> "Sacred Seal";
-                case STAFF -> "Glintstone Staff";
                 default -> Names.title(c.name());
             });
         }

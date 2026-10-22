@@ -8,7 +8,9 @@ Usage: python3 tools/assetgen/generate.py
 3. Writes per-version data (recipes, loot tables, tags, item definitions) to
    versions/<mc>/common/src/generated/resources.
 
-Re-run after changing weapons, materials or bosses in core. Output is committed.
+Re-run after changing weapons, materials, bosses, recipes or English strings in core. Output is
+committed. Everything is generated into tools/assetgen/build/stage first and then synced, so files
+that did not change are left untouched (no needless rebuilds) and stale files are removed.
 """
 import glob
 import json
@@ -26,8 +28,12 @@ import sprites  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 HERE = os.path.dirname(os.path.abspath(__file__))
 BUILD = os.path.join(HERE, 'build')
-SHARED = os.path.join(ROOT, 'shared', 'src', 'main', 'resources')
-ASSETS = os.path.join(SHARED, 'assets', 'runeborn')
+STAGE = os.path.join(BUILD, 'stage')
+SHARED_REL = os.path.join('shared', 'src', 'main', 'resources')
+ASSETS_REL = os.path.join(SHARED_REL, 'assets', 'runeborn')
+ASSETS = os.path.join(STAGE, ASSETS_REL)
+# Generated subtrees of ASSETS_REL; anything else under assets/runeborn is hand-written.
+ASSET_DIRS = ('textures', 'models', 'blockstates', 'lang', 'font')
 LEGACY = os.path.join(HERE, 'legacy')
 NS = 'runeborn'
 
@@ -328,19 +334,8 @@ def shapeless(items, out, count, style):
             'ingredients': [ingredient(i, style) for i in items], 'result': result(out, count, style)}
 
 
-WHETSTONE_REAGENTS = {
-    'heavy': ['minecraft:iron_block'], 'keen': ['minecraft:flint', 'minecraft:feather'],
-    'quality': ['minecraft:iron_ingot', 'minecraft:gold_ingot'], 'magic': ['minecraft:lapis_block'],
-    'fire': ['minecraft:blaze_powder', 'minecraft:magma_cream'], 'flame_art': ['minecraft:blaze_rod', 'minecraft:gold_ingot'],
-    'lightning': ['minecraft:lightning_rod'], 'sacred': ['minecraft:golden_apple'],
-    'cold': ['minecraft:blue_ice'], 'blood': ['minecraft:redstone_block', 'minecraft:nether_wart'],
-    'poison': ['minecraft:spider_eye', 'minecraft:fermented_spider_eye'], 'occult': ['minecraft:echo_shard'],
-}
-
-
 def gen_version(mc, cfg, catalog):
-    base = os.path.join(ROOT, 'versions', mc, 'common', 'src', 'generated', 'resources')
-    shutil.rmtree(base, ignore_errors=True)
+    base = os.path.join(STAGE, version_generated_rel(mc))
     data = os.path.join(base, 'data')
     style = cfg['recipe']
     recipes = os.path.join(data, NS, 'recipes' if cfg['plural'] else 'recipe')
@@ -356,27 +351,12 @@ def gen_version(mc, cfg, catalog):
     write_json(os.path.join(data, 'minecraft', 'tags', tag_blocks, 'mineable', 'pickaxe.json'),
                {'replace': False, 'values': [f'{NS}:ember_shrine']})
 
-    write_json(os.path.join(recipes, 'ember_shrine.json'), shaped(
-        [' F ', 'GBG', 'SSS'], {'F': 'minecraft:blaze_powder', 'G': 'minecraft:gold_ingot',
-                                'B': 'minecraft:campfire', 'S': 'minecraft:polished_deepslate'},
-        f'{NS}:ember_shrine', 1, style))
-    write_json(os.path.join(recipes, 'ember_flask.json'), shapeless(
-        ['minecraft:glass_bottle', 'minecraft:blaze_powder', 'minecraft:glistering_melon_slice'],
-        f'{NS}:ember_flask', 1, style))
-    write_json(os.path.join(recipes, 'azure_flask.json'), shapeless(
-        ['minecraft:glass_bottle', 'minecraft:lapis_lazuli', 'minecraft:amethyst_shard'],
-        f'{NS}:azure_flask', 1, style))
-    write_json(os.path.join(recipes, 'blank_whetstone.json'), shaped(
-        ['SFS'], {'S': 'minecraft:smooth_stone_slab', 'F': 'minecraft:flint'}, f'{NS}:blank_whetstone', 1, style))
-    for affinity, reagents in WHETSTONE_REAGENTS.items():
-        write_json(os.path.join(recipes, affinity + '_whetstone.json'), shapeless(
-            [f'{NS}:blank_whetstone'] + reagents, f'{NS}:{affinity}_whetstone', 1, style))
-    for boss in catalog['bosses']:
-        if boss['summonable'] and boss['sigil_key']:
-            write_json(os.path.join(recipes, 'sigil_' + boss['id'] + '.json'), shapeless(
-                [f'{NS}:sovereign_fragment'] * 6 + [boss['sigil_key']], f'{NS}:sigil_{boss["id"]}', 1, style))
-    write_json(os.path.join(recipes, 'tempering_stone_1.json'), shapeless(
-        ['minecraft:iron_ingot', 'minecraft:flint', 'minecraft:cobbled_deepslate'], f'{NS}:tempering_stone_1', 2, style))
+    for r in catalog['recipes']:
+        if 'pattern' in r:
+            recipe = shaped(r['pattern'], r['key'], r['result'], r['count'], style)
+        else:
+            recipe = shapeless(r['ingredients'], r['result'], r['count'], style)
+        write_json(os.path.join(recipes, r['id'] + '.json'), recipe)
 
     if cfg['enchant']:
         weapons = [f'{NS}:{w["id"]}' for w in catalog['weapons'] if not w['catalyst']]
@@ -391,10 +371,49 @@ def gen_version(mc, cfg, catalog):
             write_json(os.path.join(items, i + '.json'), {'model': {'type': 'minecraft:model', 'model': f'{NS}:item/{i}'}})
 
 
+def version_generated_rel(mc):
+    return os.path.join('versions', mc, 'common', 'src', 'generated', 'resources')
+
+
+def sync_file(src, dst):
+    """Copies src over dst only if the bytes differ. Returns True if dst changed."""
+    with open(src, 'rb') as f:
+        data = f.read()
+    if os.path.isfile(dst):
+        with open(dst, 'rb') as f:
+            if f.read() == data:
+                return False
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    tmp = dst + '.tmp'
+    with open(tmp, 'wb') as f:
+        f.write(data)
+    os.replace(tmp, dst)
+    return True
+
+
+def sync_tree(src, dst):
+    """Makes dst match src. Returns (changed, removed) file counts."""
+    changed = removed = 0
+    keep = set()
+    for dirpath, _, files in os.walk(src):
+        for name in files:
+            rel = os.path.relpath(os.path.join(dirpath, name), src)
+            keep.add(rel)
+            changed += sync_file(os.path.join(src, rel), os.path.join(dst, rel))
+    for dirpath, _, files in os.walk(dst, topdown=False):
+        for name in files:
+            rel = os.path.relpath(os.path.join(dirpath, name), dst)
+            if rel not in keep:
+                os.remove(os.path.join(dst, rel))
+                removed += 1
+        if dirpath != dst and not os.listdir(dirpath):
+            os.rmdir(dirpath)
+    return changed, removed
+
+
 def main():
     catalog = export_catalog()
-    for sub in ('textures', 'models', 'blockstates', 'lang', 'font'):
-        shutil.rmtree(os.path.join(ASSETS, sub), ignore_errors=True)
+    shutil.rmtree(STAGE, ignore_errors=True)
     gen_textures(catalog)
     gen_legacy(catalog)
     gen_models(catalog)
@@ -404,6 +423,14 @@ def main():
     gen_icon(catalog)
     for mc, cfg in VERSIONS.items():
         gen_version(mc, cfg, catalog)
+
+    changed = removed = 0
+    trees = [os.path.join(ASSETS_REL, sub) for sub in ASSET_DIRS] + [version_generated_rel(mc) for mc in VERSIONS]
+    for rel in trees:
+        c, r = sync_tree(os.path.join(STAGE, rel), os.path.join(ROOT, rel))
+        changed, removed = changed + c, removed + r
+    changed += sync_file(os.path.join(ASSETS, 'icon.png'), os.path.join(ROOT, ASSETS_REL, 'icon.png'))
+    print(f'Synced: {changed} files written, {removed} removed')
     print(f'Generated assets for {len(catalog["weapons"])} weapons and {len(catalog["materials"])} materials')
 
 

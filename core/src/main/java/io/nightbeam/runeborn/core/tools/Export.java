@@ -8,6 +8,7 @@ import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.item.MaterialSpec;
 import io.nightbeam.runeborn.core.item.Materials;
+import io.nightbeam.runeborn.core.item.Recipes;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.weapon.Affinity;
 import io.nightbeam.runeborn.core.weapon.WeaponSpec;
@@ -68,6 +69,24 @@ public final class Export {
             bosses.add(o);
         }
         root.add("bosses", bosses);
+
+        JsonArray recipes = new JsonArray();
+        for (Recipes.Recipe r : Recipes.all()) {
+            JsonObject o = new JsonObject();
+            o.addProperty("id", r.id());
+            o.addProperty("result", r.result());
+            o.addProperty("count", r.count());
+            if (r.shaped()) {
+                o.add("pattern", gson.toJsonTree(r.pattern()));
+                JsonObject key = new JsonObject();
+                r.key().forEach((ch, item) -> key.addProperty(String.valueOf(ch), item));
+                o.add("key", key);
+            } else {
+                o.add("ingredients", gson.toJsonTree(r.ingredients()));
+            }
+            recipes.add(o);
+        }
+        root.add("recipes", recipes);
 
         JsonObject affinities = new JsonObject();
         for (Affinity a : Affinity.ALL) {

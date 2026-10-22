@@ -43,6 +43,7 @@ public final class OriginScreen extends RbScreen {
 
         // Class list
         Ui.panel(c, left, top, listW, panelH);
+        Ui.centered(c, c.tr(Lang.ORIGIN_HINT), width / 2, top + panelH + 6, Theme.TEXT_FAINT, false);
         int rowH = Math.max(14, Math.min(18, (panelH - 12) / Origin.ALL.length));
         int y = top + 6;
         for (int i = 0; i < Origin.ALL.length; i++) {

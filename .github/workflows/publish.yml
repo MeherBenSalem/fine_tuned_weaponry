@@ -1,9 +1,11 @@
-# Publish Fine Tuned Weaponry to Modrinth + CurseForge on version tags.
+# Publish Runeborn to Modrinth + CurseForge on version tags.
 #
 # Secrets: MODRINTH_TOKEN, CURSEFORGE_TOKEN, CURSEFORGE_API_KEY
 # Variables: MODRINTH_ID, CURSEFORGE_ID
 #
-# Usage: git tag v2.3.0 && git push origin v2.3.0
+# Usage: git tag v3.0.0 && git push origin v3.0.0
+# Builds 8 jars: Forge + Fabric for 1.20.1, NeoForge + Fabric for 1.21.1, 26.2 and 26.3.
+# Re-running is safe: files that already exist with the same hash are skipped.
 
 name: Publish
 
@@ -16,16 +18,71 @@ on:
       version:
         description: Version (without v) when not tagging
         required: false
-      legacy_only:
-        description: Build/upload only 1.20.1 jars (skip 1.21.1 re-upload)
+      dry_run:
+        description: Build and verify only, upload nothing
         required: false
         default: "false"
 
+permissions:
+  contents: read
+
 jobs:
-  publish:
+  build:
+    name: Build ${{ matrix.mc }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - mc: '1.20.1'
+            java: '17'
+            gradle_java: '21'
+            tasks: ':forge:build :fabric:build'
+          - mc: '1.21.1'
+            java: '21'
+            gradle_java: '21'
+            tasks: ':neoforge:build :fabric:build'
+          - mc: '26.2'
+            java: '25'
+            gradle_java: '25'
+            tasks: ':neoforge:build :fabric:build'
+          - mc: '26.3'
+            java: '25'
+            gradle_java: '25'
+            tasks: ':neoforge:build :fabric:build'
+    defaults:
+      run:
+        working-directory: versions/${{ matrix.mc }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            ${{ matrix.java }}
+            ${{ matrix.gradle_java }}
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew ${{ matrix.tasks }} --no-daemon \
+            -Porg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jars-${{ matrix.mc }}
+          path: |
+            versions/${{ matrix.mc }}/*/build/libs/runeborn-*.jar
+            !versions/${{ matrix.mc }}/*/build/libs/*-sources.jar
+            !versions/${{ matrix.mc }}/common/build/libs/*
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -42,59 +99,23 @@ jobs:
             exit 1
           fi
 
-      - uses: actions/setup-java@v4
+      - uses: actions/download-artifact@v4
         with:
-          distribution: temurin
-          java-version: "21"
+          pattern: jars-*
+          path: dist
+          merge-multiple: true
 
-      - uses: gradle/actions/setup-gradle@v4
-
-      - name: Build 26.2 workspace (1.21.1)
-        if: ${{ inputs.legacy_only != 'true' }}
-        working-directory: 26.2
-        run: |
-          chmod +x gradlew
-          ./gradlew :fabric:build :neoforge:build --no-daemon
-
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "17"
-
-      - name: Build 1.20.1 workspace
-        working-directory: 1.20.1
-        run: |
-          chmod +x gradlew
-          ./gradlew :forge:build :fabric:build --no-daemon
-
-      - name: Find release jars
+      - name: Check release jars
         id: jars
         shell: bash
         run: |
           VERSION="${{ steps.ver.outputs.version }}"
-          SEARCH_PATHS=(1.20.1)
-          if [[ "${{ inputs.legacy_only }}" != "true" ]]; then
-            SEARCH_PATHS=(26.2 "${SEARCH_PATHS[@]}")
-          fi
-          mapfile -t JARS < <(find "${SEARCH_PATHS[@]}" -type f -path "*/build/libs/*-${VERSION}.jar" \
-            ! -name "*-sources.jar" ! -name "*-javadoc.jar" \
-            ! -name "*-dev.jar" ! -name "*-dev-shadow.jar" \
-            ! -path "*/common/build/*" | sort)
-          FILTERED=()
-          for j in "${JARS[@]}"; do
-            size=$(stat -c%s "$j" 2>/dev/null || stat -f%z "$j")
-            if [ "$size" -lt 1024 ]; then
-              echo "Skipping tiny jar ($size bytes): $j" >&2
-              continue
-            fi
-            FILTERED+=("$j")
-          done
-          JARS=("${FILTERED[@]}")
-          if [ ${#JARS[@]} -eq 0 ]; then
-            echo "No release jars found for version ${VERSION}" >&2
+          mapfile -t JARS < <(find dist -type f -name "runeborn-*-${VERSION}.jar" | sort)
+          printf '%s\n' "${JARS[@]}"
+          if [ ${#JARS[@]} -ne 8 ]; then
+            echo "Expected 8 release jars for ${VERSION}, found ${#JARS[@]} (does gradle.properties match the tag?)" >&2
             exit 1
           fi
-          printf '%s\n' "${JARS[@]}"
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "list<<$EOF" >> "$GITHUB_OUTPUT"
           printf '%s\n' "${JARS[@]}" >> "$GITHUB_OUTPUT"
@@ -103,8 +124,8 @@ jobs:
       - name: Preserve exact release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: fine-tuned-weaponry-${{ steps.ver.outputs.version }}
-          path: ${{ steps.jars.outputs.list }}
+          name: runeborn-${{ steps.ver.outputs.version }}
+          path: dist/runeborn-*-${{ steps.ver.outputs.version }}.jar
           if-no-files-found: error
 
       - uses: actions/setup-node@v4
@@ -131,108 +152,66 @@ jobs:
           const crypto = require('crypto');
           const version = process.env.VERSION;
           const jars = process.env.JAR_LIST.split(/\n/).map(s => s.trim()).filter(Boolean);
-          if (!jars.length) throw new Error('No jars to upload');
 
-          function resolveChangelog(ver) {
-            for (const f of ['CHANGELOG.md', `PATCH_NOTES.md`, `${ver}-patchnotes.md`]) {
-              if (fs.existsSync(f)) return fs.readFileSync(f, 'utf8');
-            }
-            return `Release ${ver}`;
-          }
-          const changelog = resolveChangelog(version);
-
-          const LOADER_IDS = { fabric: 7499, forge: 7498, neoforge: 10150, quilt: 9153 };
-          // Match the existing build pins; do not silently select another game/loader.
-          const JAUML_VERSIONS = {
-            'neoforge-1.21.1': 'a1yuBbgk',
-            'fabric-1.21.1': 'qhE3mjqW',
-            'forge-1.20.1': 'LDZdiuuA',
-            'fabric-1.20.1': 'echba2hV',
-          };
+          const changelog = fs.existsSync('CHANGELOG.md') ? fs.readFileSync('CHANGELOG.md', 'utf8') : `Release ${version}`;
+          const CF_LOADER_IDS = { fabric: 7499, forge: 7498, neoforge: 10150 };
+          // Fabric builds need Fabric API; Forge and NeoForge builds have no dependencies.
+          const MODRINTH_FABRIC_API = 'P7dR8mSH';
+          const CF_FABRIC_API = 306612;
 
           function detect(jar) {
-            const n = path.basename(jar).toLowerCase();
-            const p = jar.replace(/\\/g, '/').toLowerCase();
-            let loader = null;
-            if (n.includes('neoforge') || p.includes('/neoforge/')) loader = 'neoforge';
-            else if (n.includes('fabric') || p.includes('/fabric/')) loader = 'fabric';
-            else if ((n.includes('forge') && !n.includes('neoforge')) || p.includes('/forge/')) loader = 'forge';
-            else loader = 'fabric';
-            const m = n.match(/(?:^|-)(1\.\d+(?:\.\d+)?)(?:-|$)/) || p.match(/1\.\d+(?:\.\d+)?/);
-            const gv = m ? (m[1] || m[0]) : (p.includes('1.20.1') ? '1.20.1' : '1.21.1');
-            return { loader, gv };
+            const m = path.basename(jar).match(/^runeborn-(fabric|forge|neoforge)-(\d+\.\d+(?:\.\d+)?)-(.+)\.jar$/);
+            if (!m || m[3] !== version) throw new Error('Unexpected release artifact: ' + jar);
+            return { loader: m[1], gv: m[2] };
           }
+          const hash = (jar, algorithm) => crypto.createHash(algorithm).update(fs.readFileSync(jar)).digest('hex');
 
           function flattenVersions(payload) {
-            const flat = [];
             const data = payload?.data ?? payload;
+            const flat = [];
             if (!Array.isArray(data)) return flat;
             for (const entry of data) {
-              if (Array.isArray(entry?.versions)) {
-                for (const v of entry.versions) flat.push(v);
-              } else if (entry?.id != null && entry?.name) {
-                flat.push(entry);
-              }
+              if (Array.isArray(entry?.versions)) flat.push(...entry.versions);
+              else if (entry?.id != null && entry?.name) flat.push(entry);
             }
             return flat;
           }
-
           function findVersionId(flat, name) {
-            const exact = flat.find((v) => v.name === name || v.slug === name);
-            if (exact) return exact.id;
-            return flat.find((v) => String(v.name).toLowerCase() === String(name).toLowerCase())?.id;
+            const lower = String(name).toLowerCase();
+            return (flat.find(v => v.name === name || v.slug === name)
+              ?? flat.find(v => String(v.name).toLowerCase() === lower))?.id;
           }
 
           (async () => {
-            const hash = (jar, algorithm) => crypto.createHash(algorithm).update(fs.readFileSync(jar)).digest('hex');
-            const targets = new Set();
+            const seen = new Set();
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
-              const target = `${loader}-${gv}`;
-              if (!JAUML_VERSIONS[target] || targets.has(target) || path.basename(jar) !== `fine_tuned_weaponry-${target}-${version}.jar`) {
-                throw new Error('Unexpected or duplicate release artifact: ' + jar);
-              }
-              targets.add(target);
-            }
-            const listRes = await fetch(
-              `https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version`,
-              { headers: { Authorization: process.env.MODRINTH_TOKEN } },
-            );
-            if (!listRes.ok) throw new Error('Modrinth preflight ' + listRes.status);
-            const existingMr = new Map((await listRes.json()).map(v => [v.version_number, v]));
-            const existingCf = new Map();
-            for (let index = 0; ; index += 50) {
-              const cfList = await fetch(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}/files?pageSize=50&index=${index}`, {
-                headers: { 'x-api-key': process.env.CURSEFORGE_API_KEY },
-              });
-              if (!cfList.ok) throw new Error('CurseForge preflight ' + cfList.status);
-              const page = await cfList.json();
-              for (const file of page.data) existingCf.set(file.fileName, file);
-              if (index + page.data.length >= page.pagination.totalCount) break;
-              if (!page.data.length) throw new Error('Incomplete CurseForge file listing');
+              if (seen.has(loader + gv)) throw new Error('Duplicate artifact for ' + loader + ' ' + gv);
+              seen.add(loader + gv);
             }
 
+            // ---- Modrinth
+            const listRes = await fetch(`https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version`,
+              { headers: { Authorization: process.env.MODRINTH_TOKEN } });
+            if (!listRes.ok) throw new Error('Modrinth preflight ' + listRes.status);
+            const existingMr = new Map((await listRes.json()).map(v => [v.version_number, v]));
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
               const versionNumber = `${version}+${loader}-${gv}`;
-              if (existingMr.has(versionNumber)) {
-                const existing = existingMr.get(versionNumber);
-                if (!existing.files.some(f => f.primary && f.filename === path.basename(jar) && f.hashes.sha1 === hash(jar, 'sha1')) ||
-                    !existing.dependencies.some(d => d.version_id === JAUML_VERSIONS[`${loader}-${gv}`] && d.dependency_type === 'required')) {
+              const existing = existingMr.get(versionNumber);
+              if (existing) {
+                if (!existing.files.some(f => f.primary && f.hashes.sha1 === hash(jar, 'sha1'))) {
                   throw new Error('Existing Modrinth version differs; inspect before retry: ' + versionNumber);
                 }
                 console.log('Modrinth skip (verified exists)', existing.id, versionNumber);
                 continue;
               }
               const body = {
-                name: `${version} · ${loader} · ${gv}`,
+                name: `Runeborn ${version} · ${loader} · ${gv}`,
                 version_number: versionNumber,
                 changelog,
-                dependencies: [{
-                  project_id: 'ihvBalM2',
-                  version_id: JAUML_VERSIONS[`${loader}-${gv}`],
-                  dependency_type: 'required',
-                }],
+                dependencies: loader === 'fabric'
+                  ? [{ project_id: MODRINTH_FABRIC_API, dependency_type: 'required' }] : [],
                 game_versions: [gv],
                 version_type: 'release',
                 loaders: [loader],
@@ -245,71 +224,65 @@ jobs:
               const form = new FormData();
               form.append('data', JSON.stringify(body));
               form.append('file_0', new Blob([fs.readFileSync(jar)]), path.basename(jar));
-              const mrRes = await fetch('https://api.modrinth.com/v2/version', {
-                method: 'POST',
-                headers: { Authorization: process.env.MODRINTH_TOKEN },
-                body: form,
+              const res = await fetch('https://api.modrinth.com/v2/version', {
+                method: 'POST', headers: { Authorization: process.env.MODRINTH_TOKEN }, body: form,
               });
-              const mrText = await mrRes.text();
-              if (!mrRes.ok) throw new Error('Modrinth ' + mrRes.status + ' ' + mrText.slice(0, 500));
-              const mrReceipt = JSON.parse(mrText);
-              if (!mrReceipt.id) throw new Error('Modrinth upload returned no version id');
-              console.log('Modrinth OK', mrReceipt.id, body.version_number, path.basename(jar), 'sha256=' + hash(jar, 'sha256'));
+              const text = await res.text();
+              if (!res.ok) throw new Error('Modrinth ' + res.status + ' ' + text.slice(0, 500));
+              console.log('Modrinth OK', JSON.parse(text).id, versionNumber, 'sha256=' + hash(jar, 'sha256'));
             }
 
-            let flat = [];
-            const uploadGv = await fetch('https://minecraft.curseforge.com/api/game/versions', {
-              headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN },
-            });
-            if (uploadGv.ok) flat = flattenVersions(await uploadGv.json());
-            if (!flat.length) {
-              const gvRes = await fetch('https://api.curseforge.com/v1/games/432/versions', {
-                headers: { 'x-api-key': process.env.CURSEFORGE_API_KEY },
-              });
-              flat = flattenVersions(JSON.parse(await gvRes.text()));
+            // ---- CurseForge
+            const existingCf = new Map();
+            for (let index = 0; ; index += 50) {
+              const res = await fetch(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}/files?pageSize=50&index=${index}`,
+                { headers: { 'x-api-key': process.env.CURSEFORGE_API_KEY } });
+              if (!res.ok) throw new Error('CurseForge preflight ' + res.status);
+              const page = await res.json();
+              for (const file of page.data) existingCf.set(file.fileName, file);
+              if (index + page.data.length >= page.pagination.totalCount || !page.data.length) break;
             }
+            let flat = [];
+            const gvRes = await fetch('https://minecraft.curseforge.com/api/game/versions',
+              { headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN } });
+            if (gvRes.ok) flat = flattenVersions(await gvRes.json());
             if (!flat.length) throw new Error('No CurseForge game versions resolved');
 
             for (const jar of jars) {
               const { loader, gv } = detect(jar);
               const existing = existingCf.get(path.basename(jar));
               if (existing) {
-                if (!existing.hashes.some(h => h.algo === 1 && h.value === hash(jar, 'sha1')) ||
-                    !existing.dependencies.some(d => d.modId === 1281310 && d.relationType === 3)) {
+                if (!existing.hashes.some(h => h.algo === 1 && h.value === hash(jar, 'sha1'))) {
                   throw new Error('Existing CurseForge file differs; inspect before retry: ' + existing.id);
                 }
                 console.log('CurseForge skip (verified exists)', existing.id, path.basename(jar));
                 continue;
               }
               const mcId = findVersionId(flat, gv);
-              const loaderId = LOADER_IDS[loader];
-              const clientId = findVersionId(flat, 'Client');
-              const serverId = findVersionId(flat, 'Server');
               if (mcId == null) throw new Error('No CurseForge game version id for ' + gv);
-              const gameVersions = [mcId];
-              if (loaderId != null) gameVersions.push(loaderId);
-              if (clientId != null) gameVersions.push(clientId);
-              if (serverId != null) gameVersions.push(serverId);
+              const gameVersions = [mcId, CF_LOADER_IDS[loader]];
+              for (const side of ['Client', 'Server']) {
+                const id = findVersionId(flat, side);
+                if (id != null) gameVersions.push(id);
+              }
               const meta = {
                 changelog,
                 changelogType: 'markdown',
-                displayName: `${version} · ${loader} · ${gv}`,
+                displayName: `Runeborn ${version} · ${loader} · ${gv}`,
                 gameVersions,
                 releaseType: 'release',
-                relations: { projects: [{ slug: 'jauml', projectID: 1281310, type: 'requiredDependency' }] },
               };
-              const cfForm = new FormData();
-              cfForm.append('metadata', JSON.stringify(meta));
-              cfForm.append('file', new Blob([fs.readFileSync(jar)]), path.basename(jar));
-              const cfRes = await fetch(
-                `https://minecraft.curseforge.com/api/projects/${process.env.CURSEFORGE_ID}/upload-file`,
-                { method: 'POST', headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN }, body: cfForm },
-              );
-              const cfText = await cfRes.text();
-              if (!cfRes.ok) throw new Error('CurseForge ' + cfRes.status + ' ' + cfText.slice(0, 500));
-              const cfReceipt = JSON.parse(cfText);
-              if (!cfReceipt.id) throw new Error('CurseForge upload returned no file id');
-              console.log('CurseForge OK', cfReceipt.id, meta.displayName, path.basename(jar), 'sha256=' + hash(jar, 'sha256'));
+              if (loader === 'fabric') {
+                meta.relations = { projects: [{ slug: 'fabric-api', projectID: CF_FABRIC_API, type: 'requiredDependency' }] };
+              }
+              const form = new FormData();
+              form.append('metadata', JSON.stringify(meta));
+              form.append('file', new Blob([fs.readFileSync(jar)]), path.basename(jar));
+              const res = await fetch(`https://minecraft.curseforge.com/api/projects/${process.env.CURSEFORGE_ID}/upload-file`,
+                { method: 'POST', headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN }, body: form });
+              const text = await res.text();
+              if (!res.ok) throw new Error('CurseForge ' + res.status + ' ' + text.slice(0, 500));
+              console.log('CurseForge OK', JSON.parse(text).id, meta.displayName, 'sha256=' + hash(jar, 'sha256'));
             }
           })().catch((e) => { console.error(e); process.exit(1); });
           NODE

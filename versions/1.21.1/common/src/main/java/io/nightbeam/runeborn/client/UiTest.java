@@ -5,6 +5,7 @@ import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.client.ClientNet;
 import io.nightbeam.runeborn.core.client.ClientState;
 import io.nightbeam.runeborn.core.client.screen.CharacterScreen;
+import io.nightbeam.runeborn.core.client.screen.CodexScreen;
 import io.nightbeam.runeborn.core.client.screen.OriginScreen;
 import io.nightbeam.runeborn.core.client.screen.ShrineScreen;
 import io.nightbeam.runeborn.core.net.Packets;
@@ -19,11 +20,13 @@ import io.nightbeam.runeborn.mc.Stacks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.server.IntegratedServer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
@@ -50,7 +53,12 @@ public final class UiTest {
         }
         IntegratedServer server = mc.getSingleplayerServer();
         switch (step++) {
-            case 0 -> wait = 60;
+            case 0 -> {
+                if (server != null) {
+                    server.execute(() -> reset(server, mc.player.getUUID()));
+                }
+                wait = 60;
+            }
             case 1 -> {
                 RbClient.HOST.open(new OriginScreen());
                 wait = 20;
@@ -136,10 +144,32 @@ public final class UiTest {
             case 29 -> {
                 ClientState.banner = new Packets.BannerMsg(Packets.Banner.YOU_DIED, "You Died", "");
                 ClientState.bannerTime = ClientNet.clock;
+                mc.setScreen(new DeathScreen(Component.literal("Player was slain by Varghast the Grafted"), false));
                 wait = 30;
             }
             case 30 -> shot("14_banner_died");
             case 31 -> {
+                mc.setScreen(null);
+                ClientState.banner = null;
+                RbClient.HOST.open(new CodexScreen(new CharacterScreen()));
+                wait = 5;
+            }
+            case 32 -> {
+                codexChapter(1);
+                wait = 5;
+            }
+            case 33 -> shot("15_codex_shrines");
+            case 34 -> {
+                codexChapter(4);
+                wait = 5;
+            }
+            case 35 -> shot("16_codex_armaments");
+            case 36 -> {
+                codexChapter(8);
+                wait = 5;
+            }
+            case 37 -> shot("17_codex_sovereigns");
+            case 38 -> {
                 Runeborn.LOG.info("RUNEBORN UITEST DONE");
                 mc.stop();
             }
@@ -166,6 +196,20 @@ public final class UiTest {
         }
     }
 
+    private static void codexChapter(int index) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.screen == null) {
+            return;
+        }
+        int w = mc.getWindow().getGuiScaledWidth();
+        int h = mc.getWindow().getGuiScaledHeight();
+        int panelH = Math.max(120, Math.min(h - 80, 250));
+        int top = Math.max(40, h / 2 - panelH / 2 + 6);
+        int pageW = Math.max(220, Math.min(360, w - 112 - 48));
+        int left = w / 2 - (112 + 8 + pageW) / 2;
+        mc.screen.mouseClicked(left + 30, top + 6 + index * 15 + 3, 0);
+    }
+
     /** Clicks at a fraction of the screen, used to press a "+" stepper in the level-up tab. */
     private static void click(float fx, float fy) {
         Minecraft mc = Minecraft.getInstance();
@@ -183,6 +227,25 @@ public final class UiTest {
         int ay = top + 8 + 24 + 40 + 12;
         for (int attr : new int[]{0, 0, 3, 4, 4}) {
             mc.screen.mouseClicked(x + colW - 6, ay + attr * 13 + 3, 0);
+        }
+    }
+
+    /** Removes bosses left over from earlier runs and makes the test player unkillable. */
+    private static void reset(IntegratedServer server, java.util.UUID id) {
+        for (ServerLevel level : server.getAllLevels()) {
+            java.util.List<Entity> stale = new java.util.ArrayList<>();
+            for (Entity e : level.getAllEntities()) {
+                if (e.getTags().stream().anyMatch(t -> t.startsWith(BossManager.TAG))) {
+                    stale.add(e);
+                }
+            }
+            stale.forEach(Entity::discard);
+        }
+        ServerPlayer p = server.getPlayerList().getPlayer(id);
+        if (p != null) {
+            p.getAbilities().invulnerable = true;
+            p.onUpdateAbilities();
+            p.setHealth(p.getMaxHealth());
         }
     }
 
@@ -243,7 +306,7 @@ public final class UiTest {
         if (boss != null) {
             boss.setHealth(boss.getMaxHealth() * 0.62f);
             io.nightbeam.runeborn.mc.Combat.hit(p, boss, 12, io.nightbeam.runeborn.mc.Combat.Kind.PHYSICAL);
-            p.hurt(level.damageSources().generic(), 6);
+            p.setHealth(p.getHealth() - 6);
             RbServer.data(p).setFocus(RbServer.data(p).maxFocus() * 0.55);
         }
     }

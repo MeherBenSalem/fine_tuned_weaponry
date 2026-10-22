@@ -19,15 +19,25 @@ import io.nightbeam.runeborn.core.weapon.WeaponSpec;
  */
 public final class Hud {
     private static float lastTime;
+    /** HUD frames drawn so far, and the frame during which a full-screen menu last drew. */
+    private static long frame;
+    private static long menuFrame = -10;
     /** Right edge of the stat bars last frame, so centred bars can avoid them. */
     private static int barsRight;
+
+    /** Called by full-screen menus each frame; the HUD stays hidden while one is showing. */
+    public static void hideForMenu() {
+        menuFrame = frame;
+    }
 
     public static void render(Canvas c, ClientHost host) {
         float now = c.time();
         float dt = Math.max(0, Math.min(5, now - lastTime));
         lastTime = now;
         ClientConfig cfg = ClientConfig.INSTANCE;
-        if (!cfg.hudEnabled || !ClientState.ready()) {
+        frame++;
+        // Menus draw after the HUD, so a menu seen during the previous frame is still open.
+        if (!cfg.hudEnabled || !ClientState.ready() || menuFrame >= frame - 1) {
             return;
         }
         PlayerData d = ClientState.data();
@@ -310,8 +320,9 @@ public final class Hud {
      */
     public static void drawDeathBanner(Canvas c, float t) {
         float a = Ui.ease(Math.min(1, t / 14f));
-        int cy = 69;
-        int band = 36;
+        // Covers vanilla's own title (y 60-78) and leaves the cause of death below (y 85) readable.
+        int cy = 66;
+        int band = 34;
         int mid = Theme.alpha(0xF2000000, a);
         Ui.hgradient(c, 0, cy - band / 2, c.width() / 2, cy + band / 2, 0x00000000, mid);
         Ui.hgradient(c, c.width() / 2, cy - band / 2, c.width(), cy + band / 2, mid, 0x00000000);

@@ -1,30 +1,29 @@
-# Fine Tuned Weaponry 2.3.1
+# Runeborn 3.0.0
 
-## Fixed
-- Weapons Anvil accepts supported weapons and tools through direct insertion and shift-click on Minecraft 1.21.1 Fabric and NeoForge, with matching eligibility on supported 1.20.1 Fabric and Forge workspaces.
-- Restored Minecraft 1.21.1 gem and amplifier tags so upgrade slots accept the intended items.
-- Fixed Minecraft 1.21.1 socket occupancy and removal: occupied sockets no longer consume replacement upgrades, and installed gems/amplifiers can be returned. Historical `.0` socket keys remain supported.
-- Release downloads declare Jauml as a required dependency on both platforms, matching the existing mod metadata. Dependency versions are unchanged.
-
-## Compatibility and verification
-- Weapon eligibility uses the data-pack-extensible `fine_tuned_weaponry:anvil_tools` tag, with supported common conventions and optional legacy Forge tags.
-- Native/headless tests cover insertion, shift-click, socket application/removal, legacy data, custom names, damage, foreign NBT and bound-anvil container serialization/reopening. All supported workspace/loader builds pass.
-- Real in-game clients, networking, chunk/region saving and enchantment preservation have not been verified in this release's test session.
-
-# Fine Tuned Weaponry 2.3.0
+Fine Tuned Weaponry is now **Runeborn**: a ground-up remake as a souls-like RPG progression mod.
+The mod id is now `runeborn`, so this release does not carry over items from Fine Tuned Weaponry 2.x.
 
 ## Added
-- Research table recipes for base gems: Inferno Core, Frost Rune, and Storm Shard
-- Right-click abilities for Earthly, Obsidian, and Rose Gold hammers
-- Hollow Man staff Haste ability on right-click
-- Jauml config keys for hammer and staff ability tuning
+- Rune-based leveling with eight attributes (Vigor, Mind, Endurance, Strength, Dexterity, Intelligence,
+  Faith, Arcane), runes dropped on death and recoverable where you fell.
+- 10 origins with starting attributes, an armament and a kit.
+- 74 armaments in 19 classes with five damage types, S–E scaling, attribute requirements and status
+  buildup (bleed, frost, poison, blight).
+- 23 weapon arts and 12 spells (sorceries and incantations) on an FP pool.
+- Reinforcement to +25 (tempering stones) or +10 (lustrous stones) and 13 whetstone affinities.
+- Ember Shrines: kindle, rest, level up, reinforce, infuse, upgrade flasks, fast travel, merchant,
+  relic exchange, crown shards and rebirth.
+- Ember and Azure flasks with upgradable charges and potency.
+- Mob levels by distance and dimension, champions with 10 affixes.
+- Seven summonable Sovereign bosses with phases and abilities. The Wither, Ender Dragon, Warden and
+  Elder Guardian also drop relics and crown shards.
+- Stamina, a dodge roll with invulnerability frames, and status buildup on hit.
+- New HUD (HP, FP and stamina bars, runes, flasks, equipment, target and boss bars), event banners,
+  status and shrine screens, and rich weapon tooltips.
+- Server and client JSON configs, and `/runeborn` operator commands.
+- Builds for Minecraft 1.20.1 (Forge, Fabric), 1.21.1 (NeoForge, Fabric), 26.2 and 26.3
+  (NeoForge, Fabric).
 
-## Fixed
-- Weapon tooltips now match implemented abilities
-- Renamed `charger_amp_reicpe.json` to `charger_amp_recipe.json`
-- Removed orphaned Kurasai Katana lang keys
-- Fixed "Weapons Tempate" typo in research table tooltips
-
-## Changed
-- Project licensed under Apache-2.0 with standard OSS contributor docs
-- CI build workflow targets the active `26.2/` workspace
+## Removed
+- The 2.x weapon catalog, gem sockets, Weapons Anvil, Weapons Forge and Research Table.
+- The Jauml dependency. Runeborn has no dependencies besides Fabric API on Fabric.

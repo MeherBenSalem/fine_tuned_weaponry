@@ -41,8 +41,13 @@ public final class CharacterScreen extends RbScreen {
         Kit.backdrop(c);
         int total = colW * 3 + 16;
         c.title(c.tr(Lang.CHARACTER).toUpperCase(), left, top - 28, Theme.GOLD_BRIGHT, 1.6f);
-        Ui.right(c, c.tr(Lang.CHARACTER_HINT), left + total, top - 22, Theme.TEXT_FAINT, false);
+        int codexW = Math.max(64, c.textWidth(c.tr(Lang.OPEN_CODEX)) + 20);
+        int codexX = left + total - codexW;
+        boolean codexHover = Ui.hit(mx, my, codexX, top - 30, codexW, 16);
+        Ui.button(c, codexX, top - 30, codexW, 16, "§6✦ §r" + c.tr(Lang.OPEN_CODEX), codexHover, true);
+        hot(codexX, top - 30, codexW, 16, () -> host.open(new CodexScreen(this)));
         Ui.rule(c, left, top - 10, total, Theme.alpha(Theme.GOLD, 0.7f));
+        Ui.centered(c, c.tr(Lang.CHARACTER_HINT), left + total / 2, top + panelH + 6, Theme.TEXT_FAINT, false);
 
         // Column 1: identity and attributes
         int x = left;

@@ -1,4 +1,9 @@
-Fine Tuned Weaponry
-Copyright 2026 NAIZO
+Runeborn
+Copyright 2026 NAIZO (Nightbeam)
 
 This product is licensed under the Apache License, Version 2.0.
+
+This product bundles the Cinzel typeface by Natanael Gama
+(assets/runeborn/font/cinzel_bold.ttf), licensed under the SIL Open Font
+License, Version 1.1. See licenses/cinzel-ofl.txt in the jar
+or tools/assetgen/fonts/OFL-Cinzel.txt in the source tree.

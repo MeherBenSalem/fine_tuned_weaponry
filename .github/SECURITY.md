@@ -2,12 +2,14 @@
 
 ## Supported Versions
 
-| Minecraft | Loaders              | Status    |
-|-----------|----------------------|-----------|
-| **1.21.1** | Fabric, NeoForge     | Supported |
-| **1.20.1** | Fabric, Forge        | Supported |
+Security fixes go to the latest Runeborn release, for every supported game version.
 
-Security fixes are prioritized for the active [`26.2/`](26.2/) workspace (1.21.1).
+| Minecraft  | Loaders          | Status    |
+|------------|------------------|-----------|
+| **26.3**   | NeoForge, Fabric | Supported |
+| **26.2**   | NeoForge, Fabric | Supported |
+| **1.21.1** | NeoForge, Fabric | Supported |
+| **1.20.1** | Forge, Fabric    | Supported |
 
 ## Reporting a Vulnerability
 

@@ -4,44 +4,79 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
+  workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: 26.2
+permissions:
+  contents: read
 
 jobs:
-  build:
+  core:
+    name: Core tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: gradle
+          distribution: temurin
+          java-version: '17'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Run core tests
+        run: tools/test-core.sh
 
-      - name: Build Fabric
-        run: ./gradlew :fabric:build --no-daemon
+  build:
+    name: Minecraft ${{ matrix.mc }}
+    needs: core
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - mc: '1.20.1'
+            java: '17'
+            gradle_java: '21'
+            tasks: ':forge:build :fabric:build'
+          - mc: '1.21.1'
+            java: '21'
+            gradle_java: '21'
+            tasks: ':neoforge:build :fabric:build'
+          - mc: '26.2'
+            java: '25'
+            gradle_java: '25'
+            tasks: ':neoforge:build :fabric:build'
+          - mc: '26.3'
+            java: '25'
+            gradle_java: '25'
+            tasks: ':neoforge:build :fabric:build'
+    defaults:
+      run:
+        working-directory: versions/${{ matrix.mc }}
+    steps:
+      - uses: actions/checkout@v4
 
-      - name: Build NeoForge
-        run: ./gradlew :neoforge:build --no-daemon
+      # The last version listed becomes JAVA_HOME (the JVM Gradle runs on); the mod
+      # toolchain is picked from the JAVA_HOME_<n>_X64 variables below.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            ${{ matrix.java }}
+            ${{ matrix.gradle_java }}
 
-      - name: Upload Fabric artifact
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew ${{ matrix.tasks }} --no-daemon \
+            -Porg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+
+      - name: Upload jars
         uses: actions/upload-artifact@v4
         with:
-          name: fabric-jar
-          path: 26.2/fabric/build/libs/*.jar
-          if-no-files-found: error
-
-      - name: Upload NeoForge artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: neoforge-jar
-          path: 26.2/neoforge/build/libs/*.jar
+          name: runeborn-${{ matrix.mc }}
+          path: |
+            versions/${{ matrix.mc }}/*/build/libs/runeborn-*.jar
+            !versions/${{ matrix.mc }}/*/build/libs/*-sources.jar
+            !versions/${{ matrix.mc }}/common/build/libs/*
           if-no-files-found: error

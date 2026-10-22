@@ -1,6 +1,7 @@
 package io.nightbeam.runeborn.core.client.screen;
 
 import io.nightbeam.runeborn.core.Rb;
+import io.nightbeam.runeborn.core.client.Hud;
 import io.nightbeam.runeborn.core.client.ItemView;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.stat.Attr;
@@ -18,6 +19,7 @@ import java.util.Locale;
 final class Kit {
     /** Darkened backdrop with a vignette, like resting at a site of flame. */
     static void backdrop(Canvas c) {
+        Hud.hideForMenu();
         int w = c.width();
         int h = c.height();
         c.fill(0, 0, w, h, Theme.SCRIM);

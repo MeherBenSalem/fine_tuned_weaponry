@@ -148,9 +148,12 @@ public final class RbClient {
         if (b == null || b.kind() != Packets.Banner.YOU_DIED) {
             return;
         }
-        graphics.flush(); // vanilla text is batched; flush it so the banner covers the old title
+        // Vanilla's title text sits slightly forward in depth; lift the banner above it so it covers it.
+        graphics.pose().pushPose();
+        graphics.pose().translate(0, 0, 400);
         VanillaCanvas c = new VanillaCanvas(graphics, partial);
         Hud.drawDeathBanner(c, c.time() - ClientState.bannerTime);
+        graphics.pose().popPose();
     }
 
     /** Extra tooltip line for vanilla and third-party weapons: they scale with attributes too. */

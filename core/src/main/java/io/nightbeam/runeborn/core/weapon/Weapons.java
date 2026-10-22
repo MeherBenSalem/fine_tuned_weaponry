@@ -74,7 +74,7 @@ public final class Weapons {
                 .lore("Never cools, even when sheathed."));
         add(w("rimeguard_sword", "Rimeguard Sword", STRAIGHT_SWORD, RARE).phys(4.0).dmg(MAGIC, 1.8).scale(STRENGTH, D)
                 .scale(DEXTERITY, C).scale(INTELLIGENCE, C).req(STRENGTH, 10).req(DEXTERITY, 12).req(INTELLIGENCE, 12)
-                .status(FROST, 50).art(Art.HOARFROST_STOMP).sprite("broadsword", "frost")
+                .status(FROST, 50).art(Art.RIMEFROST_STOMP).sprite("broadsword", "frost")
                 .lore("Frost blooms wherever its point touches."));
         add(w("sunlit_sword", "Sunlit Sword", STRAIGHT_SWORD, EPIC).phys(4.2).dmg(HOLY, 3.0).scale(STRENGTH, D)
                 .scale(DEXTERITY, D).scale(FAITH, B).req(STRENGTH, 12).req(FAITH, 18).art(Art.SACRED_EDGE)
@@ -121,7 +121,7 @@ public final class Weapons {
                 .custom("blood_katana", "0=blood_katana_texture")
                 .lore("Ysolde's blade. Its bloom never wilts.").lore("It drinks before you do."));
         add(w("rimeveil", "Rimeveil", KATANA, LEGENDARY).phys(3.8).dmg(MAGIC, 2.6).scale(DEXTERITY, D).scale(INTELLIGENCE, B)
-                .req(STRENGTH, 12).req(DEXTERITY, 16).req(INTELLIGENCE, 23).status(FROST, 55).art(Art.HOARFROST_STOMP)
+                .req(STRENGTH, 12).req(DEXTERITY, 16).req(INTELLIGENCE, 23).status(FROST, 55).art(Art.RIMEFROST_STOMP)
                 .sprite("katana", "rime").lore("Sylvara's veil, folded into steel."));
 
         // ---- Twinblades
@@ -169,7 +169,7 @@ public final class Weapons {
         add(w("jawbone_axe", "Jawbone Axe", AXE, COMMON).phys(6.3).scale(STRENGTH, C).req(STRENGTH, 13)
                 .sprite("axe_bone", "bone").lore("The teeth are still in it."));
         add(w("rimebite_axe", "Rimebite Axe", AXE, RARE).phys(5.0).dmg(MAGIC, 1.6).scale(STRENGTH, C).scale(INTELLIGENCE, D)
-                .req(STRENGTH, 14).req(INTELLIGENCE, 10).status(FROST, 55).art(Art.HOARFROST_STOMP).sprite("axe", "frost")
+                .req(STRENGTH, 14).req(INTELLIGENCE, 10).status(FROST, 55).art(Art.RIMEFROST_STOMP).sprite("axe", "frost")
                 .lore("Bites, and the cold bites after."));
 
         // ---- Greataxes

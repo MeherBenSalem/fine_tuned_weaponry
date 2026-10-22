@@ -16,7 +16,7 @@ public enum Art {
     WHIRLWIND(Kind.MULTI_SPIN, 12, 26, 80, 0.9, 3.0, "Spin three times, a storm of blades around you."),
     STARBLADE_VOLLEY(Kind.VOLLEY, 14, 12, 60, 1.0, 16.0, "Summon starblades that seek out up to three foes."),
     STORMCALL(Kind.STORM, 16, 16, 100, 1.6, 8.0, "Call lightning down upon nearby enemies."),
-    HOARFROST_STOMP(Kind.FROST_WAVE, 12, 20, 70, 1.2, 6.0, "Stamp a wave of rime that freezes all it touches."),
+    RIMEFROST_STOMP(Kind.FROST_WAVE, 12, 20, 70, 1.2, 6.0, "Stamp a wave of rime that freezes all it touches."),
     EMBER_CLEAVE(Kind.FLAME_WAVE, 12, 22, 70, 1.5, 5.0, "A sweeping cleave that leaves a wake of fire."),
     SACRED_EDGE(Kind.BUFF_HOLY, 15, 8, 600, 0.3, 0.0, "Bless the blade with holy light for thirty seconds."),
     GRAVITY_WELL(Kind.PULL, 12, 14, 80, 0.8, 8.0, "Wrench nearby foes toward you with crushing gravity."),
