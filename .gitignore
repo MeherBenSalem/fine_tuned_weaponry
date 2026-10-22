@@ -36,3 +36,4 @@ Thumbs.db
 # logs and local artifacts
 *.log
 releases/
+runs
