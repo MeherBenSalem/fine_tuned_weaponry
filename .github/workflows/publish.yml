@@ -116,7 +116,10 @@ jobs:
         shell: bash
         run: |
           VERSION="${{ steps.ver.outputs.version }}"
-          mapfile -t JARS < <(find dist -type f -name "runeborn-*-${VERSION}.jar" | sort)
+          # Artifacts keep their loader/build/libs folders; gather the jars (unique names) in one place.
+          mkdir -p release
+          find dist -type f -name "runeborn-*-${VERSION}.jar" -exec cp {} release/ \;
+          mapfile -t JARS < <(find release -type f -name "runeborn-*-${VERSION}.jar" | sort)
           printf '%s\n' "${JARS[@]}"
           if [ ${#JARS[@]} -ne 8 ]; then
             echo "Expected 8 release jars for ${VERSION}, found ${#JARS[@]} (does gradle.properties match the tag?)" >&2
@@ -131,7 +134,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: runeborn-${{ steps.ver.outputs.version }}
-          path: dist/runeborn-*-${{ steps.ver.outputs.version }}.jar
+          path: release/runeborn-*-${{ steps.ver.outputs.version }}.jar
           if-no-files-found: error
 
       - uses: actions/setup-node@v4
