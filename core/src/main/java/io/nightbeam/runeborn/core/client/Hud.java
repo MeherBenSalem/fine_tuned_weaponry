@@ -44,7 +44,8 @@ public final class Hud {
 
         flash(c, now);
         c.push();
-        c.translate(cfg.hudOffsetX, cfg.hudOffsetY);
+        // Sit below a companion HUD in the top-left corner (RPG Attribute System's level display).
+        c.translate(cfg.hudOffsetX, cfg.hudOffsetY + CompanionHud.bottom());
         if (cfg.hudScale != 1f) {
             c.scale(cfg.hudScale);
         }
@@ -57,7 +58,9 @@ public final class Hud {
         int top = 6 + host.vanillaBossBars() * 19;
         int centredLeft = c.width() / 2 - bossWidth(c) / 2;
         if (centredLeft < barsRight + 8) {
-            top = Math.max(top, 44);
+            top = Math.max(top, 44 + CompanionHud.bottom());
+        } else if (centredLeft < CompanionHud.right() + 8) {
+            top = Math.max(top, CompanionHud.bottom() + 4);
         }
         if (cfg.showBossBars) {
             top = bosses(c, now, dt, top);

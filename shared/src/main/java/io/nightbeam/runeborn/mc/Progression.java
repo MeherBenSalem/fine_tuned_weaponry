@@ -1,6 +1,7 @@
 package io.nightbeam.runeborn.mc;
 
 import io.nightbeam.runeborn.core.config.ServerConfig;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Packets;
 import io.nightbeam.runeborn.core.origin.Origin;
@@ -42,6 +43,7 @@ public final class Progression {
         Players.applyAttributes(player);
         player.setHealth(player.getMaxHealth());
         Players.banner(player, Packets.Banner.RISE, Lang.en(Lang.B_RISE), origin.displayName);
+        Feats.grant(player, Feat.ROOT);
         Fx.sound(player, Fx.S.SHRINE_KINDLE, 1f, 0.8f);
         Fx.helix((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 1.1, 2.4, 30);
         Players.sync(player);
@@ -51,6 +53,10 @@ public final class Progression {
     public static void levelUp(ServerPlayer player, int[] target) {
         PlayerData d = RbServer.data(player);
         if (target == null || target.length != Attr.COUNT || !d.hasOrigin()) {
+            return;
+        }
+        if (!RasBridge.levelingEnabled()) {
+            Players.actionBar(player, Lang.MSG_LEVEL_LOCKED);
             return;
         }
         for (int i = 0; i < Attr.COUNT; i++) {
@@ -70,6 +76,8 @@ public final class Progression {
         }
         d.attrs = target.clone();
         Players.applyAttributes(player);
+        RasBridge.onRuneLevels(player, to - from);
+        Feats.levels(player, d);
         Fx.sound(player, Fx.S.LEVEL_UP, 1f, 1f);
         Fx.helix((ServerLevel) player.level(), Fx.P.END_ROD, player.position(), 1.0, 2.2, 20);
         Players.sync(player);

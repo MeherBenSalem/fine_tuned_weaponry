@@ -66,6 +66,9 @@ public final class ShrineScreen extends RbScreen {
 
     public ShrineScreen(Packets.Open shrine) {
         this.shrine = shrine;
+        if (ClientState.view != null && !ClientState.view.levelingEnabled) {
+            tab = Tab.REST;
+        }
     }
 
     @Override
@@ -154,6 +157,7 @@ public final class ShrineScreen extends RbScreen {
 
     private boolean tabEnabled(Tab t, PlayerData d) {
         return switch (t) {
+            case LEVEL_UP -> ClientState.view.levelingEnabled;
             case TRAVEL -> ClientState.view.fastTravel && d.shrines.size() > 1;
             case SHARDS -> !d.shards.isEmpty();
             case REBIRTH -> host.count("rebirth_tear") > 0;
@@ -178,6 +182,12 @@ public final class ShrineScreen extends RbScreen {
     // ------------------------------------------------------------------ Level up
 
     private void levelUp(Canvas c, PlayerData d, int x, int y, int w, int mx, int my) {
+        if (!ClientState.view.levelingEnabled) {
+            for (String para : c.tr(Lang.LEVEL_LOCKED).split("\n")) {
+                y = Ui.paragraph(c, para, x, y, w, Theme.TEXT_DIM) + 5;
+            }
+            return;
+        }
         int colW = (w - 14) / 2;
         int level = d.level();
         int newLevel = Leveling.level(pending);
@@ -229,6 +239,12 @@ public final class ShrineScreen extends RbScreen {
         }
         Ui.button(c, bx - bw - 6, by, bw, 15, c.tr(Lang.RESET), Ui.hit(mx, my, bx - bw - 6, by, bw, 15), changed);
         hot(bx - bw - 6, by, bw, 15, this::resetPending);
+        int rpg = ClientState.view.rpgLevels;
+        if (rpg > 0) {
+            String note = changed ? "§6✦ §r" + c.tr(Lang.LEVEL_RPG_BONUS, (newLevel - level) * rpg)
+                    : c.tr(Lang.LEVEL_RPG_NOTE, rpg);
+            c.text(note, x, by + 4, changed ? Theme.GOLD : Theme.TEXT_FAINT, false);
+        }
     }
 
     /** Applies the equipped crown shard's attribute bonus to a pending allocation. */

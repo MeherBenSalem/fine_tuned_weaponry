@@ -1,8 +1,10 @@
 package io.nightbeam.runeborn.compat;
 
+import com.mojang.brigadier.ParseResults;
 import io.nightbeam.runeborn.core.Rb;
 import io.nightbeam.runeborn.core.weapon.WeaponClass;
 import io.nightbeam.runeborn.mc.Fx;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -531,6 +533,37 @@ public final class Compat {
 
     public static void feedback(CommandSourceStack source, Component message) {
         source.sendSuccess(() -> message, false);
+    }
+
+    // ------------------------------------------------------------------ integrations, advancements, recipes
+
+    /** Runs a command as the server with output suppressed. Returns false if it does not parse. */
+    public static boolean runCommand(ServerPlayer player, String command) {
+        MinecraftServer server = player.server;
+        CommandSourceStack source = server.createCommandSourceStack().withSuppressedOutput();
+        ParseResults<CommandSourceStack> parse = server.getCommands().getDispatcher().parse(command, source);
+        if (parse.getReader().canRead() || !parse.getExceptions().isEmpty()) {
+            return false;
+        }
+        server.getCommands().performCommand(parse, command);
+        return true;
+    }
+
+    /** Awards the single criterion of a Runeborn advancement, if it is loaded. */
+    public static void grantAdvancement(ServerPlayer player, String path) {
+        AdvancementHolder holder = player.server.getAdvancements().get(id(path));
+        if (holder != null) {
+            player.getAdvancements().award(holder, "granted");
+        }
+    }
+
+    /** Puts Runeborn recipes in the player's recipe book. */
+    public static void unlockRecipes(ServerPlayer player, List<String> recipes) {
+        List<ResourceLocation> ids = new ArrayList<>();
+        for (String recipe : recipes) {
+            ids.add(id(recipe));
+        }
+        player.awardRecipesByKey(ids);
     }
 
     private Compat() {

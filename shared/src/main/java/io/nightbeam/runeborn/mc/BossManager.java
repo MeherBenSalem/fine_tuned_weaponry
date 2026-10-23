@@ -523,6 +523,7 @@ public final class BossManager {
             if (first) {
                 d.felled.add(spec.id());
             }
+            Feats.felled(p, spec);
             long runes = Runes.forBoss(ServerConfig.INSTANCE, spec.runes(), fighters.size());
             Players.giveRunes(p, runes);
             for (Loot.Drop drop : Loot.forBoss(spec, RANDOM)) {

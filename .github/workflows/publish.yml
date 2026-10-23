@@ -153,7 +153,9 @@ jobs:
           const version = process.env.VERSION;
           const jars = process.env.JAR_LIST.split(/\n/).map(s => s.trim()).filter(Boolean);
 
-          const changelog = fs.existsSync('CHANGELOG.md') ? fs.readFileSync('CHANGELOG.md', 'utf8') : `Release ${version}`;
+          // Release notes: patchnotes/<version>.md, else the changelog.
+          const notes = [`patchnotes/${version}.md`, 'CHANGELOG.md'].find((f) => fs.existsSync(f));
+          const changelog = notes ? fs.readFileSync(notes, 'utf8') : `Release ${version}`;
           const CF_LOADER_IDS = { fabric: 7499, forge: 7498, neoforge: 10150 };
           // Fabric builds need Fabric API; Forge and NeoForge builds have no dependencies.
           const MODRINTH_FABRIC_API = 'P7dR8mSH';

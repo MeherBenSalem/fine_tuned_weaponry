@@ -294,7 +294,7 @@ public final class CodexScreen extends RbScreen {
     private int controls(Canvas c, int x, int y, int w) {
         y = control(c, x, y, w, "R", c.tr(Lang.CX_KEY_ART));
         y = control(c, x, y, w, "Left Alt", c.tr(Lang.CX_KEY_DODGE));
-        y = control(c, x, y, w, "K", c.tr(Lang.CX_KEY_STATUS));
+        y = control(c, x, y, w, "I", c.tr(Lang.CX_KEY_STATUS));
         y = control(c, x, y, w, c.tr(Lang.CX_KEY_FLASK_HOW), c.tr(Lang.CX_KEY_FLASK));
         c.text("§o" + c.tr(Lang.CODEX_DEFAULT_KEY), x, y + 2, Theme.TEXT_FAINT, false);
         return y + 14;

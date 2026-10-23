@@ -4,6 +4,7 @@ import io.nightbeam.runeborn.compat.Compat;
 import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.config.ServerConfig;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.item.Materials;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Packets;
@@ -48,6 +49,7 @@ public final class Shrines {
             record = new ShrineRecord(name, dim, pos.getX(), pos.getY(), pos.getZ());
             d.shrines.add(record);
             Players.banner(player, Packets.Banner.SHRINE_KINDLED, Lang.en(Lang.B_KINDLED), name);
+            Feats.grant(player, Feat.KINDLE);
             Compat.sound(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Fx.S.SHRINE_KINDLE, 1f, 1f);
             Fx.column(level, Fx.P.FLAME, Vec3.atBottomCenterOf(pos).add(0, 1, 0), 3, 30, 0.2);
             Fx.burst(level, Fx.P.END_ROD, Vec3.atCenterOf(pos).add(0, 1, 0), 40, 0.6, 0.08);
@@ -183,6 +185,7 @@ public final class Shrines {
         BlockPos spot = standingSpot(level, pos);
         Compat.teleport(player, level, spot.getX() + 0.5, spot.getY(), spot.getZ() + 0.5, player.getYRot(), player.getXRot());
         s.lastTravelAt = now;
+        Feats.grant(player, Feat.TRAVEL);
         s.shrineDimension = target.dimension;
         s.shrineX = target.x;
         s.shrineY = target.y;
@@ -215,6 +218,7 @@ public final class Shrines {
             d.spendRunes(cost.runes());
         }
         Stacks.setUpgrade(stack, cur + 1);
+        Feats.reinforced(player, spec, cur + 1);
         Fx.sound(player, Fx.S.SMITH, 1f, 0.9f + (cur + 1) * 0.01f);
         Fx.burst((ServerLevel) player.level(), Fx.P.LAVA, player, 6, 0.1);
     }
@@ -235,6 +239,9 @@ public final class Shrines {
             return;
         }
         Stacks.setAffinity(stack, affinity);
+        if (affinity != Affinity.STANDARD) {
+            Feats.grant(player, Feat.INFUSED);
+        }
         Fx.sound(player, Fx.S.SMITH, 1f, 1.3f);
         Compat.dust((ServerLevel) player.level(), affinity.color, 1.2f, player.getX(), player.getY() + 1, player.getZ(), 30, 0.6);
     }
@@ -294,6 +301,7 @@ public final class Shrines {
         }
         d.attrs = attrs.clone();
         Players.applyAttributes(player);
+        Feats.grant(player, Feat.REBIRTH);
         Fx.sound(player, Fx.S.LEVEL_UP, 1f, 0.7f);
         Fx.helix((ServerLevel) player.level(), Fx.P.SOUL_FIRE, player.position(), 1.1, 2.4, 24);
     }

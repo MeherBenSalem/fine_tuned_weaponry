@@ -72,7 +72,7 @@ public final class Lang {
     public static final String ORIGIN_BEGIN = k("runeborn.ui.origin.begin", "Rise");
     public static final String ORIGIN_WEAPON = k("runeborn.ui.origin.weapon", "Starting Armament");
     public static final String ORIGIN_HINT = k("runeborn.ui.origin.hint",
-            "Press K at any time to see your status and open the Codex.");
+            "Press I at any time to see your status and open the Codex.");
 
     // ---- Shrine screen
     public static final String SHRINE = k("runeborn.ui.shrine", "Ember Shrine");
@@ -87,6 +87,13 @@ public final class Lang {
     public static final String SHRINE_SHARDS = k("runeborn.ui.shrine.shards", "Crown Shards");
     public static final String SHRINE_REBIRTH = k("runeborn.ui.shrine.rebirth", "Rebirth");
     public static final String SHRINE_LEAVE = k("runeborn.ui.shrine.leave", "Leave");
+    public static final String LEVEL_LOCKED = k("runeborn.ui.level.locked",
+            "Runeborn levels you through RPG Attribute System.\nInstall RPG Attribute System alongside Runeborn to"
+                    + " spend runes on attributes here. Every rune level you buy also grants RPG levels, whose points"
+                    + " you spend in its own Level Up screen.\nUntil then, your origin's attributes carry you:"
+                    + " reinforce, infuse and hunt Sovereigns as usual.");
+    public static final String LEVEL_RPG_BONUS = k("runeborn.ui.level.rpg_bonus", "+%s RPG levels");
+    public static final String LEVEL_RPG_NOTE = k("runeborn.ui.level.rpg_note", "Each level also grants %s RPG level(s)");
     public static final String REST_DESC = k("runeborn.ui.rest.desc",
             "Rest by the flame. Restores health, focus and flasks, and binds your return here.");
     public static final String REST_BUTTON = k("runeborn.ui.rest.button", "Rest at Shrine");
@@ -121,6 +128,8 @@ public final class Lang {
     // ---- Character screen
     public static final String CHARACTER = k("runeborn.ui.character", "Status");
     public static final String CHARACTER_HINT = k("runeborn.ui.character.hint", "Level up by resting at an Ember Shrine.");
+    public static final String CHARACTER_HINT_LOCKED = k("runeborn.ui.character.hint_locked",
+            "Install RPG Attribute System to level up at Ember Shrines.");
     public static final String FELLED = k("runeborn.ui.felled", "Sovereigns Felled");
     public static final String KILLS = k("runeborn.ui.kills", "Foes Slain");
     public static final String DEATHS = k("runeborn.ui.deaths", "Deaths");
@@ -140,7 +149,9 @@ public final class Lang {
     public static final String CX_RUNES_BODY = k("runeborn.codex.runes.body",
             "Runes are the currency of growth. Every foe you slay yields runes, more for foes of higher level and far more"
                     + " for champions and Sovereigns.\nSpend runes at an Ember Shrine to raise an attribute by one. Your"
-                    + " rune level is the sum of your attributes, and every level costs more than the last.\nWhen you"
+                    + " rune level is the sum of your attributes, and every level costs more than the last.\nShrine"
+                    + " leveling is shared with RPG Attribute System, which must be installed too: every rune level"
+                    + " you buy also grants RPG levels, whose points you spend in its own Level Up screen.\nWhen you"
                     + " fall, the runes you carry stay where you died, marked by a green glow. Walk back to them to"
                     + " reclaim them. Fall again on the way and they are lost for good.");
     public static final String CX_SHRINES = k("runeborn.codex.shrines", "Ember Shrines");
@@ -237,6 +248,8 @@ public final class Lang {
     public static final String MSG_NO_FP = k("runeborn.msg.no_fp", "Not enough FP");
     public static final String MSG_NO_STAMINA = k("runeborn.msg.no_stamina", "Too exhausted");
     public static final String MSG_COOLDOWN = k("runeborn.msg.cooldown", "Not ready yet");
+    public static final String MSG_LEVEL_LOCKED = k("runeborn.msg.level_locked",
+            "Install RPG Attribute System to level up at Ember Shrines");
     public static final String MSG_REQUIREMENT = k("runeborn.msg.requirement", "You lack the attributes to wield this");
     public static final String MSG_SPELL_REQ = k("runeborn.msg.spell_requirement", "Your mind or faith is too weak for this spell");
     public static final String MSG_FLASK_EMPTY = k("runeborn.msg.flask_empty", "The flask is empty. Rest at a shrine.");
@@ -253,6 +266,8 @@ public final class Lang {
     public static final String NO_REST = k("runeborn.ui.rest.enemies", "You cannot rest while enemies are near.");
     public static final String MSG_NOT_SUMMONABLE = k("runeborn.msg.no_space", "There is no room for a sovereign here.");
     public static final String KEY_CATEGORY = k("key.categories.runeborn", "Runeborn");
+    /** Key category label used by Minecraft 26.x ({@code key.category.<namespace>.<path>}). */
+    public static final String KEY_CATEGORY_26 = k("key.category.runeborn.main", "Runeborn");
     public static final String KEY_DODGE = k("key.runeborn.dodge", "Dodge Roll");
     public static final String KEY_CHARACTER = k("key.runeborn.character", "Status Screen");
     public static final String KEY_ART = k("key.runeborn.art", "Weapon Art");

@@ -112,6 +112,7 @@ public final class SelfTest {
         check("zombie got a zone level", Mobs.level(zombie) >= 1 && Compat.tags(zombie).contains(Mobs.SEEN));
         Mobs.makeElite(zombie, 40);
         check("champion has affixes", Mobs.isElite(zombie) && !Mobs.affixes(zombie).isEmpty());
+        Runeborn.LOG.info("[selftest] champion affixes: {}", Mobs.affixes(zombie));
         check("champion is tougher", zombie.getMaxHealth() > 20);
 
         // Boss
@@ -122,12 +123,13 @@ public final class SelfTest {
         check("boss recognised", boss != null && BossManager.isBoss(boss));
 
         // Combat and status
-        float before = zombie.getHealth();
+        // Effective health: a Warded champion's absorption soaks hits before health.
+        float before = zombie.getHealth() + zombie.getAbsorptionAmount();
         boolean landed = boss != null && Combat.hit(boss, zombie, 5, Combat.Kind.PHYSICAL);
-        check("scripted hit lands", landed && zombie.getHealth() < before);
-        float beforeBleed = zombie.getHealth();
+        check("scripted hit lands", landed && zombie.getHealth() + zombie.getAbsorptionAmount() < before);
+        float beforeBleed = zombie.getHealth() + zombie.getAbsorptionAmount();
         Status.add(zombie, StatusType.BLEED, 10_000, boss);
-        check("bleed procs", zombie.getHealth() < beforeBleed || !zombie.isAlive());
+        check("bleed procs", zombie.getHealth() + zombie.getAbsorptionAmount() < beforeBleed || !zombie.isAlive());
 
         // Effects and sounds do not throw
         for (Fx.P p : Fx.P.values()) {
@@ -151,10 +153,16 @@ public final class SelfTest {
         check("player data persists", "ronin".equals(loaded.origin) && loaded.runes == 12345);
 
         // Packets
-        Buf b = Buf.reader(Packets.sync(d, ServerConfig.INSTANCE));
+        Buf b = Buf.reader(Packets.sync(d, ServerConfig.INSTANCE, true, 1));
         b.readVarInt();
         Packets.SyncView view = Packets.readSync(b);
-        check("sync packet round trip", view.data.runes == 12345 && "ronin".equals(view.data.origin));
+        check("sync packet round trip", view.data.runes == 12345 && "ronin".equals(view.data.origin)
+                && view.levelingEnabled && view.rpgLevels == 1);
+
+        // RPG Attribute System link: its command must be there for shrine levels to grant RPG levels.
+        check("rpg attribute system link", !RasBridge.installed()
+                || server.getCommands().getDispatcher().getRoot().getChild("ras") != null);
+        Runeborn.LOG.info("[selftest] RPG Attribute System installed: {}", RasBridge.installed());
 
         zombie.discard();
         if (boss != null) {

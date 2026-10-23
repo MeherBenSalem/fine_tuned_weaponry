@@ -16,6 +16,8 @@ public final class Platform {
 
         boolean isClient();
 
+        boolean isModLoaded(String modId);
+
         void send(ServerPlayer player, byte[] payload);
 
         void sendToServer(byte[] payload);
@@ -39,6 +41,10 @@ public final class Platform {
 
     public static boolean isClient() {
         return IMPL.isClient();
+    }
+
+    public static boolean isModLoaded(String modId) {
+        return IMPL.isModLoaded(modId);
     }
 
     public static void send(ServerPlayer player, byte[] payload) {

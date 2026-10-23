@@ -34,16 +34,18 @@ final class ForgeNet {
 
     private static void receive(NetworkEvent event) {
         NetworkEvent.Context ctx = event.getSource().get();
-        if (event.getPayload() == null || event.getLoginIndex() >= 0) {
+        NetworkDirection direction = ctx.getDirection();
+        if (event.getPayload() == null
+                || (direction != NetworkDirection.PLAY_TO_SERVER && direction != NetworkDirection.PLAY_TO_CLIENT)) {
             return;
         }
         byte[] data = RbChannel.decode(event.getPayload());
-        if (ctx.getDirection() == NetworkDirection.PLAY_TO_SERVER) {
+        if (direction == NetworkDirection.PLAY_TO_SERVER) {
             ServerPlayer player = ctx.getSender();
             if (player != null) {
                 ctx.enqueueWork(() -> Hooks.packet(player, data));
             }
-        } else if (ctx.getDirection() == NetworkDirection.PLAY_TO_CLIENT && clientHandler != null) {
+        } else if (clientHandler != null) {
             ctx.enqueueWork(() -> clientHandler.accept(data));
         }
         ctx.setPacketHandled(true);

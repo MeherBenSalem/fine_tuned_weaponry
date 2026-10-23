@@ -14,6 +14,7 @@ import io.nightbeam.runeborn.core.shrine.ShrineRecord;
 import io.nightbeam.runeborn.core.weapon.Affinity;
 import io.nightbeam.runeborn.mc.BossManager;
 import io.nightbeam.runeborn.mc.Players;
+import io.nightbeam.runeborn.mc.RasBridge;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.RbServer;
 import io.nightbeam.runeborn.mc.Stacks;
@@ -182,7 +183,7 @@ public final class UiTest {
         RbClient.HOST.send(payload);
     }
 
-    private static void tab(int index) {
+    static void tab(int index) {
         Minecraft mc = Minecraft.getInstance();
         int h = mc.getWindow().getGuiScaledHeight();
         int panelH = Math.min(h - 62, 214);
@@ -196,7 +197,7 @@ public final class UiTest {
         }
     }
 
-    private static void codexChapter(int index) {
+    static void codexChapter(int index) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.screen == null) {
             return;
@@ -211,7 +212,7 @@ public final class UiTest {
     }
 
     /** Clicks at a fraction of the screen, used to press a "+" stepper in the level-up tab. */
-    private static void click(float fx, float fy) {
+    static void click(float fx, float fy) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.screen == null) {
             return;
@@ -231,7 +232,7 @@ public final class UiTest {
     }
 
     /** Removes bosses left over from earlier runs and makes the test player unkillable. */
-    private static void reset(IntegratedServer server, java.util.UUID id) {
+    static void reset(IntegratedServer server, java.util.UUID id) {
         for (ServerLevel level : server.getAllLevels()) {
             java.util.List<Entity> stale = new java.util.ArrayList<>();
             for (Entity e : level.getAllEntities()) {
@@ -249,7 +250,7 @@ public final class UiTest {
         }
     }
 
-    private static void prepare(IntegratedServer server, java.util.UUID id) {
+    static void prepare(IntegratedServer server, java.util.UUID id) {
         ServerPlayer p = server.getPlayerList().getPlayer(id);
         if (p == null) {
             return;
@@ -292,7 +293,23 @@ public final class UiTest {
         p.getInventory().setItem(14, RbItems.stack("relic_ender_dragon", 1));
         p.getInventory().selected = 1;
         Players.applyAttributes(p);
+        if (RasBridge.installed()) {
+            // Integration probe: buying rune levels must raise the RPG Attribute System level too.
+            int before = rasLevel(p);
+            RasBridge.onRuneLevels(p, 3);
+            Runeborn.LOG.info("[uitest] RPG Attribute System level {} -> {}", before, rasLevel(p));
+        }
         Players.sync(p);
+    }
+
+    /** RPG Attribute System level through its public API, or -1 when it is absent. */
+    private static int rasLevel(ServerPlayer p) {
+        try {
+            Class<?> api = Class.forName("tn.nightbeam.ras.api.RasApi");
+            return (int) api.getMethod("getLevel", net.minecraft.world.entity.player.Player.class).invoke(null, p);
+        } catch (ReflectiveOperationException e) {
+            return -1;
+        }
     }
 
     private static void boss(IntegratedServer server, java.util.UUID id) {
@@ -311,14 +328,14 @@ public final class UiTest {
         }
     }
 
-    private static void shot(String name) {
+    static void shot(String name) {
         Minecraft mc = Minecraft.getInstance();
         Screenshot.grab(mc.gameDirectory, "runeborn_" + name + ".png", mc.getMainRenderTarget(),
                 msg -> Runeborn.LOG.info("[uitest] {}", msg.getString()));
     }
 
     /** Shows three weapon tooltips side by side. */
-    private static final class TooltipScreen extends Screen {
+    static final class TooltipScreen extends Screen {
         TooltipScreen() {
             super(Component.literal("tooltips"));
         }

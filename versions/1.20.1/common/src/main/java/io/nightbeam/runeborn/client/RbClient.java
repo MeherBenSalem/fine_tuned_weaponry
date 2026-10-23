@@ -7,6 +7,7 @@ import io.nightbeam.runeborn.content.ClientBridge;
 import io.nightbeam.runeborn.core.client.ClientHost;
 import io.nightbeam.runeborn.core.client.ClientNet;
 import io.nightbeam.runeborn.core.client.ClientState;
+import io.nightbeam.runeborn.core.client.CompanionHud;
 import io.nightbeam.runeborn.core.client.Hud;
 import io.nightbeam.runeborn.core.client.ItemView;
 import io.nightbeam.runeborn.core.client.RbScreen;
@@ -19,6 +20,7 @@ import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Packets;
 import io.nightbeam.runeborn.core.player.PlayerData;
 import io.nightbeam.runeborn.core.weapon.WeaponSpec;
+import io.nightbeam.runeborn.mc.RasBridge;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.Stacks;
 import net.minecraft.client.KeyMapping;
@@ -39,7 +41,7 @@ import java.util.List;
 /** Client glue for 1.20.1, shared by both loaders. Loader code only forwards events here. */
 public final class RbClient {
     public static final KeyMapping DODGE = new KeyMapping(Lang.KEY_DODGE, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, Lang.KEY_CATEGORY);
-    public static final KeyMapping STATUS = new KeyMapping(Lang.KEY_CHARACTER, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_K, Lang.KEY_CATEGORY);
+    public static final KeyMapping STATUS = new KeyMapping(Lang.KEY_CHARACTER, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_I, Lang.KEY_CATEGORY);
     public static final KeyMapping ART = new KeyMapping(Lang.KEY_ART, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_R, Lang.KEY_CATEGORY);
     public static final List<KeyMapping> KEYS = List.of(DODGE, STATUS, ART);
 
@@ -49,6 +51,9 @@ public final class RbClient {
     public static void init() {
         ClientConfig.INSTANCE = ConfigIO.load(Platform.configDir().resolve("runeborn-client.json"), ClientConfig.class,
                 ClientConfig::new);
+        if (Platform.isModLoaded(RasBridge.MOD_ID)) {
+            CompanionHud.rpgAttributeSystem(Platform.configDir());
+        }
         ClientBridge.translate = key -> VanillaCanvas.translate(key);
         ClientBridge.attributes = () -> {
             PlayerData d = ClientState.data();

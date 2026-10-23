@@ -7,6 +7,7 @@ import io.nightbeam.runeborn.content.ClientBridge;
 import io.nightbeam.runeborn.core.client.ClientHost;
 import io.nightbeam.runeborn.core.client.ClientNet;
 import io.nightbeam.runeborn.core.client.ClientState;
+import io.nightbeam.runeborn.core.client.CompanionHud;
 import io.nightbeam.runeborn.core.client.Hud;
 import io.nightbeam.runeborn.core.client.ItemView;
 import io.nightbeam.runeborn.core.client.RbScreen;
@@ -19,6 +20,7 @@ import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Packets;
 import io.nightbeam.runeborn.core.player.PlayerData;
 import io.nightbeam.runeborn.core.weapon.WeaponSpec;
+import io.nightbeam.runeborn.mc.RasBridge;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.Stacks;
 import net.minecraft.client.KeyMapping;
@@ -39,7 +41,7 @@ public final class RbClient {
     /** Each loader registers this category; its label key is {@code key.category.runeborn.main}. */
     public static final KeyMapping.Category CATEGORY = new KeyMapping.Category(Compat.id("main"));
     public static final KeyMapping DODGE = new KeyMapping(Lang.KEY_DODGE, InputConstants.Type.KEYBOARD, InputConstants.KEY_LALT, CATEGORY);
-    public static final KeyMapping STATUS = new KeyMapping(Lang.KEY_CHARACTER, InputConstants.Type.KEYBOARD, InputConstants.KEY_K, CATEGORY);
+    public static final KeyMapping STATUS = new KeyMapping(Lang.KEY_CHARACTER, InputConstants.Type.KEYBOARD, InputConstants.KEY_I, CATEGORY);
     public static final KeyMapping ART = new KeyMapping(Lang.KEY_ART, InputConstants.Type.KEYBOARD, InputConstants.KEY_R, CATEGORY);
     public static final List<KeyMapping> KEYS = List.of(DODGE, STATUS, ART);
 
@@ -49,6 +51,9 @@ public final class RbClient {
     public static void init() {
         ClientConfig.INSTANCE = ConfigIO.load(Platform.configDir().resolve("runeborn-client.json"), ClientConfig.class,
                 ClientConfig::new);
+        if (Platform.isModLoaded(RasBridge.MOD_ID)) {
+            CompanionHud.rpgAttributeSystem(Platform.configDir());
+        }
         ClientBridge.translate = key -> VanillaCanvas.translate(key);
         ClientBridge.attributes = () -> {
             PlayerData d = ClientState.data();
@@ -92,6 +97,7 @@ public final class RbClient {
         while (ART.consumeClick()) {
             if (mc.gui.screen() == null) {
                 Platform.sendToServer(Packets.useArt());
+                // Local swing only: 26.3 has no swing packet, and the punch packet would also reset attack strength.
                 player.swing(net.minecraft.world.InteractionHand.MAIN_HAND, player.getMainHandItem().getAttackAnimation(), false);
             }
         }

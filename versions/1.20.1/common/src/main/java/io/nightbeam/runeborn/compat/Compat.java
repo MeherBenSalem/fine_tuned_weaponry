@@ -1,8 +1,10 @@
 package io.nightbeam.runeborn.compat;
 
+import com.mojang.brigadier.ParseResults;
 import io.nightbeam.runeborn.core.Rb;
 import io.nightbeam.runeborn.core.weapon.WeaponClass;
 import io.nightbeam.runeborn.mc.Fx;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -525,6 +527,37 @@ public final class Compat {
 
     public static void feedback(CommandSourceStack source, Component message) {
         source.sendSuccess(() -> message, false);
+    }
+
+    // ------------------------------------------------------------------ integrations, advancements, recipes
+
+    /** Runs a command as the server with output suppressed. Returns false if it does not parse. */
+    public static boolean runCommand(ServerPlayer player, String command) {
+        MinecraftServer server = player.server;
+        CommandSourceStack source = server.createCommandSourceStack().withSuppressedOutput();
+        ParseResults<CommandSourceStack> parse = server.getCommands().getDispatcher().parse(command, source);
+        if (parse.getReader().canRead() || !parse.getExceptions().isEmpty()) {
+            return false;
+        }
+        server.getCommands().performCommand(parse, command);
+        return true;
+    }
+
+    /** Awards the single criterion of a Runeborn advancement, if it is loaded. */
+    public static void grantAdvancement(ServerPlayer player, String path) {
+        Advancement advancement = player.server.getAdvancements().getAdvancement(id(path));
+        if (advancement != null) {
+            player.getAdvancements().award(advancement, "granted");
+        }
+    }
+
+    /** Puts Runeborn recipes in the player's recipe book. */
+    public static void unlockRecipes(ServerPlayer player, List<String> recipes) {
+        ResourceLocation[] ids = new ResourceLocation[recipes.size()];
+        for (int i = 0; i < ids.length; i++) {
+            ids[i] = id(recipes.get(i));
+        }
+        player.awardRecipesByKey(ids);
     }
 
     private Compat() {

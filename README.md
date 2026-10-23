@@ -18,6 +18,10 @@ Minecraft **1.20.1** · **1.21.1** · **26.2** · **26.3** on Fabric, NeoForge a
 - Every kill pays out **runes**. Spend them at an **Ember Shrine** to raise one of eight attributes:
   Vigor, Mind, Endurance, Strength, Dexterity, Intelligence, Faith and Arcane.
 - Your **rune level** is the sum of your attributes, and each level costs more than the last.
+- **Shared progression with [RPG Attribute System](https://github.com/MeherBenSalem/RPG-Attribute-System).**
+  Shrine leveling needs RPG Attribute System installed alongside Runeborn. Every rune level you buy also
+  grants RPG levels, and you spend their points in its own Level Up screen. Without it, Runeborn still
+  runs: your origin's attributes carry you while you reinforce, infuse and hunt.
 - Die and you drop your runes where you fell. Get back to them before you die again, or they're gone.
 - Start as one of **10 origins** (Knight-Errant, Warlord, Duelist, Cutthroat, Astromancer, Oracle, Ronin,
   Penitent, Hexblade or Ashborn), each with its own starting attributes and armament.
@@ -62,7 +66,7 @@ flasks and binds you there. From a shrine you can **Level Up**, **Reinforce**, *
   current target's level and status buildup, and Sovereign boss bars.
 - Full-screen banners for the moments that matter: shrine kindled, Sovereign felled, YOU DIED.
 - Weapon tooltips show attack power, scaling grades, requirements and the weapon art at a glance.
-- Dodge roll with brief invulnerability on <kbd>Left Alt</kbd>, status screen on <kbd>K</kbd>.
+- Dodge roll with brief invulnerability on <kbd>Left Alt</kbd>, status screen on <kbd>I</kbd>.
 - **The Codex**, reached from the status screen, explains every system and shows the crafting recipes
   for shrines, flasks, stones, whetstones and Sovereign sigils.
 
@@ -82,8 +86,8 @@ flasks and binds you there. From a shrine you can **Level Up**, **Reinforce**, *
 1. Join a world and pick your origin.
 2. Craft an **Ember Shrine** (a campfire with gold ingots, blaze powder and polished deepslate), place it and
    use it to kindle it.
-3. Kill things, collect runes and level up at the shrine. Your **Ember Flask** heals and your **Azure
-   Flask** restores FP. Both refill when you rest.
+3. Kill things, collect runes and level up at the shrine (with RPG Attribute System installed). Your
+   **Ember Flask** heals and your **Azure Flask** restores FP. Both refill when you rest.
 4. Find or craft tempering stones and whetstones, reinforce your weapon, and go find a Sovereign.
 
 ## Downloads
@@ -95,14 +99,17 @@ flasks and binds you there. From a shrine you can **Level Up**, **Reinforce**, *
 | 1.21.1 | NeoForge, Fabric |
 | 1.20.1 | Forge, Fabric |
 
-The Fabric builds need [Fabric API](https://modrinth.com/mod/fabric-api). Releases are published to
-Modrinth and CurseForge.
+The Fabric builds need [Fabric API](https://modrinth.com/mod/fabric-api). Install
+[RPG Attribute System](https://github.com/MeherBenSalem/RPG-Attribute-System) for shrine leveling. It is
+optional, but Runeborn's level-ups stay locked without it. Releases are published to Modrinth and
+CurseForge.
 
 ## Configuration
 
 - `config/runeborn-server.json` covers rune gain, level, smithing and merchant cost multipliers, rune
   drop on death, stamina, PvP damage, mob level curves per dimension, champion chance, Dusk Rider
-  spawns and shrine travel.
+  spawns and shrine travel. `levelUpRequiresRpgAttributeSystem` (default `true`) and
+  `rpgLevelsPerRuneLevel` (default `1`) control the RPG Attribute System link.
 - `config/runeborn-client.json` covers HUD toggles, scale and offset, bar numbers, banners, the target
   bar and boss bars.
 

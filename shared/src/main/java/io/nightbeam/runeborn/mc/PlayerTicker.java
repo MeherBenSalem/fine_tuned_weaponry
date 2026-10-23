@@ -3,6 +3,7 @@ package io.nightbeam.runeborn.mc;
 import io.nightbeam.runeborn.compat.Compat;
 import io.nightbeam.runeborn.core.boss.CrownShard;
 import io.nightbeam.runeborn.core.config.ServerConfig;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.mob.Runes;
 import io.nightbeam.runeborn.core.net.Packets;
@@ -68,6 +69,7 @@ public final class PlayerTicker {
             long amount = lost.amount;
             d.lost = null;
             Players.giveRunes(player, amount);
+            Feats.grant(player, Feat.RECLAIMED);
             Players.banner(player, Packets.Banner.RUNES_RECOVERED, Lang.en(Lang.B_RECOVERED), "+" + Runes.format(amount));
             Fx.sound(player, Fx.S.RUNES_PICKUP, 1f, 1f);
             Compat.particlesFor(player, Fx.P.TOTEM, lost.x, lost.y + 0.5, lost.z, 40, 0.3, 0.5, 0.3, 0.3);

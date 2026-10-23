@@ -103,11 +103,10 @@ public final class RunebornNeoForge {
     }
 
     private static void payloads(RegisterPayloadHandlersEvent event) {
+        // The client-side handler is registered by RunebornNeoForgeClient (RegisterClientPayloadHandlersEvent).
         event.registrar("1").optional().playBidirectional(RbPayload.TYPE, RbPayload.CODEC, (payload, context) -> {
             if (context.player() instanceof ServerPlayer player) {
                 Hooks.packet(player, payload.data());
-            } else {
-                RunebornNeoForgeClient.packet(payload.data());
             }
         });
     }

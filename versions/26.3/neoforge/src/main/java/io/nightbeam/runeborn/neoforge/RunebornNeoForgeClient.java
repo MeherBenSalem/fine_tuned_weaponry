@@ -2,6 +2,7 @@ package io.nightbeam.runeborn.neoforge;
 
 import io.nightbeam.runeborn.client.RbClient;
 import io.nightbeam.runeborn.compat.Compat;
+import io.nightbeam.runeborn.net.RbPayload;
 import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.neoforged.bus.api.IEventBus;
@@ -14,6 +15,7 @@ import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
+import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
@@ -25,6 +27,8 @@ final class RunebornNeoForgeClient {
             e.registerCategory(RbClient.CATEGORY);
             RbClient.KEYS.forEach(e::register);
         });
+        modBus.addListener((RegisterClientPayloadHandlersEvent e) ->
+                e.register(RbPayload.TYPE, (payload, context) -> RbClient.onPacket(payload.data())));
         modBus.addListener((RegisterGuiLayersEvent e) -> e.registerAboveAll(Compat.id("hud"),
                 (graphics, delta) -> RbClient.renderHud(graphics, delta.getGameTimeDeltaPartialTick(false))));
 
@@ -42,10 +46,6 @@ final class RunebornNeoForgeClient {
                 RbClient.renderDeathScreen(e.getGuiGraphics(), e.getPartialTick());
             }
         });
-    }
-
-    static void packet(byte[] data) {
-        RbClient.onPacket(data);
     }
 
     static void sendToServer(CustomPacketPayload payload) {

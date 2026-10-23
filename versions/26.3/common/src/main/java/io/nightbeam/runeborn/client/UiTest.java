@@ -14,6 +14,7 @@ import io.nightbeam.runeborn.core.shrine.ShrineRecord;
 import io.nightbeam.runeborn.core.weapon.Affinity;
 import io.nightbeam.runeborn.mc.BossManager;
 import io.nightbeam.runeborn.mc.Players;
+import io.nightbeam.runeborn.mc.RasBridge;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.RbServer;
 import io.nightbeam.runeborn.mc.Stacks;
@@ -29,6 +30,7 @@ import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.client.server.IntegratedServer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -303,8 +305,25 @@ public final class UiTest {
         p.getInventory().setItem(13, RbItems.stack("relic_varghast", 1));
         p.getInventory().setItem(14, RbItems.stack("relic_ender_dragon", 1));
         p.getInventory().setSelectedSlot(1);
+        p.connection.send(new ClientboundSetHeldSlotPacket(1)); // the client is not told about server-side slot changes
         Players.applyAttributes(p);
+        if (RasBridge.installed()) {
+            // Integration probe: buying rune levels must raise the RPG Attribute System level too.
+            int before = rasLevel(p);
+            RasBridge.onRuneLevels(p, 3);
+            Runeborn.LOG.info("[uitest] RPG Attribute System level {} -> {}", before, rasLevel(p));
+        }
         Players.sync(p);
+    }
+
+    /** RPG Attribute System level through its public API, or -1 when it is absent. */
+    private static int rasLevel(ServerPlayer p) {
+        try {
+            Class<?> api = Class.forName("tn.nightbeam.ras.api.RasApi");
+            return (int) api.getMethod("getLevel", net.minecraft.world.entity.player.Player.class).invoke(null, p);
+        } catch (ReflectiveOperationException e) {
+            return -1;
+        }
     }
 
     private static void boss(IntegratedServer server, java.util.UUID id) {

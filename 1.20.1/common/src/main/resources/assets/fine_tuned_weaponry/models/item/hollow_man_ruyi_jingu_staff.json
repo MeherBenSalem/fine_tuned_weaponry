@@ -1,7 +1,0 @@
-{
-  "parent": "fine_tuned_weaponry:custom/pole",
-  "textures": {
-    "2": "fine_tuned_weaponry:block/classic_pole_texture",
-    "particle": "minecraft:item/stick"
-  }
-}

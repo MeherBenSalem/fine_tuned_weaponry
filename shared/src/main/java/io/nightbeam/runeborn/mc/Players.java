@@ -25,7 +25,8 @@ public final class Players {
     }
 
     public static void sync(ServerPlayer player) {
-        send(player, Packets.sync(RbServer.data(player), ServerConfig.INSTANCE));
+        send(player, Packets.sync(RbServer.data(player), ServerConfig.INSTANCE, RasBridge.levelingEnabled(),
+                RasBridge.rpgLevelsPerRuneLevel()));
         Session s = RbServer.session(player);
         s.sentRunes = -1;
         s.dirty = false;

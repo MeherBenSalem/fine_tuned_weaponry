@@ -54,7 +54,11 @@ public final class Packets {
 
     // ------------------------------------------------------------------ server -> client
 
-    public static byte[] sync(PlayerData d, ServerConfig cfg) {
+    /**
+     * @param levelingEnabled whether shrine level-ups are available (RPG Attribute System present or not required)
+     * @param rpgLevels RPG Attribute System levels granted per rune level, 0 when it is not installed
+     */
+    public static byte[] sync(PlayerData d, ServerConfig cfg, boolean levelingEnabled, int rpgLevels) {
         Buf b = Buf.writer().varInt(SYNC);
         b.str(d.origin).ints(d.attrs).varLong(d.runes).varLong(d.runesEarned);
         b.varInt(d.flaskCharges).varInt(d.flaskEmberShare).varInt(d.flaskPotency).varInt(d.emberLeft).varInt(d.azureLeft);
@@ -77,6 +81,7 @@ public final class Packets {
         // Settings the client needs for previews.
         b.f64(cfg.levelCostMultiplier).f64(cfg.smithingCostMultiplier).f64(cfg.merchantPriceMultiplier);
         b.bool(cfg.staminaEnabled).bool(cfg.shrineFastTravel).bool(cfg.requireClassSelection);
+        b.bool(levelingEnabled).varInt(rpgLevels);
         return b.bytes();
     }
 
@@ -89,6 +94,8 @@ public final class Packets {
         public boolean staminaEnabled = true;
         public boolean fastTravel = true;
         public boolean requireClass = true;
+        public boolean levelingEnabled = true;
+        public int rpgLevels;
     }
 
     public static SyncView readSync(Buf b) {
@@ -128,6 +135,8 @@ public final class Packets {
         v.staminaEnabled = b.readBool();
         v.fastTravel = b.readBool();
         v.requireClass = b.readBool();
+        v.levelingEnabled = b.readBool();
+        v.rpgLevels = b.readVarInt();
         d.sanitize();
         return v;
     }

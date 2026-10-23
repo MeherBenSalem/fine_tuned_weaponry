@@ -47,7 +47,8 @@ public final class CharacterScreen extends RbScreen {
         Ui.button(c, codexX, top - 30, codexW, 16, "§6✦ §r" + c.tr(Lang.OPEN_CODEX), codexHover, true);
         hot(codexX, top - 30, codexW, 16, () -> host.open(new CodexScreen(this)));
         Ui.rule(c, left, top - 10, total, Theme.alpha(Theme.GOLD, 0.7f));
-        Ui.centered(c, c.tr(Lang.CHARACTER_HINT), left + total / 2, top + panelH + 6, Theme.TEXT_FAINT, false);
+        String hint = ClientState.view.levelingEnabled ? Lang.CHARACTER_HINT : Lang.CHARACTER_HINT_LOCKED;
+        Ui.centered(c, c.tr(hint), left + total / 2, top + panelH + 6, Theme.TEXT_FAINT, false);
 
         // Column 1: identity and attributes
         int x = left;

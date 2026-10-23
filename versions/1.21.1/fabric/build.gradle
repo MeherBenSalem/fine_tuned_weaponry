@@ -22,6 +22,8 @@ loom {
             runDir('runs/client')
             if (System.getenv('RUNEBORN_UITEST')) {
                 programArgs('--quickPlaySingleplayer', 'uitest', '--width', '1280', '--height', '720')
+            } else if (System.getenv('RUNEBORN_SHOWCASE')) {
+                programArgs('--quickPlaySingleplayer', 'showcase', '--width', '1920', '--height', '1080')
             }
         }
         server {

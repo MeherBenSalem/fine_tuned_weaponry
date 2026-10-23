@@ -104,11 +104,5 @@ processResources {
         expand jsonExpandProps
     }
 
-    // 26.x names key categories "key.category.<namespace>.<path>"; the shared lang file only has
-    // the older "key.categories.runeborn", so add the label for RbClient.CATEGORY (runeborn:main).
-    filesMatching('assets/runeborn/lang/en_us.json') {
-        filter { line -> line == '{' ? '{\n  "key.category.runeborn.main": "Runeborn",' : line }
-    }
-
     inputs.properties(expandProps)
 }

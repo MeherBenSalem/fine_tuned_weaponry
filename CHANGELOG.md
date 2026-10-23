@@ -20,7 +20,13 @@ The mod id is now `runeborn`, so this release does not carry over items from Fin
 - Stamina, a dodge roll with invulnerability frames, and status buildup on hit.
 - New HUD (HP, FP and stamina bars, runes, flasks, equipment, target and boss bars), event banners,
   status and shrine screens, and rich weapon tooltips.
-- Server and client JSON configs, and `/runeborn` operator commands.
+- Shared progression with RPG Attribute System. Shrine level-ups need it installed, and every rune level
+  bought also grants RPG levels (`rpgLevelsPerRuneLevel`) through its own level-up pipeline. Without it,
+  the Level Up service stays locked and everything else works.
+- A Runeborn advancement tab: 22 feats, from kindling a shrine to felling every Sovereign.
+- The Codex, a guide to every system with crafting recipes; Runeborn recipes are added to the recipe book.
+- Server and client JSON configs, and `/runeborn` operator commands. The status key is <kbd>I</kbd>
+  (RPG Attribute System uses <kbd>K</kbd>).
 - Builds for Minecraft 1.20.1 (Forge, Fabric), 1.21.1 (NeoForge, Fabric), 26.2 and 26.3
   (NeoForge, Fabric).
 

@@ -15,6 +15,7 @@ import net.minecraft.world.entity.LivingEntity;
 public final class Hooks {
     public static void serverStarted(MinecraftServer server) {
         RbServer.start(server);
+        RasBridge.installed();
         SelfTest.maybeRun(server);
     }
 
@@ -49,6 +50,7 @@ public final class Hooks {
         s.stamina = d.maxStamina();
         Players.applyAttributes(player);
         Players.sync(player);
+        Feats.join(player);
         if (!d.hasOrigin() && ServerConfig.INSTANCE.requireClassSelection) {
             RbServer.later(30, () -> {
                 if (!player.isRemoved() && !RbServer.data(player).hasOrigin()) {

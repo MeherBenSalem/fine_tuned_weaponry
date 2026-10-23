@@ -4,6 +4,7 @@ import io.nightbeam.runeborn.compat.Compat;
 import io.nightbeam.runeborn.core.boss.Bosses;
 import io.nightbeam.runeborn.core.boss.CrownShard;
 import io.nightbeam.runeborn.core.config.ServerConfig;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.mob.EliteAffix;
 import io.nightbeam.runeborn.core.mob.Loot;
@@ -198,6 +199,7 @@ public final class Mobs {
         d.kills++;
         if (elite) {
             d.champions++;
+            Feats.grant(killer, Feat.CHAMPION);
             Players.banner(killer, Packets.Banner.CHAMPION_SLAIN, Lang.en(Lang.B_CHAMPION),
                     mob.getName().getString() + " · +" + Runes.format(runes));
             Fx.sound(mob, Fx.S.CHIME, 1f, 1.2f);
@@ -236,6 +238,7 @@ public final class Mobs {
             }
         }
         Players.banner(player, Packets.Banner.YOU_DIED, Lang.en(Lang.B_DIED), "");
+        Feats.grant(player, Feat.DIED);
         Players.sync(player);
         RbServer.save(player);
     }

@@ -1,8 +1,10 @@
 package io.nightbeam.runeborn.compat;
 
+import com.mojang.brigadier.ParseResults;
 import io.nightbeam.runeborn.core.Rb;
 import io.nightbeam.runeborn.core.weapon.WeaponClass;
 import io.nightbeam.runeborn.mc.Fx;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -28,6 +30,7 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.server.permissions.Permissions;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.util.Mth;
@@ -125,7 +128,7 @@ public final class Compat {
 
     public static void push(Entity e, Vec3 velocity) {
         e.setDeltaMovement(velocity);
-        e.needsSync = true;
+        e.syncVelocity = true; // 1.21.1 hurtMarked: sends the motion to tracking players and the entity itself
     }
 
     /** Turns {@code e} to look at {@code target}; players are re-synced to their client. */
@@ -145,7 +148,7 @@ public final class Compat {
     }
 
     public static void ride(Entity rider, Entity mount) {
-        rider.startRiding(mount, true, false);
+        rider.startRiding(mount, true, true);
     }
 
     public static boolean pvpAllowed(LivingEntity attacker) {
@@ -435,9 +438,11 @@ public final class Compat {
 
     public static void give(ServerPlayer player, ItemStack stack) {
         if (!player.getInventory().add(stack) && !stack.isEmpty()) {
-            ItemEntity drop = new ItemEntity(player.level(), player.getX(), player.getY() + 0.5, player.getZ(), stack);
-            drop.setNoPickUpDelay();
-            player.level().addFreshEntity(drop);
+            // What 1.21.1's player.drop(stack, false) did, without the arm swing 26.x's drop() adds.
+            ItemEntity drop = player.createItemStackToDrop(stack, false, false);
+            if (drop != null) {
+                player.level().addFreshEntity(drop);
+            }
         }
     }
 
@@ -536,6 +541,37 @@ public final class Compat {
 
     public static void feedback(CommandSourceStack source, Component message) {
         source.sendSuccess(() -> message, false);
+    }
+
+    // ------------------------------------------------------------------ integrations, advancements, recipes
+
+    /** Runs a command as the server with output suppressed. Returns false if it does not parse. */
+    public static boolean runCommand(ServerPlayer player, String command) {
+        MinecraftServer server = ((ServerLevel) player.level()).getServer();
+        CommandSourceStack source = server.createCommandSourceStack().withSuppressedOutput();
+        ParseResults<CommandSourceStack> parse = server.getCommands().getDispatcher().parse(command, source);
+        if (parse.getReader().canRead() || !parse.getExceptions().isEmpty()) {
+            return false;
+        }
+        server.getCommands().performCommand(parse, command);
+        return true;
+    }
+
+    /** Awards the single criterion of a Runeborn advancement, if it is loaded. */
+    public static void grantAdvancement(ServerPlayer player, String path) {
+        AdvancementHolder holder = ((ServerLevel) player.level()).getServer().getAdvancements().get(id(path));
+        if (holder != null) {
+            player.getAdvancements().award(holder, "granted");
+        }
+    }
+
+    /** Puts Runeborn recipes in the player's recipe book. */
+    public static void unlockRecipes(ServerPlayer player, List<String> recipes) {
+        List<ResourceKey<Recipe<?>>> keys = new ArrayList<>();
+        for (String recipe : recipes) {
+            keys.add(ResourceKey.create(Registries.RECIPE, id(recipe)));
+        }
+        player.awardRecipesByKey(keys);
     }
 
     private Compat() {

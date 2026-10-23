@@ -14,6 +14,7 @@ import io.nightbeam.runeborn.core.shrine.ShrineRecord;
 import io.nightbeam.runeborn.core.weapon.Affinity;
 import io.nightbeam.runeborn.mc.BossManager;
 import io.nightbeam.runeborn.mc.Players;
+import io.nightbeam.runeborn.mc.RasBridge;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.RbServer;
 import io.nightbeam.runeborn.mc.Stacks;
@@ -292,7 +293,23 @@ public final class UiTest {
         p.getInventory().setItem(14, RbItems.stack("relic_ender_dragon", 1));
         p.getInventory().selected = 1;
         Players.applyAttributes(p);
+        if (RasBridge.installed()) {
+            // Integration probe: buying rune levels must raise the RPG Attribute System level too.
+            int before = rasLevel(p);
+            RasBridge.onRuneLevels(p, 3);
+            Runeborn.LOG.info("[uitest] RPG Attribute System level {} -> {}", before, rasLevel(p));
+        }
         Players.sync(p);
+    }
+
+    /** RPG Attribute System level through its public API, or -1 when it is absent. */
+    private static int rasLevel(ServerPlayer p) {
+        try {
+            Class<?> api = Class.forName("tn.nightbeam.ras.api.RasApi");
+            return (int) api.getMethod("getLevel", net.minecraft.world.entity.player.Player.class).invoke(null, p);
+        } catch (ReflectiveOperationException e) {
+            return -1;
+        }
     }
 
     private static void boss(IntegratedServer server, java.util.UUID id) {

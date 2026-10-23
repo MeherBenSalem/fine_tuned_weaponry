@@ -14,6 +14,12 @@ public final class ServerConfig {
     public double merchantPriceMultiplier = 1.0;
     public boolean dropRunesOnDeath = true;
     public boolean requireClassSelection = true;
+    /**
+     * Shrine level-ups need RPG Attribute System installed; set false to allow them without it.
+     * With it installed, every rune level bought also grants this many RPG levels (0 to turn off).
+     */
+    public boolean levelUpRequiresRpgAttributeSystem = true;
+    public int rpgLevelsPerRuneLevel = 1;
 
     // Combat
     public boolean staminaEnabled = true;
@@ -53,6 +59,7 @@ public final class ServerConfig {
         smithingCostMultiplier = clamp(smithingCostMultiplier, 0, 1000);
         merchantPriceMultiplier = clamp(merchantPriceMultiplier, 0, 1000);
         exhaustedDamageMultiplier = clamp(exhaustedDamageMultiplier, 0, 1);
+        rpgLevelsPerRuneLevel = (int) clamp(rpgLevelsPerRuneLevel, 0, 100);
         dodgeStaminaCost = (int) clamp(dodgeStaminaCost, 0, 1000);
         dodgeInvulnerabilityTicks = (int) clamp(dodgeInvulnerabilityTicks, 0, 40);
         pvpDamageMultiplier = clamp(pvpDamageMultiplier, 0, 10);

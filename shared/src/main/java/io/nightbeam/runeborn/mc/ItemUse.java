@@ -3,6 +3,7 @@ package io.nightbeam.runeborn.mc;
 import io.nightbeam.runeborn.compat.Compat;
 import io.nightbeam.runeborn.core.boss.BossSpec;
 import io.nightbeam.runeborn.core.boss.Bosses;
+import io.nightbeam.runeborn.core.feat.Feat;
 import io.nightbeam.runeborn.core.item.MaterialSpec;
 import io.nightbeam.runeborn.core.lang.Lang;
 import io.nightbeam.runeborn.core.net.Packets;
@@ -101,6 +102,7 @@ public final class ItemUse {
                 if (boss == null || !BossManager.summon(player, boss)) {
                     return false;
                 }
+                Feats.grant(player, Feat.SUMMON);
                 if (!player.isCreative()) {
                     stack.shrink(1);
                 }
@@ -113,6 +115,7 @@ public final class ItemUse {
                 }
                 stack.shrink(1);
                 d.shards.add(id);
+                Feats.shards(player, d);
                 if (d.equippedShard.isEmpty()) {
                     d.equippedShard = id;
                     Players.applyAttributes(player);

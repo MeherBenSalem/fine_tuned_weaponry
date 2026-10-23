@@ -306,9 +306,11 @@ public final class CoreTests {
         d.equippedShard = "ash";
         d.felled.add("kaelthar");
         d.kills = 42;
-        Buf in = Buf.reader(Packets.sync(d, new ServerConfig()));
+        Buf in = Buf.reader(Packets.sync(d, new ServerConfig(), false, 2));
         check(in.readVarInt() == Packets.SYNC, "sync id");
-        PlayerData back = Packets.readSync(in).data;
+        Packets.SyncView view = Packets.readSync(in);
+        check(!view.levelingEnabled && view.rpgLevels == 2, "sync leveling flags");
+        PlayerData back = view.data;
         check(back.origin.equals(d.origin) && Arrays.equals(back.attrs, d.attrs), "sync attrs");
         check(back.runes == d.runes && back.runesEarned == d.runesEarned, "sync runes");
         check(back.lost != null && back.lost.amount == 500 && back.lost.z == -3.25, "sync lost runes");
