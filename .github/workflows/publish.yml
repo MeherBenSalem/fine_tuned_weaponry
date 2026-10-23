@@ -1,10 +1,12 @@
-# Publish Runeborn to Modrinth + CurseForge on version tags.
+# Publish Runeborn to CurseForge + Modrinth on version tags.
 #
 # Secrets: MODRINTH_TOKEN, CURSEFORGE_TOKEN, CURSEFORGE_API_KEY
-# Variables: MODRINTH_ID, CURSEFORGE_ID
+# Variables (optional): MODRINTH_ID (default ENwBoUVH), CURSEFORGE_ID (default 1150827)
 #
-# Usage: git tag v3.0.0 && git push origin v3.0.0
+# Usage: set version= in every versions/*/gradle.properties, add patchnotes/<version>.md, then
+#   git tag v3.0.0 && git push origin v3.0.0
 # Builds 8 jars: Forge + Fabric for 1.20.1, NeoForge + Fabric for 1.21.1, 26.2 and 26.3.
+# Every store id is resolved before the first upload; dry_run stops there.
 # Re-running is safe: files that already exist with the same hash are skipped.
 
 name: Publish
@@ -19,12 +21,16 @@ on:
         description: Version (without v) when not tagging
         required: false
       dry_run:
-        description: Build and verify only, upload nothing
+        description: Build and resolve every upload, upload nothing
         required: false
         default: "false"
 
 permissions:
   contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -130,36 +136,45 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
-      - name: Upload Modrinth + CurseForge
-        if: ${{ inputs.dry_run != 'true' }}
+      - name: Upload CurseForge + Modrinth
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
-          MODRINTH_ID: ${{ vars.MODRINTH_ID }}
-          CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID }}
+          MODRINTH_ID: ${{ vars.MODRINTH_ID || 'ENwBoUVH' }}
+          CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID || '1150827' }}
+          DRY_RUN: ${{ inputs.dry_run == 'true' }}
           VERSION: ${{ steps.ver.outputs.version }}
           JAR_LIST: ${{ steps.jars.outputs.list }}
         shell: bash
         run: |
           set -euo pipefail
-          test -n "${MODRINTH_ID:-}" && test -n "${CURSEFORGE_ID:-}"
+          for v in MODRINTH_TOKEN CURSEFORGE_TOKEN CURSEFORGE_API_KEY; do
+            test -n "${!v:-}" || { echo "Missing secret $v" >&2; exit 1; }
+          done
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
           const crypto = require('crypto');
           const version = process.env.VERSION;
+          const dryRun = process.env.DRY_RUN === 'true';
           const jars = process.env.JAR_LIST.split(/\n/).map(s => s.trim()).filter(Boolean);
 
           // Release notes: patchnotes/<version>.md, else the changelog.
           const notes = [`patchnotes/${version}.md`, 'CHANGELOG.md'].find((f) => fs.existsSync(f));
           const changelog = notes ? fs.readFileSync(notes, 'utf8') : `Release ${version}`;
-          const CF_LOADER_IDS = { fabric: 7499, forge: 7498, neoforge: 10150 };
-          // Fabric builds need Fabric API; Forge and NeoForge builds have no dependencies.
-          const MODRINTH_FABRIC_API = 'P7dR8mSH';
-          const CF_FABRIC_API = 306612;
+
+          // Fabric builds need Fabric API. RPG Attribute System (listed as "Remnants | RPG Stats,
+          // Skills & Progression") is optional on every build and unlocks shrine leveling.
+          // CurseForge rejects a relation projectID sent as a string, so these stay integers.
+          const MODRINTH_DEPS = { fabricApi: 'P7dR8mSH', ras: 'd85UTOuq' };
+          const CURSEFORGE_DEPS = {
+            fabricApi: { slug: 'fabric-api', projectID: 306612 },
+            ras: { slug: 'remnants-rpg-stats-skills-progression', projectID: 1079687 },
+          };
+          const LOADERS = { fabric: 'Fabric', forge: 'Forge', neoforge: 'NeoForge' };
 
           function detect(jar) {
             const m = path.basename(jar).match(/^runeborn-(fabric|forge|neoforge)-(\d+\.\d+(?:\.\d+)?)-(.+)\.jar$/);
@@ -168,55 +183,131 @@ jobs:
           }
           const hash = (jar, algorithm) => crypto.createHash(algorithm).update(fs.readFileSync(jar)).digest('hex');
 
-          function flattenVersions(payload) {
-            const data = payload?.data ?? payload;
-            const flat = [];
-            if (!Array.isArray(data)) return flat;
-            for (const entry of data) {
-              if (Array.isArray(entry?.versions)) flat.push(...entry.versions);
-              else if (entry?.id != null && entry?.name) flat.push(entry);
-            }
-            return flat;
+          async function getJson(url, headers, what) {
+            const res = await fetch(url, { headers });
+            if (!res.ok) throw new Error(`${what}: HTTP ${res.status} ${(await res.text()).slice(0, 300)}`);
+            return res.json();
           }
-          function findVersionId(flat, name) {
-            const lower = String(name).toLowerCase();
-            return (flat.find(v => v.name === name || v.slug === name)
-              ?? flat.find(v => String(v.name).toLowerCase() === lower))?.id;
+          // The legacy Upload API answers with flat rows; tolerate a {data} wrapper or grouped rows.
+          function rows(payload) {
+            const data = payload?.data ?? payload;
+            if (!Array.isArray(data)) return [];
+            return data.flatMap(e => Array.isArray(e?.versions)
+              ? e.versions.map(v => ({ ...v, gameVersionTypeID: v.gameVersionTypeID ?? e.type })) : [e]);
           }
 
           (async () => {
+            const targets = jars.map(jar => ({ jar, file: path.basename(jar), ...detect(jar) }));
             const seen = new Set();
-            for (const jar of jars) {
-              const { loader, gv } = detect(jar);
-              if (seen.has(loader + gv)) throw new Error('Duplicate artifact for ' + loader + ' ' + gv);
-              seen.add(loader + gv);
+            for (const t of targets) {
+              if (seen.has(t.loader + t.gv)) throw new Error('Duplicate artifact for ' + t.loader + ' ' + t.gv);
+              seen.add(t.loader + t.gv);
+            }
+
+            // ---- Plan: resolve every store id before any upload, so a bad tag, token or game
+            // version cannot leave one store published and the other not.
+            const mrAuth = { Authorization: process.env.MODRINTH_TOKEN };
+            const mrProject = await getJson(`https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}`, mrAuth, 'Modrinth project');
+            const mrExisting = new Map((await getJson(`https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version`,
+              mrAuth, 'Modrinth versions')).map(v => [v.version_number, v]));
+            const mrGameVersions = new Set((await getJson('https://api.modrinth.com/v2/tag/game_version', {}, 'Modrinth game versions'))
+              .map(v => v.version));
+            const mrLoaders = new Set((await getJson('https://api.modrinth.com/v2/tag/loader', {}, 'Modrinth loaders')).map(l => l.name));
+
+            const cfAuth = { 'X-Api-Token': process.env.CURSEFORGE_TOKEN };
+            const cfTypes = rows(await getJson('https://minecraft.curseforge.com/api/game/version-types', cfAuth, 'CurseForge version types'));
+            const cfVersions = rows(await getJson('https://minecraft.curseforge.com/api/game/versions', cfAuth, 'CurseForge game versions'));
+            function cfVersion(name, typeSlug) {
+              const types = cfTypes.filter(t => t.slug === typeSlug);
+              if (types.length !== 1) throw new Error(`CurseForge version type ${typeSlug}: ${types.length} matches`);
+              const hits = cfVersions.filter(v => v.gameVersionTypeID === types[0].id && v.name === name);
+              if (hits.length !== 1) throw new Error(`CurseForge ${typeSlug} / ${name}: ${hits.length} matches`);
+              return hits[0].id;
+            }
+            const cfEnvironments = [cfVersion('Client', 'environment'), cfVersion('Server', 'environment')];
+            const cfProject = await getJson(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}`,
+              { 'x-api-key': process.env.CURSEFORGE_API_KEY }, 'CurseForge project');
+            const cfExisting = new Map();
+            for (let index = 0; ; index += 50) {
+              const page = await getJson(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}/files?pageSize=50&index=${index}`,
+                { 'x-api-key': process.env.CURSEFORGE_API_KEY }, 'CurseForge files');
+              for (const file of page.data) cfExisting.set(file.fileName, file);
+              if (index + page.data.length >= page.pagination.totalCount || !page.data.length) break;
+            }
+            console.log(`Modrinth: ${mrProject.title} (${mrProject.slug}), ${mrExisting.size} versions`);
+            console.log(`CurseForge: ${cfProject.data.name} (${cfProject.data.slug}), ${cfExisting.size} files`);
+
+            const plan = targets.map(t => {
+              if (!mrGameVersions.has(t.gv)) throw new Error('Modrinth has no game version ' + t.gv);
+              if (!mrLoaders.has(t.loader)) throw new Error('Modrinth has no loader ' + t.loader);
+              const minecraftType = 'minecraft-' + t.gv.split('.').slice(0, 2).join('-');
+              const sha1 = hash(t.jar, 'sha1');
+              const mrNumber = `${version}+${t.loader}-${t.gv}`;
+              const mrOld = mrExisting.get(mrNumber);
+              if (mrOld && !mrOld.files.some(f => f.primary && f.hashes.sha1 === sha1)) {
+                throw new Error('Existing Modrinth version differs; inspect before retry: ' + mrNumber);
+              }
+              const cfOld = cfExisting.get(t.file);
+              if (cfOld && !cfOld.hashes.some(h => h.algo === 1 && h.value === sha1)) {
+                throw new Error('Existing CurseForge file differs; inspect before retry: ' + cfOld.id);
+              }
+              return {
+                ...t, sha1, mrNumber, mrDone: !!mrOld, cfDone: !!cfOld,
+                name: `Runeborn ${version} · ${LOADERS[t.loader]} · ${t.gv}`,
+                cfGameVersions: [cfVersion(t.gv, minecraftType), cfVersion(LOADERS[t.loader], 'modloader'), ...cfEnvironments],
+              };
+            });
+            for (const p of plan) {
+              console.log(`plan ${p.file}: CurseForge ${p.cfDone ? 'exists' : 'upload ' + JSON.stringify(p.cfGameVersions)}, `
+                + `Modrinth ${p.mrDone ? 'exists' : 'upload ' + p.mrNumber}, sha1=${p.sha1}`);
+            }
+            if (dryRun) {
+              console.log('Dry run: every target resolved, nothing uploaded.');
+              return;
+            }
+
+            // ---- CurseForge first: it is the store that rejects malformed metadata.
+            for (const p of plan) {
+              if (p.cfDone) {
+                console.log('CurseForge skip (verified exists)', p.file);
+                continue;
+              }
+              const projects = [{ ...CURSEFORGE_DEPS.ras, type: 'optionalDependency' }];
+              if (p.loader === 'fabric') projects.unshift({ ...CURSEFORGE_DEPS.fabricApi, type: 'requiredDependency' });
+              const meta = {
+                changelog,
+                changelogType: 'markdown',
+                displayName: p.name,
+                gameVersions: p.cfGameVersions,
+                releaseType: 'release',
+                relations: { projects },
+              };
+              const form = new FormData();
+              form.append('metadata', JSON.stringify(meta));
+              form.append('file', new Blob([fs.readFileSync(p.jar)]), p.file);
+              const res = await fetch(`https://minecraft.curseforge.com/api/projects/${process.env.CURSEFORGE_ID}/upload-file`,
+                { method: 'POST', headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN }, body: form });
+              const text = await res.text();
+              if (!res.ok) throw new Error('CurseForge ' + res.status + ' ' + text.slice(0, 500));
+              console.log('CurseForge OK', JSON.parse(text).id, p.name);
             }
 
             // ---- Modrinth
-            const listRes = await fetch(`https://api.modrinth.com/v2/project/${process.env.MODRINTH_ID}/version`,
-              { headers: { Authorization: process.env.MODRINTH_TOKEN } });
-            if (!listRes.ok) throw new Error('Modrinth preflight ' + listRes.status);
-            const existingMr = new Map((await listRes.json()).map(v => [v.version_number, v]));
-            for (const jar of jars) {
-              const { loader, gv } = detect(jar);
-              const versionNumber = `${version}+${loader}-${gv}`;
-              const existing = existingMr.get(versionNumber);
-              if (existing) {
-                if (!existing.files.some(f => f.primary && f.hashes.sha1 === hash(jar, 'sha1'))) {
-                  throw new Error('Existing Modrinth version differs; inspect before retry: ' + versionNumber);
-                }
-                console.log('Modrinth skip (verified exists)', existing.id, versionNumber);
+            for (const p of plan) {
+              if (p.mrDone) {
+                console.log('Modrinth skip (verified exists)', p.mrNumber);
                 continue;
               }
+              const dependencies = [{ project_id: MODRINTH_DEPS.ras, dependency_type: 'optional' }];
+              if (p.loader === 'fabric') dependencies.unshift({ project_id: MODRINTH_DEPS.fabricApi, dependency_type: 'required' });
               const body = {
-                name: `Runeborn ${version} · ${loader} · ${gv}`,
-                version_number: versionNumber,
+                name: p.name,
+                version_number: p.mrNumber,
                 changelog,
-                dependencies: loader === 'fabric'
-                  ? [{ project_id: MODRINTH_FABRIC_API, dependency_type: 'required' }] : [],
-                game_versions: [gv],
+                dependencies,
+                game_versions: [p.gv],
                 version_type: 'release',
-                loaders: [loader],
+                loaders: [p.loader],
                 featured: false,
                 status: 'listed',
                 project_id: process.env.MODRINTH_ID,
@@ -225,66 +316,13 @@ jobs:
               };
               const form = new FormData();
               form.append('data', JSON.stringify(body));
-              form.append('file_0', new Blob([fs.readFileSync(jar)]), path.basename(jar));
+              form.append('file_0', new Blob([fs.readFileSync(p.jar)]), p.file);
               const res = await fetch('https://api.modrinth.com/v2/version', {
                 method: 'POST', headers: { Authorization: process.env.MODRINTH_TOKEN }, body: form,
               });
               const text = await res.text();
               if (!res.ok) throw new Error('Modrinth ' + res.status + ' ' + text.slice(0, 500));
-              console.log('Modrinth OK', JSON.parse(text).id, versionNumber, 'sha256=' + hash(jar, 'sha256'));
-            }
-
-            // ---- CurseForge
-            const existingCf = new Map();
-            for (let index = 0; ; index += 50) {
-              const res = await fetch(`https://api.curseforge.com/v1/mods/${process.env.CURSEFORGE_ID}/files?pageSize=50&index=${index}`,
-                { headers: { 'x-api-key': process.env.CURSEFORGE_API_KEY } });
-              if (!res.ok) throw new Error('CurseForge preflight ' + res.status);
-              const page = await res.json();
-              for (const file of page.data) existingCf.set(file.fileName, file);
-              if (index + page.data.length >= page.pagination.totalCount || !page.data.length) break;
-            }
-            let flat = [];
-            const gvRes = await fetch('https://minecraft.curseforge.com/api/game/versions',
-              { headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN } });
-            if (gvRes.ok) flat = flattenVersions(await gvRes.json());
-            if (!flat.length) throw new Error('No CurseForge game versions resolved');
-
-            for (const jar of jars) {
-              const { loader, gv } = detect(jar);
-              const existing = existingCf.get(path.basename(jar));
-              if (existing) {
-                if (!existing.hashes.some(h => h.algo === 1 && h.value === hash(jar, 'sha1'))) {
-                  throw new Error('Existing CurseForge file differs; inspect before retry: ' + existing.id);
-                }
-                console.log('CurseForge skip (verified exists)', existing.id, path.basename(jar));
-                continue;
-              }
-              const mcId = findVersionId(flat, gv);
-              if (mcId == null) throw new Error('No CurseForge game version id for ' + gv);
-              const gameVersions = [mcId, CF_LOADER_IDS[loader]];
-              for (const side of ['Client', 'Server']) {
-                const id = findVersionId(flat, side);
-                if (id != null) gameVersions.push(id);
-              }
-              const meta = {
-                changelog,
-                changelogType: 'markdown',
-                displayName: `Runeborn ${version} · ${loader} · ${gv}`,
-                gameVersions,
-                releaseType: 'release',
-              };
-              if (loader === 'fabric') {
-                meta.relations = { projects: [{ slug: 'fabric-api', projectID: CF_FABRIC_API, type: 'requiredDependency' }] };
-              }
-              const form = new FormData();
-              form.append('metadata', JSON.stringify(meta));
-              form.append('file', new Blob([fs.readFileSync(jar)]), path.basename(jar));
-              const res = await fetch(`https://minecraft.curseforge.com/api/projects/${process.env.CURSEFORGE_ID}/upload-file`,
-                { method: 'POST', headers: { 'X-Api-Token': process.env.CURSEFORGE_TOKEN }, body: form });
-              const text = await res.text();
-              if (!res.ok) throw new Error('CurseForge ' + res.status + ' ' + text.slice(0, 500));
-              console.log('CurseForge OK', JSON.parse(text).id, meta.displayName, 'sha256=' + hash(jar, 'sha256'));
+              console.log('Modrinth OK', JSON.parse(text).id, p.mrNumber);
             }
           })().catch((e) => { console.error(e); process.exit(1); });
           NODE

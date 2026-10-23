@@ -8,7 +8,8 @@ Sovereigns** for their relics and crown shards. Clean menus, a readable HUD and 
 explain it all as you play.
 
 **3.0 "Rise of the Runeborn"** is available for **Fabric and Forge on 1.20.1** and **Fabric and
-NeoForge on 1.21.1, 26.2 and 26.3**. Pair it with **RPG Attribute System** for shared leveling.
+NeoForge on 1.21.1, 26.2 and 26.3**. Pair it with **[RPG Attribute System](https://www.curseforge.com/minecraft/mc-mods/remnants-rpg-stats-skills-progression)**
+(listed as *Remnants | RPG Stats, Skills & Progression*) for shared leveling.
 
 ![divider](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/divider.png)
 
@@ -152,7 +153,8 @@ Runeborn shares its progression with **RPG Attribute System**.
 | 1.20.1 | Forge, Fabric | 17 |
 
 - **Fabric** builds need **Fabric API**. Forge and NeoForge builds need nothing else.
-- **RPG Attribute System** is optional, but shrine leveling stays locked without it.
+- **RPG Attribute System** ([CurseForge](https://www.curseforge.com/minecraft/mc-mods/remnants-rpg-stats-skills-progression), [Modrinth](https://modrinth.com/mod/remnants-rpg-stats-skills-progression)) is optional, but shrine leveling
+  stays locked without it.
 - Install Runeborn on both the server and every client.
 - Runeborn 3.0 is a new mod (id `runeborn`). Worlds and items from Fine Tuned Weaponry 2.x do not carry
   over.

@@ -100,9 +100,11 @@ flasks and binds you there. From a shrine you can **Level Up**, **Reinforce**, *
 | 1.20.1 | Forge, Fabric |
 
 The Fabric builds need [Fabric API](https://modrinth.com/mod/fabric-api). Install
-[RPG Attribute System](https://github.com/MeherBenSalem/RPG-Attribute-System) for shrine leveling. It is
-optional, but Runeborn's level-ups stay locked without it. Releases are published to Modrinth and
-CurseForge.
+[RPG Attribute System](https://github.com/MeherBenSalem/RPG-Attribute-System) for shrine leveling
+([CurseForge](https://www.curseforge.com/minecraft/mc-mods/remnants-rpg-stats-skills-progression), [Modrinth](https://modrinth.com/mod/remnants-rpg-stats-skills-progression), listed as *Remnants | RPG Stats, Skills & Progression*). It is
+optional, but Runeborn's level-ups stay locked without it. Releases are published to
+[Modrinth](https://modrinth.com/mod/runeborn-soulslike-rpg-progression) and
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/runeborn-soulslike-rpg-progression).
 
 ## Configuration
 
