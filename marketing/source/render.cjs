@@ -81,8 +81,9 @@ const region = (file, x, y, w, h, width) => {
 };
 
 // A feature card: copy on the left, artwork on the right.
-const card = ({ kicker, title, points, art, width = 1600, height = 900, artWidth = 980, backdrop = 'shrine.jpg', titleSize = 56 }) => page(width, height, `
-  <div class="backdrop" style="background-image:url('${shot(backdrop)}');opacity:.6"></div>
+// The blurred background is source/backdrop.jpg unless a card names a screenshot.
+const card = ({ kicker, title, points, art, width = 1600, height = 900, artWidth = 980, backdrop, titleSize = 56 }) => page(width, height, `
+  <div class="backdrop" style="background-image:url('${backdrop ? shot(backdrop) : source('backdrop.jpg')}');opacity:.6"></div>
   <div class="vignette"></div>${embers}
   <div style="position:absolute;left:80px;top:0;bottom:0;width:${width - artWidth - 150}px;display:flex;flex-direction:column;justify-content:center">
     <div class="kicker"><span class="diamond"></span>${kicker}</div>

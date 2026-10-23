@@ -62,12 +62,16 @@ kindle it. Each shrine takes a name from the land around it.
 - Trade at the **Merchant**, exchange **Relics** for legendary armaments, equip a **Crown Shard**, or
   use a Tear of Rebirth to reshape your build.
 
+![Kindling an Ember Shrine](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/gifs/shrine-kindle.gif)
+
 ![Sovereigns](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/header-sovereigns.png)
 
 ![Seven crowns, sundered](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/card-sovereigns.png)
 
 Combine six **Sovereign Fragments**, carried by champions, with a token to craft a sigil. Use the
 sigil to call its Sovereign. Each one has its own abilities, a second phase and a boss bar.
+
+![Summoning Morgrath, Ash Sovereign](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/gifs/sovereign-summon.gif)
 
 | Sovereign | Level | Token | Crown shard |
 | --- | --- | --- | --- |
@@ -99,6 +103,8 @@ Runeborn shares its progression with **RPG Attribute System**.
   reinforce, infuse and hunt, and the shrine explains how to unlock leveling.
 - `rpgLevelsPerRuneLevel` sets how many RPG levels each rune level grants, and
   `levelUpRequiresRpgAttributeSystem: false` lets Runeborn level on its own.
+
+![Five rune levels at a shrine become five RPG levels](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/gifs/level-up-flow.gif)
 
 ![The Codex](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/header-codex.png)
 

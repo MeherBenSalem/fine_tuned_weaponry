@@ -11,6 +11,7 @@ import io.nightbeam.runeborn.core.client.screen.CodexScreen;
 import io.nightbeam.runeborn.core.client.screen.ShrineScreen;
 import io.nightbeam.runeborn.core.net.Packets;
 import io.nightbeam.runeborn.mc.BossManager;
+import io.nightbeam.runeborn.mc.Fx;
 import io.nightbeam.runeborn.mc.RbItems;
 import io.nightbeam.runeborn.mc.RbServer;
 import io.nightbeam.runeborn.mc.Shrines;
@@ -23,6 +24,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.GameRules;
@@ -38,7 +41,8 @@ import java.util.UUID;
 /**
  * Scripted capture of listing screenshots ({@code RUNEBORN_SHOWCASE=1}): finds a scenic biome,
  * kindles a shrine at dusk, walks through the menus and poses Sovereigns, then quits. Run it on a
- * normal (not flat) world at 1920x1080, GUI scale 3.
+ * normal (not flat) world at 1920x1080, GUI scale 3. {@code RUNEBORN_SHOWCASE=gifs} and
+ * {@code gifs-ras} record GIF frames instead.
  */
 public final class Showcase {
     private static int step;
@@ -46,6 +50,9 @@ public final class Showcase {
     private static BlockPos shrine;
     private static LivingEntity boss;
     private static volatile String kindledName = "Ember Shrine";
+    private static String recording;
+    private static int frame;
+    private static boolean closeScreens;
 
     public static boolean enabled() {
         return System.getenv("RUNEBORN_SHOWCASE") != null;
@@ -57,6 +64,12 @@ public final class Showcase {
             return;
         }
         quiet(mc);
+        if (closeScreens && mc.screen != null) {
+            mc.setScreen(null);
+        }
+        if (recording != null) {
+            UiTest.shot(String.format("gif-%s-%03d", recording, frame++));
+        }
         if (wait > 0) {
             wait--;
             return;
@@ -75,6 +88,10 @@ public final class Showcase {
                 wait = 260;
             }
             case 1 -> {
+                if (mode("gifs")) {
+                    step = 200;
+                    return;
+                }
                 server.execute(() -> kindle(server, id));
                 wait = 6;
             }
@@ -82,7 +99,13 @@ public final class Showcase {
                 mc.setScreen(null); // kindling opens the shrine menu; this shot is of the world
                 wait = 22;
             }
-            case 3 -> UiTest.shot("kindled");
+            case 3 -> {
+                if (mode("gifs-ras")) {
+                    step = 300;
+                    return;
+                }
+                UiTest.shot("kindled");
+            }
             case 4 -> {
                 mc.options.hideGui = true; // also lets the advancement toast run out
                 wait = 140;
@@ -213,9 +236,145 @@ public final class Showcase {
                 Runeborn.LOG.info("RUNEBORN SHOWCASE DONE");
                 mc.stop();
             }
+            // GIFs: one frame per tick with the game at a tenth of its speed, played back at 20 fps.
+            case 200 -> {
+                server.execute(() -> placeShrine(server, id));
+                wait = 40;
+            }
+            case 201 -> {
+                slow(server, true);
+                wait = 10;
+            }
+            case 202 -> {
+                record("kindle");
+                wait = 12;
+            }
+            case 203 -> {
+                closeScreens = true; // kindling opens the shrine menu; the GIF stays on the world
+                server.execute(() -> light(server, id));
+                wait = 84;
+            }
+            case 204 -> {
+                recording = null;
+                closeScreens = false;
+                slow(server, false);
+                server.execute(() -> {
+                    UiTest.prepare(server, id);
+                    ServerPlayer p = server.getPlayerList().getPlayer(id);
+                    if (p != null) {
+                        p.getInventory().setItem(8, RbItems.stack(Bosses.get("morgrath").sigilId(), 1));
+                        p.teleportTo((ServerLevel) p.level(), p.getX(), p.getY(), p.getZ(), 96f, 3f);
+                    }
+                });
+                wait = 40;
+            }
+            case 205 -> {
+                slow(server, true);
+                wait = 10;
+            }
+            case 206 -> {
+                mc.player.getInventory().selected = 8; // the hotbar names the sigil as it comes up
+                record("summon");
+                wait = 14;
+            }
+            case 207 -> {
+                mc.gameMode.useItem(mc.player, InteractionHand.MAIN_HAND);
+                wait = 3;
+            }
+            case 208 -> {
+                // The test player is invulnerable, which mobs ignore; root the Sovereign so it stays in frame.
+                server.execute(() -> {
+                    for (Entity e : server.overworld().getAllEntities()) {
+                        if (e instanceof Mob mob && e.getTags().stream().anyMatch(t -> t.startsWith(BossManager.TAG))) {
+                            Compat.setBase(mob, Fx.A.MOVEMENT_SPEED, 0);
+                        }
+                    }
+                });
+                wait = 77;
+            }
+            case 209 -> {
+                recording = null;
+                slow(server, false);
+                wait = 4;
+            }
+            case 210 -> {
+                Runeborn.LOG.info("RUNEBORN SHOWCASE DONE");
+                mc.stop();
+            }
+            // Shrine Level Up with RPG Attribute System: stage five points, confirm, leave.
+            case 300 -> {
+                server.execute(() -> UiTest.prepare(server, id));
+                wait = 40;
+            }
+            case 301 -> {
+                RbClient.HOST.open(new ShrineScreen(new Packets.Open(Packets.Screen.SHRINE, shrineName(), "minecraft:overworld",
+                        shrine.getX(), shrine.getY(), shrine.getZ())));
+                slow(server, true);
+                wait = 10;
+            }
+            case 302 -> {
+                record("level-up");
+                wait = 8;
+            }
+            case 303, 304, 305, 306, 307 -> {
+                raise(new int[]{0, 0, 3, 4, 4}[step - 304]);
+                wait = 5;
+            }
+            case 308 -> wait = 6;
+            case 309 -> {
+                confirm();
+                wait = 18;
+            }
+            case 310 -> {
+                UiTest.tab(10); // Leave
+                wait = 72;
+            }
+            case 311 -> {
+                recording = null;
+                slow(server, false);
+                wait = 4;
+            }
+            case 312 -> {
+                Runeborn.LOG.info("RUNEBORN SHOWCASE DONE");
+                mc.stop();
+            }
             default -> {
             }
         }
+    }
+
+    private static boolean mode(String name) {
+        return name.equals(System.getenv("RUNEBORN_SHOWCASE"));
+    }
+
+    private static void record(String name) {
+        recording = name;
+        frame = 0;
+    }
+
+    /**
+     * Software rendering draws a 1080p frame in well under 500 ms, so at 2 ticks per second every
+     * tick gets a fresh frame. Runeborn's animations follow client ticks; RPG Attribute System's
+     * follow {@code -Dras.uiTimeScale=0.1}.
+     */
+    private static void slow(IntegratedServer server, boolean slow) {
+        server.execute(() -> server.tickRateManager().setTickRate(slow ? 2f : 20f));
+    }
+
+    /** Clicks the + of attribute row {@code attr} on the Level Up tab. */
+    private static void raise(int attr) {
+        Minecraft mc = Minecraft.getInstance();
+        int contentW = Math.max(220, Math.min(310, mc.getWindow().getGuiScaledWidth() - 112 - 36));
+        int colW = (contentW - 20 - 14) / 2;
+        clickContent(colW - 6, 8 + 24 + 40 + 12 + attr * 13 + 3);
+    }
+
+    /** Clicks Confirm on the Level Up tab. */
+    private static void confirm() {
+        Minecraft mc = Minecraft.getInstance();
+        int contentW = Math.max(220, Math.min(310, mc.getWindow().getGuiScaledWidth() - 112 - 36));
+        int panelH = Math.min(mc.getWindow().getGuiScaledHeight() - 62, 214);
+        clickContent(contentW - 20 - 35, panelH - 22 + 7);
     }
 
     /** {@code RUNEBORN_SHOWCASE=ras} captures the RPG Attribute System screens instead of the full set. */
@@ -308,6 +467,11 @@ public final class Showcase {
 
     /** Places a shrine a few blocks ahead of the player and kindles it. */
     private static void kindle(IntegratedServer server, UUID id) {
+        placeShrine(server, id);
+        light(server, id);
+    }
+
+    private static void placeShrine(IntegratedServer server, UUID id) {
         ServerPlayer p = server.getPlayerList().getPlayer(id);
         if (p == null || RbItems.shrineBlock == null) {
             return;
@@ -319,6 +483,13 @@ public final class Showcase {
         level.setBlockAndUpdate(shrine, RbItems.shrineBlock.defaultBlockState());
         // Look west with the shrine right of centre, so the sunset fills the rest of the frame.
         p.teleportTo(level, p.getX(), p.getY(), p.getZ(), 90f + 14f, 10f);
+    }
+
+    private static void light(IntegratedServer server, UUID id) {
+        ServerPlayer p = server.getPlayerList().getPlayer(id);
+        if (p == null || shrine == null) {
+            return;
+        }
         Shrines.use(p, shrine);
         var d = RbServer.data(p);
         kindledName = d.shrines.get(d.shrines.size() - 1).name;
