@@ -10,7 +10,7 @@ Minecraft **1.20.1** · **1.21.1** · **26.2** · **26.3** on Fabric, NeoForge a
 
 </div>
 
-![Ember Shrine level-up screen](docs/screenshots/levelup.png)
+![Runeborn](marketing/images/banner.png)
 
 ## Features
 
@@ -72,12 +72,12 @@ flasks and binds you there. From a shrine you can **Level Up**, **Reinforce**, *
 
 <table>
 <tr>
-<td><img src="docs/screenshots/origin.png" alt="Origin selection"></td>
-<td><img src="docs/screenshots/codex.png" alt="The Codex"></td>
+<td><img src="marketing/images/screenshots/shrine.jpg" alt="An Ember Shrine at sunset"></td>
+<td><img src="marketing/images/screenshots/boss-morgrath-hud.jpg" alt="Morgrath, Ash Sovereign"></td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/tooltips.png" alt="Weapon tooltip"></td>
-<td><img src="docs/screenshots/smithing.png" alt="Reinforcement"></td>
+<td><img src="marketing/images/screenshots/levelup.jpg" alt="Leveling up at a shrine"></td>
+<td><img src="marketing/images/screenshots/codex-sovereigns.jpg" alt="The Codex"></td>
 </tr>
 </table>
 

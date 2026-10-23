@@ -11,8 +11,11 @@ import io.nightbeam.runeborn.core.ui.Theme;
 import io.nightbeam.runeborn.core.ui.Ui;
 import io.nightbeam.runeborn.core.weapon.AttackRating;
 import io.nightbeam.runeborn.core.weapon.DamageType;
+import io.nightbeam.runeborn.core.weapon.Grade;
 import io.nightbeam.runeborn.core.weapon.WeaponSpec;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /** Layout pieces shared by the origin, shrine and status screens. */
@@ -162,8 +165,11 @@ final class Kit {
         return y;
     }
 
-    /** Scaling letters before and after a change of affinity. */
-    static int scalingCompare(Canvas c, int x, int y, int w, ItemView before, ItemView after, int[] attrs) {
+    /**
+     * Scaling letters before and after a change of affinity. Attributes that scale in neither state are left out,
+     * and the rest flow into two columns when they would run past {@code maxY}.
+     */
+    static int scalingCompare(Canvas c, int x, int y, int w, int maxY, ItemView before, ItemView after, int[] attrs) {
         WeaponSpec spec = after.weapon();
         if (spec == null) {
             return y;
@@ -172,20 +178,32 @@ final class Kit {
         AttackRating old = AttackRating.of(spec, before.upgrade(), before.affinity(), attrs);
         sectionLabel(c, c.tr(Lang.TT_SCALING), x, y, w);
         y += 13;
+        List<Attr> shown = new ArrayList<>();
         for (Attr a : new Attr[]{Attr.STRENGTH, Attr.DEXTERITY, Attr.INTELLIGENCE, Attr.FAITH, Attr.ARCANE}) {
+            if (old.grade(a) != Grade.NONE || now.grade(a) != Grade.NONE) {
+                shown.add(a);
+            }
+        }
+        int fit = Math.max(1, (maxY - y) / 11);
+        int cols = shown.size() > fit ? 2 : 1;
+        int rows = (shown.size() + cols - 1) / cols;
+        int cw = cols == 1 ? w : (w - 8) / 2;
+        for (int i = 0; i < shown.size(); i++) {
+            Attr a = shown.get(i);
+            int cx = x + (i / rows) * (cw + 8);
+            int cy = y + (i % rows) * 11;
             var g0 = old.grade(a);
             var g1 = now.grade(a);
-            c.text(c.tr(a.shortKey()), x, y, Theme.TEXT_DIM, false);
+            c.text(c.tr(a.shortKey()), cx, cy, Theme.TEXT_DIM, false);
             String now1 = g1.letter;
             int color = Theme.opaque(g1.color);
             if (g0 != g1) {
-                Ui.right(c, g0.letter + " §8→ ", x + w - c.textWidth(now1), y, Theme.TEXT_FAINT, false);
+                Ui.right(c, g0.letter + " §8→ ", cx + cw - c.textWidth(now1), cy, Theme.TEXT_FAINT, false);
                 color = g1.ordinal() > g0.ordinal() ? Theme.BLUE : Theme.BAD;
             }
-            Ui.right(c, now1, x + w, y, color, false);
-            y += 11;
+            Ui.right(c, now1, cx + cw, cy, color, false);
         }
-        return y;
+        return y + rows * 11;
     }
 
     private static int compareRow(Canvas c, int x, int y, int w, String label, double before, double after) {

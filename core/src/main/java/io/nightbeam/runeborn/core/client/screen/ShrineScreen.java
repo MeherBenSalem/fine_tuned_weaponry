@@ -243,7 +243,10 @@ public final class ShrineScreen extends RbScreen {
         if (rpg > 0) {
             String note = changed ? "§6✦ §r" + c.tr(Lang.LEVEL_RPG_BONUS, (newLevel - level) * rpg)
                     : c.tr(Lang.LEVEL_RPG_NOTE, rpg);
-            c.text(note, x, by + 4, changed ? Theme.GOLD : Theme.TEXT_FAINT, false);
+            // Left of the Reset button; skipped when a translation is too long to fit.
+            if (c.textWidth(note) <= bx - bw - 6 - x - 6) {
+                c.text(note, x, by + 4, changed ? Theme.GOLD : Theme.TEXT_FAINT, false);
+            }
         }
     }
 
@@ -436,13 +439,13 @@ public final class ShrineScreen extends RbScreen {
         }
         int cols = 4;
         int bw = (w - (cols - 1) * 3) / cols;
-        int bh = 14;
+        int bh = 13;
         int i = 0;
         for (Affinity a : Affinity.ALL) {
             int col = i % cols;
             int row = i / cols;
             int bx = x + col * (bw + 3);
-            int by = y + row * (bh + 3);
+            int by = y + row * (bh + 2);
             boolean owned = a == Affinity.STANDARD || host.count(a.id() + "_whetstone") > 0 || host.creative();
             boolean sel = a == infuseSelected;
             boolean current = a == item.affinity();
@@ -458,14 +461,14 @@ public final class ShrineScreen extends RbScreen {
             i++;
         }
         int rows = (Affinity.ALL.length + cols - 1) / cols;
-        y += rows * (bh + 3) + 6;
+        y += rows * (bh + 2) + 6;
         int colW = (w - 14) / 2;
         ItemView next = new ItemView(item.slot(), item.itemId(), item.weaponId(), item.upgrade(), infuseSelected,
                 item.count(), item.name());
         Kit.sectionLabel(c, c.tr(Lang.ATTACK_POWER), x, y, colW);
         Kit.attackPowerCompare(c, x, y + 13, colW, item, next, d.effectiveAttrs());
         int sx = x + colW + 14;
-        Kit.scalingCompare(c, sx, y, colW, item, next, d.effectiveAttrs());
+        Kit.scalingCompare(c, sx, y, colW, bottom() - 2, item, next, d.effectiveAttrs());
 
         boolean owned = infuseSelected == Affinity.STANDARD || host.count(infuseSelected.id() + "_whetstone") > 0
                 || host.creative();

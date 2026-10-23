@@ -198,8 +198,8 @@ public final class BossManager {
                 it.remove();
                 continue;
             }
-            if (!b.entity.isAlive() || b.spec.abilities().isEmpty() || !(b.entity instanceof Mob mob)) {
-                continue;
+            if (!b.entity.isAlive() || b.spec.abilities().isEmpty() || !(b.entity instanceof Mob mob) || mob.isNoAi()) {
+                continue; // a NoAI boss (posed by a map maker or a script) stays still and casts nothing
             }
             if (b.phase == 1 && b.entity.getHealth() <= b.entity.getMaxHealth() * 0.5f) {
                 b.phase = 2;

@@ -670,7 +670,7 @@
   "runeborn.ui.level": "Level",
   "runeborn.ui.level.locked": "Runeborn levels you through RPG Attribute System.\nInstall RPG Attribute System alongside Runeborn to spend runes on attributes here. Every rune level you buy also grants RPG levels, whose points you spend in its own Level Up screen.\nUntil then, your origin's attributes carry you: reinforce, infuse and hunt Sovereigns as usual.",
   "runeborn.ui.level.rpg_bonus": "+%s RPG levels",
-  "runeborn.ui.level.rpg_note": "Each level also grants %s RPG level(s)",
+  "runeborn.ui.level.rpg_note": "+%s RPG level each",
   "runeborn.ui.lost_runes": "Runes lost where you fell",
   "runeborn.ui.main_hand": "Main Hand",
   "runeborn.ui.merchant.buy": "Buy",

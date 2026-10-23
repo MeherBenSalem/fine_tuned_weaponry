@@ -93,7 +93,7 @@ public final class Lang {
                     + " you spend in its own Level Up screen.\nUntil then, your origin's attributes carry you:"
                     + " reinforce, infuse and hunt Sovereigns as usual.");
     public static final String LEVEL_RPG_BONUS = k("runeborn.ui.level.rpg_bonus", "+%s RPG levels");
-    public static final String LEVEL_RPG_NOTE = k("runeborn.ui.level.rpg_note", "Each level also grants %s RPG level(s)");
+    public static final String LEVEL_RPG_NOTE = k("runeborn.ui.level.rpg_note", "+%s RPG level each");
     public static final String REST_DESC = k("runeborn.ui.rest.desc",
             "Rest by the flame. Restores health, focus and flasks, and binds your return here.");
     public static final String REST_BUTTON = k("runeborn.ui.rest.button", "Rest at Shrine");
