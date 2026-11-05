@@ -1,8 +1,6 @@
 ![Runeborn 3.0: Rise of the Runeborn](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/banner.png)
 
-**[Discord](https://discord.gg/TJc3CxR4jK) · [The modpack](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy) · [Support NightBeam](https://nightbeam.dev/support) · [NightBeam Pro](https://nightbeam.dev/memberships) · [All projects](https://nightbeam.dev/projects)**
-
-> **Play it in [Remnants: Ashen Legacy](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy)**, NightBeam's story-driven soulslike RPG modpack. It builds Soulslike RPG progression into one rule set with the rest of the Remnants series.
+**[Discord](https://discord.gg/TJc3CxR4jK) · [Source and issues](https://github.com/MeherBenSalem/fine_tuned_weaponry)**
 
 ## Soulslike RPG progression for Minecraft
 
@@ -192,6 +190,10 @@ server-authoritative.
 
 ---
 
+> **Play it in [Remnants: Ashen Legacy](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy)**, NightBeam's story-driven soulslike RPG modpack. It builds Soulslike RPG progression into one rule set with the rest of the Remnants series.
+
+---
+
 ### More from NightBeam Studio
 
 - **[Remnants: Ashen Legacy](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy)**: the story-driven soulslike RPG modpack built on NightBeam's mods
@@ -200,4 +202,4 @@ server-authoritative.
 - **[Discord](https://discord.gg/TJc3CxR4jK)**: support, bug reports, suggestions and early looks
 - **[Support NightBeam](https://nightbeam.dev/support)**: help keep every mod free
 
-**Follow:** [YouTube](https://www.youtube.com/@nightbeamstudio) · [Instagram](https://www.instagram.com/nightbeamstudio/) · [X](https://x.com/NightBeamLLC) · [Facebook](https://www.facebook.com/profile.php?id=61574823331471) · [Source and issues](https://github.com/MeherBenSalem/fine_tuned_weaponry)
+**Follow:** [YouTube](https://www.youtube.com/@nightbeamstudio) · [Instagram](https://www.instagram.com/nightbeamstudio/) · [X](https://x.com/NightBeamLLC) · [Facebook](https://www.facebook.com/profile.php?id=61574823331471)
