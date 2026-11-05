@@ -1,5 +1,9 @@
 ![Runeborn 3.0: Rise of the Runeborn](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/banner.png)
 
+**[Discord](https://discord.gg/TJc3CxR4jK) · [The modpack](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy) · [Support NightBeam](https://nightbeam.dev/support) · [NightBeam Pro](https://nightbeam.dev/memberships) · [All projects](https://nightbeam.dev/projects)**
+
+> **Play it in [Remnants: Ashen Legacy](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy)**, NightBeam's story-driven soulslike RPG modpack. It builds Soulslike RPG progression into one rule set with the rest of the Remnants series.
+
 ## Soulslike RPG progression for Minecraft
 
 Slay foes for **runes**, rest at **Ember Shrines** to level up, and grow eight attributes that scale
@@ -115,7 +119,7 @@ Runeborn shares its progression with **RPG Attribute System**.
   armaments, arts, combat, the world, Sovereigns and controls.
 - It shows the **crafting grids** for the shrine, flasks, stones, every whetstone and every sigil.
   The same recipes are added to your recipe book.
-- **Feats:** a Runeborn advancement tab with 22 milestones, from kindling your first shrine to
+- **Feats:** a Runeborn advancement tab with 22 milestones, from kindling a shrine to
   claiming every crown shard.
 
 ![Everything Else](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/header-everything.png)
@@ -185,3 +189,15 @@ server-authoritative.
 ![Sylvara, Frost Matron](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/screenshots/boss-sylvara.jpg)
 
 ![Status](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/screenshots/status.jpg)
+
+---
+
+### More from NightBeam Studio
+
+- **[Remnants: Ashen Legacy](https://www.curseforge.com/minecraft/modpacks/remnants-ashen-legacy)**: the story-driven soulslike RPG modpack built on NightBeam's mods
+- **[Premium server plugins](https://nightbeam.dev/store)**: anti-cheat, ranked PvP, SMP setups and more on BuiltByBit
+- **[NightBeam Pro](https://nightbeam.dev/memberships)**: the model library and NightBeam Forge credits, from $5 a month
+- **[Discord](https://discord.gg/TJc3CxR4jK)**: support, bug reports, suggestions and early looks
+- **[Support NightBeam](https://nightbeam.dev/support)**: help keep every mod free
+
+**Follow:** [YouTube](https://www.youtube.com/@nightbeamstudio) · [Instagram](https://www.instagram.com/nightbeamstudio/) · [X](https://x.com/NightBeamLLC) · [Facebook](https://www.facebook.com/profile.php?id=61574823331471) · [Source and issues](https://github.com/MeherBenSalem/fine_tuned_weaponry)
