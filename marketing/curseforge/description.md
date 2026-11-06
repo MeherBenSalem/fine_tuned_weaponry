@@ -1,6 +1,6 @@
 ![Runeborn 3.0: Rise of the Runeborn](https://raw.githubusercontent.com/MeherBenSalem/fine_tuned_weaponry/main/marketing/images/banner.png)
 
-**[Discord](https://discord.gg/TJc3CxR4jK) · [Source and issues](https://github.com/MeherBenSalem/fine_tuned_weaponry)**
+**[Docs](https://nightbeam.dev/docs/runeborn) · [Discord](https://discord.gg/TJc3CxR4jK) · [Source and issues](https://github.com/MeherBenSalem/fine_tuned_weaponry)**
 
 ## Soulslike RPG progression for Minecraft
 
