@@ -93,9 +93,17 @@ public final class Hud {
 
         Ui.bar(c, x, y, wHp, 6, hp, ClientState.hpChip, Theme.HP, Theme.HP_LIGHT);
         barsRight = x + Math.max(wHp, Math.max(wFp, wSt)) + 4;
+        // Right of the health bar: the health number first, then the armor readout. Both used to start at the same
+        // x, so with any armor on the shield and its value were drawn over the health number.
+        int ax = x + wHp + 5;
+        if (cfg.showBarNumbers) {
+            String hpText = hpText(host, maxHp);
+            c.text(hpText, ax, y - 1, Theme.TEXT, true);
+            ax += c.textWidth(hpText) + 6;
+            barsRight = Math.max(barsRight, ax);
+        }
         int armor = host.armor();
         if (armor > 0) {
-            int ax = x + wHp + 5;
             shield(c, ax, y - 1);
             c.text(String.valueOf(armor), ax + 9, y - 1, Theme.TEXT_DIM, true);
             barsRight = Math.max(barsRight, ax + 9 + c.textWidth(String.valueOf(armor)));
@@ -111,10 +119,15 @@ public final class Hud {
             Ui.bar(c, x, y + 18, wSt, 4, st, ClientState.staminaChip, fill, Theme.STAMINA_LIGHT);
         }
         if (cfg.showBarNumbers) {
-            int s = Rb.DISPLAY_SCALE;
-            c.text(Math.round(host.health() * s) + " / " + Math.round(maxHp * s), x + wHp + 5, y - 1, Theme.TEXT, true);
-            c.text(Math.round(ClientState.fp) + " / " + Math.round(maxFp), x + wFp + 5, y + 8, Theme.BLUE, true);
+            String fpText = Math.round(ClientState.fp) + " / " + Math.round(maxFp);
+            c.text(fpText, x + wFp + 5, y + 8, Theme.BLUE, true);
+            barsRight = Math.max(barsRight, x + wFp + 5 + c.textWidth(fpText));
         }
+    }
+
+    private static String hpText(ClientHost host, float maxHp) {
+        int s = Rb.DISPLAY_SCALE;
+        return Math.round(host.health() * s) + " / " + Math.round(maxHp * s);
     }
 
     /** Tiny shield glyph for the armor readout. */

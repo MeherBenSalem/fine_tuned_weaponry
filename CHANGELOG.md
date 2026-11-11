@@ -1,3 +1,11 @@
+# Runeborn 3.0.1
+
+## Fixed
+- **The armor value was drawn on top of the health number.** With bar numbers on and any armor worn, the HUD drew
+  the shield and its value at the same spot as "200 / 200", so the health number looked doubled or smeared. The
+  health number now comes first and the armor readout sits after it.
+- Boss bars and the target bar now leave room for the bar numbers when the window is narrow.
+
 # Runeborn 3.0.0
 
 Fine Tuned Weaponry is now **Runeborn**: a ground-up remake as a souls-like RPG progression mod.
