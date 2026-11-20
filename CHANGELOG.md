@@ -1,3 +1,14 @@
+# Runeborn 3.0.2
+
+## Fixed
+- **Melee hits did almost no damage to L_Ender's Cataclysm bosses.** Swords, axes, spears and every other weapon
+  Runeborn scales did next to no damage (often 0.1) to Ignis, the Netherite Monstrosity, the Harbinger and the other Cataclysm
+  bosses, so they healed faster than you could hurt them. Pickaxes, spells and staves were not affected. Runeborn
+  sent each scaled hit through the boss's damage rules twice, and Cataclysm counted it twice against its damage
+  cap. Each hit now goes through once.
+- A hit on a player that Runeborn changed (frostbite, warding, PvP damage) no longer goes through the difficulty
+  multiplier twice.
+
 # Runeborn 3.0.1
 
 ## Fixed
